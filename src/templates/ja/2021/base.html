@@ -1,0 +1,22 @@
+{% extends "%s/base.html" % lang %}
+
+{% block methodology_stat_1 %}8.2M{% endblock %}
+{% block methodology_stat_2 %}39.5 TB{% endblock %}
+{% block total_websites %}約820万の{% endblock %}
+{% block dataset %}2021年7{% endblock %}
+
+{% block foreword %}
+  <p>
+    3年前、私はこう考えました。<em>自分のウェブサイトがどれだけよくできているかは、たくさんのツールで知ることができるが、ウェブ全体の状態を見るにはどこに行けばいいのだろう</em>？HTTP Archiveのデータセットが洗練されているのと同様に、それが与えてくれる答えは、私たちがそれに尋ねる質問と同じくらい有用である可能性があります。私はWeb開発者ですが、Web開発のすべての分野の専門家ではありませんし、誰もそうなることを期待していません。しかし、私たちは皆、それぞれの専門分野を持っています。多くの人が集まれば、ウェブの現状について適切な質問をすることができ、HTTP Archiveが本当に意味のある形でそれに答えることができるようになるのです。これがWeb Almanacの最初のアイデアでした。
+  </p>
+
+  <p>
+    今年で3回目を迎え、100人以上のウェブコミュニティの素晴らしい人々の努力によって実現されました。とくに、今回で3年連続のご寄付をいただいている方々をご紹介します。<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='tunetheweb') }}">Barry Pollard</a>、<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='foxdavidj') }}">David Fox</a>、<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='paulcalvano') }}">Paul Calvano</a>、<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='bkardell') }}">Brian Kardell</a>、<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='dougsillars') }}">Doug Sillars</a>、<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='eeeps') }}">Eric Portis</a>、<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='tomayac') }}">Thomas Steiner</a>、<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='rmarx') }}">Robin Marx</a>、<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='alankent') }}">Alan Kent</a>と<a href="{{ url_for('contributors', year=year, lang=lang, _anchor='AbbyTsai') }}">Abby Tsai</a>です。このプロジェクトに時間を割いてくれたすべての協力者に感謝しますが、とく初期から参加してくれたこの10人には、大きな恩義を感じています。
+  </p>
+
+  <p>
+    2021年版は、今回はじめて取り上げる2つの章を含む、全24章の充実したラインナップで構成されています。<a href="{{ url_for('chapter', year=year, lang=lang, chapter='structured-data') }}">Structured Data</a>と<a href="{{ url_for('chapter', year=year, lang=lang, chapter='webassembly') }}">WebAssembly</a> の2つです。これらの新しい章は、Web Almanacの範囲を拡大し、より多様なトピックについて読者ベースを教育し、さらに多くの専門グループに実用的なデータを提供するのに役立っています。最終的には、私たちの研究がウェブコミュニティによって真実の共有ソースとして活用され、エコシステムを有意義に改善できることを望んでいるからです。もしあなたがこのリソースを私たちと同じように価値あるものと感じてくださるなら、ウェブの現状に関心を持つ他の人たちと共有してくださるとうれしいです。一緒に、このデータを前向きな変化のための強制力として使っていきましょう。
+  </p>
+
+  <p>— <em><a href="{{ url_for('contributors', year=year, lang=lang, _anchor='rviscomi') }}">Rick Viscomi</a>、Web Almanac編集長</em></p>#}
+{% endblock %}

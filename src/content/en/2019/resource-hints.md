@@ -3,7 +3,7 @@
 title: Resource Hints
 description: Resource Hints chapter of the 2019 Web Almanac covering usage of dns-prefetch, preconnect, preload, prefetch, priority hints, and native lazy loading.
 authors: [khempenius]
-reviewers: [andydavies, bazzadp, yoavweiss]
+reviewers: [andydavies, tunetheweb, yoavweiss]
 analysts: [rviscomi]
 editors: [rviscomi]
 translators: []
@@ -33,7 +33,7 @@ There are four separate resource hints supported by most browsers today: `dns-pr
 
 ### `dns-prefetch`
 
-The role of [`dns-prefetch`](https://developer.mozilla.org/en-US/docs/Learn/Performance/dns-prefetch) is to initiate an early DNS lookup. It's useful for completing the DNS lookup for third-parties. For example, the DNS lookup of a CDN, font provider, or third-party API.
+The role of [`dns-prefetch`](https://developer.mozilla.org/docs/Learn/Performance/dns-prefetch) is to initiate an early DNS lookup. It's useful for completing the DNS lookup for third-parties. For example, the DNS lookup of a CDN, font provider, or third-party API.
 
 ### `preconnect`
 
@@ -49,19 +49,19 @@ The <a hreflang="en" href="https://medium.com/reloading/preload-prefetch-and-pri
 
 ## Syntax
 
-97% of resource hint usage relied on using the [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) tag to specify a resource hint. For example:
+97% of resource hint usage relied on using the [`<link>`](https://developer.mozilla.org/docs/Web/HTML/Element/link) tag to specify a resource hint. For example:
 
 ```html
 <link rel="prefetch" href="shopping-cart.js">
 ```
 
-Only 3% of resource hint usage used [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link) to specify resource hints. For example:
+Only 3% of resource hint usage used [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers/Link) to specify resource hints. For example:
 
 ```
 Link: <https://example.com/shopping-cart.js>; rel=prefetch
 ```
 
-Because the usage of resource hints in HTTP headers is so low, the remainder of this chapter will focus solely on analyzing the usage of resource hints in conjunction with the `<link>` tag. However, it's worth noting that in future years, usage of resource hints in HTTP headers may increase as [HTTP/2 Push](./http2#http2-push) is adopted. This is due to the fact that HTTP/2 Push has repurposed the HTTP preload `Link` header as a signal to push resources.
+Because the usage of resource hints in HTTP headers is so low, the remainder of this chapter will focus solely on analyzing the usage of resource hints in conjunction with the `<link>` tag. However, it's worth noting that in future years, usage of resource hints in HTTP headers may increase as [HTTP/2 Push](./http#http2-push) is adopted. This is due to the fact that HTTP/2 Push has repurposed the HTTP preload `Link` header as a signal to push resources.
 
 ## Resource hints
 
@@ -70,38 +70,38 @@ Because the usage of resource hints in HTTP headers is so low, the remainder of 
 <figure>
   <table>
     <tr>
-     <th>Resource Hint</th>
-     <th>Usage (percent of sites)</th>
+      <th>Resource Hint</th>
+      <th>Usage (percent of sites)</th>
     </tr>
     <tr>
-     <td><code>dns-prefetch</code>
-     </td>
-     <td>29%
-     </td>
+      <td><code>dns-prefetch</code>
+      </td>
+      <td>29%
+      </td>
     </tr>
     <tr>
-     <td><code>preload</code>
-     </td>
-     <td>16%
-     </td>
+      <td><code>preload</code>
+      </td>
+      <td>16%
+      </td>
     </tr>
     <tr>
-     <td><code>preconnect</code>
-     </td>
-     <td>4%
-     </td>
+      <td><code>preconnect</code>
+      </td>
+      <td>4%
+      </td>
     </tr>
     <tr>
-     <td><code>prefetch</code>
-     </td>
-     <td>3%
-     </td>
+      <td><code>prefetch</code>
+      </td>
+      <td>3%
+      </td>
     </tr>
     <tr>
-     <td><code>prerender</code> (deprecated)
-     </td>
-     <td>0.13%
-     </td>
+      <td><code>prerender</code> (deprecated)
+      </td>
+      <td>0.13%
+      </td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="Adoption of resource hints.") }}</figcaption>
@@ -116,49 +116,49 @@ That being said, if a site does not need to support IE11 and below, switching fr
 <figure>
   <table>
     <tr>
-     <th>Resource Hint</th>
-     <th>Resource Hints Per Page:<br>Median</th>
-     <th>Resource Hints Per Page:<br>90th Percentile</th>
+      <th>Resource Hint</th>
+      <th>Resource Hints Per Page:<br>Median</th>
+      <th>Resource Hints Per Page:<br>90th Percentile</th>
     </tr>
     <tr>
-     <td><code>dns-prefetch</code>
-     </td>
-     <td>2
-     </td>
-     <td>8
-     </td>
+      <td><code>dns-prefetch</code>
+      </td>
+      <td>2
+      </td>
+      <td>8
+      </td>
     </tr>
     <tr>
-     <td><code>preload</code>
-     </td>
-     <td>2
-     </td>
-     <td>4
-     </td>
+      <td><code>preload</code>
+      </td>
+      <td>2
+      </td>
+      <td>4
+      </td>
     </tr>
     <tr>
-     <td><code>preconnect</code>
-     </td>
-     <td>2
-     </td>
-     <td>8
-     </td>
+      <td><code>preconnect</code>
+      </td>
+      <td>2
+      </td>
+      <td>8
+      </td>
     </tr>
     <tr>
-     <td><code>prefetch</code>
-     </td>
-     <td>1
-     </td>
-     <td>3
-     </td>
+      <td><code>prefetch</code>
+      </td>
+      <td>1
+      </td>
+      <td>3
+      </td>
     </tr>
     <tr>
-     <td><code>prerender</code> (deprecated)
-     </td>
-     <td>1
-     </td>
-     <td>1
-     </td>
+      <td><code>prerender</code> (deprecated)
+      </td>
+      <td>1
+      </td>
+      <td>1
+      </td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="Median and 90th percentiles of the number of resource hints used per page, of all pages using that resource hint.") }}</figcaption>
@@ -168,7 +168,7 @@ Resource hints are most effective when they're used selectively (_"when everythi
 
 ## The `crossorigin` attribute
 
-Most "traditional" resources fetched on the web ([images](./media), [stylesheets](./css), and [scripts](./javascript)) are fetched without opting in to Cross-Origin Resource Sharing ([CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)). That means that if those resources are fetched from a cross-origin server, by default their contents cannot be read back by the page, due to the same-origin policy.
+Most "traditional" resources fetched on the web ([images](./media), [stylesheets](./css), and [scripts](./javascript)) are fetched without opting in to Cross-Origin Resource Sharing ([CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS)). That means that if those resources are fetched from a cross-origin server, by default their contents cannot be read back by the page, due to the same-origin policy.
 
 In some cases, the page can opt-in to fetch the resource using CORS if it needs to read its content. CORS enables the browser to "ask permission" and get access to those cross-origin resources.
 
@@ -177,33 +177,33 @@ For newer resource types (e.g. fonts, `fetch()` requests, ES modules), the brows
 <figure>
   <table>
     <tr>
-     <th><code>crossorigin</code> value</th>
-     <th>Usage</th>
-     <th>Explanation</th>
+      <th><code>crossorigin</code> value</th>
+      <th>Usage</th>
+      <th>Explanation</th>
     </tr>
     <tr>
-     <td>Not set
-     </td>
-     <td>92%
-     </td>
-     <td>If the crossorigin attribute is absent, the request will follow the single-origin policy.
-     </td>
+      <td>Not set
+      </td>
+      <td>92%
+      </td>
+      <td>If the crossorigin attribute is absent, the request will follow the single-origin policy.
+      </td>
     </tr>
     <tr>
-     <td>anonymous (or equivalent)
-     </td>
-     <td>7%
-     </td>
-     <td>Executes a cross-origin request that does not include credentials.
-     </td>
+      <td>anonymous (or equivalent)
+      </td>
+      <td>7%
+      </td>
+      <td>Executes a cross-origin request that does not include credentials.
+      </td>
     </tr>
     <tr>
-     <td>use-credentials
-     </td>
-     <td>0.47%
-     </td>
-     <td>Executes a cross-origin request that includes credentials.
-     </td>
+      <td>use-credentials
+      </td>
+      <td>0.47%
+      </td>
+      <td>Executes a cross-origin request that includes credentials.
+      </td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="Adoption of the <code>crossorigin</code> attribute as a percent of resource hint instances.") }}</figcaption>
@@ -238,9 +238,9 @@ At the moment, there are no proposals to expand the current set of resource hint
 
 <a hreflang="en" href="https://wicg.github.io/priority-hints/">Priority hints</a> are an API for expressing the fetch priority of a resource: `high`, `low`, or `auto`. They can be used with a wide range of HTML tags: specifically `<image>`, `<link`>, `<script>`, and `<iframe>`.
 
-<figure>
+<figure class="figure-block">
 <div class="code-block floating-card">
-  <pre><code>&lt;carousel>
+  <pre role="region" aria-label="Code 0" tabindex="0"><code>&lt;carousel>
   &lt;img src="cat1.jpg" importance="high">
   &lt;img src="cat2.jpg" importance="low">
   &lt;img src="cat3.jpg" importance="low">

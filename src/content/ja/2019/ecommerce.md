@@ -5,8 +5,8 @@ description: 2019年Web AlmanacのEコマースの章では、Eコマースの�
 authors: [samdutton, alankent]
 reviewers: [voltek62]
 analysts: [rviscomi]
-editors: [bazzadp]
-translators: [ksakae]
+editors: [tunetheweb]
+translators: [ksakae1216]
 discuss: 1768
 results: https://docs.google.com/spreadsheets/d/1FUMHeOPYBgtVeMU5_pl2r33krZFzutt9vkOpphOSOss/
 samdutton_bio: Sam Duttonは2011年からDeveloper AdvocateとしてGoogle Chromeチームで働いています。数々のイベントを企画して発表し、いくつかのウェブ開発コースを作成して教え、PWA、パフォーマンス、メディア、イメージ、「Next Billion Users」イニシアティブをカバーする様々なビデオ、コードラボ、文書化されたガイダンスに取り組んできました。彼は<a hreflang="en" href="https://simpl.info">simpl.info</a>を管理しており、HTML、CSS、JavaScriptの最もシンプルな例を提供しています。南オーストラリアで育ち、シドニーの大学に進学し、1986年からロンドンに住んでいます。
@@ -410,7 +410,7 @@ Eコマース・プラットフォーム上の多くのホームページが、�
 
 Eコマースページでは、画像が最大のリクエスト数とバイト数の割合を占めています。デスクトップEコマースページの中央値には、1,514KB(1.5MB)の重さの画像が39枚含まれています。
 
-[JavaScript](./javascript)リクエストの数は、より良いバンドル(および/または[HTTP/2](./http2)多重化)によってパフォーマンスを向上する可能性があることを示しています。JavaScriptファイルの総バイト数はそれほど大きくありませんが、個別のリクエストが多くなっています。[HTTP/2](./http2#http2の採用)の章によると、リクエストの40％以上はHTTP/2経由ではないそうです。同様に、CSSファイルは3番目にリクエスト数が多いですが、一般的には少ないです。CSSファイル(またはHTTP/2)をマージすることで、そのようなサイトのパフォーマンスを向上させることができるかもしれません。著者の経験では、多くのEコマースページでは、未使用のCSSとJavaScriptの割合が高い。[ビデオ](./media) のリクエスト数は少ないかもしれませんが、(驚くことではありません) 特にペイロードが重いサイトでは、ページの重量の割合が高くなります。
+[JavaScript](./javascript)リクエストの数は、より良いバンドル(および/または[HTTP/2](./http)多重化)によってパフォーマンスを向上する可能性があることを示しています。JavaScriptファイルの総バイト数はそれほど大きくありませんが、個別のリクエストが多くなっています。[HTTP/2](./http#http2の採用)の章によると、リクエストの40％以上はHTTP/2経由ではないそうです。同様に、CSSファイルは3番目にリクエスト数が多いですが、一般的には少ないです。CSSファイル(またはHTTP/2)をマージすることで、そのようなサイトのパフォーマンスを向上させることができるかもしれません。著者の経験では、多くのEコマースページでは、未使用のCSSとJavaScriptの割合が高い。[ビデオ](./media) のリクエスト数は少ないかもしれませんが、(驚くことではありません) 特にペイロードが重いサイトでは、ページの重量の割合が高くなります。
 
 ## HTMLペイロードサイズ
 
@@ -483,7 +483,7 @@ PNGフォールバックでWebPを使用することは、[画像要素](http://
 
 Eコマースプラットフォーム上の画像の1％だけがWebPであり、これはサイトレビューやパートナーの仕事での著者の経験と一致しています。WebPは<a hreflang="en" href="https://caniuse.com/#feat=webp">Safari以外のすべての最新ブラウザでサポートされています</a>し、フォールバックの仕組みも充実しています。WebPは透過性をサポートしており、写真画像のためのPNGよりもはるかに効率的なフォーマットです（上記のPNGのセクションを参照してください）。
 
-WebPをPNGのフォールバックで使用したり、無地の色の背景でWebP/JPEGを使用して透明化を可能にするため、Webコミュニティとして、より良いガイダンスや提唱を提供できます。WebPは、<a hreflang="en" href="https://web.dev/serve-images-webp">ガイド</a> やツール (例:<a hreflang="en" href="https://squoosh.app/">Squoosh</a>や<a hreflang="en" href="https://developers.google.com/speed/webp/docs/cwebp">cwebp</a>など)があるにもかかわらず、電子商取引プラットフォームではほとんど使用されていないようです。現在<a hreflang="en" href="https://blog.chromium.org/2010/09/webp-new-image-format-for-web.html">10年近く経っている</a>WebPの利用が増えていない理由をさらに調査する必要があります。
+WebPをPNGのフォールバックで使用したり、無地の色の背景でWebP/JPEGを使用して透明化を可能にするため、Webコミュニティとして、より良いガイダンスや提唱を提供できます。WebPは、<a hreflang="ja" href="https://web.dev/i18n/ja/serve-images-webp">ガイド</a> やツール (例:<a hreflang="en" href="https://squoosh.app/">Squoosh</a>や<a hreflang="en" href="https://developers.google.com/speed/webp/docs/cwebp">cwebp</a>など)があるにもかかわらず、電子商取引プラットフォームではほとんど使用されていないようです。現在<a hreflang="en" href="https://blog.chromium.org/2010/09/webp-new-image-format-for-web.html">10年近く経っている</a>WebPの利用が増えていない理由をさらに調査する必要があります。
 
 ## 画像の寸法
 

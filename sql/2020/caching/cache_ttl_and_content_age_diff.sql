@@ -18,11 +18,11 @@ FROM
   (
     SELECT
       _TABLE_SUFFIX AS client,
-      ROUND((expAge - (startedDateTime - toTimestamp(resp_last_modified))) / (60 * 60 * 24), 2)  AS diff_in_days
+      ROUND((expAge - (startedDateTime - toTimestamp(resp_last_modified))) / (60 * 60 * 24), 2) AS diff_in_days
     FROM
       `httparchive.summary_requests.2020_08_01_*`
     WHERE
-      resp_last_modified <> "" AND
+      resp_last_modified != '' AND
       expAge > 0
   ),
   UNNEST([10, 25, 50, 75, 90]) AS percentile
@@ -32,4 +32,3 @@ GROUP BY
 ORDER BY
   client,
   percentile
-

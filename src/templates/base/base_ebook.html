@@ -18,8 +18,8 @@
 
 {% block styles %}
 {{ super() }}
-<link rel="stylesheet" href="{{ get_versioned_filename('/static/css/page.css') }}" />
-<link rel="stylesheet" href="{{ get_versioned_filename('/static/css/ebook.css') }}" />
+<link rel="stylesheet" href="{{ get_versioned_filename('/static/css/page.css') }}">
+<link rel="stylesheet" href="{{ get_versioned_filename('/static/css/ebook.css') }}">
 
 <style nonce="{{ csp_nonce() }}">
 /* Add a print query param to format the book for printer (mirror headers and footers) */
@@ -119,9 +119,10 @@
 
 {% set unit = 'mm' %}
 {% set spine = 25 %}
-{% if year == '2020' %}
-{% set spine = 34.5 %}
-{% endif %}
+{% if year == '2020' and lang == 'en' %}{% set spine = 36.0 %}{% endif %}
+{% if year == '2020' and lang == 'ja' %}{% set spine = 37.0 %}{% endif %}
+{% if year == '2021' %}{% set spine = 46.5 %}{% endif %}
+{% if year == '2022' %}{% set spine = 42.5 %}{% endif %}
 {% set pageWidth = 148 %}
 {% set pageHeight = 210 %}
 {% if request.args.get('unit') != None %}{% set unit = request.args.get('unit') %}{% endif %}
@@ -253,7 +254,7 @@
     <h1 class="title title-center">{{ self.intro_title() }}</h1>
     <h2 class="title title-center">{{ self.intro_sub_title() }}</h2>
 
-    <img class="intro-image" src="/static/images/home-hero.png" alt="" width="984" height="354" />
+    <img class="intro-image" src="/static/images/home-hero.png" alt="" width="984" height="354">
 
   </section>
 
@@ -271,6 +272,7 @@
   <section id="toc" class="contents-wrapper">
     <h1>{{ self.table_of_contents_title() }}</h1>
     <div class="parts">
+      {% if self.foreword() | trim | length > 0 %}
       <div class="part">
         <h2 class="part-name">{{ self.introduction() }}</h2>
         <div class="toc-chapters">
@@ -279,6 +281,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
       {% for part_config in config.outline %}
       <div class="part">
         <h2 class="part-name">{{ self.part() }} {{ localizedPartTitles[part_config.part] if localizedPartTitles[part_config.part]|length else chapter_config.title }}</h2>
@@ -306,9 +309,11 @@
       <div class="part">
         <h2 class="part-name">{{ self.appendices() }}</h2>
         <div class="toc-chapters">
+          {% if get_ebook_methodology(lang,year) %}
           <div class="toc-chapter">
             <a href="#methodology">{{ self.methodology_title() }}</a>
           </div>
+          {% endif %}
           <div class="toc-chapter">
             <a href="#contributors">{{ self.contributors_title() }}</a>
           </div>
@@ -317,17 +322,21 @@
     </div>
   </section>
 
+  {% if self.foreword() | trim | length > 0 %}
   <section id="foreword">
     <h1>{{ self.foreword_title() }}</h1>
     {{ self.foreword() | replace('/%s/%s/contributors#' % (lang, year), '#contributors-') }}
   </section>
+  {% endif %}
 
   {{ self.chapters() }}
 
+  {% if get_ebook_methodology(lang,year) %}
   <section class="chapter" id="methodology">
     <div class="subtitle">{{ self.appendix() }} A</div>
     {{ get_ebook_methodology(lang,year) | safe }}
   </section>
+  {% endif %}
 
   <section class="chapter" id="contributors">
     <div class="subtitle">{{ self.appendix() }} B</div>
@@ -336,18 +345,22 @@
       {{ self.contributors_title() }}
     </h1>
     <div class="team">
-        <img src="/static/images/avatars/1.jpg" alt="" height="100" width="100" />
-        <img src="/static/images/avatars/8.jpg" alt="" height="100" width="100" />
-        <img src="/static/images/avatars/4.jpg" alt="" height="100" width="100" />
-        <img src="/static/images/avatars/0.jpg" alt="" height="100" width="100" />
-        <img src="/static/images/avatars/11.jpg" alt="" height="100" width="100" />
-        <img src="/static/images/avatars/9.jpg" alt="" height="100" width="100" />
+        <img src="/static/images/avatars/1.jpg" alt="" height="100" width="100">
+        <img src="/static/images/avatars/8.jpg" alt="" height="100" width="100">
+        <img src="/static/images/avatars/4.jpg" alt="" height="100" width="100">
+        <img src="/static/images/avatars/0.jpg" alt="" height="100" width="100">
+        <img src="/static/images/avatars/11.jpg" alt="" height="100" width="100">
+        <img src="/static/images/avatars/9.jpg" alt="" height="100" width="100">
     </div>
     <p>{{ self.contributors_description() }}</p>
     <ul class="contributors">
     {% for id, contributor in config.contributors.items() %}
       <li class="contributor" id="contributors-{{ id }}">
-        <img class="contributor-avatar" src="{{contributor.avatar_url}}" height="100" width="100" alt="{{ contributor.name }} avatar" />
+        {% if contributor.avatar_url|int != 0 %}
+        <img class="contributor-avatar" src="https://avatars.githubusercontent.com/u/{{ contributor.avatar_url }}?v=4&s=100" height="100" width="100" alt="{{ contributor.name }} avatar">
+        {% else %}
+        <img class="contributor-avatar" src="{{ contributor.avatar_url }}" height="100" width="100" alt="{{ contributor.name }} avatar">
+        {% endif %}
         <div>
           <div class="contributor-name">{{ contributor.name }}</div>
           {% if contributor.twitter %}
@@ -355,7 +368,7 @@
             <a href="https://twitter.com/{{ contributor.twitter }}" aria-labelledby="contributors-{{ id }}-twitter">
               <svg role="img">
                 <title id="contributors-{{ id }}-twitter">{{ onTwitter(contributor.twitter) }}</title>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter-logo"></use>
               </svg>
               @{{ contributor.twitter }}
             </a>
@@ -366,7 +379,7 @@
             <a href="https://github.com/{{ contributor.github }}" aria-labelledby="contributors-{{ id }}-github">
               <svg role="img">
                 <title id="contributors-{{ id }}-github">{{ onTwitter(contributor.github) }}</title>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github-logo"></use>
               </svg>
               {{ contributor.github }}
             </a>
@@ -377,7 +390,7 @@
             <a href="https://www.linkedin.com/in/{{ contributor.twitter }}" aria-labelledby="contributors-{{ id }}-linkedin">
               <svg role="img">
                 <title id="contributors-{{ id }}-linkedin">{{ onTwitter(contributor.linkedin) }}</title>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin-logo"></use>
               </svg>
               {{ contributor.linkedin }}
             </a>
@@ -388,7 +401,7 @@
             <a href="{{ contributor.twitter }}" aria-labelledby="contributors-{{ id }}-website">
               <svg role="img">
                 <title id="contributors-{{ id }}-website">{{ contributor.website }}</title>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#globe"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#globe-logo"></use>
               </svg>
               {{ contributor.website }}
             </a>
@@ -396,7 +409,7 @@
           {% endif %}
           <div class="contributor-teams">
             {% for id in contributor.teams | sort() %}
-              <span class="contributor-team team-{{ id }}">{{ localizedTeamNames[id] if localizedTeamNames[id]|length else team.name }}</span>{% if loop.length > 2 %}{{ self.comma() if loop.index < loop.length - 1 }}{{ self.oxford_comma() if loop.index == loop.length - 1 }}{% endif %}
+              <span class="contributor-team team-{{ id }}">{{ localizedTeamRole[id] if localizedTeamRole[id]|length else team.name }}</span>{% if loop.length > 2 %}{{ self.comma() if loop.index < loop.length - 1 }}{{ self.oxford_comma() if loop.index == loop.length - 1 }}{% endif %}
               {% if loop.index == loop.length - 1 %}{{ self.and() }}{% endif %}
             {% endfor %}
           </div>
@@ -423,13 +436,13 @@
       <h2 class="title title-center">{{ self.intro_sub_title() }}</h2>
 
       <div class="intro-image-wrapper">
-        <img class="intro-image" src="/static/images/home-hero.png" alt="" width="820" height="562" />
+        <img class="intro-image" src="/static/images/home-hero.png" alt="" width="820" height="562">
       </div>
 
       <div class="ha-logo-wrapper">
         <svg role="img">
           <title id="ha-logo-front-cover">HTTP Archive home</title>
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ha"></use>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ha-logo"></use>
         </svg>
       </div>
 
@@ -444,7 +457,7 @@
       </h3>
 
       <div class="intro-image-wrapper">
-        <img class="intro-image" src="/static/images/home-hero.png" alt="" width="820" height="562" />
+        <img class="intro-image" src="/static/images/home-hero.png" alt="" width="820" height="562">
       </div>
 
       <div class="spine-title-wrapper">
@@ -454,7 +467,7 @@
       <div class="ha-logo-wrapper">
         <svg role="img">
           <title id="ha-logo-spine">HTTP Archive home</title>
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ha"></use>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ha-logo"></use>
         </svg>
       </div>
 
@@ -486,7 +499,7 @@
         </div>
         <!--
         <p>{{ self.methodology_description() }}</p>
-        <img class="methodology-characters" src="/static/images/methodology-characters.png" alt="" width="984" height="354" />
+        <img class="methodology-characters" src="/static/images/methodology-characters.png" alt="" width="984" height="354">
         -->
 
         <p>{{ self.contributors_description() }}</p>
@@ -496,7 +509,7 @@
       <div class="ha-logo-wrapper">
         <svg role="img">
           <title id="ha-logo-back-cover">HTTP Archive home</title>
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ha"></use>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ha-logo"></use>
         </svg>
       </div>
 

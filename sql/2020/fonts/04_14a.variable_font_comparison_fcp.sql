@@ -25,11 +25,11 @@ JOIN (
     _TABLE_SUFFIX AS client,
     url AS page,
     CAST(JSON_EXTRACT_SCALAR(payload, "$['_chromeUserTiming.firstContentfulPaint']") AS INT64) AS fcp,
-    CAST(JSON_EXTRACT_SCALAR(payload, "$['_chromeUserTiming.LargestContentfulPaint']") AS INT64) AS lcp,
+    CAST(JSON_EXTRACT_SCALAR(payload, "$['_chromeUserTiming.LargestContentfulPaint']") AS INT64) AS lcp
   FROM
     `httparchive.pages.2020_09_01_*`
   GROUP BY
-    _TABLE_SUFFIX, url, payload )
+    _TABLE_SUFFIX, url, payload)
 USING
   (client, page)
 JOIN (
@@ -39,7 +39,7 @@ JOIN (
   FROM
     `httparchive.pages.2020_09_01_*`
   GROUP BY
-    _TABLE_SUFFIX )
+    _TABLE_SUFFIX)
 USING
   (client)
 GROUP BY

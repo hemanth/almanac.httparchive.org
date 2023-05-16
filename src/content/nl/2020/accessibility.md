@@ -3,9 +3,9 @@
 title: Toegankelijkheid
 description: Toegankelijkheidshoofdstuk van de Web Almanac 2020 over leesgemak, media, navigatiegemak en compatibiliteit met ondersteunende technologieën.
 authors: [oluoluoxenfree, alextait1]
-reviewers: [aardrian, ericwbailey, obto]
-analysts: [obto]
-editors: [bazzadp]
+reviewers: [aardrian, ericwbailey, foxdavidj]
+analysts: [foxdavidj]
+editors: [tunetheweb]
 translators: [noah-vdv]
 oluoluoxenfree_bio: Olu Niyi-Awosusi is een software engineer bij de FT die houdt van lijsten, nieuwe dingen leren, Bee en Puppycat, <a hreflang="en" href="https://alistapart.com/article/building-the-woke-web/">sociale rechtvaardigheid, toegankelijkheid</a> en elke dag harder proberen.
 alextait1_bio: Alex Tait is een ontwikkelaar, consultant en docent wiens passie ligt op het snijvlak van toegankelijkheid en modern JavaScript binnen interfacearchitectuur en ontwerpsystemen. Als ontwikkelaar is ze van mening dat op inclusie gebaseerde ontwikkelingspraktijken met toegankelijkheid voorop leiden tot betere producten voor iedereen. Als consultant en strateeg is ze van mening dat minder meer is, en dat nieuwe functieomvang niet kan worden geprioriteerd boven pariteit van kernfuncties voor gehandicapte gebruikers. Als onderwijzer gelooft ze in het wegnemen van belemmeringen voor informatie, zodat technologie een meer diverse, rechtvaardige en inclusieve industrie kan worden.
@@ -88,15 +88,15 @@ We ontdekten dat 29,34% van de desktoppagina's en 30,66% van de mobiele pagina's
 ### Taalidentificatie
 
 {{ figure_markup(
-  caption="Desktopsites hebben een geldig kenmerk `lang`.",
+  caption="Mobiele sites hebben een geldig kenmerk `lang`.",
   content="77,67%",
   classes="big-number",
   sheets_gid="812908021",
-  sql_file="02_05.sql"
+  sql_file="valid_html_lang.sql"
 )
 }}
 
-Door een HTML-attribuut `lang` in te stellen, kan een pagina gemakkelijk worden vertaald en is er betere ondersteuning voor schermlezers. Het percentage sites met een geldig HTML lang-attribuut op desktop dit jaar was 77,67%, met slechts 77,7% überhaupt een `lang`-attribuut.
+Door een HTML-attribuut `lang` in te stellen, kan een pagina gemakkelijk worden vertaald en is er betere ondersteuning voor schermlezers. Het percentage sites met een geldig HTML lang-attribuut op mobiel dit jaar was 77,67%, met slechts 77,7% überhaupt een `lang`-attribuut.
 
 ## Media op internet
 
@@ -240,9 +240,8 @@ De <span lang="en">Web Content Accessibility Guidelines</span> hebben een criter
 
 {{ figure_markup(
   image="common-video-attributes.png",
-  alt="De meest voorkomende video-attributen.",
   caption="De meest voorkomende `<video>`-attributen.",
-  description="Staafdiagram met de top 5 attributen op het `<video>` element op desktop met `loop` op 58,43% van de video's, `autoplay` op 56,98%, `muted` op 56,13%,` class` op 51,79% en `preload` op 45,21% van de video's.",
+  description="Staafdiagram met de top 5 attributen op het `<video>` element op desktop met `loop` op 58,43% van de video's, `autoplay` op 56,98%, `muted` op 56,13%, `class` op 51,79% en `preload` op 45,21% van de video's.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSjkB_XAYiwkYrMuoXp44mdqMGJVDUkTr_48ELozY72Mdv3OlxeWV9ysbDY9bs6hA7LnJTrHar9aZlM/pubchart?oid=1226671706&format=interactive",
   sheets_gid="713294916",
   sql_file="common_video_attributes.sql"
@@ -397,7 +396,7 @@ We ontdekten dat 8,27% van de desktoppagina's en 8,28% van de mobiele pagina's t
 
 We ontdekten dat 15,50% van de desktoppagina's en 14,62% van de mobiele pagina's ten minste één ankerelement bevatten met `role="button"`. Als een rol is toegepast op een element waarvan de impliciete rol moet worden gerespecteerd, zoals het geven van een `role="button"` aan een link (die een impliciete `role="link"` heeft), zou dit de tweede regel van ARIA breken. Het zou ook in strijd zijn met <a hreflang="en" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-keyboard-operable.html">WCAG 2.1.1, Keyboard</a> als het juiste toetsenbordgedrag niet is geïmplementeerd (links worden niet geactiveerd met de spatiebalk, terwijl knoppen dat wel zijn).
 
-Nogmaals, in de overgrote meerderheid van deze gevallen zou een beter patroon dan het expliciet definiëren van `role="button"` voor het element in kwestie zijn om gebruik te maken van het native HTML `<button>`-element, aangezien dit wordt geleverd met de verwachte semantiek en gedrag. .
+Nogmaals, in de overgrote meerderheid van deze gevallen zou een beter patroon dan het expliciet definiëren van `role="button"` voor het element in kwestie zijn om gebruik te maken van het native HTML `<button>`-element, aangezien dit wordt geleverd met de verwachte semantiek en gedrag.
 
 #### Navigatie
 
@@ -417,7 +416,6 @@ In dit patroon heeft een bovenliggende container een `role="tablist"` met onderl
 
 {{ figure_markup(
   image="role-tab-list.png",
-  alt="Element met de rol tablist",
   caption='Element met de rol `tablist` (<a hreflang="en" href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html">Bron: W3C</a>)',
   description='Schermafbeelding met een voorbeeld van een tablijst (`role="tablist"`) die drie tabbladen bevat. Alle drie de tabbladen zijn gemarkeerd.',
   width=348,
@@ -426,7 +424,6 @@ In dit patroon heeft een bovenliggende container een `role="tablist"` met onderl
 
 {{ figure_markup(
   image="role-tab.png",
-  alt="Element met de rol tab",
   caption='Element met de rol `tab`. (<a hreflang="en" href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html">Bron: W3C</a>)',
   description='Schermafbeelding met een voorbeeldtabblad (`role="tab"`) waar slechts één tabblad is gemarkeerd.',
   width=346,
@@ -435,7 +432,6 @@ In dit patroon heeft een bovenliggende container een `role="tablist"` met onderl
 
 {{ figure_markup(
   image="role-tab-panel.png",
-  alt="Element met de rol tabpanel",
   caption='Element met de rol `tabpanel`. (<a hreflang="en" href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html">Bron: W3C</a>)',
   description='Schermafbeelding met een voorbeeld van een tabpanel (`role=" tabpanel"`) waar de inhoud van één tabblad is gemarkeerd.',
   width=346,
@@ -456,7 +452,6 @@ ARIA-attributen kunnen aan HTML-elementen worden toegewezen om de toegankelijkhe
 
 {{ figure_markup(
   image="most-used-aria-attributes.png",
-  alt="Top 10 meest gebruikte aria attributen.",
   caption="Top 10 meest gebruikte `aria` attributen.",
   description="Staafdiagram met de top 10 van `aria`-attributen die worden gebruikt op desktop en mobiel, me `aria-hidden` gebruikt door 48,1% desktopsites en 48,2% mobiele sites, `aria-label` wordt gebruikt door respectievelijk 40,4% en 38,7%, `aria-expanded` met 21,0% en 21,0%, `aria-controls` met 17,4% en 16,9%, `aria-labelledby` met 17,7% en 16,2%, `aria-live` met 16,8% en 15,7%, `aria-haspopup` met 15,9% en 14,0%, `aria-current` met 12,4% en 12,7%, en `aria-describedby` met 11,3% en 10,6%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSjkB_XAYiwkYrMuoXp44mdqMGJVDUkTr_48ELozY72Mdv3OlxeWV9ysbDY9bs6hA7LnJTrHar9aZlM/pubchart?oid=332801232&format=interactive",
@@ -481,7 +476,7 @@ Nogmaals, de eerste regel van ARIA moet worden gerespecteerd. Als het element zi
 
 Het <a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1.html">`aria-describedby`</a> attribuut kan gebruikt worden in gevallen waar een meer robuuste beschrijving nodig is voor een element. Het accepteert ook een `id`-referentie als zijn waarde om verbinding te maken met beschrijvende tekst die elders in de interface voorkomt. Het bevat niet de toegankelijke naam, het moet worden gebruikt in combinatie met een toegankelijke naam als aanvulling, niet als vervanging. We ontdekten dat 11,31% van de desktoppagina's en 10,56% van de mobiele pagina's ten minste één element had met het kenmerk `aria-describedby`.
 
-**Leuk feit!** We hebben 3.200 websites gevonden met het attribuut **aria-labeledby**, wat een verkeerde spelling is van het attribuut `aria-labelledby`! Zorg ervoor dat u die geautomatiseerde controles uitvoert om deze gemakkelijk te vermijden fouten op te sporen.
+**Leuk feit!** We hebben 3.200 websites gevonden met het attribuut **`aria-labeledby`**, wat een verkeerde spelling is van het attribuut `aria-labelledby`! Zorg ervoor dat u die geautomatiseerde controles uitvoert om deze gemakkelijk te vermijden fouten op te sporen.
 
 #### Inhoud verbergen
 
@@ -515,7 +510,7 @@ Het is belangrijk om te onthouden dat digitale toegankelijkheid een burgerrecht 
 
 Het is erg belangrijk dat elke afhandeling van formulierfouten wordt doorgegeven aan ondersteunende technologie. Afhankelijk van de validatie-implementatie zijn er verschillende technieken om hiermee om te gaan. Het artikel van Web AIM <a hreflang="en" href="https://webaim.org/techniques/formvalidation/"><span lang="en">Usable and Accessible Form Validation and Error Recovery</span></a> is een geweldige bron voor meer informatie over verschillende strategieën voor toegankelijke formuliervalidatie.
 
-Als een formulierelement vereist is, moet dit ook worden gecommuniceerd naar ondersteunende technologie. Voor native HTML-formulierelementen kan het [`required` attribuut](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required) worden gebruikt en voor aangepaste elementen kan het [`aria-required`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-required_attribute) attribuut nodig zijn. Als er een probleem is met het indienen van een formulier, moet dit worden doorgegeven aan ondersteunende technologie.
+Als een formulierelement vereist is, moet dit ook worden gecommuniceerd naar ondersteunende technologie. Voor native HTML-formulierelementen kan het [`required` attribuut](https://developer.mozilla.org/docs/Web/HTML/Attributes/required) worden gebruikt en voor aangepaste elementen kan het [`aria-required`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-required_attribute) attribuut nodig zijn. Als er een probleem is met het indienen van een formulier, moet dit worden doorgegeven aan ondersteunende technologie.
 
 ### Formulierlabels
 
@@ -559,7 +554,7 @@ Deze lijst is niet uitputtend en is bedoeld om aan te moedigen na te denken over
 
 **UI ontwerpers**
   - Keuzes voor kleurcontrast, lettertypeselecties, overwegingen tussen spatiëring en regelhoogte.
-  - Overwegingen bij animaties (bepalen of ze nodig zijn, statische items aanleveren voor [`prefers-reduced-motion`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) scenario's, het ontwerpen van pauze/stop-mechanismen).
+  - Overwegingen bij animaties (bepalen of ze nodig zijn, statische items aanleveren voor [`prefers-reduced-motion`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion) scenario's, het ontwerpen van pauze/stop-mechanismen).
 
 **Productmanagers**
   - Prioriteer toegankelijkheidswerk in de roadmap, zodat het geen technische schuld wordt aan het einde van een achterstand.
@@ -577,7 +572,7 @@ Deze lijst is niet uitputtend en is bedoeld om aan te moedigen na te denken over
   - Werknemers bandbreedte geven om te leren en hun vaardigheden op het gebied van toegankelijkheid te vergroten en vakmensen aan te nemen met expertise en geleefde ervaringen.
   - Toegankelijkheid als kern beschouwen voor de productresultaten en excellentie op het gebied van toegankelijkheid beschouwen als werk dat gepromoot kan worden.
 
-De technische industrie moet evolueren naar inclusiegedreven ontwikkeling. Hoewel dit enige investering vooraf vereist, is het in de loop van de tijd veel gemakkelijker en waarschijnlijk goedkoper om toegankelijkheid in de hele cyclus in te bouwen, zodat het in het product kan worden ingebakken, in plaats van sites en apps die zonder het in gedachten zijn gemaakt, achteraf aan te passen. .
+De technische industrie moet evolueren naar inclusiegedreven ontwikkeling. Hoewel dit enige investering vooraf vereist, is het in de loop van de tijd veel gemakkelijker en waarschijnlijk goedkoper om toegankelijkheid in de hele cyclus in te bouwen, zodat het in het product kan worden ingebakken, in plaats van sites en apps die zonder het in gedachten zijn gemaakt, achteraf aan te passen.
 
 De grootste investering zou moeten komen in de vorm van onderwijs en procesverbeteringen. Zodra een UI-ontwerper de nuances van kleurcontrastvereisten begrijpt, zou het selecteren van een toegankelijk kleurenpalet dezelfde inspanning moeten zijn als een ontoegankelijk palet. Zodra een ontwikkelaar native HTML en ARIA goed begrijpt en wanneer hij bepaalde technieken en hulpmiddelen moet gebruiken, moet de hoeveelheid code die hij schrijft vergelijkbaar zijn.
 

@@ -98,10 +98,12 @@
 <main id="maincontent" class="main">
   <h1 class="title title-lg">{{ self.table_of_contents_title() }}</h1>
 
+  {% if self.foreword() | trim | length > 0 %}
   <section>
     <h2 id="foreword"><a href="#foreword" class="anchor-link">{{ self.foreword_title() }}</a></h2>
     {{ self.foreword() }}
   </section>
+  {% endif %}
 
   <div class="contents-wrapper">
     <div class="parts">
@@ -133,10 +135,18 @@
         <h2 id="appendices" class="part-name"><a href="#appendices" class="anchor-link">{{ self.appendices() }}</a></h2>
         <div class="chapters">
           <div class="chapter">
+            {% if page_lang_exists(lang, year, 'methodology') %}
             <a href="{{ url_for('methodology', year=year, lang=lang) }}">{{ self.methodology_title() }}</a>
+            {% else %}
+            <a href="{{ url_for('methodology', year=year, lang='en') }}">{{ self.methodology_title() }} <span class="not-translated">({{ self.translation_not_available() }})</span></a>
+            {% endif %}
           </div>
           <div class="chapter">
+            {% if page_lang_exists(lang, year, 'contributors') %}
             <a href="{{ url_for('contributors', year=year, lang=lang) }}">{{ self.contributors_title() }}</a>
+            {% else %}
+            <a href="{{ url_for('contributors', year=year, lang='en') }}">{{ self.contributors_title() }} <span class="not-translated">({{ self.translation_not_available() }})</span></a>
+            {% endif %}
           </div>
         </div>
       </section>
@@ -147,7 +157,7 @@
       <h2 id="ebook" class="part-name"><a href="#ebook" class="anchor-link">{{ self.ebook_title() }}</a></h2>
       <div class="chapters">
         <div class="chapter">
-          <a href="/static/pdfs/web_almanac_{{ year }}_{{ lang }}.pdf" data-event="ebook-click" data-label="toc-page">{{ self.ebook_download() }}</a><br>
+          <a href="https://cdn.httparchive.org/almanac/ebooks/web_almanac_{{ year }}_{{ lang }}.pdf" data-event="ebook-click" data-label="toc-page">{{ self.ebook_download() }}</a><br>
           <small>{{ self.ebook_download_note() }}</small>
         </div>
       </div>
@@ -155,10 +165,10 @@
     {% endif %}
 
     <div class="characters">
-      <img class="character" src="/static/images/character-painter.png" alt="" loading="lazy" height="202" width="226" />
-      <img class="character" src="/static/images/character-file.png" alt="" loading="lazy" height="158" width="161" />
-      <img class="character" src="/static/images/character-star.png" alt="" loading="lazy" height="254" width="245" />
-      <img class="character" src="/static/images/character-hat.png" alt="" loading="lazy" height="207" width="186" />
+      <img class="character" src="/static/images/character-painter.png" alt="" loading="lazy" height="202" width="226">
+      <img class="character" src="/static/images/character-file.png" alt="" loading="lazy" height="158" width="161">
+      <img class="character" src="/static/images/character-star.png" alt="" loading="lazy" height="254" width="245">
+      <img class="character" src="/static/images/character-hat.png" alt="" loading="lazy" height="207" width="186">
     </div>
   </div>
 </main>

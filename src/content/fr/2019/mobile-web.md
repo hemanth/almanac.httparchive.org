@@ -2,14 +2,14 @@
 #See https://github.com/HTTPArchive/almanac.httparchive.org/wiki/Authors'-Guide#metadata-to-add-at-the-top-of-your-chapters
 title: Web Mobile
 description: Chapitre sur les web mobile du Web Almanac 2019, couvrant le chargement des pages, du contenu textuel, du zoom et de la mise à l’échelle, des boutons et des liens, ainsi que de la facilité à remplir les formulaires.
-authors: [obto]
-reviewers: [AymenLoukil, hyperpress]
+authors: [foxdavidj]
+reviewers: [AymenLoukil, logicalphase]
 analysts: [ymschaap, rviscomi]
 editors: [rviscomi]
 translators: [borisschapira]
 discuss: 1767
 results: https://docs.google.com/spreadsheets/d/1dPBDeHigqx9FVaqzfq7CYTz4KjllkMTkfq4DG4utE_g/
-obto_bio: David Fox est <i lang="en">lead usability researcher</i> et fondateur de LookZook, une entreprise obsédée par tout ce qu’il y a à savoir sur la création d’expériences Web qui répondent aux attentes des utilisateurs. Il est un psychologue de sites Web qui fouille dans ces derniers pour apprendre non seulement avec quels problèmes les utilisateurs se débattent, mais pourquoi et comment améliorer au mieux leur expérience. Il est également un contributeur, un conférencier et un fournisseur de Google Chromium de webinaires et de formations UX.
+foxdavidj_bio: David Fox est <i lang="en">lead usability researcher</i> et fondateur de LookZook, une entreprise obsédée par tout ce qu’il y a à savoir sur la création d’expériences Web qui répondent aux attentes des utilisateurs. Il est un psychologue de sites Web qui fouille dans ces derniers pour apprendre non seulement avec quels problèmes les utilisateurs se débattent, mais pourquoi et comment améliorer au mieux leur expérience. Il est également un contributeur, un conférencier et un fournisseur de Google Chromium de webinaires et de formations UX.
 featured_quote: Depuis 2007, le web mobile s’est développé à un rythme explosif. Aujourd’hui, 13 ans plus tard, le mobile représente 59&nbsp;% de toutes les recherches et 58,7&nbsp;% de tout le trafic web, selon les données de Akamai mPulse en juillet 2019. Ce n’est plus un usage secondaire, mais la principale façon dont les gens vivent le web. Alors, étant donné l’importance du mobile, quel genre d’expérience offrons-nous à nos visiteurs et visiteuses&nbsp;? Quels sont les points faibles&nbsp;? C’est ce que nous allons découvrir.
 featured_stat_1: 65 %
 featured_stat_label_1: des sites sont victimes de déplacements de contenu moyens ou importants pendant le chargement
@@ -232,7 +232,7 @@ Qu’il s’agisse de s’inscrire à un nouveau service, d’acheter quelque ch
 
 Dans le passé, `text` et `password` étaient parmi les seuls types de saisie (`<input>`) disponibles pour les équipes de développement, car ils répondaient à presque tous nos besoins sur ordinateurs de bureau. Ce n’est pas le cas pour les appareils mobiles. Les claviers mobiles sont incroyablement petits, et une tâche simple, comme la saisie d’une adresse électronique, peut obliger les utilisateurs à passer d’un clavier à l’autre&nbsp;: le clavier standard et le clavier à caractères spéciaux pour le symbole `@`. La simple saisie d’un numéro de téléphone peut être difficile en utilisant les minuscules chiffres du clavier par défaut.
 
-De nombreux [nouveaux types de saisies](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types) ont été introduits depuis, permettant aux équipes de développement d’informer les navigateurs du type de données attendu et permettant aux navigateurs de fournir des claviers personnalisés spécifiquement pour ces types de saisie. Par exemple, le type `email` permet au navigateur de fournir un clavier alphanumérique comprenant le symbole `@`, et le type `tel`, un clavier numérique.
+De nombreux [nouveaux types de saisies](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types) ont été introduits depuis, permettant aux équipes de développement d’informer les navigateurs du type de données attendu et permettant aux navigateurs de fournir des claviers personnalisés spécifiquement pour ces types de saisie. Par exemple, le type `email` permet au navigateur de fournir un clavier alphanumérique comprenant le symbole `@`, et le type `tel`, un clavier numérique.
 
 Lors de l’analyse des sites contenant une saisie d’email, 56,42&nbsp;% utilisent `type="email"`. De même, pour les saisies de numéros de téléphone, `type="tel"` est utilisé 36,7&nbsp;% du temps. Les autres nouveaux types de saisie ont un taux d’adoption encore plus faible.
 
@@ -262,7 +262,7 @@ Assurez-vous de bien vous informer et de renseigner les autres sur la grande qua
 
 ### Activation de l’autocomplétion pour les saisies
 
-L’attribut [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) de l’élément `<input>` permet aux gens de remplir les champs du formulaire en un seul clic. Ils remplissent des tonnes de formulaires, souvent avec exactement les mêmes informations à chaque fois. Conscients de ce fait, les navigateurs ont commencé à stocker ces informations de manière sécurisée afin de pouvoir les réutiliser. Tout ce que les équipes de développement doivent faire, c’est utiliser cet attribut `autocomplete` pour indiquer aux navigateurs quelle est l’information exacte à remplir, et le navigateur fait le reste.
+L’attribut [`autocomplete`](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete) de l’élément `<input>` permet aux gens de remplir les champs du formulaire en un seul clic. Ils remplissent des tonnes de formulaires, souvent avec exactement les mêmes informations à chaque fois. Conscients de ce fait, les navigateurs ont commencé à stocker ces informations de manière sécurisée afin de pouvoir les réutiliser. Tout ce que les équipes de développement doivent faire, c’est utiliser cet attribut `autocomplete` pour indiquer aux navigateurs quelle est l’information exacte à remplir, et le navigateur fait le reste.
 
 {{ figure_markup(
   caption="Pourcentage des pages utilisant <code>autocomplete</code>.",
@@ -289,7 +289,6 @@ Le web mobile existe maintenant depuis assez longtemps pour qu’il y ait toute 
 
 {{ figure_markup(
   image="america-online-1000-hours-free.jpg",
-  alt="1000 heures d’AOL gratuites, image issue de archive.org.",
   caption='1000 heures d’AOL gratuites, image issue de <a hreflang="en" href="https://archive.org/details/America_Online_1000_Hours_Free_for_45_Days_Version_7.0_Faster_Than_Ever_AM402R28">archive.org</a>.',
   description="Une photo d’un CD-ROM AOL offrant 1000 heures gratuites.",
   width=300,

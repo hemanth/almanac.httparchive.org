@@ -3,9 +3,9 @@
 title: Fuentes
 description: Capítulo Fuentes del Almanaque Web de 2019 que cubre desde dónde se cargan las fuentes, formatos de fuente, rendimiento de carga de fuentes, fuentes variables y fuentes de color.
 authors: [zachleat]
-reviewers: [hyperpress, AymenLoukil]
+reviewers: [logicalphase, AymenLoukil]
 analysts: [tjmonsi, rviscomi]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [c-torres]
 discuss: 1761
 results: https://docs.google.com/spreadsheets/d/108g6LXdC3YVsxmX1CCwrmpZ3-DmbB8G_wwgQHX5pn6Q/
@@ -45,7 +45,7 @@ Las recomendaciones para mitigar los costos de rendimiento de cargar fuentes web
   )
 }}
 
-El hecho de que tres cuartas partes estén alojadas tal vez no sea sorprendente dado el dominio de Google Fonts que discutiremos [más adelante](#cuales-son-los-dominios-de-terceros-mas-populares?).
+El hecho de que tres cuartas partes estén alojadas tal vez no sea sorprendente dado el dominio de Google Fonts que discutiremos [más adelante](#¿cuáles-son-los-dominios-de-terceros-más-populares).<!-- markdownlint-disable-line MD051 -->
 
 Google ofrece fuentes que utilizan archivos CSS de terceros alojados en `https://fonts.googleapis.com`. Los desarrolladores agregan solicitudes a estas hojas de estilo usando etiquetas`<link>` en su código. Si bien estas hojas de estilo bloquean el procesamiento, son muy pequeñas. Sin embargo, los archivos de fuentes se alojan en otro dominio, `https://fonts.gstatic.com`. El modelo de requerir dos peticiones separadas a dos dominios diferentes hace que `preconnect` sea una gran opción aquí para la segunda solicitud que no se descubrirá hasta que se descargue el CSS.
 
@@ -181,7 +181,7 @@ Si bien el alto uso de Google Fonts aquí es muy impresionante, también es dign
 
 - Cuando las páginas usan fuentes de Google, usan _muchas_ fuentes de Google. Se proporcionan sin costo monetario, después de todo. ¿Quizás están siendo utilizados en un editor WYSIWYG popular? Esta parece una explicación muy probable.
 - O una historia más improbable es que podría significar que mucha gente está usando Google Fonts con `@import` en lugar de `<link>`.
-- O si queremos irnos al extremo profundo hacia escenarios súper improbables, podría significar que muchas personas están usando Google Fonts con un [HTTP `Link:` header](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Link) en su lugar.
+- O si queremos irnos al extremo profundo hacia escenarios súper improbables, podría significar que muchas personas están usando Google Fonts con un [HTTP `Link:` header](https://developer.mozilla.org/docs/Web/HTTP/Headers/Link) en su lugar.
 
 {{ figure_markup(
   caption="Porcentaje de páginas que incluyen un vínculo de hoja de estilo de Google Fonts como primer elemento secundario del documento <code><head></code>.",
@@ -205,7 +205,7 @@ Como se mencionó anteriormente, una manera súper fácil de acelerar las solici
 )
 }}
 
-¡Guauu! ¡Menos del 2% de las páginas están usando <a hreflang="en" href="https://web.dev/uses-rel-preconnect">`preconnect`</a>! Dado que Google Fonts está al 75%, ¡debería ser más alto! Desarrolladores: si usa Google Fonts, use `preconnect`! Google Fonts: ¡proselitice más `preconnect`!
+¡Guauu! ¡Menos del 2% de las páginas están usando <a hreflang="es" href="https://web.dev/i18n/es/uses-rel-preconnect">`preconnect`</a>! Dado que Google Fonts está al 75%, ¡debería ser más alto! Desarrolladores: si usa Google Fonts, use `preconnect`! Google Fonts: ¡proselitice más `preconnect`!
 
 De hecho, si está usando Google Fonts, continúe y agregue esto a su `<head>` si aún no está allí:
 
@@ -373,7 +373,6 @@ Profundicemos un poco más y veamos los valores `format()` usados en la propieda
 
 {{ figure_markup(
   image="fig8.png",
-  alt="Popularidad de los formatos de fuente en las declaraciones @font-face.",
   caption="Popularidad de los formatos de fuente en las declaraciones <code>@font-face</code>.",
   description="Gráfico de barras que muestra la popularidad de los formatos utilizados en las declaraciones de fuentes. El 69% de las declaraciones @font-face de las páginas de escritorio especifican el formato WOFF2, 11% WOFF, 10% TrueType, 8% SVG, 2% EOT y menos del 1% OpenType, TTF y OTF. La distribución de las páginas móviles es similar.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDogXDb3BwZZHrBT39qccP_LJoCScD3QEi_FmjT_8VDPD_1Srpz-g7ZuuTUEb8pYXBpDmQzZ1hQh7q/pubchart?oid=700778025&format=interactive"
@@ -541,13 +540,12 @@ La herramienta número uno que tenemos para combatir el comportamiento de carga 
 
 Supongo que esto aumentará con el tiempo, especialmente ahora que <a hreflang="en" href="https://www.zachleat.com/web/google-fonts-display/">Google Fonts está agregando `font-display` a todos los nuevos fragmentos de código</a> copiado desde su sitio.
 
-Si está utilizando Google Fonts, actualice sus fragmentos. Si no está utilizando Google Fonts, use `font-display`. Lea más sobre `font-display` en [MDN](https://developer.mozilla.org/es/docs/Web/CSS/@font-face/font-display).
+Si está utilizando Google Fonts, actualice sus fragmentos. Si no está utilizando Google Fonts, use `font-display`. Lea más sobre `font-display` en [MDN](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display).
 
 Echemos un vistazo a los valores de `font-display` que son populares:
 
 {{ figure_markup(
   image="fig11.png",
-  alt="Uso de valores font-display.",
   caption="Uso de valores <code>font-display</code>.",
   description="Gráfico de barras que muestra el uso del estilo font-display. El 2,6% de las páginas móviles configuran este estilo en `swap`, 1,5% en `auto`, 0,7% en `block`, 0,4% en `fallback`, 0,2% en `optional` y 0,1% en `swap` entre comillas. que no es válido. La distribución de escritorio es similar, excepto que el uso de `swap` es menor en 0.4 puntos porcentuales y el uso `auto` es mayor en 0.1 puntos porcentuales.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDogXDb3BwZZHrBT39qccP_LJoCScD3QEi_FmjT_8VDPD_1Srpz-g7ZuuTUEb8pYXBpDmQzZ1hQh7q/pubchart?oid=1988783738&format=interactive"
@@ -606,7 +604,7 @@ Es irónico que un complemento de optimización del rendimiento pueda empeorar s
 )
 }}
 
-[`unicode-range`](https://developer.mozilla.org/es/docs/Web/CSS/@font-face/unicode-range) es una excelente propiedad de CSS para que el navegador sepa específicamente qué puntos de código le gustaría usar la página en el archivo de fuente. Si la declaración `@font-face` tiene un `unicode-range`, el contenido de la página debe coincidir con uno de los puntos de código en el rango antes de que se solicite la fuente. Es algo muy bueno.
+[`unicode-range`](https://developer.mozilla.org/docs/Web/CSS/@font-face/unicode-range) es una excelente propiedad de CSS para que el navegador sepa específicamente qué puntos de código le gustaría usar la página en el archivo de fuente. Si la declaración `@font-face` tiene un `unicode-range`, el contenido de la página debe coincidir con uno de los puntos de código en el rango antes de que se solicite la fuente. Es algo muy bueno.
 
 Esta es otra métrica que espero que esté sesgada por el uso de Google Fonts, ya que Google Fonts usa `unicode-range` en la mayoría (si no en todos) de su CSS. Espero que esto sea menos común en la tierra de los usuarios, pero tal vez sea posible filtrar las solicitudes de Google Fonts en la próxima edición del Almanaque.
 
@@ -632,13 +630,13 @@ También debe tenerse en cuenta aquí que personas más inteligentes que yo (Bra
 )
 }}
 
-Históricamente, `font-stretch` ha sufrido de un soporte deficiente del navegador y no era una prpopiedad `@font-face` conocida. Lee mas sobre [`font-stretch` en MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-stretch). Pero el <a hreflang="en" href="https://caniuse.com/#feat=css-font-stretch">soporte de los navegadores</a> se ha ampliado.
+Históricamente, `font-stretch` ha sufrido de un soporte deficiente del navegador y no era una prpopiedad `@font-face` conocida. Lee mas sobre [`font-stretch` en MDN](https://developer.mozilla.org/docs/Web/CSS/font-stretch). Pero el <a hreflang="en" href="https://caniuse.com/#feat=css-font-stretch">soporte de los navegadores</a> se ha ampliado.
 
 Se ha sugerido que el uso de fuentes condensadas en ventanas gráficas más pequeñas permite ver más texto, pero este enfoque no se usa comúnmente. Dicho esto, que esta propiedad se use medio punto porcentual más en computadoras de escritorio que en dispositivos móviles es inesperado, y el 7% parece mucho más alto de lo que hubiera predicho.
 
 ## Las fuentes variables son el futuro
 
-[Las fuentes variables](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide) permite incluir varios tamaños y estilos de fuente en un archivo de fuente.
+[Las fuentes variables](https://developer.mozilla.org/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide) permite incluir varios tamaños y estilos de fuente en un archivo de fuente.
 
 {{ figure_markup(
   caption="Porcentaje de páginas que incluyen una fuente variable.",
@@ -651,7 +649,6 @@ Incluso con un 1.8%, esto fue más alto de lo esperado, aunque estoy emocionado 
 
 {{ figure_markup(
   image="fig19.png",
-  alt="Uso de los ejes font-variation-settings.",
   caption="Uso de los ejes <code>font-variation-settings</code>.",
   description="Gráfico de barras que muestra el uso de la propiedad font-variation-settings. El 42% de las propiedades en las páginas de escritorio se establecen en el valor `opsz`, el 32% en `wght`, el 16% en `wdth`, el 2% o menos en `roun`, `crsb`, `slnt`, `inln` , y más. Las diferencias más notables entre las páginas de escritorio y móviles son el 26% de uso de `opsz`, el 38% de `wght` y el 23% de `wdth`.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDogXDb3BwZZHrBT39qccP_LJoCScD3QEi_FmjT_8VDPD_1Srpz-g7ZuuTUEb8pYXBpDmQzZ1hQh7q/pubchart?oid=699343351&format=interactive"

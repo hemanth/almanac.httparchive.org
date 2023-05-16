@@ -1,7 +1,7 @@
 ---
 #See https://github.com/HTTPArchive/almanac.httparchive.org/wiki/Authors'-Guide#metadata-to-add-at-the-top-of-your-chapters
 title: CDN
-description: CDN chapter of the 2019 Web Almanac covering CDN adoption and usage, RTT & TLS management, HTTP/2 adoption, caching and common library and content CDNs.
+description: CDN chapter of the 2019 Web Almanac covering CDN adoption and usage, RTT and TLS management, HTTP/2 adoption, caching and common library and content CDNs.
 authors: [andydavies, colinbendell]
 reviewers: [yoavweiss, paulcalvano, pmeenan, enygren]
 analysts: [raghuramakrishnan71, rviscomi]
@@ -39,7 +39,7 @@ Although CDNs are often thought of as just caches that store and serve static co
 * From a [security](./security) perspective, malicious traffic and bots can be filtered out by a CDN before the requests even reach the origin, and their wide customer base means CDNs can often see and react to new threats sooner.
 * The rise of [edge computing](https://en.wikipedia.org/wiki/Edge_computing) allows sites to run their own code close to their visitors, both improving performance and reducing the load on the origin.
 
-Finally, CDNs also help sites to adopt new technologies without requiring changes at the origin, for example [HTTP/2](./http2), TLS 1.3, and/or IPv6 can be enabled from the edge to the browser, even if the origin servers don't support it yet.
+Finally, CDNs also help sites to adopt new technologies without requiring changes at the origin, for example [HTTP/2](./http), TLS 1.3, and/or IPv6 can be enabled from the edge to the browser, even if the origin servers don't support it yet.
 
 ### Caveats and disclaimers
 
@@ -1065,13 +1065,13 @@ In general, the use of a CDN is highly correlated with a more rapid adoption of 
   )
 }}
 
-More discussion of TLS versions and ciphers can be found in the [Security](./security) and [HTTP/2](./http2) chapters.
+More discussion of TLS versions and ciphers can be found in the [Security](./security) and [HTTP/2](./http) chapters.
 
 ## HTTP/2 adoption
 
 Along with RTT management and improving TLS performance, CDNs also enable new standards like HTTP/2 and IPv6. While most CDNs offer support for HTTP/2 and many have signaled early support of the still-under-standards-development HTTP/3, adoption still depends on website owners to enable these new features. Despite the change-management overhead, the majority of the HTML served from CDNs has HTTP/2 enabled.
 
-CDNs have over 70% adoption of HTTP/2, compared to the nearly 27% of origin pages. Similarly, sub-domain and third-party resources on CDNs see an even higher adoption of HTTP/2 at 90% or higher while third-party resources served from origin infrastructure only has 31% adoption. The performance gains and other features of HTTP/2 are further covered in the [HTTP/2](./http2) chapter.
+CDNs have over 70% adoption of HTTP/2, compared to the nearly 27% of origin pages. Similarly, sub-domain and third-party resources on CDNs see an even higher adoption of HTTP/2 at 90% or higher while third-party resources served from origin infrastructure only has 31% adoption. The performance gains and other features of HTTP/2 are further covered in the [HTTP/2](./http) chapter.
 
 <p class="note">Note: All requests were made with the latest version of Chrome which supports HTTP/2. When only HTTP/1.1 is reported, this would indicate either unencrypted (non-TLS) servers or servers that don't support HTTP/2.</p>
 
@@ -1493,7 +1493,6 @@ Another useful tool is the use of the `Vary` HTTP header. This header instructs 
 
 {{ figure_markup(
   image="use_of_vary_on_cdn.png",
-  alt="Usage of Vary for HTML served from CDNs.",
   caption="Usage of <code>Vary</code> for HTML served from CDNs.",
   description="Treemap graph showing accept-encoding dominates vary usage with 73% of the chart taken up with that. Cookie (13%) and user-agent (8%) having some usage, then a complete mixed of other headers.",
   width=600,
@@ -1509,7 +1508,6 @@ In a similar way, `Vary: Cookie` usually indicates that content that will change
 
 {{ figure_markup(
   image="use_of_vary.png",
-  alt="Comparison of Vary usage for HTML and resources served from origin and CDN.",
   caption="Comparison of <code>Vary</code> usage for HTML and resources served from origin and CDN.",
   description="Set of four treemap graphs showing that for CDNs serving home pages the biggest use of Vary is for Cookie, followed by User-agent. For CDNs serving other resources it's origin, followed by accept, user-agent, x-origin and referrer. For Origins and home pages it's user-agent, followed by cookie. Finally for Origins and other resources it's primarily user-agent followed by origin, accept, then range and host."
   )
@@ -1533,7 +1531,6 @@ The `s-maxage` directive informs proxies for how long they may cache a response.
 
 {{ figure_markup(
   image="fig26.png",
-  alt="Adoption of s-maxage across CDN responses.",
   caption="Adoption of <code>s-maxage</code> across CDN responses.",
   description="Bar chart showing 82% of jsDelivr serves responses with s-maxage, 14% of Level 3, 6.3% of Amazon CloudFront, 3.3% of Akamai, 3.1% of Fastly, 3% of Highwinds, 2% of Cloudflare, 0.91% of ORIGIN, 0.75% of Edgecast, 0.07% of Google.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzPn-1SGVa3rNCT0U9QeQNODE97fsmXyaJX1ZOoBNR8nPpclhC6fg8R_UpoodeiX6HkdHrp50WBQ5Q/pubchart?oid=1215102767&format=interactive"

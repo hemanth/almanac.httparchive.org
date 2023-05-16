@@ -4,9 +4,9 @@ title: PWA
 description: サービスワーカー（登録、インストール性、イベント、ファイルサイズ）、Web App Manifestsのプロパティ、Workboxをカバーする2020年Web AlmanacのPWAの章。
 authors: [hemanth]
 reviewers: [thepassle, jadjoubran, pearlbea, gokulkrishh]
-analysts: [bazzadp]
-editors: [bazzadp]
-translators: [ksakae]
+analysts: [tunetheweb]
+editors: [tunetheweb]
+translators: [ksakae1216]
 hemanth_bio: <a hreflang="en" href="https://h3manth.com">Hemanth HM</a>は、コンピュータポリグロット、FOSS哲学者、Webと決済ドメインのためのGDE、DuckDuckGoコミュニティメンバー、TC39代表者、Google Launchpad Acceleratorメンター。WEB & CLIが大好き。<a hreflang="en" href="https://TC39er.us">TC39er.us</a>ポッドキャストを主催。
 discuss: 2050
 results: https://docs.google.com/spreadsheets/d/1AOqCkb5EggnE8BngpxvxGj_fCfssT9sZ0ElCQKp4pOw/
@@ -37,7 +37,7 @@ Web Almanacのこの章では、データ駆動の観点から、PWAを現在の
 
 ### サービスワーカーの利用状況
 
-収集したデータから、デスクトップサイトの約0.88%、モバイルサイトの約0.87%がサービスワーカーを利用していることがわかります。これは2020年8月の月のデータで、これを考慮すると、デスクトップサイトは49,305件（5,593,642件のうち）、モバイルサイトは55,019件（6,347,919件のうち）に相当します。この使用率は低いように見えるかもしれませんが、他の測定値では<a hreflang="en" href="https://www.chromestatus.com/metrics/feature/timeline/popularity/990">ウェブトラフィック</a>の16.6%に相当し、トラフィックの多いウェブサイトではサービスワーカーの使用率が高くなる傾向があるため、その差は大きいことを認識することが重要です。
+収集したデータから、デスクトップサイトの約0.88%、モバイルサイトの約0.87%がサービスワーカーを利用していることがわかります。これは2020年8月の月のデータで、これを考慮すると、デスクトップサイトは49,305件（5,593,642件のうち）、モバイルサイトは55,019件（6,347,919件のうち）に相当します。
 
 {{ figure_markup(
   image="pwa-timeseries-of-service-worker-installations.png",
@@ -48,6 +48,8 @@ Web Almanacのこの章では、データ駆動の観点から、PWAを現在の
   sql_file="sw_adoption_over_time.sql"
   )
 }}
+
+この使用率は低いように見えるかもしれませんが、他の測定値では<a hreflang="en" href="https://www.chromestatus.com/metrics/feature/timeline/popularity/990">ウェブトラフィック</a>の16.6%に相当し、トラフィックの多いウェブサイトではサービスワーカーの使用率が高くなる傾向があるため、その差は大きいことを認識することが重要です。
 
 ## Lighthouseの洞察力
 
@@ -140,13 +142,13 @@ Web Almanacのこの章では、データ駆動の観点から、PWAを現在の
 
 <p class="note">Lighthouseテストのパフォーマンス統計が8月のクロールでは正しくなかったので、<code>load-fast-enough-for-pwa</code>の結果は9月の結果に置き換えられています。</p>
 
-<a hreflang="en" href="https://web.dev/load-fast-enough-for-pwa/">高速なページロード</a>は、とくに遅い携帯電話ネットワークを考慮に入れた場合、良好なモバイルユーザー体験を保証します。27.56%のページがPWAで十分に高速に読み込まれました。ウェブがどのように地理的に分散しているかを考えると、次の10億人のウェブユーザー、そのほとんどがモバイルデバイスを介してインターネットを利用することになるであろう人々にとって、より軽量なページで高速なロードタイムを持つことはもっとも重要なことです。
+<a hreflang="ja" href="https://web.dev/i18n/ja/load-fast-enough-for-pwa/">高速なページロード</a>は、とくに遅い携帯電話ネットワークを考慮に入れた場合、良好なモバイルユーザー体験を保証します。27.56%のページがPWAで十分に高速に読み込まれました。ウェブがどのように地理的に分散しているかを考えると、次の10億人のウェブユーザー、そのほとんどがモバイルデバイスを介してインターネットを利用することになるであろう人々にとって、より軽量なページで高速なロードタイムを持つことはもっとも重要なことです。
 
 プログレッシブWebアプリを構築している場合、アプリが<a hreflang="en" href="https://web.dev/works-offline/">オフラインで作業できるように、サービスワーカーの利用を検討してみてください</a>0.92%のページがオフライン準備ができていました。
 
-ブラウザは積極的にユーザーにアプリをホーム画面に追加するよう促すことができ、エンゲージメントの向上につながる可能性があります。2.21%のページには、<a hreflang="en" href="https://web.dev/installable-manifest/">インストール可能なマニフェスト</a>が表示されていました。マニフェストは、アプリがどのように起動するか、ホーム画面上のアイコンの見た目や感触、エンゲージメント率に直接影響を与えるものとして重要な役割を果たしています。
+ブラウザは積極的にユーザーにアプリをホーム画面に追加するよう促すことができ、エンゲージメントの向上につながる可能性があります。2.21%のページには、<a hreflang="ja" href="https://web.dev/i18n/ja/installable-manifest/">インストール可能なマニフェスト</a>が表示されていました。マニフェストは、アプリがどのように起動するか、ホーム画面上のアイコンの見た目や感触、エンゲージメント率に直接影響を与えるものとして重要な役割を果たしています。
 
-機密データを扱わないサイトであっても、すべてのサイトはHTTPSで保護されるべきです。これには、<a hreflang="en" href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content">混合コンテンツ</a>の回避も含まれます。これには、最初のリクエストがHTTPSで提供されているにもかかわらず、一部のリソースがHTTPでロードされていることも含まれます。HTTPSは、侵入者がアプリとユーザー間の通信を改ざんしたり、受動的に盗聴したりすることを防ぎ、サービスワーカーや、[HTTP/2](./http2)のような多くの新しいウェブプラットフォーム機能やAPIの前提条件となります。 <a hreflang="en" href="https://web.dev/is-on-https/">is-on-httpsチェック</a>では、67.27%のサイトがコンテンツが混在していないhttpsになっており、まだ上位には到達していないのが驚きです。[セキュリティ](./security#transport-security)の章では、86.91%のサイトがHTTPSを使用していることが示されており、混合コンテンツの方が今は大きな問題になっている可能性があることを示唆しています。この数字は、ブラウザがアプリケーションにHTTPS対応を義務づけ、HTTPS対応していないものをより精査するようになれば、さらに良くなるでしょう。
+機密データを扱わないサイトであっても、すべてのサイトはHTTPSで保護されるべきです。これには、<a hreflang="en" href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content">混合コンテンツ</a>の回避も含まれます。これには、最初のリクエストがHTTPSで提供されているにもかかわらず、一部のリソースがHTTPでロードされていることも含まれます。HTTPSは、侵入者がアプリとユーザー間の通信を改ざんしたり、受動的に盗聴したりすることを防ぎ、サービスワーカーや、[HTTP/2](./http)のような多くの新しいウェブプラットフォーム機能やAPIの前提条件となります。 <a hreflang="en" href="https://web.dev/is-on-https/">is-on-httpsチェック</a>では、67.27%のサイトがコンテンツが混在していないhttpsになっており、まだ上位には到達していないのが驚きです。[セキュリティ](./security#トランスポートセキュリティ)の章では、86.91%のサイトがHTTPSを使用していることが示されており、混合コンテンツの方が今は大きな問題になっている可能性があることを示唆しています。この数字は、ブラウザがアプリケーションにHTTPS対応を義務づけ、HTTPS対応していないものをより精査するようになれば、さらに良くなるでしょう。
 
 すでにHTTPSを設定している場合は、URLを変更せずにユーザーに安全な接続を可能にするため、<a hreflang="en" href="https://web.dev/redirects-http/">すべてのHTTPトラフィックをHTTPSにリダイレクトすることを確認してください</a>: サイトの69.92%だけがこの監査に合格しています。アプリケーション上のすべてのHTTPをHTTPSにリダイレクトすることは、HTTPSへのHTTPリダイレクトはまともな数のサイトが通過しているにもかかわらず、堅牢性に向けたシンプルなステップである必要がありますが、それはより良いことができます。
 
@@ -156,15 +158,15 @@ iOS上で理想的な外観を得るために、プログレッシブウェブ�
 
 アプリのコンテンツの幅とビューポートの幅が一致しない場合、アプリがモバイル画面に最適化されていない可能性があります。79.18%のサイトでは、<a hreflang="en" href="https://web.dev/content-width/">コンテンツの幅</a>が正しく設定されています。
 
-<a hreflang="en" href="https://web.dev/maskable-icon-audit/">マスカブルアイコン</a>は、プログレッシブウェブアプリをホーム画面へ追加する際に、文字化けせずに画像が全体を埋め尽くすことを保証します。これを使用しているサイトは0.11%に過ぎませんが、真新しい機能であることを考えると、この機能が使用されていることは励みになります。まだ導入されたばかりなので、この数字は非常に低いと予想していましたが、今後数年で改善されていくはずです。
+<a hreflang="ja" href="https://web.dev/i18n/ja/maskable-icon-audit/">マスカブルアイコン</a>は、プログレッシブウェブアプリをホーム画面へ追加する際に、文字化けせずに画像が全体を埋め尽くすことを保証します。これを使用しているサイトは0.11%に過ぎませんが、真新しい機能であることを考えると、この機能が使用されていることは励みになります。まだ導入されたばかりなので、この数字は非常に低いと予想していましたが、今後数年で改善されていくはずです。
 
 サービスワーカーは、予測できないネットワーク状況でもWebアプリの信頼性を高めることができます。0.77%のサイトでは、ネットワークに接続されていない状態でもアプリを動作させるための<a hreflang="en" href="https://web.dev/offline-start-url/">オフライン起動URL</a>が用意されています。ネットワークの不備は、Webアプリケーションの利用者が直面するもっとも一般的な問題であるため、これはPWAにとってもっとも重要な機能の1つと言えるでしょう。
 
-<a hreflang="en" href="https://web.dev/service-worker/">サービスワーカー</a>は、オフラインでの利用やプッシュ通知など、プログレッシブウェブアプリの多くの機能をアプリで利用できるようにする機能です。1.05%のページでサービスワーカーが有効化されています。サービスワーカーで対応できる強力な機能と、以前からサポートされていたことを考えると、その数がまだ少ないのは驚きです。
+<a hreflang="ja" href="https://web.dev/i18n/ja/service-worker/">サービスワーカー</a>は、オフラインでの利用やプッシュ通知など、プログレッシブウェブアプリの多くの機能をアプリで利用できるようにする機能です。1.05%のページでサービスワーカーが有効化されています。サービスワーカーで対応できる強力な機能と、以前からサポートされていたことを考えると、その数がまだ少ないのは驚きです。
 
 テーマ付きの<a hreflang="en" href="https://web.dev/splash-screen/">スプラッシュスクリーン</a>は、ユーザーがホーム画面からアプリを起動した際のネイティブに近い体験を保証します。1.95%のページにスプラッシュスクリーンがありました。
 
-ブラウザのアドレスバーをサイトに合わせてテーマ化できます。4.00%のページでは、<a hreflang="en" href="https://web.dev/themed-omnibox/">オムニボックス</a>がテーマ化されていました。
+ブラウザのアドレスバーをサイトに合わせてテーマ化できます。4.00%のページでは、<a hreflang="ja" href="https://web.dev/i18n/ja/themed-omnibox/">オムニボックス</a>がテーマ化されていました。
 
 JavaScriptが無効になっている場合、アプリを使用するにはJavaScriptが必要であるというユーザーへの単なる警告であっても、アプリは一部のコンテンツを表示する必要があります。 97.57％のページには、JavaScriptが<a hreflang="en" href="https://web.dev/without-javascript/">無効</a>の空白ページ以上のものが表示されます。 ホームページのみを調査していることを考えると、3.43％のサイトがこの監査に失敗したことはおそらくもっと驚くべきことです！
 
@@ -172,14 +174,14 @@ JavaScriptが無効になっている場合、アプリを使用するにはJava
 
 サービスワーカーでは、いくつかのイベントをリッスンできます。
 
-1.  `install`は、サービスワーカーのインストール時に発生します。
-2.  `activate`は、サービスワーカーの起動時に発生します。
-3.  `fetch`は、リソースがfetchされるたびに発生します。
-4.  `push`は、プッシュ通知が届いたときに発生します。
-5.  `notificationclick`は、通知がクリックされたときに発生します。
-6.  `notificationclose`は、通知を閉じているときに発生します。
-7.  `message`は、postMessage()で送信したメッセージが到着したときに発生します。
-8.  `sync`は、バックグラウンドの同期イベントが発生したときに発生します。
+1. `install`は、サービスワーカーのインストール時に発生します。
+2. `activate`は、サービスワーカーの起動時に発生します。
+3. `fetch`は、リソースがfetchされるたびに発生します。
+4. `push`は、プッシュ通知が届いたときに発生します。
+5. `notificationclick`は、通知がクリックされたときに発生します。
+6. `notificationclose`は、通知を閉じているときに発生します。
+7. `message`は、postMessage()で送信したメッセージが到着したときに発生します。
+8. `sync`は、バックグラウンドの同期イベントが発生したときに発生します。
 
 今回のデータセットでは、これらのイベントのうち、どのイベントがサービスワーカーに聴かれているかを調べました。
 
@@ -193,7 +195,7 @@ JavaScriptが無効になっている場合、アプリを使用するにはJava
   )
 }}
 
- モバイルとデスクトップの結果は非常に似ており、`install`、`fetch`、`activate`がもっとも人気のある3つのイベントで、`message`、`notification click`、`push`、`sync`と続きます。この結果を解釈すると、サービスワーカーが可能にするオフラインのユースケースは、アプリ開発者にとってプッシュ通知をはるかにしのぐ、もっとも魅力的な機能であると言えます。バックグラウンド同期は、利用可能な機能が限られており、一般的なユースケースではないため、現時点では重要な役割を果たしていません。
+モバイルとデスクトップの結果は非常に似ており、`install`、`fetch`、`activate`がもっとも人気のある3つのイベントで、`message`、`notification click`、`push`、`sync`と続きます。この結果を解釈すると、サービスワーカーが可能にするオフラインのユースケースは、アプリ開発者にとってプッシュ通知をはるかにしのぐ、もっとも魅力的な機能であると言えます。バックグラウンド同期は、利用可能な機能が限られており、一般的なユースケースではないため、現時点では重要な役割を果たしていません。
 
 ## ウェブアプリのマニフェスト
 
@@ -260,7 +262,6 @@ Google Cloud Messaging(GCM)サービスで使用されている`gcm_sender_id`�
 
 {{ figure_markup(
   image="pwa-most-used-display-values-for-service-worker-pages.png",
-  alt="サービスワーカーのページでもっとも使用される表示値です。",
   caption="サービスワーカーのページでもっとも使用される`display`の値です。",
   description="もっとも一般的な5つの`display`値を使用しているページの割合を示す棒グラフで、デスクトップページの86.73%、モバイルページの89.28%が使用している`standalone`が圧倒的に多く、`minimal-ui`はデスクトップの6.30%、モバイルの5.00%で使用され、デスクトップページの1.15%、モバイルページの0.88%が`display`値を設定しておらず、最後にデスクトップの1.00%、モバイルの0.72%が`browser`に設定しています。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRRpTSA4fsHwUap-ByQ08j95uo7Zm1kY6lTSvA-DZT54g2QZ0guV7db3QyQwQgMPzsKsJ43gbzqfJst/pubchart?oid=872942071&format=interactive",
@@ -344,7 +345,7 @@ orientationプロパティの有効な値は、Screen Orientation API<a hreflang
 
 ### 人気のインポートスクリプト
 
-[WorkerGlobalScope インタフェース](https://developer.mozilla.org/ja/docs/Web/API/WorkerGlobalScope)の[importScripts() API](https://developer.mozilla.org/ja/docs/Web/API/WorkerGlobalScope/importScripts)は、1つまたは複数のスクリプトをワーカーのスコープに同期的にインポートします。同じことが、外部の依存関係をサービスワーカーにインポートするためにも使われます。
+[WorkerGlobalScope インタフェース](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope)の[importScripts() API](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/importScripts)は、1つまたは複数のスクリプトをワーカーのスコープに同期的にインポートします。同じことが、外部の依存関係をサービスワーカーにインポートするためにも使われます。
 
 <figure>
 <table>

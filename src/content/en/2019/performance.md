@@ -3,7 +3,7 @@
 title: Performance
 description: Performance chapter of the 2019 Web Almanac covering First Contentful Paint (FCP), Time to First Byte (TTFB), and First Input Delay (FID).
 authors: [rviscomi]
-reviewers: [JMPerez,obto,sergeychernyshev,zeman]
+reviewers: [JMPerez,foxdavidj,sergeychernyshev,zeman]
 analysts: [rviscomi, raghuramakrishnan71]
 editors: [rachellcostello]
 translators: []
@@ -43,7 +43,7 @@ Almost all of the other chapters in the Web Almanac are based on data from the <
   - 4G
 - Users' geographic locations
 
-Experiences are measured monthly, including paint, load, and interactivity metrics. The first metric we'll look at is <a hreflang="en" href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_first_contentful_paint">First Contentful Paint</a> (FCP). This is the time users spend waiting for the page to display something useful to the screen, like an image or text. Then, we'll look at look at a loading metric, [Time to First Byte](https://developer.mozilla.org/en-US/docs/Glossary/time_to_first_byte) (TTFB). This is a measure of how long the web page took from the time of the user's navigation until they received the first byte of the response. And, finally, the last field metric we'll look at is <a hreflang="en" href="https://developers.google.com/web/updates/2018/05/first-input-delay">First Input Delay</a> (FID). This is a relatively new metric and one that represents parts of the UX other than loading performance. It measures the time from a user's first interaction with a page's UI until the time the browser's main thread is ready to process the event.
+Experiences are measured monthly, including paint, load, and interactivity metrics. The first metric we'll look at is <a hreflang="en" href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_first_contentful_paint">First Contentful Paint</a> (FCP). This is the time users spend waiting for the page to display something useful to the screen, like an image or text. Then, we'll look at look at a loading metric, [Time to First Byte](https://developer.mozilla.org/docs/Glossary/time_to_first_byte) (TTFB). This is a measure of how long the web page took from the time of the user's navigation until they received the first byte of the response. And, finally, the last field metric we'll look at is <a hreflang="en" href="https://developers.google.com/web/updates/2018/05/first-input-delay">First Input Delay</a> (FID). This is a relatively new metric and one that represents parts of the UX other than loading performance. It measures the time from a user's first interaction with a page's UI until the time the browser's main thread is ready to process the event.
 
 So let's dive in and see what insights we can find.
 
@@ -79,7 +79,6 @@ To help us understand how users experience FCP across different devices, let's s
 
 {{ figure_markup(
   image="fig3.png",
-  alt="Distribution of desktop websites' fast, moderate, and slow FCP performance.",
   caption="Distribution of <em>desktop</em> websites' fast, moderate, and slow FCP performance.",
   description="Distribution of 1,000 desktop websites' fast, moderate, and slow FCP. The distribution of fast FCP appears to be linear from 100% to 0% with a slight bulge in the middle.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=1231764008&format=interactive"
@@ -88,7 +87,6 @@ To help us understand how users experience FCP across different devices, let's s
 
 {{ figure_markup(
   image="fig4.png",
-  alt="Distribution of phone websites' fast, moderate, and slow FCP performance.",
   caption="Distribution of <em>phone</em> websites' fast, moderate, and slow FCP performance.",
   description="Distribution of 1,000 mobile websites' fast, moderate, and slow FCP. The distribution of fast FCP appears to be linear from 100% to 0% without the same middle bulge seen for desktop websites.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=167423587&format=interactive"
@@ -113,7 +111,6 @@ Why might desktop users experience fast FCP on a higher proportion of websites t
 
 {{ figure_markup(
   image="fig6.png",
-  alt="Distribution of websites labeled as having fast, moderate, or slow FCP, broken down by ECT (Effective Connection Type).",
   caption='Distribution of websites labeled as having fast, moderate, or slow FCP, broken down by <abbr title="effective connection type">ECT</abbr>.',
   description="Bar chart of FCP distributions per effective connection type. 4G fast, moderate, slow: 14%, 67%, and 19% respectively. 3G: 1%, 38%, and 61%. 2G: 0%, 9%, 90%. Slow 2G: 0%, 1%, 99%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=1987967547&format=interactive"
@@ -153,7 +150,7 @@ Other APAC geos tell a different story. Thailand, Vietnam, Indonesia, and India 
   )
 }}
 
-To help explain TTFB and the many factors that affect it, let's borrow a diagram from the [Navigation Timing API spec](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API). In Figure 7.8 above, TTFB is the duration from `startTime` to `responseStart`, including everything in between: `unload`, `redirects`, `AppCache`, `DNS`, `SSL`, `TCP`, and the time the server spends handling the request. Given that context, let's see how users are experiencing this metric.
+To help explain TTFB and the many factors that affect it, let's borrow a diagram from the [Navigation Timing API spec](https://developer.mozilla.org/docs/Web/API/Navigation_timing_API). In Figure 7.8 above, TTFB is the duration from `startTime` to `responseStart`, including everything in between: `unload`, `redirects`, `AppCache`, `DNS`, `SSL`, `TCP`, and the time the server spends handling the request. Given that context, let's see how users are experiencing this metric.
 
 {{ figure_markup(
   image="fig9.png",
@@ -209,6 +206,7 @@ Let's start by defining some thresholds. According to the new PSI methodology, a
   )
 }}
 
+<!-- markdownlint-disable-next-line MD051 -->
 You know the drill by now. This chart shows the distribution of websites' fast, moderate, and slow FID experiences. This is a dramatically different chart from the previous charts for FCP and TTFB. (See [Figure 7.1](#fig-1) and [Figure 7.9](#fig-9), respectively). The curve of fast FID very slowly descends from 100% to 75%, then takes a nosedive. The overwhelming majority of FID experiences are fast for most websites.
 
 {{ figure_markup(
@@ -227,7 +225,6 @@ Compared to the previous metrics, the distribution of aggregate FID performance 
 
 {{ figure_markup(
   image="fig14.png",
-  alt="Distribution of desktop websites' fast, moderate, and slow FID performance.",
   caption="Distribution of <em>desktop</em> websites' fast, moderate, and slow FID performance.",
   description="Distribution of 1,000 desktop websites' fast, moderate, and slow FID. The distribution of fast FID decreases very slowly from 100% to 90% for the fastest three quarters of websites. After that, fast FID decreases slightly to 75%. Nearly all desktop websites have more than 75% fast FID experiences.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=16379508&format=interactive"
@@ -236,7 +233,6 @@ Compared to the previous metrics, the distribution of aggregate FID performance 
 
 {{ figure_markup(
   image="fig15.png",
-  alt="Distribution of phone websites' fast, moderate, and slow FID performance.",
   caption="Distribution of <em>phone</em> websites' fast, moderate, and slow FID performance.",
   description="Distribution of 1,000 mobile websites' fast, moderate, and slow FID. The distribution of fast FID declines steadily but much more quickly than desktop. It reaches 75% fast for at three quarters of websites then quickly drops to 0%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=519511409&format=interactive"
@@ -259,7 +255,6 @@ When we apply the PSI labeling to desktop and phone experiences, the distinction
 
 {{ figure_markup(
   image="fig17.png",
-  alt="Distribution of websites labeled as having fast, moderate, or slow FID, broken down by ECT.",
   caption='Distribution of websites labeled as having fast, moderate, or slow FID, broken down by <abbr title="effective connection type">ECT</abbr>.',
   description="Bar chart of FID distributions per effective connection type. 4G fast, moderate, slow: 41%, 45%, and 15% respectively. 3G: 22%, 52%, and 26%. 2G: 19%, 58%, 23%. Slow 2G: 15%, 58%, 27%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=1173039776&format=interactive"

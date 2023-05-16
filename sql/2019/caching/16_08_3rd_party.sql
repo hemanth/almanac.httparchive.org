@@ -17,8 +17,8 @@ SELECT
 FROM (
   SELECT
     client,
-    IF (STRPOS(NET.HOST(url), REGEXP_EXTRACT(NET.REG_DOMAIN(page), r'([\w-]+)')) > 0, 1, 3) AS party,
-    TRIM(resp_expires) != "" AS uses_expires,
+    IF(STRPOS(NET.HOST(url), REGEXP_EXTRACT(NET.REG_DOMAIN(page), r'([\w-]+)')) > 0, 1, 3) AS party,
+    TRIM(resp_expires) != '' AS uses_expires,
     REGEXP_CONTAINS(resp_cache_control, r'(?i)max-age\s*=') AS uses_max_age
   FROM
     `httparchive.almanac.requests`

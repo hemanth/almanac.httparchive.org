@@ -3,10 +3,10 @@
 title: JavaScript
 description: 2019年のWeb AlmanacのJavaScriptの章では、Web上でどれだけJavaScriptを使用しているか、圧縮、ライブラリとフレームワーク、読み込み、ソースマップを網羅しています。
 authors: [housseindjirdeh]
-reviewers: [obto, paulcalvano, mathiasbynens, rviscomi]
+reviewers: [foxdavidj, paulcalvano, mathiasbynens, rviscomi]
 analysts: [rviscomi]
-editors: [obto]
-translators: [ksakae]
+editors: [foxdavidj]
+translators: [ksakae1216]
 discuss: 1756
 results: https://docs.google.com/spreadsheets/d/1kBTglETN_V9UjKqK_EFmFjRexJnQOmLLr-I2Tkotvic/
 housseindjirdeh_bio: HousseinはGoogleの開発提唱者で、スピード、パフォーマンス、ウェブフレームワークのエコシステムに取り組んでいます。彼は <a href="https://twitter.com/hdjirdeh">@hdjirdeh</a> でツイートし、<a hreflang="en" href="https://houssein.me/">https://houssein.me/</a> でブログを書いています。
@@ -75,7 +75,6 @@ V8のメインスレッドの処理時間を異なるパーセンタイルで分
 
 {{ figure_markup(
   image="js-processing-reddit.png",
-  alt="reddit.comのJavaScript処理時間。",
   caption='reddit.comのJavaScript処理時間。<a hreflang="en" href="https://v8.dev/blog/cost-of-javascript-2019">2019年のJavaScriptのコスト</a>より。',
   description="3つの異なるデバイスを示す棒グラフ: 上部のPixel3は、メインスレッドとワーカースレッドの両方で400ms未満と量が少ないです。Moto G4の場合、メインスレッドで約900ms、ワーカースレッドでさらに300msです。そして最後のバーはAlcatel 1X 5059Dで、メインスレッドで2,000ms以上、ワーカースレッドで500ms以上となっています。",
   width=600,
@@ -85,7 +84,7 @@ V8のメインスレッドの処理時間を異なるパーセンタイルで分
 
 ### リクエスト数
 
-Webページで使用されているJavaScriptの量を分析しようとする場合、1つの方法として、送信されたリクエスト数を調べる価値があります。[HTTP/2](./http2)では、複数の小さなチャンクを送信することで、より大きなモノリシックなバンドルを送信するよりもページの負荷を改善できます。また、デバイスクライアント別に分解してみると、どのくらいのリクエストがフェッチされているのでしょうか。
+Webページで使用されているJavaScriptの量を分析しようとする場合、1つの方法として、送信されたリクエスト数を調べる価値があります。[HTTP/2](./http)では、複数の小さなチャンクを送信することで、より大きなモノリシックなバンドルを送信するよりもページの負荷を改善できます。また、デバイスクライアント別に分解してみると、どのくらいのリクエストがフェッチされているのでしょうか。
 
 {{ figure_markup(
   image="fig5.png",
@@ -169,126 +168,126 @@ JavaScriptのリソースを圧縮しているサイトはどれくらいある�
 オープンソースコード、または誰でもアクセス、閲覧、修正が可能な寛容なライセンスを持つコード。小さなライブラリから、<a hreflang="en" href="https://www.chromium.org/Home">Chromium</a>や<a hreflang="en" href="https://www.openhub.net/p/firefox">Firefox</a>のようなブラウザ全体に至るまで、オープンソースコードはウェブ開発の世界で重要な役割を果たしています。JavaScriptの文脈では、開発者はオープンソースのツールに依存して、あらゆるタイプの機能をWebページに組み込んでいます。開発者が小さなユーティリティライブラリを使用するか、アプリケーション全体のアーキテクチャを決定する大規模なフレームワークを使用するかにかかわらずオープンソースのパッケージに依存することで、機能開発をより簡単かつ迅速にできます。では、どのJavaScriptオープンソースライブラリが最もよく使われているのでしょうか？
 
 <figure>
-   <table>
-      <thead>
-        <tr>
-          <th>ライブラリ</th>
-          <th>デスクトップ</th>
-          <th>モバイル</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>jQuery</td>
-          <td class="numeric">85.03%</td>
-          <td class="numeric">83.46%</td>
-        </tr>
-        <tr>
-          <td>jQuery Migrate</td>
-          <td class="numeric">31.26%</td>
-          <td class="numeric">31.68%</td>
-        </tr>
-        <tr>
-          <td>jQuery UI</td>
-          <td class="numeric">23.60%</td>
-          <td class="numeric">21.75%</td>
-        </tr>
-        <tr>
-          <td>Modernizr</td>
-          <td class="numeric">17.80%</td>
-          <td class="numeric">16.76%</td>
-        </tr>
-        <tr>
-          <td>FancyBox</td>
-          <td class="numeric">7.04%</td>
-          <td class="numeric">6.61%</td>
-        </tr>
-        <tr>
-          <td>Lightbox</td>
-          <td class="numeric">6.02%</td>
-          <td class="numeric">5.93%</td>
-        </tr>
-        <tr>
-          <td>Slick</td>
-          <td class="numeric">5.53%</td>
-          <td class="numeric">5.24%</td>
-        </tr>
-        <tr>
-          <td>Moment.js</td>
-          <td class="numeric">4.92%</td>
-          <td class="numeric">4.29%</td>
-        </tr>
-        <tr>
-          <td>Underscore.js</td>
-          <td class="numeric">4.20%</td>
-          <td class="numeric">3.82%</td>
-        </tr>
-        <tr>
-          <td>prettyPhoto</td>
-          <td class="numeric">2.89%</td>
-          <td class="numeric">3.09%</td>
-        </tr>
-        <tr>
-          <td>Select2</td>
-          <td class="numeric">2.78%</td>
-          <td class="numeric">2.48%</td>
-        </tr>
-        <tr>
-          <td>Lodash</td>
-          <td class="numeric">2.65%</td>
-          <td class="numeric">2.68%</td>
-        </tr>
-        <tr>
-          <td>Hammer.js</td>
-          <td class="numeric">2.28%</td>
-          <td class="numeric">2.70%</td>
-        </tr>
-        <tr>
-          <td>YUI</td>
-          <td class="numeric">1.84%</td>
-          <td class="numeric">1.50%</td>
-        </tr>
-        <tr>
-          <td>Lazy.js</td>
-          <td class="numeric">1.26%</td>
-          <td class="numeric">1.56%</td>
-        </tr>
-        <tr>
-          <td>Fingerprintjs</td>
-          <td class="numeric">1.21%</td>
-          <td class="numeric">1.32%</td>
-        </tr>
-        <tr>
-          <td>script.aculo.us</td>
-          <td class="numeric">0.98%</td>
-          <td class="numeric">0.85%</td>
-        </tr>
-        <tr>
-          <td>Polyfill</td>
-          <td class="numeric">0.97%</td>
-          <td class="numeric">1.00%</td>
-        </tr>
-        <tr>
-          <td>Flickity</td>
-          <td class="numeric">0.83%</td>
-          <td class="numeric">0.92%</td>
-        </tr>
-        <tr>
-          <td>Zepto</td>
-          <td class="numeric">0.78%</td>
-          <td class="numeric">1.17%</td>
-        </tr>
-        <tr>
-          <td>Dojo</td>
-          <td class="numeric">0.70%</td>
-          <td class="numeric">0.62%</td>
-        </tr>
-      </tbody>
-    </table>
-   <figcaption>{{ figure_link(caption="デスクトップとモバイルでのトップ JavaScript ライブラリ") }}</figcaption>
+  <table>
+    <thead>
+      <tr>
+        <th>ライブラリ</th>
+        <th>デスクトップ</th>
+        <th>モバイル</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>jQuery</td>
+        <td class="numeric">85.03%</td>
+        <td class="numeric">83.46%</td>
+      </tr>
+      <tr>
+        <td>jQuery Migrate</td>
+        <td class="numeric">31.26%</td>
+        <td class="numeric">31.68%</td>
+      </tr>
+      <tr>
+        <td>jQuery UI</td>
+        <td class="numeric">23.60%</td>
+        <td class="numeric">21.75%</td>
+      </tr>
+      <tr>
+        <td>Modernizr</td>
+        <td class="numeric">17.80%</td>
+        <td class="numeric">16.76%</td>
+      </tr>
+      <tr>
+        <td>FancyBox</td>
+        <td class="numeric">7.04%</td>
+        <td class="numeric">6.61%</td>
+      </tr>
+      <tr>
+        <td>Lightbox</td>
+        <td class="numeric">6.02%</td>
+        <td class="numeric">5.93%</td>
+      </tr>
+      <tr>
+        <td>Slick</td>
+        <td class="numeric">5.53%</td>
+        <td class="numeric">5.24%</td>
+      </tr>
+      <tr>
+        <td>Moment.js</td>
+        <td class="numeric">4.92%</td>
+        <td class="numeric">4.29%</td>
+      </tr>
+      <tr>
+        <td>Underscore.js</td>
+        <td class="numeric">4.20%</td>
+        <td class="numeric">3.82%</td>
+      </tr>
+      <tr>
+        <td>prettyPhoto</td>
+        <td class="numeric">2.89%</td>
+        <td class="numeric">3.09%</td>
+      </tr>
+      <tr>
+        <td>Select2</td>
+        <td class="numeric">2.78%</td>
+        <td class="numeric">2.48%</td>
+      </tr>
+      <tr>
+        <td>Lodash</td>
+        <td class="numeric">2.65%</td>
+        <td class="numeric">2.68%</td>
+      </tr>
+      <tr>
+        <td>Hammer.js</td>
+        <td class="numeric">2.28%</td>
+        <td class="numeric">2.70%</td>
+      </tr>
+      <tr>
+        <td>YUI</td>
+        <td class="numeric">1.84%</td>
+        <td class="numeric">1.50%</td>
+      </tr>
+      <tr>
+        <td>Lazy.js</td>
+        <td class="numeric">1.26%</td>
+        <td class="numeric">1.56%</td>
+      </tr>
+      <tr>
+        <td>Fingerprintjs</td>
+        <td class="numeric">1.21%</td>
+        <td class="numeric">1.32%</td>
+      </tr>
+      <tr>
+        <td>script.aculo.us</td>
+        <td class="numeric">0.98%</td>
+        <td class="numeric">0.85%</td>
+      </tr>
+      <tr>
+        <td>Polyfill</td>
+        <td class="numeric">0.97%</td>
+        <td class="numeric">1.00%</td>
+      </tr>
+      <tr>
+        <td>Flickity</td>
+        <td class="numeric">0.83%</td>
+        <td class="numeric">0.92%</td>
+      </tr>
+      <tr>
+        <td>Zepto</td>
+        <td class="numeric">0.78%</td>
+        <td class="numeric">1.17%</td>
+      </tr>
+      <tr>
+        <td>Dojo</td>
+        <td class="numeric">0.70%</td>
+        <td class="numeric">0.62%</td>
+      </tr>
+    </tbody>
+  </table>
+  <figcaption>{{ figure_link(caption="デスクトップとモバイルでのトップ JavaScript ライブラリ") }}</figcaption>
 </figure>
 
-これまでに作成された中で最も人気のあるJavaScriptライブラリである<a hreflang="en" href="https://jquery.com/">jQuery</a>は、デスクトップページの85.03％、モバイルページの83.46％で使用されています。[Fetch](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API)や[querySelector](https://developer.mozilla.org/ja/docs/Web/API/Document/querySelector)など、多くのブラウザAPIやメソッドの出現により、ライブラリが提供する機能の多くがネイティブ形式に標準化されました。jQueryの人気は衰退しているように見えるかもしれませんが、なぜ今でもウェブの大部分で使われているのでしょうか？
+これまでに作成された中で最も人気のあるJavaScriptライブラリである<a hreflang="en" href="https://jquery.com/">jQuery</a>は、デスクトップページの85.03％、モバイルページの83.46％で使用されています。[Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API)や[querySelector](https://developer.mozilla.org/docs/Web/API/Document/querySelector)など、多くのブラウザAPIやメソッドの出現により、ライブラリが提供する機能の多くがネイティブ形式に標準化されました。jQueryの人気は衰退しているように見えるかもしれませんが、なぜ今でもウェブの大部分で使われているのでしょうか？
 
 理由はいくつか考えられます。
 
@@ -305,7 +304,6 @@ JavaScriptのリソースを圧縮しているサイトはどれくらいある�
 
 {{ figure_markup(
   image="fig12.png",
-  alt="デスクトップで最もよく使われるフレームワーク",
   caption="デスクトップで最もよく使われるフレームワーク",
   description="Reactを使用しているサイトは4.6％、AngularJSを使用しているサイトは2.0％、Backbone.jsを使用しているサイトは1.8％、Vue.jsを使用しているサイトは0.8％、Knockout.jsを使用しているサイトは0.4％、Zone.jsを使用しているサイトは0.3％、Angularを使用しているサイトは0.3％、AMPを使用しているサイトは0.1％、Ember.jsを使用しているサイトは0.1％という棒グラフになっています。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTpzDb9HGbdVvin6YPTOmw11qBVGGysltxmH545fUfnqIThAq878F_b-KxUo65IuXaeFVSnlmJ5K1Dm/pubchart?oid=1699359221&format=interactive"
@@ -361,7 +359,7 @@ JavaScriptのリソースを圧縮しているサイトはどれくらいある�
 
 ## プリロードとプリフェッチ
 
-[プリロード](https://developer.mozilla.org/ja/docs/Web/HTML/Preloading_content) と [プリフェッチ](https://developer.mozilla.org/ja/docs/Web/HTTP/Link_prefetching_FAQ)は[リソースヒント](./resource-hints)であり、どのリソースをダウンロードする必要があるかを判断する際にブラウザを助けることができます。
+[プリロード](https://developer.mozilla.org/docs/Web/HTML/Link_types/preload) と [プリフェッチ](https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ)は[リソースヒント](./resource-hints)であり、どのリソースをダウンロードする必要があるかを判断する際にブラウザを助けることができます。
 
 - `<link rel="preload">`でリソースをプリロードすると、ブラウザはこのリソースをできるだけ早くダウンロードするように指示します。これは、ページの読み込みプロセスの後半に発見され、最後にダウンロードされてしまう重要なリソース（例えば、HTMLの下部にあるJavaScriptなど）に特に役立ちます。
 - `<link rel="prefetch">`を使用することで、ブラウザが将来のナビゲーションに必要なリソースを取得するためのアイドル時間を利用できるようにします。
@@ -398,12 +396,12 @@ HTTP Archiveを使用すると、サポートされている（あるいはこ�
 
 以下のAPIを使用しているサイトはどれくらいありますか？
 
-- [Atomics](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
-- [Intl](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Intl)
-- [Proxy](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
-- [SharedArrayBuffer](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
-- [WeakMap](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
-- [WeakSet](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+- [Atomics](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
+- [Intl](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+- [Proxy](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+- [SharedArrayBuffer](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
+- [WeakMap](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+- [WeakSet](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
 
 {{ figure_markup(
   image="fig17.png",
@@ -427,7 +425,6 @@ Atomics(0.38％)とSharedArrayBuffer(0.20％)は、使用されているペー�
 
 {{ figure_markup(
   image="fig18.png",
-  alt="ソースマップを使用しているサイトの割合。",
   caption="ソースマップを使用しているサイトの割合。",
   description="デスクトップサイトの18％、モバイルサイトの17％がソースマップを使用していることを示す棒グラフ。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTpzDb9HGbdVvin6YPTOmw11qBVGGysltxmH545fUfnqIThAq878F_b-KxUo65IuXaeFVSnlmJ5K1Dm/pubchart?oid=906754154&format=interactive"

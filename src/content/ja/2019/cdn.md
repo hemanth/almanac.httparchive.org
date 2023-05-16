@@ -6,7 +6,7 @@ authors: [andydavies, colinbendell]
 reviewers: [yoavweiss, paulcalvano, pmeenan, enygren]
 analysts: [raghuramakrishnan71, rviscomi]
 editors: [rviscomi]
-translators: [ksakae]
+translators: [ksakae1216]
 discuss: 1772
 results: https://docs.google.com/spreadsheets/d/1Y7kAxjxUl8puuTToe6rL3kqJLX1ftOb0nCcD8m3lZBw/
 andydavies_bio: Andy Daviesはフリーランスのウェブパフォーマンスコンサルタントであり、英国の大手小売業者、新聞社、金融サービス会社のサイトの高速化を支援してきました。彼は『ウェブパフォーマンスのポケットガイド』を執筆し、『Using WebPageTest』の共著者であり、ロンドンのウェブパフォーマンス・ミートアップの主催者でもあります。アンディは Twitter で <a href="https://twitter.com/andydavies">@AndyDavies</a> として活動しており、<a hreflang="en" href="https://andydavies.me">https://andydavies.me</a> で時々ブログを更新しています。
@@ -1065,13 +1065,13 @@ TLSおよびRTTのパフォーマンスにCDNを使用することに加えて�
   )
 }}
 
-TLSバージョンと暗号の詳細については、[セキュリティ](./security)と[HTTP/2](./http2)の章を参照してください。
+TLSバージョンと暗号の詳細については、[セキュリティ](./security)と[HTTP/2](./http)の章を参照してください。
 
 ## HTTP/2採用
 
 RTT管理とTLSパフォーマンスの向上に加えて、CDNはHTTP/2やIPv6などの新しい標準も有効にします。ほとんどのCDNはHTTP/2のサポートを提供し、多くはまだ標準以下の開発HTTP/3の早期サポートを示していますが、これらの新機能を有効にするかどうかは依然としてWebサイト所有者に依存しています。変更管理のオーバーヘッドにもかかわらず、CDNから提供されるHTMLの大部分ではHTTP/2が有効になっています。
 
-CDNのHTTP/2の採用率は70％を超えていますが、originページはほぼ27％です。同様にCDNのサブドメインリソースとサードパーティリソースでは90％以上がHTTP/2を採用していて、さらに高くなりますが、originインフラストラクチャから提供されるサードパーティリソースは31％しか採用されていません。 [HTTP/2](./http2) のパフォーマンス向上およびその他の機能については、HTTP/2の章でさらに説明します。
+CDNのHTTP/2の採用率は70％を超えていますが、originページはほぼ27％です。同様にCDNのサブドメインリソースとサードパーティリソースでは90％以上がHTTP/2を採用していて、さらに高くなりますが、originインフラストラクチャから提供されるサードパーティリソースは31％しか採用されていません。 [HTTP/2](./http) のパフォーマンス向上およびその他の機能については、HTTP/2の章でさらに説明します。
 
 <p class="note">注：すべてのリクエストは、HTTP/2をサポートするChromeの最新バージョンで行われました。 HTTP/1.1のみが報告される場合、これは暗号化されていない（非TLS）サーバーまたはHTTP/2をサポートしないサーバーを示します。</p>
 
@@ -1493,7 +1493,6 @@ Webサイトは、さまざまなHTTPヘッダーを使用して、ブラウザ�
 
 {{ figure_markup(
   image="use_of_vary_on_cdn.png",
-  alt="CDNから提供されるHTMLのVaryの使用法。",
   caption="CDNから提供されるHTMLの <code>Vary</code> の使用法。",
   description="accept-encodingを示すツリーマップグラフは使用率が異なり、チャートの73％が使用されます。 Cookie（13％）とユーザーエージェント（8％）がある程度使用され、その後に他のヘッダーが完全に混在しています。",
   width=600,
@@ -1509,7 +1508,6 @@ HTMLページの場合、`Vary`の最も一般的な使用法は、`User-Agent`�
 
 {{ figure_markup(
   image="use_of_vary.png",
-  alt="HTMLとoriginとCDNから提供されるリソースのVary使用の比較。",
   caption="HTMLとoriginとCDNから提供されるリソースの <code>Vary</code> 使用の比較。",
   description="ホームページを提供するCDNの場合、Varyの最大の用途はCookieであり、その後にuser-agentが続くことを示す4つのツリーマップグラフのセット、他のリソースを提供するCDNの場合は、originであり、その後にaccept、user-agent、x-origin、およびreferrerが続きます。 originsとホームページの場合、それはuser-agentであり、その後にcookieが続きます。最後に、originsおよびその他のリソースについては、主にuser-agentであり、その後にorigin、accept、range、hostが続きます。"
   )
@@ -1533,7 +1531,6 @@ HTMLページの場合、`Vary`の最も一般的な使用法は、`User-Agent`�
 
 {{ figure_markup(
   image="fig26.png",
-  alt="CDN応答全体でのs-maxageの採用。",
   caption="CDN応答全体での <code>s-maxage</code> の採用。",
   description="jsDelivrの82％がs-maxage、レベル3の14％、Amazon CloudFrontの6.3％、Akamaiの3.3％、Fastlyの3.1％、Highwindsの3％、Cloudflareの2％、ORIGINの0.91％の応答を提供する棒グラフ、Edgecastの0.75％、Googleの0.07％。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRzPn-1SGVa3rNCT0U9QeQNODE97fsmXyaJX1ZOoBNR8nPpclhC6fg8R_UpoodeiX6HkdHrp50WBQ5Q/pubchart?oid=1215102767&format=interactive"

@@ -3,10 +3,10 @@
 title: PWA
 description: Service Worker（登録、インストール可能性、イベント、およびファイルサイズ）、Webアプリマニフェストプロパティ、およびWorkboxを対象とする2019 Web AlmanacのPWAの章。
 authors: [tomayac, jeffposnick]
-reviewers: [hyperpress, ahmadawais]
+reviewers: [logicalphase, ahmadawais]
 analysts: [jrharalson]
-editors: [bazzadp]
-translators: [ksakae]
+editors: [tunetheweb]
+translators: [ksakae1216]
 discuss: 1766
 results: https://docs.google.com/spreadsheets/d/19BI3RQc_vR9bUPPZfVsF_4gpFWLNT6P0pLcAdL-A56c/
 tomayac_bio: Thomas SteinerはGoogle HamburgのWeb Developer Advocateで、標準化、ベストプラクティスの作成と共有、研究を通じた Web のより良い場所づくりに焦点を当てています。彼は <a hreflang="en" href="https://blog.tomayac.com/">blog.tomayac.com</a> でブログを書いており、<a href="https://twitter.com/tomayac">@tomayac</a> としてツイートしています。
@@ -22,7 +22,7 @@ featured_stat_label_3: `standalone` `display`プロパティを使用するPWA
 
 ## 導入
 
-プログレッシブWebアプリ（PWA）は、[Service Worker API](https://developer.mozilla.org/en/docs/Web/API/Service_Worker_API)などのプラットフォームプリミティブ上に構築される新しいクラスのWebアプリケーションです。Service Workerは、ネットワークプロキシとして機能し、Webアプリの発信要求をインターセプトしプログラムまたはキャッシュされた内容で応答することによりアプリがネットワークに依存しない読み込みをサポートできるようにします。Service Workerは、プッシュ通知を受信し、対応するアプリが実行されていなくてもバックグラウンドでデータを同期できます。さらに、Service Workerは、[Webアプリマニフェスト](https://developer.mozilla.org/en-US/docs/Web/Manifest)と共にユーザーがデバイスのホーム画面にPWAをインストールできるようにします。
+プログレッシブWebアプリ（PWA）は、[Service Worker API](https://developer.mozilla.org/docs/Web/API/Service_Worker_API)などのプラットフォームプリミティブ上に構築される新しいクラスのWebアプリケーションです。Service Workerは、ネットワークプロキシとして機能し、Webアプリの発信要求をインターセプトしプログラムまたはキャッシュされた内容で応答することによりアプリがネットワークに依存しない読み込みをサポートできるようにします。Service Workerは、プッシュ通知を受信し、対応するアプリが実行されていなくてもバックグラウンドでデータを同期できます。さらに、Service Workerは、[Webアプリマニフェスト](https://developer.mozilla.org/docs/Web/Manifest)と共にユーザーがデバイスのホーム画面にPWAをインストールできるようにします。
 
 Service Workerは2014年12月に<a hreflang="en" href="https://blog.chromium.org/2014/12/chrome-40-beta-powerful-offline-and.html">Chrome 40で初めて実装</a>され、プログレッシブWebアプリという用語は2015年に<a hreflang="en" href="https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/">Frances BerrimanとAlex Russellによって作られました</a>。Service Workerはすべての主要なブラウザでようやく実装されたため、この章の目標は実際に存在するPWAの数と、これらの新しいテクノロジーをどのように利用するかを決定します。<a hreflang="en" href="https://caniuse.com/#feat=background-sync">バックグラウンド同期</a>のような特定の高度なAPIは、現在もChromiumベースのブラウザでのみ利用できるため、追加の質問として、これらのPWAが実際に使用する機能を調べました。
 
@@ -56,7 +56,7 @@ Service Workerは2014年12月に<a hreflang="en" href="https://blog.chromium.org
 )
 }}
 
-[Lighthouse](./methodology#lighthouse)は、ページが<a hreflang="en" href="https://developers.google.com/web/tools/lighthouse/audits/install-prompt">インストールプロンプト</a>の対象かどうかを確認します。モバイルページの1.56％に<a hreflang="en" href="https://web.dev/installable-manifest/">インストール可能なマニフェスト</a>があります。
+[Lighthouse](./methodology#lighthouse)は、ページが<a hreflang="en" href="https://developers.google.com/web/tools/lighthouse/audits/install-prompt">インストールプロンプト</a>の対象かどうかを確認します。モバイルページの1.56％に<a hreflang="ja" href="https://web.dev/i18n/ja/installable-manifest/">インストール可能なマニフェスト</a>があります。
 
 インストール体験をコントロールするために、全デスクトップの0.82％と全モバイルページの0.94％が<a hreflang="en" href="https://w3c.github.io/manifest/#beforeinstallpromptevent-interface">`OnBeforeInstallPrompt`インターフェイス</a>を使用します。現在、<a hreflang="en" href="https://caniuse.com/#feat=web-app-manifest">サポートはChromiumベースのブラウザに限定されています</a>。
 
@@ -95,7 +95,7 @@ HTTP Archiveで見つけることのできるService Workerがこれらのイベ
   )
 }}
 
-デスクトップのService Workerファイルの中央値は895バイトですが、モバイルでは694バイトです。すべてのパーセンタイルを通じて、デスクトップService WorkerはモバイルService Workerよりも大きくなっています。これらの統計は、[`importScripts()`](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts)メソッドを使用して動的にインポートされたスクリプトを考慮しないため、結果は大きく歪む可能性が高いことに注意してください。
+デスクトップのService Workerファイルの中央値は895バイトですが、モバイルでは694バイトです。すべてのパーセンタイルを通じて、デスクトップService WorkerはモバイルService Workerよりも大きくなっています。これらの統計は、[`importScripts()`](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/importScripts)メソッドを使用して動的にインポートされたスクリプトを考慮しないため、結果は大きく歪む可能性が高いことに注意してください。
 
 ## Webアプリマニフェスト
 
@@ -146,7 +146,6 @@ Webアプリマニフェストは、ブラウザーにWebアプリケーショ�
 
 {{ figure_markup(
   image="fig7.png",
-  alt="Webアプリマニフェストの display プロパティの使用法。",
   caption="Webアプリマニフェストの <code>display</code> プロパティの使用法。",
   description="Webアプリマニフェストの表示プロパティがデスクトップおよびモバイルWebサイトでどのように使用されるかを示す棒グラフ。どちらの場合も、57％の時間で「standalone」値が使用されます。マニフェストの38％でプロパティがまったく設定されていません。 「minimal UI」、「browser」、および「fullscreen」の各値は、使用量の1〜2％のみを占めています。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT7DUzACr4eBhNU4cDz8-17oSx2qYbi9OFDjngz0NXNBP2IzZFxvDxLX2XThlN4SZymKMygOXzpI2AJ/pubchart?oid=1514793237&format=interactive"
@@ -218,6 +217,6 @@ HTTP Archiveは、Service Workerを登録するWebサイトの12.71％が少な�
 
 この章の統計は、PWAがまだごく一部のサイトでしか使用されていないことを示しています。ただし、この比較的少ない使用量はトラフィックのシェアがはるかに大きい人気のあるサイトによってもたらされ、ホームページ以外のページはこれをさらに使用する可能性があります。ページのロードの15％がService Workerを使用することがわかりました。特に[モバイル](./mobile-web)向けの[パフォーマンス](./performance)と[キャッシング](./caching)のより優れた制御に与える利点は、使用が増え続けることを意味するはずです。
 
-PWAは、Chrome主導のテクノロジーと見なされることがよくあります。一部のプラットフォームでは一流のインストール可能性が遅れているものの、他のブラウザは、基盤となるテクノロジーのほとんどを実装するために最近大きく進歩しました。サポートがさらに普及するのを前向きに見る事ができます。 [Maximiliano Firtman](https://twitter.com/firt)は、<a hreflang="en" href="https://medium.com/@firt/iphone-11-ipados-and-ios-13-for-pwas-and-web-development-5d5d9071cc49">Safari PWAサポートの説明</a>など、iOSでこれを追跡する素晴らしい仕事をしています。 AppleはPWAという用語をあまり使用せず、<a hreflang="en" href="https://developer.apple.com/news/?id=09062019b">HTML5アプリはApp Storeの外部に最適配信されると明示的に述べています</a>。Microsoftは逆の方向に進み、<a hreflang="en" href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps/microsoft-store">アプリストアでPWAを奨励するだけでなく、Bing Webクローラーを介して検出されたPWAを自動的にショートリストに追加しました</a>。 Googleは、<a hreflang="en" href="https://developers.google.com/web/updates/2019/02/using-twa">信頼できるWebアクティビティ</a>を介して、Google PlayストアにWebアプリをリストする方法も提供しています。
+PWAは、Chrome主導のテクノロジーと見なされることがよくあります。一部のプラットフォームでは一流のインストール可能性が遅れているものの、他のブラウザは、基盤となるテクノロジーのほとんどを実装するために最近大きく進歩しました。サポートがさらに普及するのを前向きに見る事ができます。 [Maximiliano Firtman](https://twitter.com/firt)は、<a hreflang="en" href="https://medium.com/@firt/iphone-11-ipados-and-ios-13-for-pwas-and-web-development-5d5d9071cc49">Safari PWAサポートの説明</a>など、iOSでこれを追跡する素晴らしい仕事をしています。 AppleはPWAという用語をあまり使用せず、<a hreflang="en" href="https://developer.apple.com/news/?id=09062019b">HTML5アプリはApp Storeの外部に最適配信されると明示的に述べています</a>。Microsoftは逆の方向に進み、<a hreflang="en" href="https://web.archive.org/web/20190711051508/https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps/microsoft-store">アプリストアでPWAを奨励するだけでなく、Bing Webクローラーを介して検出されたPWAを自動的にショートリストに追加しました</a>。 Googleは、<a hreflang="en" href="https://developers.google.com/web/updates/2019/02/using-twa">信頼できるWebアクティビティ</a>を介して、Google PlayストアにWebアプリをリストする方法も提供しています。
 
 PWAは、ネイティブプラットフォームやアプリストアではなくWeb上でビルドおよびリリースすることを希望する開発者に道を提供します。すべてのOSとブラウザがネイティブソフトウェアと完全に同等であるとは限りませんが、改善は継続され、おそらく2020年は展開が爆発的に増加する年になるでしょうか？

@@ -12,18 +12,18 @@ results: https://docs.google.com/spreadsheets/d/1WnDKLar_0Btlt9UgT53Giy2229bpV4I
 bkardell_bio: Brian Kardell est <i lang="en">Developer Advocate</i> chez <a hreflang="en" href="https://igalia.com">Igalia</a>, contributeur des standards du web, <a hreflang="en" href="https://bkardell.com">blogueur</a>, et est actuellement le représentant du comité consultatif du W3C pour la <a hreflang="en" lang="en" href="https://openjsf.org/">Open JS Foundation</a>. Il a fondé <i lang="en">l’Extensible Web Community Group</i> et est co-auteur du <a hreflang="en" lang="en" href="https://extensiblewebmanifesto.org">The Extensible Web Manifesto</a>.
 featured_quote: À partir de juillet 2019, HTTP Archive a commencé à collecter tous les noms de *éléments* utilisés dans le DOM, environ 4,4 millions de pages d’accueil pour ordinateurs de bureau et environ 5,3 millions de pages d’accueil sur mobiles que nous pouvons maintenant commencer à analyser et à disséquer. Lors de cette collecte, nous avons découvert *plus de 5 000 noms d’éléments non standard distincts* dans les pages. Nous avons donc limité le nombre total d’éléments distincts que nous comptons aux 5 048 "premiers".
 featured_stat_1: 11
-featured_stat_label_1: éléments sont utilisés sur plus de 90 % des pages.
+featured_stat_label_1: éléments sont utilisés sur plus de 90 % des pages
 featured_stat_2: 15 %
-featured_stat_label_2: des pages contiennent des éléments dépréciés.
+featured_stat_label_2: des pages contiennent des éléments dépréciés
 featured_stat_3: 65
-featured_stat_label_3: variantes de carrousels trouvées.
+featured_stat_label_3: variantes de carrousels trouvées
 ---
 
 ## Introduction
 
 En 2005, Ian "Hixie" Hickson a publié <a hreflang="en" href="https://web.archive.org/web/20060203035414/http://code.google.com/webstats/index.html">une analyse sur les données de balisage web</a> à partir de différents travaux précédents. Une grande partie de ce travail visait à examiner les noms de classes pour voir s’il existait une sémantique informelle commune adoptée par les développeurs et développeuses, sur laquelle il serait peut-être logique de standardiser. Certaines de ses recherches ont permis de proposer de nouveaux éléments en HTML5.
 
-14 ans plus tard, il est temps de jeter un nouveau coup d’œil aux usages. Depuis cette époque, nous avons vu apparaître [les éléments personnalisés](https://developer.mozilla.org/fr/docs/Web/Web_Components/Using_custom_elements) et <a hreflang="en" href="https://extensiblewebmanifesto.org/">l’Extensible Web manifesto</a>, ce qui nous a encouragé à trouver de meilleures méthodes pour accompagner les développements. Cela implique de permettre aux équipes de développement d’explorer l’espace des éléments de balisage elles-mêmes et aux organismes de normalisation <a hreflang="en" href="https://bkardell.com/blog/Dropping-The-F-Bomb-On-Standards.html">d’agir comme des éditeurs de dictionnaires</a>. À l’inverse des noms de classes CSS, qui peuvent être utilisés pour n’importe quoi, nous pouvons être certains que les auteurs qui ont utilisé un *élément* non standard l’ont fait volontairement.
+14 ans plus tard, il est temps de jeter un nouveau coup d’œil aux usages. Depuis cette époque, nous avons vu apparaître [les éléments personnalisés](https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements) et <a hreflang="en" href="https://extensiblewebmanifesto.org/">l’Extensible Web manifesto</a>, ce qui nous a encouragé à trouver de meilleures méthodes pour accompagner les développements. Cela implique de permettre aux équipes de développement d’explorer l’espace des éléments de balisage elles-mêmes et aux organismes de normalisation <a hreflang="en" href="https://bkardell.com/blog/Dropping-The-F-Bomb-On-Standards.html">d’agir comme des éditeurs de dictionnaires</a>. À l’inverse des noms de classes CSS, qui peuvent être utilisés pour n’importe quoi, nous pouvons être certains que les auteurs qui ont utilisé un *élément* non standard l’ont fait volontairement.
 
 À partir de juillet 2019, HTTP Archive a commencé à collecter tous les noms de *éléments* utilisés dans le DOM, environ 4,4 millions de pages d’accueil pour ordinateurs de bureau et environ 5,3 millions de pages d’accueil sur mobiles que nous pouvons maintenant commencer à analyser et à disséquer _(en savoir plus sur notre [méthodologie](./methodology))._
 
@@ -180,7 +180,6 @@ Afin de discuter des chiffres sur l’utilisation d’éléments (standards, obs
 
 {{ figure_markup(
   image="fig7_full.png",
-  alt="150 premiers éléments",
   caption='150 premiers éléments (<a hreflang="en" href="/static/images/2019/markup/fig7_full.png">détail complet</a>).',
   description="Diagramme à barres illustrant une décroissance des éléments par ordre descendant : html, head, body, title au dessus de 99 % d’utilisation, meta, a, div plus de 98 % d’utilisation, link, script, img, span plus de 90 % d’utilisation, ul, li , p, style, input, br, form plus de 70 % d’utilisation, h2, h1, iframe, h3, button, footer, header, nav plus de 50 % d’utilisation et d’autres tags moins connus passant de moins de 50 % à presque 0 %.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTbHgqcSepZye6DrCTpifFAUYxKT1hEO56585awyMips8oiPMLYu20GETuIE8mALkm814ObJyktEe2P/pubchart?oid=1694360298&format=interactive",

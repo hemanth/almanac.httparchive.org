@@ -1,10 +1,10 @@
 const fs = require("fs-extra");
-const fetch = require("node-fetch");
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const convert = require('xml-js');
 
 const { get_yearly_configs } = require('../generate/shared');
 
-const default_year = 2020;
+const default_year = 2022;
 const default_language = 'en';
 const base_url = "http://127.0.0.1:8080";
 
@@ -21,8 +21,10 @@ const get_config = async () => {
 
   configs = await get_yearly_configs();
   for (const year in configs) {
-    languages[year] = configs[year].settings[0].supported_languages;
-    ebooks[year] = configs[year].settings[0].ebook_languages;
+    if (configs[year].settings[0].is_live) {
+      languages[year] = configs[year].settings[0].supported_languages;
+      ebooks[year] = configs[year].settings[0].ebook_languages;
+    }
   }
 };
 
@@ -30,8 +32,6 @@ const test_status_code = async (page, status, location) => {
 
   if (location == undefined) {
     location = null;
-  } else {
-    location = base_url + location;
   }
 
   try {
@@ -53,7 +53,7 @@ const test_status_code = async (page, status, location) => {
         await fs.outputFile(output_dir + page, body, 'utf8');
       }
     } else {
-      console.error('Failed - expected:', status, 'got:', response.status, 'for page:', page, 'location:', location);
+      console.error('Failed - expected:', status, 'got:', response.status, 'for page:', page, 'location:', location, 'reponses location:', response.headers.get('location'));
       failures++;
     }
 
@@ -75,6 +75,19 @@ const test_sitemap_pages = async () => {
   }
 }
 
+const test_rss = async () => {
+  const rss_languages_only = new Set();
+  for (const year in languages) {
+    for (const language in languages[year]) {
+      rss_languages_only.add(languages[year][language]);
+    }
+  }
+
+  for (let language of rss_languages_only.keys()) {
+    await test_status_code(`/${language}/rss.xml`, 200);
+  }
+}
+
 const test_ebooks = async () => {
   for (const year in ebooks) {
     for (const language in ebooks[year]) {
@@ -83,10 +96,22 @@ const test_ebooks = async () => {
   }
 }
 
+const test_search = async () => {
+  for (const year in languages) {
+    for (const language in languages[year]) {
+      await test_status_code(`/${languages[year][language]}/search`, 200);
+    }
+  }
+}
+
 const test_404_pages = async () => {
   for (const year in languages) {
     for (const language in languages[year]) {
-      await test_status_code(`/${languages[year][language]}/${year}/random`, 404);
+      if (year <= default_year) {
+        await test_status_code(`/${languages[year][language]}/${year}/random`, 404);
+      } else {
+        await test_status_code(`/${languages[year][language]}/${year}/random`, 302, `/${languages[year][language]}/${year}/`);
+      }
     }
   }
 }
@@ -105,7 +130,9 @@ const test_status_codes = async () => {
 
   // Test success pages
   await test_sitemap_pages();
+  await test_rss();
   await test_ebooks();
+  await test_search();
   await test_status_code('/sitemap.xml', 200);
   await test_status_code('/robots.txt', 200);
   await test_status_code('/favicon.ico', 200);
@@ -113,7 +140,7 @@ const test_status_codes = async () => {
   // Test Redirects
   await test_status_code('/', 302, `/${default_language}/${default_year}/`);
   await test_no_year_redirects();
-  await test_status_code('/zz', 308, `/zz/`);
+  await test_status_code('/zz', 308, `${base_url}/zz/`); //308 is absolute URL
   await test_status_code('/zh/', 302, `/zh-CN/`);
   await test_status_code('/zh-HANT/', 302, `/zh-TW/`);
   await test_status_code('/zh-CHT/', 302, `/zh-TW/`);
@@ -127,7 +154,7 @@ const test_status_codes = async () => {
   await test_status_code('/zz/2018/', 404);
   await test_status_code('/en/2018/', 404);
   await test_status_code('/base/', 404);
-  await test_status_code('/base/methodology', 308, `/base/methodology/`);
+  await test_status_code('/base/methodology', 308, `${base_url}/base/methodology/`); //308 is absolute URL
   await test_status_code('/base/methodology/', 404);
   await test_status_code('/base/2019/methodology/', 404);
 

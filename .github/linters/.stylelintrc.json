@@ -1,20 +1,31 @@
 {
     "extends": "stylelint-config-standard",
     "rules": {
+        "alpha-value-notation": "number",
         "at-rule-no-unknown": [
             true,
             {
                 "ignoreAtRules": ["prince-pdf"]
             }
         ],
+        "color-function-notation": null,
         "comment-empty-line-before": null,
+        "declaration-block-no-redundant-longhand-properties": null,
+        "font-family-name-quotes": "always-unless-keyword",
         "font-family-no-duplicate-names": [
             true,
             {
                 "ignoreFontFamilyNames": ["monospace"]
             }
         ],
+        "function-no-unknown": [
+            true,
+            {
+                "ignoreFunctions" : ["content"]
+            }
+        ],
         "length-zero-no-unit": null,
+        "max-line-length": null,
         "no-descending-specificity": null,
         "no-eol-whitespace": [
             true,
@@ -28,6 +39,12 @@
                 "ignoreProperties": ["prince-pdf-display-doc-title","prince-pdf-tag-type"]
             }
         ],
+        "property-no-vendor-prefix": [
+            true,
+            {
+                "ignoreProperties": ["appearance", "grid-row", "grid-column", "text-size-adjust", "transform", "transition"]
+            }
+        ],
         "selector-list-comma-newline-after": "always",
         "selector-pseudo-element-no-unknown": [
             true,
@@ -35,10 +52,18 @@
                 "ignorePseudoElements": ["footnote-call","footnote-marker"]
             }
         ],
+        "shorthand-property-no-redundant-values": null,
+        "string-quotes": null,
         "value-keyword-case": [
             "lower",
             {
-                "ignoreKeywords": ["Art","A4","A5"]
+                "ignoreKeywords": ["Art","A4","A5","currentColor"]
+            }
+        ],
+        "value-no-vendor-prefix": [
+            true,
+            {
+                "ignoreValues": ["grid", "sticky"]
             }
         ]
     }

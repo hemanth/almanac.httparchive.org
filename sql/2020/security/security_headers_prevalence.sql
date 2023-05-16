@@ -1,8 +1,10 @@
 #standardSQL
 # Prevalence of security headers set in a first-party context; count by number of hosts.
 CREATE TEMPORARY FUNCTION hasHeader(headers STRING, headername STRING)
-  RETURNS BOOL DETERMINISTIC
-  LANGUAGE js AS '''
+RETURNS BOOL
+DETERMINISTIC
+LANGUAGE js
+AS '''
   const parsed_headers = JSON.parse(headers);
   const matching_headers = parsed_headers.filter(h => h.name.toLowerCase() == headername.toLowerCase());
   return matching_headers.length > 0;
@@ -24,7 +26,7 @@ FROM (
   FROM
     `httparchive.almanac.requests`
   WHERE
-    (date = "2020-08-01" OR date = "2019-07-01") AND
+    (date = '2020-08-01' OR date = '2019-07-01') AND
     NET.HOST(urlShort) = NET.HOST(page)
 ),
 UNNEST(['Content-Security-Policy', 'Cross-Origin-Embedder-Policy', 'Cross-Origin-Opener-Policy', 'Cross-Origin-Resource-Policy', 'Expect-CT', 'Feature-Policy', 'Permissions-Policy', 'Referrer-Policy', 'Report-To', 'Strict-Transport-Security', 'X-Content-Type-Options', 'X-Frame-Options', 'X-XSS-Protection']) AS headername

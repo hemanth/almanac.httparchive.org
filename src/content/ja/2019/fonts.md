@@ -3,10 +3,10 @@
 title: フォント
 description: フォントがどこから読み込まれるか、フォントのフォーマット、フォントの読み込み性能、可変フォント、カラーフォントを網羅した2019年Web AlmanacのFontsの章。
 authors: [zachleat]
-reviewers: [hyperpress, AymenLoukil]
+reviewers: [logicalphase, AymenLoukil]
 analysts: [tjmonsi, rviscomi]
-editors: [bazzadp]
-translators: [ksakae]
+editors: [tunetheweb]
+translators: [ksakae1216]
 discuss: 1761
 results: https://docs.google.com/spreadsheets/d/108g6LXdC3YVsxmX1CCwrmpZ3-DmbB8G_wwgQHX5pn6Q/
 zachleat_bio: Zachは<a hreflang="en" href="https://www.filamentgroup.com/">Filament Group</a>のWeb開発者だ。彼は現在、<a hreflang="en" href="https://www.zachleat.com/web/fonts/">web fonts</a>と<a hreflang="en" href="https://www.zachleat.com/web/introducing-eleventy/">static site generators</a>に夢中だ。彼の<a hreflang="en" href="https://www.zachleat.com/web/speaking/">講演履歴</a>には、JAMstack_conf、Beyond Tellerrand、Smashing Conference、CSSConf、そして<a hreflang="en" href="https://www.zachleat.com/web/whitehouse/">The White House</a>のようなイベントでの8カ国での講演が含まれています。また、<a hreflang="en" href="http://nejsconf.com/">NEJS CONF</a>や<a hreflang="en" href="http://nebraskajs.com">NebraskaJS</a>のミートアップも手伝っている。
@@ -33,7 +33,7 @@ featured_stat_label_3: 1ページでのフォントのリクエストが多い
 
 ### フォントは同じホストでホストされているのか、それとも別のホストでホストされているのか？
 
-サードパーティのホスティングに対するセルフホスティングの差別化は、[HTTP/2](./http2)の世界ではますます重要になってきています。同一ホストのリクエストには、ウォーターフォール内の他の同一ホストのリクエストに対して優先順位をつける可能性が高いという大きな利点があります。
+サードパーティのホスティングに対するセルフホスティングの差別化は、[HTTP/2](./http)の世界ではますます重要になってきています。同一ホストのリクエストには、ウォーターフォール内の他の同一ホストのリクエストに対して優先順位をつける可能性が高いという大きな利点があります。
 
 別のホストからウェブフォントを読み込む際のパフォーマンスコストを軽減するための推奨事項としては、`preconnect`、`dns-prefetch`、`preload` [リソースのヒント](./resource-hints)の使用がありますが、優先度の高いウェブフォントは、ウェブフォントのパフォーマンスへの影響を最小限に抑えるため、同一ホストからのリクエストにすべきです。これは視覚的に、非常に目立つコンテンツやページの大部分を占める本文コピーで使用されるフォントへ対して特に重要です。
 
@@ -45,7 +45,7 @@ featured_stat_label_3: 1ページでのフォントのリクエストが多い
   )
 }}
 
-4分の3がホストされているという事実は、おそらく我々が議論するGoogle Fontsの優位性を考えると意外と知られていません[以下](#最も人気のあるサードパーティ製のホストは何ですか？)。
+4分の3がホストされているという事実は、おそらく我々が議論するGoogle Fontsの優位性を考えると意外と知られていません[以下](#最も人気のあるサードパーティ製のホストは何ですか？)。<!-- markdownlint-disable-line MD051 -->
 
 Googleは`https://fonts.googleapis.com`でホストされているサードパーティのCSSファイルを使ってフォントを提供しています。開発者は、マークアップの`<link>`タグを使ってこれらのスタイルシートにリクエストを追加します。これらのスタイルシートはレンダーブロッキングされていますが、そのサイズは非常に小さいです。しかし、フォントファイルは`https://fonts.gstatic.com`という別のドメインでホストされています。2つの異なるドメインへの2つの別々のホップを必要とするモデルでは、CSSがダウンロードされるまで発見されない2つ目のリクエストには`preconnect`が最適な選択肢となります。
 
@@ -181,7 +181,7 @@ Googleは`https://fonts.googleapis.com`でホストされているサードパ�
 
 - ページがGoogle Fontsを使用する場合、彼らはGoogle Fontsを多く使用しています。それらは結局のところ、金銭的なコストなしで提供されています。おそらく、人気のあるWYSIWYGエディタで使われているのではないでしょうか？　これは非常に可能性の高い説明のように思えます。
 - あるいは、もっとありそうにない話としては、多くの人が`<link>`の代わりに`@import`を使ってGoogle Fontsを使っているということかもしれません。
-- あるいは、超ありえないシナリオにまで踏み込んでみたいのであれば、多くの人が代わりに[HTTP `Link:`ヘッダー](https://developer.mozilla.org/ja/docs/Web/HTTP)を使ってGoogle Fontsを使っているということになるかもしれません。
+- あるいは、超ありえないシナリオにまで踏み込んでみたいのであれば、多くの人が代わりに[HTTP `Link:`ヘッダー](https://developer.mozilla.org/docs/Web/HTTP)を使ってGoogle Fontsを使っているということになるかもしれません。
 
 {{ figure_markup(
   caption="ドキュメントの最初の子としてGoogle Fontsスタイルシートのリンクを含むページの割合 <code><head></code>。",
@@ -205,7 +205,7 @@ Google Fontsのドキュメントでは、Google Fonts CSSの`<link>`はペー�
 )
 }}
 
-うわー！　2％未満のページが<a hreflang="en" href="https://web.dev/uses-rel-preconnect">`preconnect`</a>を使用している！　Google Fontsが75％であることを考えると、これはもっと高いはずです！　開発者の皆さん: Google Fontsを使うなら、`preconnect`を使いましょう！　Google Fonts:`preconnect`をもっと宣伝しよう！
+うわー！　2％未満のページが<a hreflang="ja" href="https://web.dev/i18n/ja/uses-rel-preconnect">`preconnect`</a>を使用している！　Google Fontsが75％であることを考えると、これはもっと高いはずです！　開発者の皆さん: Google Fontsを使うなら、`preconnect`を使いましょう！　Google Fonts:`preconnect`をもっと宣伝しよう！
 
 実際、もしあなたがGoogle Fontsを使っているのであれば、`<head>`にこれを追加してください。
 
@@ -373,7 +373,6 @@ Google Fontsのドキュメントでは、Google Fonts CSSの`<link>`はペー�
 
 {{ figure_markup(
   image="fig8.png",
-  alt="@font-face宣言におけるフォントフォーマットの人気度。",
   caption="<code>@font-face</code> 宣言におけるフォントフォーマットの人気度。",
   description="フォントフェイス宣言で使用されるフォーマットの人気を示す棒グラフ。デスクトップページの@font-face宣言の 69%がWOFF2形式を指定しており、11%がWOFF、10%がTrueType、8%がSVG、2%がEOT、1%未満でOpenType、TTF、OTFを指定しています。モバイルページの分布も同様です。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDogXDb3BwZZHrBT39qccP_LJoCScD3QEi_FmjT_8VDPD_1Srpz-g7ZuuTUEb8pYXBpDmQzZ1hQh7q/pubchart?oid=700778025&format=interactive"
@@ -541,13 +540,12 @@ Google Fontsのドキュメントでは、Google Fonts CSSの`<link>`はペー�
 
 私はこれが時間の経過とともに忍び寄ってくることを想定しています、特に今は<a hreflang="en" href="https://www.zachleat.com/web/google-fonts-display/">Google Fontsがすべての新しいコードスニペットに `font-display` を追加しています</a>が彼らのサイトからコピーされています。
 
-Google Fontsを使っているなら、スニペットを更新しよう！　Google Fontsを使っていない場合は、`font-display`を使いましょう！　`font-display`についての詳細は [MDN](https://developer.mozilla.org/ja/docs/Web/CSS/@font-face/font-display) を参照してください。
+Google Fontsを使っているなら、スニペットを更新しよう！　Google Fontsを使っていない場合は、`font-display`を使いましょう！　`font-display`についての詳細は [MDN](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display) を参照してください。
 
 どのような`font-display`値が人気あるのか見てみましょう。
 
 {{ figure_markup(
   image="fig11.png",
-  alt="font-displayの値の使用法。",
   caption="<code>font-display</code> の値の使用法。",
   description="フォント表示スタイルの利用状況を示す棒グラフ。モバイルページの2.6％がこのスタイルを「swap」、1.5％が「auto」、0.7％が「block」、0.4％が「fallback」、0.2％が「optional」、0.1％が引用符で囲んだ「swap」に設定しているが、これは無効である。デスクトップの分布は、「swap」の利用率が0.4％ポイント低く、「auto」の利用率が0.1％ポイント高くなっている以外は似ている。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDogXDb3BwZZHrBT39qccP_LJoCScD3QEi_FmjT_8VDPD_1Srpz-g7ZuuTUEb8pYXBpDmQzZ1hQh7q/pubchart?oid=1988783738&format=interactive"
@@ -606,7 +604,7 @@ Webフォントのリクエストがデスクトップとモバイルの間で�
 )
 }}
 
-[`unicode-range`](https://developer.mozilla.org/ja/docs/Web/CSS/@font-face/unicode-range)は、ブラウザに、ページがフォントファイルで使用したいコードポイントを具体的に知らせるための優れたCSSプロパティです。`@font-face`宣言に`unicode-range`がある場合、ページ上のコンテンツは、フォントが要求される前に、その範囲内のコードポイントのいずれかにマッチしなければなりません。これは非常に良いことです。
+[`unicode-range`](https://developer.mozilla.org/docs/Web/CSS/@font-face/unicode-range)は、ブラウザに、ページがフォントファイルで使用したいコードポイントを具体的に知らせるための優れたCSSプロパティです。`@font-face`宣言に`unicode-range`がある場合、ページ上のコンテンツは、フォントが要求される前に、その範囲内のコードポイントのいずれかにマッチしなければなりません。これは非常に良いことです。
 
 Google FontsはそのCSSのほとんど（すべてではないにしても）で`unicode-range`を使用しているので、これもGoogle Fontsの使用状況によって偏っていると予想される指標です。ユーザーの世界でこれはあまり一般的でないと思いますが、Web Almanacの次の版ではGoogle Fontsのリクエストをフィルタリングして除外することが可能かもしれません。
 
@@ -632,13 +630,13 @@ Google FontsはそのCSSのほとんど（すべてではないにしても）�
 )
 }}
 
-歴史的に、`font-stretch`はブラウザのサポートが悪く、よく知られた`@font-face`プロパティではありませんでした。詳しくは[MDNの`font-stretch`について](https://developer.mozilla.org/ja/docs/Web/CSS/font-stretch) を参照してください。しかし、<a hreflang="en" href="https://caniuse.com/#feat=css-font-stretch">ブラウザのサポート</a>は広がっています。
+歴史的に、`font-stretch`はブラウザのサポートが悪く、よく知られた`@font-face`プロパティではありませんでした。詳しくは[MDNの`font-stretch`について](https://developer.mozilla.org/docs/Web/CSS/font-stretch) を参照してください。しかし、<a hreflang="en" href="https://caniuse.com/#feat=css-font-stretch">ブラウザのサポート</a>は広がっています。
 
 小さいビューポートで凝縮されたフォントを使用することで、より多くのテキストを表示できるようになることが示唆されていますが、このアプローチは一般的には使用されていません。とはいえ、このプロパティがモバイルよりもデスクトップで半パーセントポイント多く使われているというのは予想外で、7％というのは私が予想していたよりもはるかに高いと思えます。
 
 ## 可変フォントは未来のもの
 
-[可変フォント](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide)では、1つのフォントファイルに複数のフォントの太さやスタイルを含めることができます。
+[可変フォント](https://developer.mozilla.org/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide)では、1つのフォントファイルに複数のフォントの太さやスタイルを含めることができます。
 
 {{ figure_markup(
   caption="可変フォントを含むページの割合",
@@ -651,7 +649,6 @@ Google FontsはそのCSSのほとんど（すべてではないにしても）�
 
 {{ figure_markup(
   image="fig19.png",
-  alt="font-variation-settings軸の使用法。",
   caption="<code>font-variation-settings</code> 軸の使用法。",
   description="font-variation-settingsプロパティの使用状況を示す棒グラフ。デスクトップページのプロパティの42%が`opsz`の値に設定されており、32%が`wght`、16%が`wdth`、2%以下が`roun`、`crsb`、`slnt`、`inln`などに設定されています。デスクトップページとモバイルページで顕著な違いは、`opsz`の使用率が26％、`wght`の使用率が38％、`wdth`の使用率が23％となっており、`wght`の使用率は、`wght`の使用率と`wght`の使用率の差が大きい。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDogXDb3BwZZHrBT39qccP_LJoCScD3QEi_FmjT_8VDPD_1Srpz-g7ZuuTUEb8pYXBpDmQzZ1hQh7q/pubchart?oid=699343351&format=interactive"

@@ -5,7 +5,7 @@ description: Media chapter of the 2020 Web Almanac covering image file sizes and
 authors: [tpiros, bseymour, eeeps]
 reviewers: [nhoizey, colinbendell, dougsillars, Navaneeth-akam]
 analysts: [smatei]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: []
 tpiros_bio: Tamas Piros is a Developer Experience Engineer at <a hreflang="en" href="https://cloudinary.com/">Cloudinary</a>, Google Developer Expert and Technical Instructor running <a hreflang="en" href="https://fullstacktraining.com">Full Stack Training</a>.
 bseymour_bio: Ben Seymour is a Dynamic Media & Content Specialist with <a hreflang="en" href="https://cloudinary.com/">Cloudinary</a>, author of <a hreflang="en" href="http://responsiveimag.es/">Practical Responsive Images</a> and co-founder of <a hreflang="en" href="https://storyus.life/">Storyus</a> and <a hreflang="en" href="https://haktive.com/">Haktive</a>.
@@ -43,7 +43,7 @@ For example:
 
 ```html
 <img srcset="images/example_3x.jpg 3x, images/example_2x.jpg 2x"
-     src="images/example.jpg" alt="..." />
+      src="images/example.jpg" alt="...">
 ```
 
 Around 26.5% of all pages now include `srcset`
@@ -79,15 +79,15 @@ When providing the candidate list to the user agent, we have two mechanisms to a
 
 ```html
 <img srcset="images/example_3x.jpg 3x, images/example_2x.jpg 2x"
-     src="images/example.jpg" alt="..." />
+      src="images/example.jpg" alt="...">
 ```
 
 `w` descriptors describe the candidate's pixel width, along with a `sizes` attribute that is used to select the appropriate image.
 
 ```html
 <img srcset="images/example_small.jpg 600w, images/example_medium.jpg 1400w, images/example_large.jpg 2400w"
-     sizes="100vw"
-     src="images/example_fallback.jpg" alt="..." />
+      sizes="100vw"
+      src="images/example_fallback.jpg" alt="...">
 ```
 
 Both approaches enable the user agent to mathematically factor in the current device pixel ratio when assessing the most appropriate image candidate.
@@ -114,8 +114,8 @@ For example:
 
 ```html
 <img sizes="(min-width: 640px) 50vw, 100vw"
-     srcset="images/example_small.jpg 600w, images/example_medium.jpg 1400w, images/example_large.jpg 2400w"
-     src="images/example_fallback.jpg" alt="..." />
+      srcset="images/example_small.jpg 600w, images/example_medium.jpg 1400w, images/example_large.jpg 2400w"
+      src="images/example_fallback.jpg" alt="...">
 ```
 
 {{ figure_markup(
@@ -138,7 +138,6 @@ While `srcset` and `sizes` provide us with tooling to help provide browsers with
 
 {{ figure_markup(
   image="use-of-picture.png",
-  alt="Use of picture.",
   caption="Use of `<picture>`.",
   description="Stacked bar chart showing 19.30% of pages use `<picture>` on desktop and 80.70% do not. On mobile it is similar with 18.54% using and 81.46% not using.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLNnD9VNqXNxMu60VovxIEp_L6vmNo1oWt8-C18DOetXB3qIkee_-KjZwYYPIkkIM-7So-5wBwQ4QY/pubchart?oid=416496535&format=interactive",
@@ -155,8 +154,8 @@ While there are some services and image CDNs which can provide auto-format switc
 
 ```html
 <picture>
-    <source type="image/webp" srcset="images/example.webp" />
-    <img src="images/example.jpg" alt="..." />
+    <source type="image/webp" srcset="images/example.webp">
+    <img src="images/example.jpg" alt="...">
 </picture>
 ```
 
@@ -164,7 +163,6 @@ Breaking this down into the number of formats offered:
 
 {{ figure_markup(
   image="picture-number-of-formats.png",
-  alt="picture number of formats.",
   caption="`<picture>` number of formats.",
   description="Bar chart showing number of formats in picture usage. 68.01% of pages on desktop (68.03% on mobile) use 1 format. 2 formats is 23.78% and 23.78% respectively, 3 formats is 7.00% and 6.97% and 4+ formats is only used on 1.21% and 1.22% pages respectively.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLNnD9VNqXNxMu60VovxIEp_L6vmNo1oWt8-C18DOetXB3qIkee_-KjZwYYPIkkIM-7So-5wBwQ4QY/pubchart?oid=1963933588&format=interactive",
@@ -193,11 +191,11 @@ Here is an example of the markup syntax that could be used to offer multiple for
 
 ```html
 <picture>
-  <source type="image/avif" srcset="images/example.avif" />
-  <source type="image/webp" srcset="images/example.webp" />
-  <source type="image/jp2" srcset="images/example.jp2" />
-  <source type="image/vnd.ms-photo"  srcset="images/example.jxr" />
-  <img src="images/example.jpg" alt="Description" />
+  <source type="image/avif" srcset="images/example.avif">
+  <source type="image/webp" srcset="images/example.webp">
+  <source type="image/jp2" srcset="images/example.jp2">
+  <source type="image/vnd.ms-photo"  srcset="images/example.jxr">
+  <img src="images/example.jpg" alt="Description">
 </picture>
 ```
 
@@ -237,11 +235,11 @@ In this example, we are changing out the aspect ratio of the served media, from 
 ```html
 <picture>
   <source media="(max-width: 780px)"
-          srcset="image/example_square.jpg 1x, image/example_square_2x.jpg 2x" />
+          srcset="image/example_square.jpg 1x, image/example_square_2x.jpg 2x">
   <source media="(max-width: 1400px)"
-          srcset="image/example_4_3_aspect.jpg 1x, image/example_4_3_aspect_2x.jpg 2x" />
-  <source srcset="image/example_16_9_aspect.jpg 1x, image/example_16_9_aspect_2x.jpg 2x"/>
-  <img src="image/example_fallback.jpg" alt="..." />
+          srcset="image/example_4_3_aspect.jpg 1x, image/example_4_3_aspect_2x.jpg 2x">
+  <source srcset="image/example_16_9_aspect.jpg 1x, image/example_16_9_aspect_2x.jpg 2x">
+  <img src="image/example_fallback.jpg" alt="...">
 </picture>
 ```
 
@@ -251,7 +249,6 @@ While the data shows that only a little under 1% of pages using `<picture>` make
 
 {{ figure_markup(
   image="picture-usage-of-orientation.png",
-  alt="Picture usage of orientation.",
   caption="`<picture>` usage of orientation.",
   description="Bar chart showing 0.93% of desktop pages and 0.91% of mobile pages use `<picture>` with orientation. 0.59% of occurrences of `<picture>` on desktop and 0.60% on mobile use orientation.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLNnD9VNqXNxMu60VovxIEp_L6vmNo1oWt8-C18DOetXB3qIkee_-KjZwYYPIkkIM-7So-5wBwQ4QY/pubchart?oid=56906843&format=interactive",
@@ -270,7 +267,7 @@ Example syntax:
           media="(min-width: 960px) and (orientation: landscape)">
   <source srcset="images/example_tall.jpg"
           media="(min-width: 960px) and (orientation: portrait)">
-  <img src="..." alt="..." />
+  <img src="..." alt="...">
 </picture>
 ```
 

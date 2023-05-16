@@ -5,8 +5,8 @@ description: 2020年Web Almanacのサードパーティの章では、サード�
 authors: [simonhearne]
 reviewers: [jzyang, exterkamp]
 analysts: [max-ostapenko, paulcalvano]
-editors: [bazzadp]
-translators: [ksakae]
+editors: [tunetheweb]
+translators: [ksakae1216]
 simonhearne_bio: Simonはウェブパフォーマンスアーキテクトです。彼は、より速く、よりアクセスしやすいウェブを提供することに情熱を注いでいます。<a href="https://twitter.com/simonhearne">@SimonHearne</a>でツイートしたり、<a hreflang="en" href="https://simonhearne.com">simonhearne.com</a>でブログを書いています。
 discuss: 2042
 results: https://docs.google.com/spreadsheets/d/1uW4SMkC45b4EbC4JV1xKAUhwGN2K8j0qFy_jSIYnHhI/
@@ -109,7 +109,7 @@ _CDNに関する注意事項。ここでのCDNカテゴリには、パブリッ�
 
 ### コンテンツタイプ
 
-サードパーティのリクエストをコンテンツタイプ別に分解できます。これは、サードパーティドメインから配信されたリソースの[content-type](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Content-Type)が報告されているものです。
+サードパーティのリクエストをコンテンツタイプ別に分解できます。これは、サードパーティドメインから配信されたリソースの[content-type](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Type)が報告されているものです。
 
 {{ figure_markup(
   image="thirdparty-by-content-types.png",
@@ -172,7 +172,7 @@ _CDNに関する注意事項。ここでのCDNカテゴリには、パブリッ�
 
 この影響を軽減する簡単な方法は、ユーザーがページと対話するまで動画の読み込みを延期することで、動画を消費しない訪問者の影響を軽減されます。
 
-この分析をさらに発展させて、サードパーティのカテゴリの有無による総ページサイズ（すべてのリソースについてダウンロードされたバイト数）の分布を作成できます。このチャートでは、ほとんどのサードパーティのカテゴリの存在が総ページサイズに顕著な影響を与えていないことがわかります。これはプロットの乖離として見えるでしょう。これに対する注目すべき例外は広告（黒で表示）で、これはページサイズとの関係が非常に小さいことを示しており、広告リクエストがページに大きな重みを加えていないことを示しています。これは、これらのリクエストの多くが小さなリダイレクトであり、[中央値はわずか420バイト](#large-redirects)であるためと考えられます。タグマネージャーやアナリティクスについても同様に影響が少ないことがわかります。
+この分析をさらに発展させて、サードパーティのカテゴリの有無による総ページサイズ（すべてのリソースについてダウンロードされたバイト数）の分布を作成できます。このチャートでは、ほとんどのサードパーティのカテゴリの存在が総ページサイズに顕著な影響を与えていないことがわかります。これはプロットの乖離として見えるでしょう。これに対する注目すべき例外は広告（黒で表示）で、これはページサイズとの関係が非常に小さいことを示しており、広告リクエストがページに大きな重みを加えていないことを示しています。これは、これらのリクエストの多くが小さなリダイレクトであり、[中央値はわずか420バイト](#大きなリダイレクト)であるためと考えられます。タグマネージャーやアナリティクスについても同様に影響が少ないことがわかります。
 
 スペクトルのもう一方の端では、CDN、コンテンツ、ホスティングのカテゴリはすべてページの総重量と強い関係を表しています。これは、ホスティングサービスを使用しているサイトの方が、一般的にページ重量が大きいことを示しています。
 
@@ -263,12 +263,11 @@ _CDNに関する注意事項。ここでのCDNカテゴリには、パブリッ�
 
 ## `timing-allow-origin`の普及率
 
-[Resource Timing API](https://developer.mozilla.org/ja/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API)は、ウェブサイトのオーナーがJavaScriptを介して個々のリソースのパフォーマンスを測定することを可能にします。このデータは、サードパーティコンテンツのようなクロスオリジンのリソースに対しては、デフォルトでは非常に制限されています。例えば、ウェブサイトのオーナーは、ウィジェットのリクエストのレスポンスサイズを測定することで、訪問者がFacebookにログインしているかどうかを判断できるかもしれません。しかし、ほとんどのサードパーティコンテンツの場合、`timing-allow-origin`ヘッダーを設定することは、ホスティングウェブサイトがサードパーティコンテンツのパフォーマンスとサイズを追跡できるようにするための透明性の行為です。
+[Resource Timing API](https://developer.mozilla.org/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API)は、ウェブサイトのオーナーがJavaScriptを介して個々のリソースのパフォーマンスを測定することを可能にします。このデータは、サードパーティコンテンツのようなクロスオリジンのリソースに対しては、デフォルトでは非常に制限されています。例えば、ウェブサイトのオーナーは、ウィジェットのリクエストのレスポンスサイズを測定することで、訪問者がFacebookにログインしているかどうかを判断できるかもしれません。しかし、ほとんどのサードパーティコンテンツの場合、`timing-allow-origin`ヘッダーを設定することは、ホスティングウェブサイトがサードパーティコンテンツのパフォーマンスとサイズを追跡できるようにするための透明性の行為です。
 
 {{ figure_markup(
   image="requests-with-tao.png",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSNXusoFJKi8Z1i_yuG_5umUCJOZwBMaZaECq4T8lU5zIQuLR7UHfZOJmXsXzPWQTJFnFa3dcOEPJgy/pubchart?oid=1886505312&format=interactive",
-  alt="Timing-Allow-Originヘッダを持つリクエスト。",
   caption="`timing-allow-origin`ヘッダを持つリクエスト。",
   description="サードパーティの応答の35%未満がtiming-allow-originヘッダーで提供されています",
   width=600,
@@ -282,7 +281,7 @@ HTTP Archiveの結果は、サードパーティのレスポンスの3分の1だ
 
 ## 反響
 
-サイトに任意のJavaScriptを追加すると、サイトの速度とセキュリティの両方にリスクをもたらすことがわかっています。サイトの所有者はサードパーティ製スクリプトの価値と、それらがもたらす可能性のある速度のペナルティのバランスを取るために勤勉でなければならず、また強力なセキュリティ態勢を維持するために、[サブリソースの完全性](https://developer.mozilla.org/ja/docs/Web/Security/Subresource_Integrity)や[コンテンツセキュリティポリシー](https://developer.mozilla.org/ja/docs/Web/HTTP/CSP)のような最新の機能を使用しなければなりません。これらおよびその他のブラウザのセキュリティ機能の詳細については、[セキュリティの章](./security)を参照してください。
+サイトに任意のJavaScriptを追加すると、サイトの速度とセキュリティの両方にリスクをもたらすことがわかっています。サイトの所有者はサードパーティ製スクリプトの価値と、それらがもたらす可能性のある速度のペナルティのバランスを取るために勤勉でなければならず、また強力なセキュリティ態勢を維持するために、[サブリソースの完全性](https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity)や[コンテンツセキュリティポリシー](https://developer.mozilla.org/docs/Web/HTTP/CSP)のような最新の機能を使用しなければなりません。これらおよびその他のブラウザのセキュリティ機能の詳細については、[セキュリティの章](./security)を参照してください。
 
 ## 結論
 

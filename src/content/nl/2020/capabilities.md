@@ -21,7 +21,7 @@ featured_stat_label_3: Sites staan het installeren van gerelateerde apps toe
 
 ## Inleiding
 
-[Progressive Web Apps](./pwa) (PWA) zijn een platformonafhankelijk applicatiemodel gebaseerd op webtechnologie. Met de hulp van Service Workers draaien deze apps zelfs als de gebruiker offline is. Met het [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) kunnen gebruikers een PWA toevoegen aan hun startscherm of programmalijst. Van daaruit wordt een PWA geopend als een native app. PWA's kunnen echter alleen de functies en mogelijkheden gebruiken die beschikbaar zijn via webplatform-API's. Willekeurige native interfaces kunnen niet worden aangeroepen, waardoor er een gat ontstaat tussen native apps en webapps.
+[Progressive Web Apps](./pwa) (PWA) zijn een platformonafhankelijk applicatiemodel gebaseerd op webtechnologie. Met de hulp van Service Workers draaien deze apps zelfs als de gebruiker offline is. Met het [Web App Manifest](https://developer.mozilla.org/docs/Web/Manifest) kunnen gebruikers een PWA toevoegen aan hun startscherm of programmalijst. Van daaruit wordt een PWA geopend als een native app. PWA's kunnen echter alleen de functies en mogelijkheden gebruiken die beschikbaar zijn via webplatform-API's. Willekeurige native interfaces kunnen niet worden aangeroepen, waardoor er een gat ontstaat tussen native apps en webapps.
 
 Het <a hreflang="en" href="https://www.chromium.org/teams/web-capabilities-fugu">Capabilities Project</a>, informeel ook bekend als Project Fugu, is een bedrijfoverschrijdende inspanning van Google, Microsoft en Intel om de kloof tussen web en native te overbruggen. Dit is belangrijk om het web als platform relevant te houden. Om dit te doen, implementeren de Chromium-bijdragers nieuwe API's die de mogelijkheden van het besturingssysteem blootstellen aan internet, terwijl de veiligheid, privacy en vertrouwen van de gebruiker behouden blijft. Deze mogelijkheden omvatten, maar zijn niet beperkt tot:
 
@@ -49,7 +49,6 @@ De Async Clipboard API biedt twee methoden voor het lezen van inhoud van het kle
 
 {{ figure_markup(
   image="async_clipboard_api.png",
-  alt="Percentage pagina's dat wordt geladen in Chrome met behulp van de Async Clipboard API",
   caption='Percentage pagina’s dat wordt geladen in Chrome met behulp van de Async Clipboard API.<br>(Bronnen: <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/2369">Async Clipboard Read</a>, <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/2370">Async Clipboard Write</a>)',
   description="Grafiek van het gebruik van de Async Clipboard API, gebaseerd op het percentage pagina's dat met deze functie in Chrome wordt geladen. Het vergelijkt het gebruik van de `read`- en `write`-methoden en laat een exponentiële groei zien voor `write` in de loop van 2020, terwijl `read` lineair groeit. In oktober 2020 werd `read` aangeroepen tijdens 0,0003% van alle paginaladingen in Chrome, `write` voor 0,0006%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1740212588&format=interactive",
@@ -69,7 +68,7 @@ De <a hreflang="en" href="https://bugs.chromium.org/p/chromium/issues/detail?id=
 
 Webbrowsers stellen gebruikers in staat om gegevens op verschillende manieren op het systeem van de gebruiker op te slaan, zoals cookies, de Indexed Database (IndexedDB), de Service Worker's Cache Storage, of Web Storage (Local Storage, Session Storage). In moderne browsers kunnen ontwikkelaars gemakkelijk <a hreflang="en" href="https://web.dev/storage-for-the-web/">honderden megabytes en zelfs meer opslaan</a>, afhankelijk van de browser. Wanneer browsers onvoldoende ruimte hebben, kunnen ze gegevens wissen totdat het systeem niet langer de limiet overschrijdt, wat kan leiden tot gegevensverlies.
 
-Dankzij de [StorageManager API](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager), die deel uitmaakt van de <a hreflang="en" href="https://storage.spec.whatwg.org/#storagemanager">WHATWG Storage Living Standard</a>, gedragen browsers zich in dat opzicht niet langer als een zwarte doos. Met deze API kunnen ontwikkelaars de resterende beschikbare ruimte schatten en zich aanmelden voor <a hreflang="en" href="https://web.dev/persistent-storage/">permanente opslag</a>, wat betekent dat de browser de gegevens van een website niet wist wanneer er weinig schijfruimte is. Daarom introduceert de API een nieuwe `StorageManager`-interface op het `navigator`-object, momenteel beschikbaar in Chrome, Edge en Firefox.
+Dankzij de [StorageManager API](https://developer.mozilla.org/docs/Web/API/StorageManager), die deel uitmaakt van de <a hreflang="en" href="https://storage.spec.whatwg.org/#storagemanager">WHATWG Storage Living Standard</a>, gedragen browsers zich in dat opzicht niet langer als een zwarte doos. Met deze API kunnen ontwikkelaars de resterende beschikbare ruimte schatten en zich aanmelden voor <a hreflang="en" href="https://web.dev/persistent-storage/">permanente opslag</a>, wat betekent dat de browser de gegevens van een website niet wist wanneer er weinig schijfruimte is. Daarom introduceert de API een nieuwe `StorageManager`-interface op het `navigator`-object, momenteel beschikbaar in Chrome, Edge en Firefox.
 
 ### Schat de beschikbare opslagruimte in
 
@@ -77,7 +76,6 @@ Ontwikkelaars kunnen de beschikbare opslagruimte schatten door `navigator.storag
 
 {{ figure_markup(
   image="storage_manager_api_estimate.png",
-  alt="Aantal pagina's dat de schattingsmethode van de StorageManager API gebruikt.",
   caption="Aantal pagina's dat de schattingsmethode van de StorageManager API gebruikt.",
   description="Grafiek van het gebruik van de schattingsmethode van de StorageManager API, gebaseerd op het aantal pagina's dat wordt gecontroleerd door HTTP Archive. Het vergelijkt het gebruik op mobiele en desktop-apparaten. Het vertoont een lineaire groei op de desktop, terwijl het een hockeystickgroei laat zien voor mobiele apparaten. In oktober maakten ongeveer 34.000 mobiele sites en 27.000 desktopsites hiervan gebruik.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1853644024&format=interactive",
@@ -94,7 +92,6 @@ Er zijn twee categorieën webopslag: "Beste Inspanning" en "Permanent", waarbij 
 
 {{ figure_markup(
   image="storage_manager_api_persist.png",
-  alt="Aantal pagina's dat de `persist`-methode van de StorageManager API gebruikt.",
   caption="Aantal pagina's dat de `persist`-methode van de StorageManager API gebruikt.",
   description="Grafiek van het gebruik van de `persist`-methode van StorageManager API, op basis van het aantal pagina's dat wordt gecontroleerd door HTTP Archive. Het vergelijkt het gebruik op mobiele en desktop-apparaten. Op desktoppagina's is het gebruik nagenoeg stabiel, terwijl er meer fluctuatie is op mobiele apparaten. In oktober 2020 maken 25 desktoppagina's en 176 mobiele pagina's gebruik van de API.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=644836316&format=interactive",
@@ -115,7 +112,6 @@ Op verschillende platforms is het gebruikelijk dat applicaties een badge present
 
 {{ figure_markup(
   image="badging_api.png",
-  alt="Percentage pagina's dat wordt geladen in Chrome met behulp van de Badging-API",
   caption='Percentage pagina’s dat wordt geladen in Chrome met behulp van de Badging-API.<br>(Bronnen: <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/2726">Badge Set</a>, <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/2727">Badge Clear</a>)',
   description="Grafiek van Badging API-gebruik, gebaseerd op het percentage pagina's dat met deze functie in Chrome wordt geladen. Het vergelijkt de `set` en `clear` methoden. Het gebruik van beide methoden groeit in de loop van de tijd, waarbij de `set` methode over het algemeen vaker wordt aangeroepen. In oktober 2020 is er een plotselinge groei voor beide methoden, met een piek van 0,025% van het laden van pagina's voor de `set` methode en 0,016% voor `clear`.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1145004925&format=interactive",
@@ -138,7 +134,6 @@ registration.showNotification('Title', {
 
 {{ figure_markup(
   image="notification_triggers_api.png",
-  alt="Percentage pagina's dat wordt geladen in Chrome met behulp van de Notification Triggers API",
   caption='Percentage pagina’s dat wordt geladen in Chrome met behulp van de Notification Triggers API.<br>(Bron: <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3017">Notification Triggers</a>)',
   description="Diagram met Notification Triggers API-gebruik, gebaseerd op het percentage pagina's dat in Chrome wordt geladen met deze functie. Het vertoont een piek in maart 2020 met ongeveer 0,00003% van de paginaladingen, en daalt tot nul in oktober 2020.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1388597384&format=interactive",
@@ -150,13 +145,12 @@ Het Fugu-team experimenteerde eerst met Notification Triggers in een oorspronkel
 
 ## <span lang="en">Screen Wake Lock API</span> {screen-wake-lock-api}
 
-Om energie te besparen, verdonkeren mobiele apparaten de achtergrondverlichting van het scherm en schakelen uiteindelijk het scherm van het apparaat uit, wat in de meeste gevallen logisch is. Er zijn echter scenario's waarin de gebruiker wil dat de app het display expliciet wakker houdt, bijvoorbeeld bij het lezen van een recept tijdens het koken of het bekijken van een presentatie. De [Screen Wake Lock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API) (<a hreflang="en" href="https://www.w3.org/TR/screen-wake-lock/">W3C Working Draft</a>) lost dit probleem op door een mechanisme te bieden om het scherm ingeschakeld te houden.
+Om energie te besparen, verdonkeren mobiele apparaten de achtergrondverlichting van het scherm en schakelen uiteindelijk het scherm van het apparaat uit, wat in de meeste gevallen logisch is. Er zijn echter scenario's waarin de gebruiker wil dat de app het display expliciet wakker houdt, bijvoorbeeld bij het lezen van een recept tijdens het koken of het bekijken van een presentatie. De [Screen Wake Lock API](https://developer.mozilla.org/docs/Web/API/Screen_Wake_Lock_API) (<a hreflang="en" href="https://www.w3.org/TR/screen-wake-lock/">W3C Working Draft</a>) lost dit probleem op door een mechanisme te bieden om het scherm ingeschakeld te houden.
 
 De `navigator.wakeLock.request()` methode creëert een "wake lock". Deze methode heeft een parameter `WakeLockType` nodig. In de toekomst zou de Wake Lock API andere vergrendelingstypen kunnen bieden, zoals het scherm uitschakelen, maar de CPU ingeschakeld houden. Voorlopig ondersteunt de API alleen schermvergrendelingen, dus er is slechts één optioneel argument met de standaardwaarde `screen`. De methode retourneert een belofte die wordt omgezet in een `WakeLockSentinel`-object. Ontwikkelaars moeten deze referentie opslaan om de `release()`-methode aan te roepen en de wake lock van het scherm later weer op te heffen. De browser zal automatisch de vergrendeling opheffen wanneer het tabblad inactief is, of de gebruiker minimaliseert het venster. Ook kan de browser een verzoek afwijzen en de belofte afwijzen, bijvoorbeeld vanwege een bijna lege batterij.
 
 {{ figure_markup(
   image="screen_wake_lock_api.png",
-  alt="Aantallen pagina's met behulp van Screen Wake Lock API.",
   caption="Aantallen pagina's met behulp van Screen Wake Lock API.",
   description="Grafiek van het gebruik van de Screen Wake Lock API, gebaseerd op het aantal pagina's dat wordt gecontroleerd door het HTTP Archive, waarbij desktop- en mobiele pagina's worden vergeleken. In oktober 2020 wordt de API gebruikt door 10 desktop- en 5 mobiele pagina's.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=718278185&format=interactive",
@@ -175,7 +169,6 @@ Om dit te doen, biedt de API een nieuwe `IdleDetector` interface op het globale 
 
 {{ figure_markup(
   image="idle_detection_api.png",
-  alt="Percentage pagina's dat wordt geladen in Chrome met behulp van Idle Detection API",
   caption='Percentage pagina’s dat wordt geladen in Chrome met behulp van Idle Detection API.<br>(Bron: <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3017">Idle Detection</a>)',
   description="Grafiek van API-gebruik voor inactieve detectie, gebaseerd op het percentage pagina's dat met deze functie in Chrome wordt geladen. Er zijn alleen gegevens beschikbaar voor juli en oktober 2020, wat een zeer lage acceptatie van de API aantoont.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=963792757&format=interactive",
@@ -215,7 +208,6 @@ Op het moment van schrijven implementeren alleen op Chromium gebaseerde browsers
 
 {{ figure_markup(
   image="periodic_background_sync_api.png",
-  alt="Aantal pagina's dat API voor periodieke achtergrondsynchronisatie gebruikt.",
   caption="Aantal pagina's dat API voor periodieke achtergrondsynchronisatie gebruikt.",
   description="Grafiek van API-gebruik voor periodieke achtergrondsynchronisatie, gebaseerd op het aantal pagina's dat wordt gecontroleerd door HTTP Archive. Het vergelijkt het gebruik op mobiele en desktop-apparaten. Sinds april 2020 wordt de API gebruikt door één tot twee desktop- en mobiele pagina's.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1444904371&format=interactive",
@@ -259,7 +251,6 @@ De Content Indexing API breidt de Service Worker API uit met een nieuwe `Content
 
 {{ figure_markup(
   image="content_indexing_api.png",
-  alt="Percentage pagina's dat wordt geladen in Chrome met behulp van Content Indexing API",
   caption='Percentage pagina’s dat wordt geladen in Chrome met behulp van Content Indexing API.<br>(Bron: <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3017">Content Indexing</a>)',
   description="Grafiek van het gebruik van Content Indexing API, gebaseerd op het percentage pagina's dat met deze functie in Chrome wordt geladen. Het vertoont in eerste instantie een relatief laag gebruik, totdat het in oktober 2020 plotseling vertienvoudigt, en wordt gebruikt tijdens 0,0021% van de paginaladingen in Chrome.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=258329620&format=interactive",
@@ -288,7 +279,6 @@ De WebSocketStream API lost op transparante wijze tegendruk op, aangezien de str
 
 {{ figure_markup(
   image="websocketstreams.png",
-  alt="Percentage pagina's dat in Chrome wordt geladen met WebSocketStreams",
   caption='Percentage pagina’s dat in Chrome wordt geladen met WebSocketStreams.<br>(Bron: <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3018">WebSocketStream</a>)',
   description="Grafiek van het gebruik van WebSocketStreams, gebaseerd op het percentage pagina's dat met deze functie in Chrome wordt geladen. Het vertoont een piek in juni en juli 2020, waar de API werd gebruikt tijdens ongeveer 0,0008% van de paginaladingen.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1714443590&format=interactive",
@@ -300,7 +290,7 @@ De WebSocketStream API heeft zijn eerste oorspronkelijke proef voltooid en bevin
 
 ### Maak het QUIC
 
-<a hreflang="en" href="https://www.chromium.org/quic">QUIC</a> (<a hreflang="en" href="https://www.ietf.org/archive/id/draft-ietf-quic-transport-31.txt">IETF Internet-Draft</a>) is een multiplex, stream-gebaseerd, bidirectioneel transportprotocol geïmplementeerd op UDP. Het is een alternatief voor HTTP / WebSocket-API's die bovenop TCP worden geïmplementeerd. De <a hreflang="en" href="https://web.dev/quictransport/">QuicTransport API</a> is de cliënt-kant API voor het verzenden van berichten naar en het ontvangen van berichten van een QUIC-server. Ontwikkelaars kunnen ervoor kiezen om gegevens onbetrouwbaar via datagrammen te verzenden, of betrouwbaar door de streams-API te gebruiken:
+<a hreflang="en" href="https://www.chromium.org/quic">QUIC</a> (<a hreflang="en" href="https://www.ietf.org/archive/id/draft-ietf-quic-transport-31.txt">IETF Internet-Draft</a>) is een multiplex, stream-gebaseerd, bidirectioneel transportprotocol geïmplementeerd op UDP. Het is een alternatief voor HTTP / WebSocket-API's die bovenop TCP worden geïmplementeerd. De <a hreflang="en" href="https://web.dev/webtransport/">QuicTransport API</a> is de cliënt-kant API voor het verzenden van berichten naar en het ontvangen van berichten van een QUIC-server. Ontwikkelaars kunnen ervoor kiezen om gegevens onbetrouwbaar via datagrammen te verzenden, of betrouwbaar door de streams-API te gebruiken:
 
 ```js
 const transport = new QuicTransport(QUIC_URL);
@@ -314,7 +304,6 @@ QuicTransport is een geldig alternatief voor WebSockets, omdat het de gebruikssc
 
 {{ figure_markup(
   image="quic_transport.png",
-  alt="Percentage pagina's dat in Chrome wordt geladen met Quic Transport",
   caption='Percentage pagina’s dat in Chrome wordt geladen met Quic Transport.<br>(Bron: <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3184">QuicTransport</a>)',
   description="Grafiek van het gebruik van QuicTransport, gebaseerd op het percentage pagina's dat met deze functie in Chrome wordt geladen. Het vertoont een piek in oktober 2020, waar de API werd gebruikt tijdens ongeveer 0.00089% van de paginaladingen.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1571330893&format=interactive",

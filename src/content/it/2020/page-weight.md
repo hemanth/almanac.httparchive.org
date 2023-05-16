@@ -5,7 +5,7 @@ description: Capitolo Page Weight (Peso della pagina) del Web Almanac 2020 che s
 authors: [henrihelvetica]
 reviewers: [paulcalvano]
 analysts: [paulcalvano]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [chefleo]
 henrihelvetica_bio: Henri è uno sviluppatore freelance che ha trasformato i suoi interessi in un pot-pourri di ingegneria delle prestazioni con pizzichi di esperienza utente. Quando non si legge il diluvio di documenti di ricerca quotidiana e casi di studio, o non si controlla indiscriminatamente i siti di auditing nei dev tools, Henri può essere trovato a contribuire alla comunità, co-programmando meetup tra cui <a href="https://twitter.com/towebperf">Toronto Web Performance Group</a> o offre volontariamente il suo tempo per pranzo e impara in vari bootcamp. Altrimenti, si sta attrezzando con software di produzione musicale o con una formazione quasi certa e si concentra sul correre 5k il più veloce possibile.
 discuss: 2054
@@ -23,9 +23,11 @@ featured_stat_label_3: Il numero mediano di richieste di pagine per dispositivi 
 
 Il peso della pagina è una delle metriche più semplici disponibili. Proprio come salire su una bilancia per avere un'idea del tuo peso personale, caricare una pagina fornirà un senso del numero e della dimensione delle risorse raccolte e richieste. Ma con la maturazione e la crescita del Web e delle pagine Web, anche le metriche associate, come il peso della pagina. Può influire sulle prestazioni di una pagina proprio come il peso personale (massa) può fare lo stesso. Questo capitolo farà un'immersione più approfondita e sbloccherà gli strati delle pagine web e vedrà cosa costituisce il peso di una pagina a possibile discapito dell'utente finale: tu, io, noi.
 
+<!-- markdownlint-disable MD018 -->
 ## #PageWeightStillMatters
 
 #PageWeightStillMatters significherebbe quasi che non ha importanza o che non ha avuto importanza. Potrebbe non aver avuto importanza quando è stato lanciato Craigslist basato su testo. Ma 25 anni fa, quando è stata fondata, anche Mosaic 1.0 è stata lanciata lo stesso anno e Waterfalls di TLC è stato un grande successo. Il web è maturato così come le risorse. Erano passati solo pochi anni da quando il twitterverse era stato messo a punto discutendo di come la dimensione media delle pagine web ora fosse uguale alla dimensione del <a hreflang="en" href="https://www.wired.com/2016/04/average-webpage-now-size-original-doom/">originale doom</a>. Molti di noi hanno riflettuto su quale sarebbe stata la dimensione della pagina nel tempo, incluso il <a hreflang="en" href="https://speedcurve.com/blog/web-performance-page-bloat/">il nostro Tammy Everts</a>, ma la realtà è sorprendente. Una pagina si trova @ ~ 4 MB e 3.7 MB, desktop/mobile rispettivamente, al 75° percentile e uno scioccante 7.4 MB e 6.7 MB al 90° percentile. Ci sono moltitudini di implicazioni nell'avere pagine così pesanti, come la probabilità di una scarsa esperienza utente a causa di reti inaffidabili. Oggi, nonostante le lezioni <a hreflang="en" href="https://blog.chriszacharias.com/page-weight-matters">apprese un decennio fa</a>, stiamo sperimentando variazioni delle stesse sfide: nonostante abbiamo reti leggermente migliori, stiamo lavorando con risorse molto più grandi.
+<!-- markdownlint-enable MD018 -->
 
 ### Larghezza di banda
 
@@ -33,7 +35,7 @@ Nel 2016, quando mi è stato chiesto di spiegare perché un turista australiano 
 
 Il punto era semplice: sebbene si possa trarre vantaggio da una maggiore larghezza di banda, le leggi della fisica continuano a prevalere. Un australiano non è in grado di sfuggire alle leggi sulla latenza. Nella migliore delle ipotesi, a casa a Sydney, questo australiano stava vivendo una latenza sufficiente che a volte la sua connessione Internet era percepita come non rispondente.
 
-Ora, immagina che lo stesso australiano, sapendo che al 75° percentile, la sua pagina stia facendo circa 108 richieste (ne parleremo più avanti), e non abbiamo ancora idea del protocollo di rete, delle risorse richieste, del livello di compressione o ottimizzazione. È possibile seguire i capitoli [HTTP/2](./http2) e [Compressione](./compression) per ulteriori informazioni sulla durata di una richiesta moderna.
+Ora, immagina che lo stesso australiano, sapendo che al 75° percentile, la sua pagina stia facendo circa 108 richieste (ne parleremo più avanti), e non abbiamo ancora idea del protocollo di rete, delle risorse richieste, del livello di compressione o ottimizzazione. È possibile seguire i capitoli [HTTP/2](./http) e [Compressione](./compression) per ulteriori informazioni sulla durata di una richiesta moderna.
 
 ### Gli Assets
 
@@ -115,7 +117,7 @@ Le immagini costituiscono ancora il maggior numero di richieste, anche se JavaSc
   description="Box plot della distribuzione delle dimensioni delle immagini per formato: gif, ico, jpg, png, svg e webp. Jpg si distingue per avere la distribuzione più alta con un 90° percentile superiore a 150 KB per immagine. Png è il secondo più alto con circa 100 KB al 90° percentile. Sebbene WebP abbia un 90° percentile più piccolo di png, il suo 75° percentile è più alto. gif, ico e svg hanno tutte distribuzioni relativamente piccole vicino a 0 KB.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlN4Clqeb8aPc63h0J58WfBxoJluSFT6kXn45JGPghw1LGU28hzabMYAATXNY5st9TtjKrr2HnbfGd/pubchart?oid=211653520&format=interactive",
   sheets_gid="142855724",
-  sql_file="requests_format_distribution.sql"
+  sql_file="response_format_distribution.sql"
 ) }}
 
 Sappiamo che le immagini sono una grande fonte di peso della pagina. Il grafico sopra ci mostra le principali fonti di peso dell'immagine e la distribuzione del peso. Top 3: JPG, PNG e WebP. Quindi non solo il JPG è il formato di immagine più popolare, ma tende anche ad essere il più grande per dimensione, anche più grande di un formato senza perdita di dati come il PNG. Ma come abbiamo [notato l'anno scorso](../2019/page-weight#file-size-by-image-format-for-images--1024-bytes), ciò ha a che fare con il caso d'uso predominante per il PNG, che sembrano essere icone e loghi.

@@ -21,7 +21,7 @@ featured_stat_label_3: Сайта, поддерживающих устанавл
 
 ## Введение
 
-<a href="./pwa">Прогрессивные веб-приложения (<span lang="en">Progressive Web Apps</span>, PWA)</a> — это кроссплатформенная модель приложения, основанная на веб-технологиях. С помощью сервис-воркеров такие приложения работают даже в офлайн-режиме. [Манифест веб-приложений](https://developer.mozilla.org/ru/docs/Web/Manifest) позволяет пользователям добавлять PWA на главный экран или в список программ смартфона. При последующем открытии PWA выглядит как нативное приложение. Тем не менее, PWA могут использовать только функциональность и возможности, доступные через API веб-платформы. Какими-либо нативными интерфейсами не получится воспользоваться и это создаёт пропасть между нативными и веб-приложениями.
+<a href="./pwa">Прогрессивные веб-приложения (<span lang="en">Progressive Web Apps</span>, PWA)</a> — это кроссплатформенная модель приложения, основанная на веб-технологиях. С помощью сервис-воркеров такие приложения работают даже в офлайн-режиме. [Манифест веб-приложений](https://developer.mozilla.org/docs/Web/Manifest) позволяет пользователям добавлять PWA на главный экран или в список программ смартфона. При последующем открытии PWA выглядит как нативное приложение. Тем не менее, PWA могут использовать только функциональность и возможности, доступные через API веб-платформы. Какими-либо нативными интерфейсами не получится воспользоваться и это создаёт пропасть между нативными и веб-приложениями.
 
 <a lang="en" href="https://www.chromium.org/teams/web-capabilities-fugu">Capabilities Project</a>, также известный как <span lang="en">Project Fugu</span> — совместный проект компаний Google, Microsoft и Intel, целью которого является устранение существующего разрыва между веб- и нативными приложениями. Это важно для поддержания актуальности веб как платформы. Для достижения этой цели команда Chromium реализует новые API, которые позволяют использовать возможности операционной системы в вебе, сохраняя при этом безопасность и конфиденциальность для пользователей. К этим возможностям относятся, в частности:
 
@@ -49,7 +49,6 @@ featured_stat_label_3: Сайта, поддерживающих устанавл
 
 {{ figure_markup(
   image="async_clipboard_api.png",
-  alt="Процент загрузок страниц в Chrome, использующих Async Clipboard API",
   caption='Процент загрузок страниц в Chrome, использующих <span lang="en">Async Clipboard API</span>.<br>(источники: <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/2369">Async Clipboard Read</a>, <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/2370">Async Clipboard Write</a>)',
   description='График использования <span lang="en">API Async Clipboard</span> в процентном соотношении от количества загрузок страниц в Chrome. Оценивается использование методов чтения и записи, на графике виден экспоненциальный рост метода записи в течение 2020 года, когда как метод чтения используется линейно. В октябре 2020 года метод чтения вызывался на 0,0003% загрузок страниц в Chrome, метод записи — на 0,0006%.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1740212588&format=interactive",
@@ -69,7 +68,7 @@ featured_stat_label_3: Сайта, поддерживающих устанавл
 
 Браузеры позволяют сохранять пользовательские данные на его системе разными способами: куки-файлы, IndexedDB) кеш-хранилище сервис-воркера, или веб-хранилище (локальное или сессионное). В современных браузерах разработчики могут спокойно <a hreflang="en" href="https://web.dev/storage-for-the-web/">хранить больше сотни мегабайт данных</a> (в зависимости от браузера). Когда браузерам не хватает свободного места, они могут удалить некоторые данные.
 
-Благодаря <a lang="en" href="https://developer.mozilla.org/ru/docs/Web/API/StorageManager">StorageManager API</a> из <a hreflang="en" href="https://storage.spec.whatwg.org/#storagemanager">рабочего проекта стандарта WHATWG Storage</a>, браузеры не будут больше похожи на чёрный ящик. Данный API позволяет разработчикам определить оставшееся доступное место и решить, нужно ли сохранять данные в <a hreflang="en" href="https://web.dev/persistent-storage/">постоянное хранилище</a>. В результате появляется возможность предотвратить очистку данных сайта при нехватке дискового пространства. Этот API представлен как новый интерфейс `StorageManager` в объекте `navigator`, который сейчас доступен в браузерах Chrome, Edge и Firefox.
+Благодаря <a lang="en" href="https://developer.mozilla.org/docs/Web/API/StorageManager">StorageManager API</a> из <a hreflang="en" href="https://storage.spec.whatwg.org/#storagemanager">рабочего проекта стандарта WHATWG Storage</a>, браузеры не будут больше похожи на чёрный ящик. Данный API позволяет разработчикам определить оставшееся доступное место и решить, нужно ли сохранять данные в <a hreflang="en" href="https://web.dev/persistent-storage/">постоянное хранилище</a>. В результате появляется возможность предотвратить очистку данных сайта при нехватке дискового пространства. Этот API представлен как новый интерфейс `StorageManager` в объекте `navigator`, который сейчас доступен в браузерах Chrome, Edge и Firefox.
 
 ### Определение доступного места в хранилище
 
@@ -77,7 +76,6 @@ featured_stat_label_3: Сайта, поддерживающих устанавл
 
 {{ figure_markup(
   image="storage_manager_api_estimate.png",
-  alt="Количество страниц, использующих estimate-метод из StorageManager API.",
   caption='Количество страниц, использующих estimate-метод из <span lang="en">StorageManager API</span>.',
   description='График использования estimate-метода в <span lang="en">StorageManager API</span> от количества страниц, отслеживаемых HTTP Archive. Сравнение как по мобильным, так и обычным веб-страницам. Наблюдается линейный рост у обычных веб-страниц, и резкий рост у мобильных. В октябре 2020 года этот API вызывался примерно на 34,000 мобильных и 27,000 обычных сайтах.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1853644024&format=interactive",
@@ -94,7 +92,6 @@ featured_stat_label_3: Сайта, поддерживающих устанавл
 
 {{ figure_markup(
   image="storage_manager_api_persist.png",
-  alt="Количество страниц в Chrome, использующих persist-метод из StorageManager API.",
   caption='Количество страниц в Chrome, использующих persist-метод из <span lang="en">StorageManager API</span>.',
   description='График использования persist-метода в <span lang="en">StorageManager API</span> от количества страниц, отслеживаемых HTTP Archive. Сравнение как по мобильным, так и обычным веб-страницам. На обычных страницах использование почти неизменно, в то время как на мобильных наблюдается небольшие изменения. В октябре 2020 года этот API вызывался на 25 обычных веб-страниц и 176 мобильных страницах.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=644836316&format=interactive",
@@ -115,7 +112,6 @@ API-метод `persist()` используется реже, чем метод 
 
 {{ figure_markup(
   image="badging_api.png",
-  alt="Процент загрузок страниц в Chrome, использующих Badging API",
   caption='Процент загрузок страниц в Chrome, использующих <span lang="en">Badging API</span>.<br>(источники: <a lang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/2726">Badge Set</a>, <a lang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/2727">Badge Clear</a>)',
   description='График использования <span lang="en">Badging API</span> в процентном соотношении от количества загрузок страниц в Chrome. Сравнивает методы set и clear. Использование обоих методов растёт, при этом set-метод, как правило, вызывается чаще. В октябре 2020 года у обоих методов наблюдается резкий рост, наиболее использование метода set составило 0,025%, а clear — 0,016%.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1145004925&format=interactive",
@@ -138,7 +134,6 @@ registration.showNotification('Title', {
 
 {{ figure_markup(
   image="notification_triggers_api.png",
-  alt="Процент загрузок страниц в Chrome, использующих Notification Triggers API",
   caption='Процент загрузок страниц в Chrome, использующих <span lang="en">Notification Triggers API</span>.<br>(источник: <a hreflang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3017">Notification Triggers</a>)',
   description='График использования <span lang="en">Notification Triggers API</span> в процентном соотношении от количества загрузок страниц в Chrome. Он показывает пик в 0.00003% загрузок страниц в марте 2020 года, который в октябре 2020 года упадёт до нуля.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1388597384&format=interactive",
@@ -150,13 +145,12 @@ registration.showNotification('Title', {
 
 ## <span lang="en">Screen Wake Lock API</span> {screen-wake-lock-api}
 
-Для экономии заряда аккумулятора мобильные устройства уменьшают яркость экрана и в конце концов отключают дисплей. Однако есть ситуации, когда при использовании приложения пользователем экран не должен отключаться, например, это актуально при чтении рецепта во время приготовления пищи или при просмотре презентации. <a lang="en" href="https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API">Screen Wake Lock API</a> (<a hreflang="en" href="https://www.w3.org/TR/screen-wake-lock/">рабочий черновик W3C</a>) решает данную проблему, позволяя оставлять экран включенным.
+Для экономии заряда аккумулятора мобильные устройства уменьшают яркость экрана и в конце концов отключают дисплей. Однако есть ситуации, когда при использовании приложения пользователем экран не должен отключаться, например, это актуально при чтении рецепта во время приготовления пищи или при просмотре презентации. <a lang="en" href="https://developer.mozilla.org/docs/Web/API/Screen_Wake_Lock_API">Screen Wake Lock API</a> (<a hreflang="en" href="https://www.w3.org/TR/screen-wake-lock/">рабочий черновик W3C</a>) решает данную проблему, позволяя оставлять экран включенным.
 
 Метод `navigator.wakeLock.request()` останавливает блокировку экрана. Он принимает параметр `WakeLockType`. В будущем API Wake Lock может включать поддержку других типов блокировки, например, чтобы отключать экран, но оставлять рабочим процессор. Пока что API поддерживает только блокировку экрана, поэтому доступен только один необязательный аргумент со значением по умолчанию `screen`. Метод возвращает промис, при успешном выполнении которого будет получен объект `WakeLockSentinel`. Разработчикам необходимо сохранить его в переменную, чтобы позже вызвать метод `release()`, который снимет блокировку отключения экрана. Браузер автоматически снимет блокировку на отключение экрана, если вкладка перестанет быть активной, либо если пользователь свернёт окно. Стоит упомянуть, что, например, из-за низкого заряда аккумулятора браузер может и вовсе запретить блокировку отключения экрана, в таком случае промис будет отклонён.
 
 {{ figure_markup(
   image="screen_wake_lock_api.png",
-  alt="Количество страниц, использующих Screen Wake Lock API.",
   caption='Количество страниц, использующих <span lang="en">Screen Wake Lock API</span>.',
   description='График использования <span lang="en">API Screen Wake Lock</span> по количеству страниц (десктоп и веб), отслеживаемых HTTP Archive. В октябре 2020 года API замечен на 10 обычных и 5 мобильных страниц.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=718278185&format=interactive",
@@ -175,7 +169,6 @@ BettyCrocker.com — популярный кулинарный сайт в СШ�
 
 {{ figure_markup(
   image="idle_detection_api.png",
-  alt="Процент загрузок страниц в Chrome, использующих Idle Detection API",
   caption='Процент загрузок страниц в Chrome, использующих <span lang="en">Idle Detection API</span>.<br>(источник: <a lang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3017">Idle Detection</a>)',
   description='График использования <span lang="en">Idle Detection API</span> в процентном соотношении от количества загрузок страниц в Chrome. Доступны данные только за июль и октябрь 2020 года, которые говорят об очень низком уровне использования API.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=963792757&format=interactive",
@@ -215,7 +208,6 @@ self.addEventListener('periodicsync', (event) => {
 
 {{ figure_markup(
   image="periodic_background_sync_api.png",
-  alt="Процент загрузок страниц в Chrome, использующих Periodic Background Sync API.",
   caption='Процент загрузок страниц в Chrome, использующих <span lang="en">Periodic Background Sync API</span>.',
   description='График использования <span lang="en">Periodic Background Sync API</span> в процентном соотношении от количества отслеживаемых страниц в HTTP Archive. Сравнение по как мобильным, так и обычным веб-страницам. С апреля 2020 года использование API колеблется от одной до двух страниц (для десктопа и мобильных устройств).',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1444904371&format=interactive",
@@ -259,7 +251,6 @@ relatedApps.forEach((app) => {
 
 {{ figure_markup(
   image="content_indexing_api.png",
-  alt="Процент загрузок страниц в Chrome, использующих  Content Indexing API",
   caption='Процент загрузки страниц в Chrome с использованием <span lang="en">Content Indexing API</span>.<br>(источник: <a lang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3017">Content Indexing</a>)',
   description='График использования <span lang="en">Content Indexing API</span> в процентном соотношении от количества загрузок страниц в Chrome. Поначалу наблюдается сравнительно низкий уровень использования, пока в октябре 2020 года он резко возрастает в десять раз, и вызывается на 0.0021% загрузок страниц в Chrome.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=258329620&format=interactive",
@@ -288,7 +279,6 @@ const writer = writable.getWriter();
 
 {{ figure_markup(
   image="websocketstreams.png",
-  alt="Процент загрузок страниц в Chrome, использующих WebSocketStreams",
   caption='Процент загрузки страниц в Chrome с использованием <span lang="en">WebSocketStreams</span>.<br>(источник: <a lang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3018">WebSocketStream</a>)',
   description='График использования <span lang="en">WebSocketStreams</span> в процентном соотношении от количества загрузок страниц в Chrome. Он показывает пик в июне и июле 2020 года, когда API использовался примерно на 0,0008% загрузок страниц.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1714443590&format=interactive",
@@ -300,7 +290,7 @@ const writer = writable.getWriter();
 
 ### Применение QUIC
 
-<a hreflang="en" href="https://www.chromium.org/quic">QUIC</a> (<a lang="en" href="https://www.ietf.org/archive/id/draft-ietf-quic-transport-31.txt">IETF Internet-Draft</a>) — это мультиплексированный, потоковый, двунаправленный транспортный UDP-протокол. Это альтернатива <span lang="en">HTTP/WebSocket API</span>, которые работают поверх TCP. <a lang="en" href="https://web.dev/quictransport/">QuicTransport API</a> — это клиентский API для отправки сообщений на сервер QUIC и получения сообщений с него. Разработчики могут выбирать между ненадёжной отправкой данных через датаграммы, так и надёжной, использующей потоковое API:
+<a hreflang="en" href="https://www.chromium.org/quic">QUIC</a> (<a lang="en" href="https://www.ietf.org/archive/id/draft-ietf-quic-transport-31.txt">IETF Internet-Draft</a>) — это мультиплексированный, потоковый, двунаправленный транспортный UDP-протокол. Это альтернатива <span lang="en">HTTP/WebSocket API</span>, которые работают поверх TCP. <a lang="en" href="https://web.dev/webtransport/">QuicTransport API</a> — это клиентский API для отправки сообщений на сервер QUIC и получения сообщений с него. Разработчики могут выбирать между ненадёжной отправкой данных через датаграммы, так и надёжной, использующей потоковое API:
 
 ```js
 const transport = new QuicTransport(QUIC_URL);
@@ -314,7 +304,6 @@ const stream = await transport.createSendStream();
 
 {{ figure_markup(
   image="quic_transport.png",
-  alt="Процент загрузок страниц в Chrome, использующих QuicTransport.",
   caption='Процент загрузки страниц в Chrome с использованием <span lang="en">QuicTransport</span>.<br>(источник: <a lang="en" href="https://chromestatus.com/metrics/feature/timeline/popularity/3184">QuicTransport</a>)',
   description='График использования <span lang="en">QuicTransport</span> в процентном соотношении от количества загрузок страниц в Chrome. Он показывает пик в октябре 2020 года, когда API использовался примерно на 0,00089% загрузок страниц.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqot9ALgxcgOVJntkzIKnkpo3idIPy-tL0t_nzC5BwFuq0ThgK5OXOYVVOpama4vB2EyggX813d33/pubchart?oid=1571330893&format=interactive",

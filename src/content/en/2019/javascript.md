@@ -3,9 +3,9 @@
 title: JavaScript
 description: JavaScript chapter of the 2019 Web Almanac covering how much JavaScript we use on the web, compression, libraries and frameworks, loading, and source maps.
 authors: [housseindjirdeh]
-reviewers: [obto, paulcalvano, mathiasbynens, rviscomi]
+reviewers: [foxdavidj, paulcalvano, mathiasbynens, rviscomi]
 analysts: [rviscomi]
-editors: [obto]
+editors: [foxdavidj]
 translators: []
 discuss: 1756
 results: https://docs.google.com/spreadsheets/d/1kBTglETN_V9UjKqK_EFmFjRexJnQOmLLr-I2Tkotvic/
@@ -75,7 +75,6 @@ Although this data shows how much longer it can take for a mobile device to proc
 
 {{ figure_markup(
   image="js-processing-reddit.png",
-  alt="JavaScript processing times for reddit.com.",
   caption='JavaScript processing times for reddit.com. From <a hreflang="en" href="https://v8.dev/blog/cost-of-javascript-2019">The cost of JavaScript in 2019</a>.',
   description="Bar chart showing 3 different devices: at the top a Pixel 3 has small amount on both the main thread and the worker thread of less than 400ms. For a Moto G4 it is approximately 900 ms on main thread and a further 300 ms on worker thread. And the final bar is an Alcatel 1X 5059D with over 2,000 ms on the main thread and over 500 ms on worker thread.",
   width=600,
@@ -85,7 +84,7 @@ Although this data shows how much longer it can take for a mobile device to proc
 
 ### Number of requests
 
-One avenue worth exploring when trying to analyze the amount of JavaScript used by web pages is the number of requests shipped. With [HTTP/2](./http2), sending multiple smaller chunks can improve page load over sending a larger, monolithic bundle. If we also break it down by device client, how many requests are being fetched?
+One avenue worth exploring when trying to analyze the amount of JavaScript used by web pages is the number of requests shipped. With [HTTP/2](./http), sending multiple smaller chunks can improve page load over sending a larger, monolithic bundle. If we also break it down by device client, how many requests are being fetched?
 
 {{ figure_markup(
   image="fig5.png",
@@ -169,7 +168,7 @@ For a deeper analysis on compression, refer to the ["Compression"](./compression
 Open source code, or code with a permissive license that can be accessed, viewed and modified by anyone. From tiny libraries to entire browsers, such as <a hreflang="en" href="https://www.chromium.org/Home">Chromium</a> and <a hreflang="en" href="https://www.openhub.net/p/firefox">Firefox</a>, open source code plays a crucial role in the world of web development. In the context of JavaScript, developers rely on open source tooling to include all types of functionality into their web page. Regardless of whether a developer decides to use a small utility library or a massive framework that dictates the architecture of their entire application, relying on open-source packages can make feature development easier and faster. So which JavaScript open-source libraries are used the most?
 
 <figure>
-   <table>
+    <table>
       <thead>
         <tr>
           <th>Library</th>
@@ -285,10 +284,10 @@ Open source code, or code with a permissive license that can be accessed, viewed
         </tr>
       </tbody>
     </table>
-   <figcaption>{{ figure_link(caption="Top JavaScript libraries on desktop and mobile.") }}</figcaption>
+    <figcaption>{{ figure_link(caption="Top JavaScript libraries on desktop and mobile.") }}</figcaption>
 </figure>
 
-<a hreflang="en" href="https://jquery.com/">jQuery</a>, the most popular JavaScript library ever created, is used in 85.03% of desktop pages and 83.46% of mobile pages. The advent of many Browser APIs and methods, such as [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), standardized much of the functionality provided by the library into a native form. Although the popularity of jQuery may seem to be declining, why is it still used in the vast majority of the web?
+<a hreflang="en" href="https://jquery.com/">jQuery</a>, the most popular JavaScript library ever created, is used in 85.03% of desktop pages and 83.46% of mobile pages. The advent of many Browser APIs and methods, such as [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) and [querySelector](https://developer.mozilla.org/docs/Web/API/Document/querySelector), standardized much of the functionality provided by the library into a native form. Although the popularity of jQuery may seem to be declining, why is it still used in the vast majority of the web?
 
 There are a number of possible reasons:
 
@@ -305,7 +304,6 @@ In the past number of years, the JavaScript ecosystem has seen a rise in open-so
 
 {{ figure_markup(
   image="fig12.png",
-  alt="Most frequently used frameworks on desktop.",
   caption="Most frequently used frameworks on desktop.",
   description="Bar chart showing 4.6% of sites use React, 2.0% AngularJS, 1.8% Backbone.js, 0.8% Vue.js, 0.4% Knockout.js, 0.3% Zone.js, 0.3% Angular, 0.1% AMP, 0.1% Ember.js.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTpzDb9HGbdVvin6YPTOmw11qBVGGysltxmH545fUfnqIThAq878F_b-KxUo65IuXaeFVSnlmJ5K1Dm/pubchart?oid=1699359221&format=interactive"
@@ -361,7 +359,7 @@ Similarly, very few sites (0.50%-0.80%) use the `nomodule` attribute for any scr
 
 ## Preload and prefetch
 
-[Preload](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content) and [prefetch](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ) are [resource hints](./resource-hints) which enable you to aid the browser in determining what resources need to be downloaded.
+[Preload](https://developer.mozilla.org/docs/Web/HTML/Link_types/preload) and [prefetch](https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ) are [resource hints](./resource-hints) which enable you to aid the browser in determining what resources need to be downloaded.
 
 - Preloading a resource with `<link rel="preload">` tells the browser to download this resource as soon as possible. This is especially helpful for critical resources which are discovered late in the page loading process (e.g., JavaScript located at the bottom of your HTML) and are otherwise downloaded last.
 - Using `<link rel="prefetch">` tells the browser to take advantage of any idle time it has to fetch these resources needed for future navigations
@@ -398,12 +396,12 @@ With HTTP Archive, we can take a look at any newer API that is supported (or is 
 
 How many sites use the following APIs?
 
-- [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
-- [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
-- [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
-- [SharedArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
-- [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
-- [WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+- [Atomics](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
+- [Intl](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+- [Proxy](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+- [SharedArrayBuffer](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
+- [WeakMap](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+- [WeakSet](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
 
 {{ figure_markup(
   image="fig17.png",
@@ -427,7 +425,6 @@ Although useful, there are a number of reasons why many sites may not want to in
 
 {{ figure_markup(
   image="fig18.png",
-  alt="Percentage of sites using source maps.",
   caption="Percentage of sites using source maps.",
   description="Bar chart showing 18% of desktop sites and 17% of mobile sites use source maps.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTpzDb9HGbdVvin6YPTOmw11qBVGGysltxmH545fUfnqIThAq878F_b-KxUo65IuXaeFVSnlmJ5K1Dm/pubchart?oid=906754154&format=interactive"

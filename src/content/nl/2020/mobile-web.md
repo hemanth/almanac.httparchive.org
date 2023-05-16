@@ -3,8 +3,8 @@
 title: Mobiel internet
 description: Het hoofdstuk over Mobiel Internet van de Web Almanac van 2020 behandelt het laden van pagina's, tekstuele inhoud, zoomen en schalen, knoppen en links en het gemak van het invullen van formulieren.
 authors: [spanicker, mdiblasio]
-reviewers: [obto]
-analysts: [obto]
+reviewers: [foxdavidj]
+analysts: [foxdavidj]
 editors: [exterkamp]
 translators: [noah-vdv]
 spanicker_bio: Shubhie Panicker is de technische leider voor Chrome's betrokkenheid bij het webframework-ecosysteem, waar ze samenwerkt met open source-hulpmiddelen, frameworks en gemeenschappen. Als lid van Chrome's Web Platform-team heeft ze gewerkt aan webstandaarden en de implementatie van Chromium voor verschillende webprestatie-API's. Voordat ze bij Chrome kwam, werkte ze aan infrastructuur- en webframeworks voor Google-producten zoals Search, Google Photos enz.
@@ -60,7 +60,6 @@ Rick Byers [tweette](https://twitter.com/RickByers/status/1195342331588706306) d
 
 {{ figure_markup(
   image="page-loads-across-origins-ranked-by-popularity.png",
-  alt="Paginaladingen in verschillende herkomsten, gerangschikt op populariteit (in Chrome)",
   caption='Paginaladingen in verschillende herkomsten, gerangschikt op populariteit (in Chrome)',
   description="Grafiek waaruit blijkt dat een klein aantal herkomsten een groot deel van het verkeer vormt, zowel voor mobiel als voor desktop. De top 30 herkomsten vormen 25% van het totale verkeer op mobiele apparaten. De top 200 herkomsten vormen 33% van het totale verkeer op mobiele apparaten",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNyVui4x9yanLKpp8Zz92IJ9c2NKCN_2g7SH-vRoelqT3nABB_uTQnXXScCUo6D-Uis1_wDzwcdGzx/pubchart?oid=949521302&format=interactive",
@@ -76,10 +75,10 @@ Belangrijke punten:
   * De top 30 herkomsten vormen 25% van het totale verkeer op mobiele apparaten.
   * De top 200 herkomsten vormen 33% van het totale verkeer op mobiele apparaten.
 * Het web heeft een **brede romp**.
- * De top 10k-herkomsten vormen ongeveer tweederde van het verkeer: 64% van het verkeer op mobiele apparaten.
+  * De top 10k-herkomsten vormen ongeveer tweederde van het verkeer: 64% van het verkeer op mobiele apparaten.
 * Het web heeft een **lange staart**.
- * 3M herkomsten in de top 98% op Android versus 1,8M op Windows.
- * De staart is op Android ongeveer twee keer zo lang als op Windows. Dit is hoogstwaarschijnlijk toe te schrijven aan het grotere aantal mobiele apparaten en gebruikers in vergelijking met desktop.
+  * 3M herkomsten in de top 98% op Android versus 1,8M op Windows.
+  * De staart is op Android ongeveer twee keer zo lang als op Windows. Dit is hoogstwaarschijnlijk toe te schrijven aan het grotere aantal mobiele apparaten en gebruikers in vergelijking met desktop.
 
 #### Verkeer naar een site van mobiel versus desktop (CrUX)
 
@@ -91,7 +90,6 @@ We hebben de CrUX-dataset bekeken om Chrome-verkeer naar sites vanaf mobiele app
 
 {{ figure_markup(
   image="mobile-traffic-distribution.png",
-  alt="Distributie van mobiel verkeer",
   caption='Verdeling van mobiel verkeer versus ander verkeer',
   description="Grafiek die laat zien hoe mobiel het merendeel van het verkeer is voor de meeste websites. 50% van de geanalyseerde websites ontvangt 77,61% of meer van hun verkeer via mobiele apparaten (een lichte daling ten opzichte van 79,93% in 2019).",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNyVui4x9yanLKpp8Zz92IJ9c2NKCN_2g7SH-vRoelqT3nABB_uTQnXXScCUo6D-Uis1_wDzwcdGzx/pubchart?oid=1290224874&format=interactive",
@@ -229,7 +227,6 @@ Volgens gegevens van CrUX heeft 60% van de mobiele sites en 54% van de desktopsi
 
 {{ figure_markup(
   image="aggregate-lcp-performance-by-device.png",
-  alt="Aggregaat LCP-prestaties per apparaat",
   caption='Aggregaat LCP-prestaties per apparaat',
   description="Een grafiek die laat zien dat 60% van de mobiele sites en 54% van de desktopsites een goede CLS heeft.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNyVui4x9yanLKpp8Zz92IJ9c2NKCN_2g7SH-vRoelqT3nABB_uTQnXXScCUo6D-Uis1_wDzwcdGzx/pubchart?oid=277999653&format=interactive",
@@ -290,7 +287,6 @@ Lighthouse <a hreflang="en" href="https://web.dev/color-contrast/">controleert n
 
 {{ figure_markup(
   image="sites-with-sufficient-color-contrast.png",
-  alt="Sites met voldoende kleurcontrast",
   caption='Sites met voldoende kleurcontrast',
   description="Een grafiek die laat zien dat 78,94%, het merendeel van de webpagina's, onvoldoende kleurcontrast had.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNyVui4x9yanLKpp8Zz92IJ9c2NKCN_2g7SH-vRoelqT3nABB_uTQnXXScCUo6D-Uis1_wDzwcdGzx/pubchart?oid=524145395&format=interactive",
@@ -306,7 +302,6 @@ Op basis van onderzoek zijn er normen voor de minimale grootte van knoppen en ti
 
 {{ figure_markup(
   image="sites-with-properly-sized-tap-targets.png",
-  alt="Sites met tikdoelen van de juiste grootte",
   caption='Sites met tikdoelen van de juiste grootte',
   description="Een grafiek die laat zien dat 63,69%, het merendeel van de webpagina's, tikdoelen met een onjuist formaat had. Dit is een lichte verbetering ten opzichte van vorig jaar, toen 65,57% van de webpagina's tikdoelen met een onjuist formaat had.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNyVui4x9yanLKpp8Zz92IJ9c2NKCN_2g7SH-vRoelqT3nABB_uTQnXXScCUo6D-Uis1_wDzwcdGzx/pubchart?oid=1829334180&format=interactive",
@@ -335,7 +330,6 @@ Zoekinvoer wordt gebruikt in 17% van alle sites die elke invoer gebruiken. Met 6
 
 {{ figure_markup(
   image="ecommerce-sites-using-a-search-input.png",
-  alt="E-commercesites die een zoekinvoer gebruiken",
   caption='E-commercesites die een zoekinvoer gebruiken',
   description="Een grafiek die laat zien dat 60,10%, het merendeel van de bestemmingspagina's voor e-commerce, de aanwezigheid van zoekinvoer mist.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNyVui4x9yanLKpp8Zz92IJ9c2NKCN_2g7SH-vRoelqT3nABB_uTQnXXScCUo6D-Uis1_wDzwcdGzx/pubchart?oid=992212527&format=interactive",
@@ -368,7 +362,6 @@ Gebruikers kunnen de vereiste informatie gemakkelijker invoeren op mobiele appar
 
 {{ figure_markup(
   image="sites-with-inputs-using-the-following-input-types.png",
-  alt="Sites (met invoer) die de volgende invoertypes gebruiken",
   caption='Sites (met invoer) die de volgende invoertypes gebruiken',
   description="Een diagram met de meest gebruikte invoertypen op mobiele apparaten. text: 54,025%; hidden: 37,319%; submit: 29,611%; search: 17,100%; email: 15,164%; checkbox: 14,305%; password: 10,204%; button: 3,442%; radio: 3,391%; image: 2,585%; tel: 2,458%; number: 0,892%; file: 0,668%; range: 0,270%; reset: 0,132%; date: 0,122%; url: 0,104%; input: 0,063%; phone: 0,061%; name: 0,049%; No input type: 0,029%; mail: 0,017%; textbox: 0,016%; username: 0,014%; select: 0,013%; textfield: 0,013%; time: 0,010%; textarea: 0,005%",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNyVui4x9yanLKpp8Zz92IJ9c2NKCN_2g7SH-vRoelqT3nABB_uTQnXXScCUo6D-Uis1_wDzwcdGzx/pubchart?oid=1866868829&format=interactive",
@@ -392,7 +385,7 @@ De laatste fase in de reis is gebruikersbehoud, dit betekent de gebruiker opnieu
 
 Terugkerende gebruikers profiteren van een native app-achtige ervaring met een [PWA](./pwa). Een belangrijk waardevoorstel voor gebruikersbehoud is de installeerbaarheid van een PWA. Wanneer een PWA is geïnstalleerd, is deze beschikbaar vanaf de plaatsen waar een mobiele gebruiker een app verwacht te vinden: het startscherm en de app-lade. Wanneer de gebruiker op de PWA tikt en deze start, wordt deze op volledig scherm geladen en is deze beschikbaar in de taakwisselaar, net als een native app.
 
-Rakuten 24 is een online winkel van Rakuten, een van de grootste e-commercebedrijven in Japan. Een recente <a hreflang="en" href="https://web.dev/rakuten-24/">casestudy met Rakuten 24</a> toonde aan dat het maken van hun webapp <a hreflang="en" href="https://web.dev/define-install-strategy/">installeerbaar</a>, resulteerde in maar liefst 450% in bezoekersbehoud in vergelijking met de vorige mobiele webstroom, over een periode van 1 maand .
+Rakuten 24 is een online winkel van Rakuten, een van de grootste e-commercebedrijven in Japan. Een recente <a hreflang="en" href="https://web.dev/rakuten-24/">casestudy met Rakuten 24</a> toonde aan dat het maken van hun webapp <a hreflang="en" href="https://web.dev/define-install-strategy/">installeerbaar</a>, resulteerde in maar liefst 450% in bezoekersbehoud in vergelijking met de vorige mobiele webstroom, over een periode van 1 maand.
 
 Door installeerbaarheid te implementeren, zag Rakuten 24 ook deze verbeteringen over een tijdsbestek van 1 maand:
 * 310% stijging van de bezoekfrequentie per gebruiker, vergeleken met de rest van hun internetgebruikers

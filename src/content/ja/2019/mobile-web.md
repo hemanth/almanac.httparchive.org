@@ -2,14 +2,14 @@
 #See https://github.com/HTTPArchive/almanac.httparchive.org/wiki/Authors'-Guide#metadata-to-add-at-the-top-of-your-chapters
 title: モバイルウェブ
 description: 2019年Web AlmanacのモバイルWebの章では、ページの読み込み、テキストコンテンツ、拡大縮小、ボタンやリンク、フォームへの記入のしやすさなどをカバーしています。
-authors: [obto]
-reviewers: [AymenLoukil, hyperpress]
+authors: [foxdavidj]
+reviewers: [AymenLoukil, logicalphase]
 analysts: [ymschaap, rviscomi]
 editors: [rviscomi]
-translators: [ksakae]
+translators: [ksakae1216]
 discuss: 1767
 results: https://docs.google.com/spreadsheets/d/1dPBDeHigqx9FVaqzfq7CYTz4KjllkMTkfq4DG4utE_g/
-obto_bio: David Foxは、ユーザビリティ・リサーチャーのリーダーであり、LookZookの創設者でもあります。彼はウェブサイト心理学者であり、ユーザーが何に悩んでいるのかだけでなく、その理由や体験を改善するための最善の方法を学ぶためにサイトを掘り下げています。また、Google Chromiumのコントリビューターであり、講演者であり、ウェビナーやUXトレーニングの提供者でもある。
+foxdavidj_bio: David Foxは、ユーザビリティ・リサーチャーのリーダーであり、LookZookの創設者でもあります。彼はウェブサイト心理学者であり、ユーザーが何に悩んでいるのかだけでなく、その理由や体験を改善するための最善の方法を学ぶためにサイトを掘り下げています。また、Google Chromiumのコントリビューターであり、講演者であり、ウェビナーやUXトレーニングの提供者でもある。
 featured_quote: 2007年以降、モバイルウェブは爆発的な成長を遂げました。そして13年後の現在、2019年7月のAkamaimPulseのデータによると、モバイルはすべての検索の59%を占め、ウェブトラフィックの58.7%を占めています。モバイルはもはや余計なものではなく、人々がウェブを体験する主要な手段となっています。モバイルの重要性を考えると、当社は訪問者にどのような体験を提供しているのでしょうか？どこが不足しているのか？それを探ってみましょう。
 featured_stat_1: 65%
 featured_stat_label_1: ロード中に中または大きくシフトするサイト
@@ -232,7 +232,7 @@ JavaScriptの効果をもっと詳しく知りたい方は、Addy Osmaniの<a hr
 
 過去に、デスクトップでは`text`と`password`がほとんどすべてのニーズを満たしていたため、開発者が利用できる入力タイプは`text`と`password`だけでした。しかし、モバイルデバイスではそうではありません。モバイルキーボードは信じられないほど小さく、電子メールのアドレスを入力するような単純な作業では、ユーザーは複数のキーボードを切り替える必要があります。電話番号を入力するだけの単純な作業では、デフォルトのキーボードの小さな数字を使うのは難しいかもしれません。
 
-その後、多くの[新しい入力タイプ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/Input)が導入され、開発者はどのようなデータが期待されるかをブラウザに知らせ、ブラウザはこれらの入力タイプに特化したカスタマイズされたキーボードを提供できるようになりました。例えば、`email`のタイプは"@"記号を含む英数字キーボードをユーザに提供し、`tel`のタイプはテンキーを表示します。
+その後、多くの[新しい入力タイプ](https://developer.mozilla.org/docs/Web/HTML/Element/Input)が導入され、開発者はどのようなデータが期待されるかをブラウザに知らせ、ブラウザはこれらの入力タイプに特化したカスタマイズされたキーボードを提供できるようになりました。例えば、`email`のタイプは"@"記号を含む英数字キーボードをユーザに提供し、`tel`のタイプはテンキーを表示します。
 
 メール入力を含むサイトを分析する際には、56.42％が`type="email"`を使用している。同様に、電話入力では、`type="tel"`が36.7％の割合で使用されています。その他の新しい入力タイプの採用率はさらに低い。
 
@@ -262,7 +262,7 @@ JavaScriptの効果をもっと詳しく知りたい方は、Addy Osmaniの<a hr
 
 ### 入力のオートコンプリートを有効にする
 
-入力属性[`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) は、ユーザーがワンクリックでフォームフィールドへ記入できるようにします。ユーザーは膨大な数のフォームに記入しますが、毎回全く同じ情報を記入することがよくあります。このことに気付いたブラウザは、この情報を安全に保存し、将来のページで使用できるようにし始めました。開発者がすべきことは、この`autocomplete`属性を使用してどの情報を正確に入力する必要があるかをブラウザに伝えるだけで、あとはブラウザが行います。
+入力属性[`autocomplete`](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete) は、ユーザーがワンクリックでフォームフィールドへ記入できるようにします。ユーザーは膨大な数のフォームに記入しますが、毎回全く同じ情報を記入することがよくあります。このことに気付いたブラウザは、この情報を安全に保存し、将来のページで使用できるようにし始めました。開発者がすべきことは、この`autocomplete`属性を使用してどの情報を正確に入力する必要があるかをブラウザに伝えるだけで、あとはブラウザが行います。
 
 {{ figure_markup(
   caption="<code>オートコンプリート</code> を使用しているページの割合。",
@@ -289,7 +289,6 @@ JavaScriptの効果をもっと詳しく知りたい方は、Addy Osmaniの<a hr
 
 {{ figure_markup(
   image="america-online-1000-hours-free.jpg",
-  alt='無料で1000時間の「アメリカオンライン」から。archive.org.',
   caption='無料で1000時間の「アメリカオンライン」から。<a hreflang="en" href="https://archive.org/details/America_Online_1000_Hours_Free_for_45_Days_Version_7.0_Faster_Than_Ever_AM402R28">archive.org</a>.',
   description="1,000時間無料で提供しているAOLのCD-ROMの写真。",
   width=300,

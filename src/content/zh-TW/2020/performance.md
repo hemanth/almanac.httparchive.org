@@ -3,9 +3,9 @@
 title: 效能
 description: 2020 Web Almanac 的效能章節涵蓋了 Core WebVitals、Lighthouse Performance Score、First Contentful Paint (FCP) 以及 Time to First Byte (TTFB)。
 authors: [thefoxis]
-reviewers: [borisschapira, rviscomi, obto, noamr, Zizzamia, exterkamp]
+reviewers: [borisschapira, rviscomi, foxdavidj, noamr, Zizzamia, exterkamp]
 analysts: [max-ostapenko, dooman87]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [cybai]
 thefoxis_bio: Karolina 是 <a hreflang="en" href="https://calibreapp.com/">Calibre</a> 的產品設計主管。她主要負責打造最全面的速度監測平台。她同時也是為您蒐集效能相關訊息與資訊的 <a hreflang="en" lang="en" href="https://perf.email/">Performance Newsletter</a> 發起人之一。Karolina 也<a hreflang="en" href="https://calibreapp.com/blog/category/web-platform">時常寫有關於效能如何影響使用者體驗的文章</a>。
 discuss: 2045
@@ -263,7 +263,7 @@ FID 分數的地理分佈結果證實了上一段綜合裝置圖表的結果。�
 
 對比前年同期手機裝置的 FCP 數值的話，我們可以觀察到好的體驗變少了，且中等及不佳的體驗增加了。75% 的網站的 FCP 值低於平均。我們可以推測如此高比例的 FCP 數值低於理想值，必定是造成使用者感到挫折或是使用者體驗下降的原因之一。
 
-還有很多種因素可能造成繪製延遲，例如：<span lang="en">server</span> 延遲時間（以一些衡量標準來評估，例如：[<span lang="en">Time to First Byte</span> (TTFB)](#time-to-first-byte) 以及 RTT），阻擋 <span lang="en">JavaScript requests</span> 或是沒被適當處理的客製化字體等等。
+還有很多種因素可能造成繪製延遲，例如：<span lang="en">server</span> 延遲時間（以一些衡量標準來評估，例如：[<span lang="en">Time to First Byte</span> (TTFB)](#time-to-first-byte) 以及 RTT），阻擋 <span lang="en">JavaScript requests</span> 或是沒被適當處理的客製化字體等等。<!-- markdownlint-disable-line MD051 -->
 
 ### 根據地理位置來分析 FCP
 
@@ -301,7 +301,7 @@ FID 分數的地理分佈結果證實了上一段綜合裝置圖表的結果。�
 
 與其他衡量標準相同，FCP 同樣也受到連線速度影響。在 3G 網路下，只有 2% 的人感受到 <span lang="en">Good</span> 體驗，而在 4G 則有 31%。雖然這並不是最理想的 FCP 效能，但相較於去年有些地區[已經改善了](../2019/performance#fcp-by-effective-connection-type)，但需要再次強調的是這可能也是受到了 <span lang="en">Good</span> 及 <span lang="en">Poor</span> 的重新分類。我們同樣可以看到 <span lang="en">Good</span> 及 <span lang="en">Poor</span> 增加、中階（<span lang="en">Needs Improvement</span>）網頁減少的趨勢。
 
-這個趨勢更進一步描繪出了數位差距，網路越慢且可能性能越差的裝置條件下的效能體驗越差。 改善慢速連線下的 FCP 與增強 TTFB 有直接關係，我們可以在 [Aggregate TTFB 根據連線方式來分析的 performance chart](#ttfb-by-connection-type) 觀察到 <span lang="en">Poor</span> TTFB = <span lang="en">Poor</span> FCP。
+這個趨勢更進一步描繪出了數位差距，網路越慢且可能性能越差的裝置條件下的效能體驗越差。 改善慢速連線下的 FCP 與增強 TTFB 有直接關係，我們可以在 [Aggregate TTFB 根據連線方式來分析的 performance chart](#根據連線方式來分析的-ttfb) 觀察到 <span lang="en">Poor</span> TTFB = <span lang="en">Poor</span> FCP。
 
 對 <a hreflang="en" href="https://ismyhostfastyet.com/">hosting provider</a> 或是 <a hreflang="en" href="https://www.cdnperf.com/">CDN</a> 的選擇對於速度也許會有加乘效果。選擇速度可能最快的服務會幫助改善 FCP 及 TTFB，在網路較慢的情況下更是如此。字體載入時間也深深影響了 FCP，所以<a hreflang="en" href="https://web.dev/font-display/">確保 Web Fonts 下載後是看得到的</a>也是值得一試的策略（特別是在較慢的網路通訊之下，下載這些資源都相當耗時）。
 
@@ -361,7 +361,7 @@ TTFB 會受到網路延遲時間及網路連線方式的影響。網路延遲時
 
 ## <span lang="en">Performance Observer</span> 的用途 {performance-observer-的用途}
 
-能夠估算網站及應用程式的使用者體驗效能的衡量標準有百百種。但是，有時候那些既有的衡量標準並不一定符合我們的需求或是情境。[PerformanceObserver API](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver) 能夠讓我們取得透過 [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API)、[Long Task API](https://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API)、<a hreflang="en" href="https://wicg.github.io/event-timing/">Event Timing API</a> 或<a hreflang="en" href="https://web.dev/custom-metrics/">其他的低階 APIs</a> 所客製的衡量標準資料。舉例來說，有了這些 API 的幫助，我們可以紀錄頁面之間轉換的時間或是量化 <span lang="en">server-side-rendered (SSR) hydration</span> 時間。
+能夠估算網站及應用程式的使用者體驗效能的衡量標準有百百種。但是，有時候那些既有的衡量標準並不一定符合我們的需求或是情境。[PerformanceObserver API](https://developer.mozilla.org/docs/Web/API/PerformanceObserver) 能夠讓我們取得透過 [User Timing API](https://developer.mozilla.org/docs/Web/API/User_Timing_API)、[Long Task API](https://developer.mozilla.org/docs/Web/API/Long_Tasks_API)、<a hreflang="en" href="https://wicg.github.io/event-timing/">Event Timing API</a> 或<a hreflang="en" href="https://web.dev/custom-metrics/">其他的低階 APIs</a> 所客製的衡量標準資料。舉例來說，有了這些 API 的幫助，我們可以紀錄頁面之間轉換的時間或是量化 <span lang="en">server-side-rendered (SSR) hydration</span> 時間。
 
 {{ figure_markup(
   image="performance-performance-observer-usage.png",

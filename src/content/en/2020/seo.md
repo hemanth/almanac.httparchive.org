@@ -3,7 +3,7 @@
 title: SEO
 description: SEO chapter of the 2020 Web Almanac covering content, meta tags, indexability, linking, speed, structured data, internationalization, SPAs, AMP and security.
 authors: [aleyda, ipullrank, fellowhuman1101]
-reviewers: [natedame, catalinred, dsottimano, dwsmart, en3r0, ibnesayeed, bazzadp]
+reviewers: [natedame, catalinred, dsottimano, dwsmart, en3r0, ibnesayeed, tunetheweb]
 analysts: [Tiggerito, antoineeripret]
 editors: [rviscomi]
 translators: []
@@ -30,7 +30,7 @@ Despite its complex multidisciplinary nature, in recent years SEO has evolved to
 {{ figure_markup(
   image="seo-google-trends.png",
   caption="Google Trends comparison of SEO versus pay-per-click and social media marketing.",
-  description="Screenshot from Google Trends showing the change in time for three three digital marketing related terms: Search Engine Optimization starts at 25% but shows an increasing importance over time to 75% now. Pay-per-click similarly starts at 25% but started falling in 2009 and looks to be less than 10% now. Social-media marketing starts very small (approximately 5%) and shows some slight growth over time ending up slightly above pay-per-click around the 10% mark.",
+  description="Screenshot from Google Trends showing the change in time for three digital marketing related terms: Search Engine Optimization starts at 25% but shows an increasing importance over time to 75% now. Pay-per-click similarly starts at 25% but started falling in 2009 and looks to be less than 10% now. Social-media marketing starts very small (approximately 5%) and shows some slight growth over time ending up slightly above pay-per-click around the 10% mark.",
   width=1600,
   height=844
   )
@@ -253,7 +253,7 @@ To understand what search engines are able to effectively extract, we have broke
 
 #### Rendered versus non-rendered text content
 
-The usage of Single Page Application (SPA) [JavaScript](../javascript) technologies has exploded with the growth of the web. This design pattern introduces difficulties for search engine spiders because both the execution of JavaScript transformations at runtime and user interactions with the page after load can cause additional content to appear or be rendered.
+The usage of Single Page Application (SPA) [JavaScript](./javascript) technologies has exploded with the growth of the web. This design pattern introduces difficulties for search engine spiders because both the execution of JavaScript transformations at runtime and user interactions with the page after load can cause additional content to appear or be rendered.
 
 Search engines encounter pages through its crawling activity, but may or may not choose to implement a second step of rendering a page. As a result, there may be disparities between the content that a user sees and the content that a search engine indexes and considers for rankings.
 
@@ -502,9 +502,8 @@ The median desktop page includes 21 `img` tags and the median mobile page has 19
 
 {{ figure_markup(
   image="seo-img-elements-per-page.png",
-  alt="img elements per page",
   caption="Distribution of the number of `<img>` elements per page.",
-  description="Bar chart showing the number of `<img>` elements per page per percentile (10, 25, 50, 75, and 90). The median desktop page features 21 `<img>` elements and the median mobile page features 19 `<<img>` tags..",
+  description="Bar chart showing the number of `<img>` elements per page per percentile (10, 25, 50, 75, and 90). The median desktop page features 21 `<img>` elements and the median mobile page features 19 `<img>` elements.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=923860709&format=interactive",
   sheets_gid="1317352222",
   sql_file="pages_markup_by_device_and_percentile.sql"
@@ -514,7 +513,6 @@ The median web page is missing 2.99% of `alt` attributes on desktop and 2.44% of
 
 {{ figure_markup(
   image="seo-percentage-of-missing-img-alt-attribute.png",
-  alt="Percent of missing image alt attributes",
   caption="Distribution of the percent of `<img>` elements missing image `alt` attributes per page.",
   description="Bar chart showing the percent of missing `alt` attributes per percentile (10, 25, 50, 75, and 90). The median web page is missing 2.99% `alt` attributes on desktop and 2.44% of `alt` attributes on mobile.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=862590664&format=interactive",
@@ -527,7 +525,6 @@ We found that the median page contains `alt` attributes on only 51.22% of their 
 
 {{ figure_markup(
   image="seo-percentage-of-img-alt-attributes-present.png",
-  alt="Distribution of the percent of images having alt attributes per page",
   caption="Distribution of the percent of images having `alt` attributes per page.",
   description="Bar chart showing the percentage of `alt` attributes present per percentile (10, 25, 50, 75, and 90). It was found that only 53.86% of desktop and 51.22% of mobile pages featured image `alt` attributes.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=827771545&format=interactive",
@@ -539,7 +536,6 @@ The median web page has 10.00% of images with blank `alt` attributes on desktop 
 
 {{ figure_markup(
   image="seo-percentage-of-blank-img-alt-attributes.png",
-  alt="Distribution of the percent of images having blank alt attributes per page.",
   caption="Distribution of the percent of images having blank `alt` attributes per page.",
   description="Bar chart showing the percent of featured `alt` blank attributes per percentile (10, 25, 50, 75, and 90). The median web page features 10% blank `alt` attributes on desktop and 11.11% blank `alt` attributes on mobile.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=378651979&format=interactive",
@@ -608,7 +604,7 @@ There is a disparity in the links between mobile and desktop that will negativel
 {{ figure_markup(
   image="seo-text-links.png",
   caption="Distribution of the number of text links per page.",
-  description="Bar chart showing the number of text links per percentile (19, 25, 50, 75, and 90). There is a disparity in the links between mobile and desktop (62 links on mobile versus 68 links on desktop).",
+  description="Bar chart showing the number of text links per percentile (10, 25, 50, 75, and 90). There is a disparity in the links between mobile and desktop (62 links on mobile versus 68 links on desktop).",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=1588324966&format=interactive",
   sheets_gid="775602646",
   sql_file="pages_wpt_bodies_by_device_and_percentile.sql"
@@ -623,7 +619,6 @@ Our review of pages indicates that 28.58% of pages include `rel=nofollow` attrib
 
 {{ figure_markup(
   image="seo-nofollow-ugc-sponsored-attributes.png",
-  alt="Percent of pages having rel=nofollow, rel=ugc, and rel=sponsored attributes.",
   caption="Percent of pages having `rel=nofollow`, `rel=ugc`, and `rel=sponsored` attributes.",
   description="Bar chart showing the usage (in percent) of `rel` attributes on desktop and mobile. Our review indicates that 28.58% of pages feature `nofollow` attributes on their desktop versions and 30.74% on mobile. However, `ugc` and `sponsored` adoption is quite low with less than 0.3% pages featuring either. ",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=1177251312&format=interactive",
@@ -643,7 +638,7 @@ Also, as mentioned before, <a hreflang="en" href="https://developers.google.com/
 
 Additionally, <a hreflang="en" href="https://developers.google.com/search/blog/2019/05/mobile-first-indexing-by-default-for">since July 2019</a> Google is using the mobile-first index for all new websites and earlier in March, it announced that <a hreflang="en" href="https://webmasters.googleblog.com/2020/03/announcing-mobile-first-indexing-for.html">70% of pages shown in their search results have already shifted over</a>. It is now expected that Google <a hreflang="en" href="https://webmasters.googleblog.com/2020/07/prepare-for-mobile-first-indexing-with.html">fully switches to a mobile-first index in March 2021</a>.
 
-Mobile friendliness should be fundamental for any website looking to provide a good search experience—and as a consequence, grow in search results.
+Mobile friendliness should be fundamental for any website looking to provide a good search experience, and as a consequence, grow in search results.
 
 A mobile-friendly website can be implemented through different configurations: by using a responsive web design, with dynamic serving, or via a separate mobile web version. However, maintaining a separate mobile web version is not recommended anymore by Google, who endorse responsive web design instead.
 
@@ -651,7 +646,7 @@ A mobile-friendly website can be implemented through different configurations: b
 
 The browser's viewport is the visible area of a page content, which changes depending on the used device. The `<meta name="viewport">` tag (or viewport meta tag) allows you to specify to browsers the width and scaling of the viewport, so that it is correctly sized across different devices. Responsive websites use the viewport meta tag as well as CSS media queries to deliver a mobile friendly experience.
 
-42.98% of mobile pages and 43.2% desktop ones are have a viewport meta tag with the `content=initial-scale=1,width=device-width` attribute. However, 10.84% of mobile pages and 16.18% of desktop ones are not including the tag at all, suggesting that they are not yet mobile friendly.
+42.98% of mobile pages and 43.2% desktop ones have a viewport meta tag with the `content=initial-scale=1,width=device-width` attribute. However, 10.84% of mobile pages and 16.18% of desktop ones are not including the tag at all, suggesting that they are not yet mobile friendly.
 
 <figure>
   <table>
@@ -694,7 +689,7 @@ The browser's viewport is the visible area of a page content, which changes depe
     {{ figure_link(
       caption="Percent of pages having each viewport meta tag <code>content</code> attribute value.",
       sheets_gid="479500659",
-      sql_file="../03_Markup/summary_pages_by_device_and_viewport.sql"
+      sql_file="../markup/summary_pages_by_device_and_viewport.sql"
     ) }}
   </figcaption>
 </figure>
@@ -746,7 +741,7 @@ We found that 80.29% of desktop pages and 82.92% of the mobile ones are using ei
     {{ figure_link(
       caption="Percent of pages that include each media query feature.",
       sheets_gid="1141218471",
-      sql_file="../01_CSS/media_query_features.sql"
+      sql_file="../css/media_query_features.sql"
     ) }}
   </figcaption>
 </figure>
@@ -794,7 +789,7 @@ Desktop continues to be the more performant platform for users despite more user
   description="Bar chart showing the percent of websites with a good core web vitals score per device. 33.13% of websites scored _Good_ Core Web Vitals for desktop while only 19.96% of their mobile counterparts passed the Core Web Vitals assessment.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=1601210449&format=interactive",
   sheets_gid="996380787",
-  sql_file="../09_Performance/web_vitals_by_device.sql"
+  sql_file="../performance/web_vitals_by_device.sql"
 ) }}
 
 #### Core Web Vitals experiences per country
@@ -809,7 +804,7 @@ Users located in the United States recorded the largest absolute number of websi
   description="Horizontal bar chart showing the aggregate core web vitals performance by country.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=2077593128&format=interactive",
   sheets_gid="220428774",
-  sql_file="../09_Performance/web_vitals_by_country.sql",
+  sql_file="../performance/web_vitals_by_country.sql",
   width=645,
   height=792
 ) }}
@@ -1140,7 +1135,7 @@ Google places a specific focus on security in all respects. The search engine ma
 
 #### HTTPS usage
 
-We found that 77.44% of desktop pages and 73.22% of mobile pages have adopted HTTPS. This is up 10.38% from last year. It is important to note that browsers have become more aggressive in pushing HTTPS by signaling that pages are insecure when you visit them without HTTPS. Also, HTTPS is currently a requirement to capitalize on higher performing protocols such as HTTP/2 and HTTP/3 (also known as HTTP over QUIC). You can learn more about the state of these protocols in the [HTTP/2](./http2) chapter.
+We found that 77.44% of desktop pages and 73.22% of mobile pages have adopted HTTPS. This is up 10.38% from last year. It is important to note that browsers have become more aggressive in pushing HTTPS by signaling that pages are insecure when you visit them without HTTPS. Also, HTTPS is currently a requirement to capitalize on higher performing protocols such as HTTP/2 and HTTP/3 (also known as HTTP over QUIC). You can learn more about the state of these protocols in the [HTTP/2](./http) chapter.
 
 All of these things have likely contributed to the higher adoption rate year over year.
 
@@ -1173,9 +1168,9 @@ Single-page applications (SPAs) enable browsers to retain and update a single pa
 
 These frameworks required special SEO considerations, although Google has worked to mitigate the issues caused by client-side rendering with aggressive caching strategies. In a video from <a hreflang="en" href="https://youtu.be/rq8sFkl0KnI">Google Webmaster's 2019 conference</a>, Software Engineer Erik Hendriks shared that Google no longer relies on `Cache-Control` headers and instead looks for `ETag` or `Last-Modified` headers to see if the content of the file has changed.
 
-SPAs should utilize the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for granular control of caching. The API allows for the passing of `Request` objects with specific cache overrides set and can be used to set the necessary `If-Modified` and `ETag` headers.
+SPAs should utilize the [Fetch API](https://developer.mozilla.org/docs/Web/API/Fetch_API) for granular control of caching. The API allows for the passing of `Request` objects with specific cache overrides set and can be used to set the necessary `If-Modified` and `ETag` headers.
 
-Undiscoverable resources are still the primary concern of search engines and their web crawlers. Search crawlers look for the `href`  attributes in `<a>` tags to find linked pages. Without these, the page is seen as isolated without internal linking. 5.59% of desktop pages studied contained no internal links as well as 6.04% of mobile-rendered pages. This is a marker that the page is part of a JavaScript framework SPA and missing the necessary `<a>` tag with valid `href` attributes required for their internal linking to be discovered.
+Undiscoverable resources are still the primary concern of search engines and their web crawlers. Search crawlers look for the `href` attributes in `<a>` tags to find linked pages. Without these, the page is seen as isolated without internal linking. 5.59% of desktop pages studied contained no internal links as well as 6.04% of mobile-rendered pages. This is a marker that the page is part of a JavaScript framework SPA and missing the necessary `<a>` tag with valid `href` attributes required for their internal linking to be discovered.
 
 The discoverability of links in popular JavaScript frameworks used for SPAs increased dramatically in 2020 over [the previous year](../2019/seo#spa-crawlability). In 2019, 13.08% of mobile navigation links on React sites used deprecated hash URLs. For 2020, only 6.12% of the tested React links were hashed.
 
@@ -1200,9 +1195,9 @@ However, not everything has improved over the last year. The median desktop page
 
 It is also important to note how there's still an important opportunity for improvement across many critical SEO related areas and configurations. Despite the growing use of mobile devices and Google's move to a mobile-first index:
 
- - 10.84% of mobile pages and 16.18% of desktop ones are not including the `viewport` tag at all, suggesting that they are not yet mobile friendly.
- - Non-trivial disparities were found across mobile and desktop pages, like the one between mobile and desktop links, illustrated in the 62 links on mobile versus the 68 links on desktop for the median web page.
- - 33.13% of websites scored _Good_ Core Web Vitals for desktop while only 19.96% of their mobile counterparts passed the Core Web Vitals assessment, suggesting that desktop continues to be the more performant platform for users.
+- 10.84% of mobile pages and 16.18% of desktop ones are not including the `viewport` tag at all, suggesting that they are not yet mobile friendly.
+- Non-trivial disparities were found across mobile and desktop pages, like the one between mobile and desktop links, illustrated in the 62 links on mobile versus the 68 links on desktop for the median web page.
+- 33.13% of websites scored _Good_ Core Web Vitals for desktop while only 19.96% of their mobile counterparts passed the Core Web Vitals assessment, suggesting that desktop continues to be the more performant platform for users.
 
 These findings could negatively impact sites as Google completes its migration to a <a hreflang="en" href="https://webmasters.googleblog.com/2020/07/prepare-for-mobile-first-indexing-with.html">mobile-first index in March 2021</a>.
 

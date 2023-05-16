@@ -3,7 +3,7 @@
 title: パフォーマンス
 description: コンテンツの初回ペイント（FCP）、最初のバイトまでの時間（TTFB）、初回入力遅延（FID）を取り扱う2019 Web Almanac パフォーマンスの章。
 authors: [rviscomi]
-reviewers: [JMPerez,obto,sergeychernyshev,zeman]
+reviewers: [JMPerez,foxdavidj,sergeychernyshev,zeman]
 analysts: [rviscomi, raghuramakrishnan71]
 editors: [rachellcostello]
 translators: [MSakamaki]
@@ -43,7 +43,7 @@ Web Almanacにある他のほとんどの章は、<a hreflang="en" href="https:/
   - 4G
 - ユーザーの地理的な位置
 
-体験は描画、読み込み、そして対話性の定量化を含めて毎月測定されます。最初に私達が見るべき指標は<a hreflang="en" href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_first_contentful_paint">コンテンツの初回ペイント(First Contentful Paint)</a>(FCP)です。これはページや画像やテキストなど、ユーザーが画面として見るために必要なものが表示されるのを待つ時間です。次は、読み込み時間の指標である[最初のバイトまでの時間(Time to First Byte)](https://developer.mozilla.org/en-US/docs/Glossary/time_to_first_byte) (TTFB)です。これはユーザーがナビゲーションを行ってから、Webページのレスポンスの最初のバイトを受信するまでにかかった時間を計測したものです。そして最後に確認するフィールドの指標は<a hreflang="en" href="https://developers.google.com/web/updates/2018/05/first-input-delay">初回入力遅延(First Input Delay)</a> (FID)です。これは比較的新しい指標で、読み込み以外のパフォーマンスUXの一部を表すものです。ユーザーがページのUIを操作できるようになるまでの時間、つまり、ブラウザのメインスレッドがイベント処理の準備が整うまでの時間を測定したものです。
+体験は描画、読み込み、そして対話性の定量化を含めて毎月測定されます。最初に私達が見るべき指標は<a hreflang="en" href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_first_contentful_paint">コンテンツの初回ペイント(First Contentful Paint)</a>(FCP)です。これはページや画像やテキストなど、ユーザーが画面として見るために必要なものが表示されるのを待つ時間です。次は、読み込み時間の指標である[最初のバイトまでの時間(Time to First Byte)](https://developer.mozilla.org/docs/Glossary/time_to_first_byte) (TTFB)です。これはユーザーがナビゲーションを行ってから、Webページのレスポンスの最初のバイトを受信するまでにかかった時間を計測したものです。そして最後に確認するフィールドの指標は<a hreflang="en" href="https://developers.google.com/web/updates/2018/05/first-input-delay">初回入力遅延(First Input Delay)</a> (FID)です。これは比較的新しい指標で、読み込み以外のパフォーマンスUXの一部を表すものです。ユーザーがページのUIを操作できるようになるまでの時間、つまり、ブラウザのメインスレッドがイベント処理の準備が整うまでの時間を測定したものです。
 
 では、それによってどのような洞察ができるのかを見てきましょう。
 
@@ -79,7 +79,6 @@ Webサイトが十分に**高速**かどうかを分類するために、新し�
 
 {{ figure_markup(
   image="fig3.png",
-  alt="デスクトップWebサイトの高速、適度、低速のFCPパフォーマンスの分布。",
   caption="<em>デスクトップ</em> Webサイトの高速、適度、低速のFCPパフォーマンスの分布。",
   description="1,000個のデスクトップWebサイトの高速、適度、低速のFCP分布、高速なFCPの分布は100%から0%までが線形となっており、中央で少し膨らんでいます。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=1231764008&format=interactive"
@@ -88,7 +87,6 @@ Webサイトが十分に**高速**かどうかを分類するために、新し�
 
 {{ figure_markup(
   image="fig4.png",
-  alt="携帯電話向け Webサイトの高速、適度、低速のFCPパフォーマンスの分布。",
   caption="<em>携帯電話向け</em> Webサイトの高速、適度、低速のFCPパフォーマンスの分布。",
   description="1,000個の携帯電話向けWebサイトの高速、適度、低速のFCP分布、高速なFCPの分布は100%から0%までに膨らみが無く、線形に見えます。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=167423587&format=interactive"
@@ -113,7 +111,6 @@ Webサイトでデスクトップユーザーが高確率で携帯電話のユ�
 
 {{ figure_markup(
   image="fig6.png",
-  alt="高速、適度、低速のFCPでラベル付けされたWebサイトの分布。ECT (effective connection type) で分類されています。",
   caption='高速、適度、低速のFCPでラベル付けされたWebサイトの分布。<abbr title="effective connection type">ECT</abbr> で分類されています。',
   description="有効な接続タイプ毎のFCP分布棒グラフ。4Gの高速、適度、低速：14％、67％、19％。 3G：1％、38％、61％。 2G：0％、9％、90％。 低速な2G：0％、1％、99％。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=1987967547&format=interactive"
@@ -153,7 +150,7 @@ Webサイトでデスクトップユーザーが高確率で携帯電話のユ�
   )
 }}
 
-TTFBとそれに影響する多くの要因を説明するために、[Navigation Timing APIの仕様](https://developer.mozilla.org/ja/docs/Web/API/Navigation_timing_API)から図を借りました。上の図7.8は`startTime`から`responseStart`までの間を表しており、`unload`、`redirects`、`AppCache`、`DNS`、`SSL`、`TCP`などのサーバー側のリクエスト処理に費やす全てを含んでいます。このようなコンテキストを考慮して、ユーザーがこの数値をどのように体験しているかを見てみましょう。
+TTFBとそれに影響する多くの要因を説明するために、[Navigation Timing APIの仕様](https://developer.mozilla.org/docs/Web/API/Navigation_timing_API)から図を借りました。上の図7.8は`startTime`から`responseStart`までの間を表しており、`unload`、`redirects`、`AppCache`、`DNS`、`SSL`、`TCP`などのサーバー側のリクエスト処理に費やす全てを含んでいます。このようなコンテキストを考慮して、ユーザーがこの数値をどのように体験しているかを見てみましょう。
 
 {{ figure_markup(
   image="fig9.png",
@@ -209,6 +206,7 @@ Webサイトの42%で低速のTTFB体験となっています。TTFBは他のす
   )
 }}
 
+<!-- markdownlint-disable-next-line MD051 -->
 貴方はいま難題を抱えています。この表はWebサイトの高速、適度、低速のFID体験の分布を表しています。これは以前のFCPとTTFBの表とは劇的に異なります。([図7.1](#fig-1)と[図7.9](#fig-9)をそれぞれ見る).高速FIDの曲線は100%から75%にゆるやかに下っていき、その後急降下します。FIDの体験は、ほとんどのWebサイトでほぼ高速になっています。
 
 {{ figure_markup(
@@ -227,7 +225,6 @@ Webサイトの42%で低速のTTFB体験となっています。TTFBは他のす
 
 {{ figure_markup(
   image="fig14.png",
-  alt="デスクトップWebサイトのFIDパフォーマンスの高速、適度、低速の分布。",
   caption="<em>デスクトップ</em> WebサイトのFIDパフォーマンスの高速、適度、低速の分布。",
   description="デスクトップWebサイト1,000個の高速、適度、低速FIDの配布。 Webサイトの最速の4分の3で、高速FIDの分布は100％から90％にかけて非常にゆっくりと減少して、その後高速FIDは75％まで減少します。 ほぼすべてのデスクトップWebサイトは、75％以上の高速なFID体験を備えています。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=16379508&format=interactive"
@@ -236,7 +233,6 @@ Webサイトの42%で低速のTTFB体験となっています。TTFBは他のす
 
 {{ figure_markup(
   image="fig15.png",
-  alt="携帯電話向けWebサイトのFIDパフォーマンスの高速、適度、低速の分布。",
   caption="<em>携帯電話向け</em> WebサイトのFIDパフォーマンスの高速、適度、低速の分布。",
   description="モバイルWebサイト1,000個の高速、適度、低速FIDの配布。 高速なFIDの分布は着実に減少していますが、デスクトップよりもはるかに速く減っています。 ウェブサイトの4分の3までが75％となる高速に達していますが、その後すぐに0％に低下します。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=519511409&format=interactive"
@@ -259,7 +255,6 @@ PSIラベルをデスクトップと携帯電話の体験に適用してみる�
 
 {{ figure_markup(
   image="fig17.png",
-  alt="ECT (effective connection type)によって分類された高速、適度、低速FIDとしてラベル付けされたWebサイトの分布",
   caption='<abbr title="effective connection type">ECT</abbr>によって分類された高速、適度、低速FIDとしてラベル付けされたWebサイトの分布',
   description="有効な接続タイプ毎のFID分布の棒グラフ。4G高速、適度、低速がそれぞれ41％、45％、15％。3G：22％、52％、26％。 2G：19％、58％、23％。 低速な2G：15％、58％、27％。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=1173039776&format=interactive"

@@ -2,14 +2,14 @@
 #See https://github.com/HTTPArchive/almanac.httparchive.org/wiki/Authors'-Guide#metadata-to-add-at-the-top-of-your-chapters
 title: セキュリティ
 description: 2020年版Web Almanacのセキュリティの章では、トランスポート層のセキュリティ、コンテンツセキュリティ（CSP、機能ポリシー、SRI）、Web防御メカニズム（XSS、XS-Leaksへの取り組み）、広く使用されている技術の更新方法をカバーしています。
-authors: [tomvangoethem, nrllh, bazzadp]
+authors: [tomvangoethem, nrllh, tunetheweb]
 reviewers: [cqueern, edmondwwchan]
 analysts: [tomvangoethem, nrllh]
-editors: [bazzadp]
-translators: [ksakae]
+editors: [tunetheweb]
+translators: [ksakae1216]
 tomvangoethem_bio: Tom Van Goethemは、ベルギーのルーベン大学の<a hreflang="en" href="https://distrinet.cs.kuleuven.be/">DistriNetグループ</a> の研究者です。彼の研究は、セキュリティやプライバシーの問題につながるウェブ上の新たなサイドチャネル攻撃を発見し、その原因となる漏洩をパッチで修正する方法を見出すことに重点を置いています。
 nrllh_bio: Nurulullah Demirは、<a hreflang="en" href="https://www.internet-sicherheit.de/en/">Institute for Internet Security</a>のセキュリティ研究者であり、博士課程の学生です。彼の研究は、屈強なWebセキュリティメカニズムと敵対的な機械学習に焦点を当てています。
-bazzadp_bio: Barry Pollardはソフトウェア開発者であり、Manningの本<a hreflang="en" href="https://www.manning.com/books/http2-in-action">HTTP/2 in Action</a> の著者でもあります。彼はウェブは素晴らしいと思っていますが、それをもっと良くしたいと思っています。<a href="https://twitter.com/tunetheweb">@tunetheweb</a> でつぶやき、<a hreflang="en" href="https://www.tunetheweb.com">www.tunetheweb.com</a> でブログを書いています。
+tunetheweb_bio: Barry Pollardはソフトウェア開発者であり、Manningの本<a hreflang="en" href="https://www.manning.com/books/http2-in-action">HTTP/2 in Action</a> の著者でもあります。彼はウェブは素晴らしいと思っていますが、それをもっと良くしたいと思っています。<a href="https://twitter.com/tunetheweb">@tunetheweb</a> でつぶやき、<a hreflang="en" href="https://www.tunetheweb.com">www.tunetheweb.com</a> でブログを書いています。
 discuss: 2047
 results: https://docs.google.com/spreadsheets/d/1T7sxPP5BV3uwv-sXhBEZraVk-obd0tDfFrLiD49nZC0/
 featured_quote: 本章では、ウェブ上のセキュリティの現状を探ります。様々なセキュリティ機能の採用を詳細かつ大規模に分析することで、ユーザーを守りたいという動機から、ウェブサイトの所有者がこれらのセキュリティメカニズムを適用する様々な方法についての洞察を得ます。
@@ -39,7 +39,7 @@ featured_stat_label_3: reCAPTCHAの使い方
 
 昨年は、WebサイトでのHTTPSの普及が続いています。トランスポート層の安全性を確保することは、Webセキュリティの最も重要な部分の1つです。Webサイト用にダウンロードしたリソースが転送中に変更されていないこと、また自分が思っているWebサイトとの間でデータを転送していることを確信できなければ、Webサイトのセキュリティについての確信は事実上無効となります。
 
-WebトラフィックをHTTPSに移行し、最終的には<a hreflang="en" href="https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure">HTTPを非セキュアなものとしてマーク</a> するようになったのは、ブラウザが[セキュアなコンテキストへの強力な新機能](https://developer.mozilla.org/ja/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts)（人参）を制限する一方で、暗号化されていない接続が使用された場合にユーザーに表示される警告を増加させるためです（棒）。
+WebトラフィックをHTTPSに移行し、最終的には<a hreflang="en" href="https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure">HTTPを非セキュアなものとしてマーク</a> するようになったのは、ブラウザが[セキュアなコンテキストへの強力な新機能](https://developer.mozilla.org/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts)（人参）を制限する一方で、暗号化されていない接続が使用された場合にユーザーに表示される警告を増加させるためです（棒）。
 
 {{ figure_markup(
   caption="モバイルでHTTPSを利用するリクエストの割合。",
@@ -53,7 +53,6 @@ WebトラフィックをHTTPSに移行し、最終的には<a hreflang="en" href
 
 {{ figure_markup(
   image="security-https-request-growth.png",
-  alt="HTTPSを使用するリクエストの割合",
   caption='HTTPSを使用したリクエストの割合<br>(出典。<a hreflang="en" href="https://httparchive.org/reports/state-of-the-web#pctHttps">HTTP Archive</a>)',
   description="2017年1月1日から2020年8月1日までのHTTPSリクエストの時系列図。モバイルとデスクトップの利用状況はほぼ同じで、デスクトップが35.70％、モバイルが35.20％のリクエストから始まり、最後は少し尾を引いてデスクトップが87.70％、モバイルが86.90％までずっと増加しています。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTb4PkXuhnxNc-X_Jovx0970pV22ucCnNloa2g8KPMLJmp39E62oSE4XvBlAVSGL0oEEHZa71_bgsV4/pubchart?oid=1353660053&format=interactive",
@@ -100,7 +99,7 @@ TLSの中には、さまざまなレベルのセキュリティで使用でき�
 過去にはTLSの新しいバージョンでは、より新しい暗号のサポートが追加されていましたが、古いバージョンを削除することはほとんどありませんでした。これがTLSv1.3がより安全である理由の1つです。人気のあるOpenSSLライブラリは、このバージョンでは5つの安全な暗号のみをサポートしていますが、そのすべてが前方秘匿をサポートしています。これにより、安全性の低い暗号を強制的に使用されるダウングレード攻撃を防ぐことができます。
 
 {{ figure_markup(
-  caption="forward secrecyを利用したモバイルサイト",
+  caption="Forward secrecyを利用したモバイルサイト",
   content="98.03%",
   classes="big-number",
   sheets_gid="1643542759",
@@ -213,7 +212,6 @@ Let's Encryptが首位に立っているのを見ても不思議ではありま�
 
 {{ figure_markup(
   image="security-hsts-max-age-values-in-days.png",
-  alt="HSTSのmax-age値（日）。",
   caption="HSTSの`max-age`の値（日）。",
   description="`max-age`属性の値のパーセンタイルを日数に換算した棒グラフです。パーセンタイルではデスクトップが30日、モバイルが91日、25パーセンタイルではどちらも182日、50パーセンタイルではどちらも365日、75パーセンタイルではどちらも同じ365日、90パーセンタイルではどちらも730日となっています。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTb4PkXuhnxNc-X_Jovx0970pV22ucCnNloa2g8KPMLJmp39E62oSE4XvBlAVSGL0oEEHZa71_bgsV4/pubchart?oid=1208109634&format=interactive",
@@ -272,7 +270,7 @@ Let's Encryptが首位に立っているのを見ても不思議ではありま�
 
 他にも、<a hreflang="en" href="https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-lekies.pdf">Cross-Site Script Inclusion</a>のように、クロスサイトリクエストにCookieを含めることに依存する攻撃がいくつかあります。(XSSI)や、<a hreflang="en" href="https://xsleaks.dev/">XS-Leaks</a>の脆弱性クラスの様々な手法を利用することができます。さらに、ユーザの認証はCookieを介してのみ行われることが多いため、攻撃者はCookieを取得することでユーザになりすますことができます。これは中間者攻撃(MITM)で、ユーザを騙して安全ではないチャネルで認証を行うことができます。あるいは、クロスサイトスクリプティング(XSS)の脆弱性を悪用することで、攻撃者はDOMを通じて`document.cookie`にアクセスすることでCookieを漏洩させることができます。
 
-Cookieがもたらす脅威から身を守るために、ウェブサイトの開発者は、[Cookie](https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies)に設定できる3つの属性、`HttpOnly`、`Secure`、および<a hreflang="en" href="https://web.dev/samesite-cookies-explained/">`SameSite`</a>を利用できます。1つ目はJavaScriptからのアクセスを防ぐもので、攻撃者がXSS攻撃でCookieを盗むことを防ぐことができます。`Secure`属性が設定されているCookieは、安全なHTTPS接続でのみ送信され、MITM攻撃での盗用を防げます。
+Cookieがもたらす脅威から身を守るために、ウェブサイトの開発者は、[Cookie](https://developer.mozilla.org/docs/Web/HTTP/Cookies)に設定できる3つの属性、`HttpOnly`、`Secure`、および<a hreflang="ja" href="https://web.dev/i18n/ja/samesite-cookies-explained/">`SameSite`</a>を利用できます。1つ目はJavaScriptからのアクセスを防ぐもので、攻撃者がXSS攻撃でCookieを盗むことを防ぐことができます。`Secure`属性が設定されているCookieは、安全なHTTPS接続でのみ送信され、MITM攻撃での盗用を防げます。
 
 最近導入された`SameSite`属性は、クロスサイトコンテキストでのCookieの送信方法を制限するために使用できます。属性には3つの値があります。`None`, `Lax`, `Strict` です。`SameSite=None`のCookieはすべてのクロスサイトリクエストに送信され、`Lax`のCookieはユーザーがリンクをクリックして新しいページに移動したときなどのナビゲートリクエストにのみ送信されます。最後に、`SameSite=Strict`属性を持つCookieはファーストパーティのコンテキストでのみ送信されます。
 
@@ -312,7 +310,7 @@ Cookieを保護するために使用できる追加の仕組みとして、Cooki
 
 ### コンテンツセキュリティポリシー
 
-どのオリジンがコンテンツの読み込みを許可しているかをブラウザに示すための主要なメカニズムの1つが、[`Content-Security-Policy` (CSP)](https://developer.mozilla.org/ja/docs/Web/HTTP/CSP)レスポンスヘッダーです。数多くのディレクティブを通して、ウェブサイト管理者はコンテンツをどのように含めるかを細かく制御できます。例えば、`script-src`ディレクティブは、どのオリジンからスクリプトをロードできるかを示します。全体では、CSPヘッダーが全ページの7.23%に存在していることがわかりましたが、モバイルページでCSPの採用率が4.73%であった昨年から53%も増加しています。
+どのオリジンがコンテンツの読み込みを許可しているかをブラウザに示すための主要なメカニズムの1つが、[`Content-Security-Policy` (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP)レスポンスヘッダーです。数多くのディレクティブを通して、ウェブサイト管理者はコンテンツをどのように含めるかを細かく制御できます。例えば、`script-src`ディレクティブは、どのオリジンからスクリプトをロードできるかを示します。全体では、CSPヘッダーが全ページの7.23%に存在していることがわかりましたが、モバイルページでCSPの採用率が4.73%であった昨年から53%も増加しています。
 
 <figure>
   <table>
@@ -375,7 +373,7 @@ Cookieを保護するために使用できる追加の仕組みとして、Cooki
 
 これは、ブラウザが混在するコンテンツをブロックする際に特に役立ちます。HTTPSで読み込まれるページでは、`upgrade-insecure-requests`ディレクティブがないと、HTTPからのコンテンツがブロックされてしまいます。このディレクティブはコンテンツを壊す可能性が低く実装が簡単なので、コンテンツセキュリティポリシーの良い出発点となりで、他のディレクティブに比べてこのディレクティブの採用率はかなり高くなるでしょう。
 
-どのソースからコンテンツを含めることができるかを示すCSPディレクティブ（`*-src`ディレクティブ）は、採用率がかなり低くなっています: デスクトップページで提供されたCSPポリシーの18.51%とモバイルページで提供された16.12%に過ぎません。この理由の1つは、Web開発者が[CSPの採用における多くの課題]に直面していることにあります(https://wkr.io/publication/raid-2014-content_security_policy.pdf)。厳格なCSPポリシーは、XSS攻撃を阻止する以上の大きなセキュリティ上の利点を提供できますが、不明確に定義されたポリシーは特定の有効なコンテンツの読み込みを妨げる可能性があります。
+どのソースからコンテンツを含めることができるかを示すCSPディレクティブ（`*-src`ディレクティブ）は、採用率がかなり低くなっています: デスクトップページで提供されたCSPポリシーの18.51%とモバイルページで提供された16.12%に過ぎません。この理由の1つは、Web開発者が[CSPの採用における多くの課題に直面していることにあります](https://wkr.io/publication/raid-2014-content_security_policy.pdf)。厳格なCSPポリシーは、XSS攻撃を阻止する以上の大きなセキュリティ上の利点を提供できますが、不明確に定義されたポリシーは特定の有効なコンテンツの読み込みを妨げる可能性があります。
 
 ウェブ開発者がCSPポリシーの正しさを評価できるようにするため、非強制的な代替手段も存在し、`Content-Security-Policy-Report-Only`応答ヘッダーでポリシーを定義することで有効にできます。このヘッダーの普及率はかなり低く、デスクトップおよびモバイルページの0.85%です。しかし、これはしばしば移行用のヘッダーであることに注意すべきです。そのため、この割合はCSPの使用への移行を意図しており、限られた時間だけReport-Onlyヘッダーを使用しているサイトを示している可能性が高い。
 
@@ -724,13 +722,13 @@ iframeの`sandbox`属性が空の値を持つ場合、これは最も制限の�
 
 ### セキュリティメカニズムの採用
 
-ウェブ上で最も一般的なセキュリティ応答ヘッダーは[`X-Content-Type-Options`](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/X-Content-Type-Options)であり、これはブラウザに広告されたコンテンツタイプを信頼するように指示し、応答内容に基づいてそれを盗聴しないようにします。これは例えば、攻撃者がクロスサイトスクリプティング攻撃を実行するためにHTMLコードとして解釈されるJSONPエンドポイントを悪用することを防ぐなど、MIMEタイプの混乱攻撃を効果的に防ぎます。
+ウェブ上で最も一般的なセキュリティ応答ヘッダーは[`X-Content-Type-Options`](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Content-Type-Options)であり、これはブラウザに広告されたコンテンツタイプを信頼するように指示し、応答内容に基づいてそれを盗聴しないようにします。これは例えば、攻撃者がクロスサイトスクリプティング攻撃を実行するためにHTMLコードとして解釈されるJSONPエンドポイントを悪用することを防ぐなど、MIMEタイプの混乱攻撃を効果的に防ぎます。
 
-リストの次は、[`X-Frame-Options`](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/X-Frame-Options)(XFO)応答ヘッダーであり、ページの約27%で有効になっています。このヘッダーは、CSPの`frame-ancestors`ディレクティブとともに、クリックジャッキング攻撃に対抗するために使用できる唯一の効果的なメカニズムです。しかし、XFOはクリックジャッキングに対して有用なだけでなく、<a hreflang="en" href="https://cure53.de/xfo-clickjacking.pdf">他の様々なタイプの攻撃</a>に対しても悪用を著しく困難にしています。Internet Explorerなどのレガシーブラウザでは、XFOは現在でもクリックジャッキング攻撃を防御する唯一のメカニズムですが、<a hreflang="en" href="https://www.usenix.org/system/files/sec20fall_calzavara_prepub.pdf">ダブルフレーミング攻撃</a>の影響を受けています。この問題は`frame-ancestors`CSPディレクティブで緩和されています。そのため、ユーザに可能な限りの最善の防御を与えるためには、両方のヘッダーを採用することが最善の方法と考えられます。
+リストの次は、[`X-Frame-Options`](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options)(XFO)応答ヘッダーであり、ページの約27%で有効になっています。このヘッダーは、CSPの`frame-ancestors`ディレクティブとともに、クリックジャッキング攻撃に対抗するために使用できる唯一の効果的なメカニズムです。しかし、XFOはクリックジャッキングに対して有用なだけでなく、<a hreflang="en" href="https://cure53.de/xfo-clickjacking.pdf">他の様々なタイプの攻撃</a>に対しても悪用を著しく困難にしています。Internet Explorerなどのレガシーブラウザでは、XFOは現在でもクリックジャッキング攻撃を防御する唯一のメカニズムですが、<a hreflang="en" href="https://www.usenix.org/system/files/sec20fall_calzavara_prepub.pdf">ダブルフレーミング攻撃</a>の影響を受けています。この問題は`frame-ancestors`CSPディレクティブで緩和されています。そのため、ユーザに可能な限りの最善の防御を与えるためには、両方のヘッダーを採用することが最善の方法と考えられます。
 
-現在18.39%のWebサイトで採用されている[`X-XSS-Protection`](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/X-XSS-Protection)ヘッダーは、ブラウザに内蔵されている反射型クロスサイトスクリプティングの検出機構を制御するために使用されていました。しかし、Chromeバージョン78では、ブラウザに内蔵されていたXSS検出機能が<a hreflang="en" href="https://bugs.chromium.org/p/chromium/issues/detail?id=968591">非推奨・削除</a>されています。これは、様々な迂回経路が存在し、攻撃者に悪用される可能性のある新たな<a hreflang="en" href="https://frederik-braun.com/xssauditor-bad.html">脆弱性や情報漏洩</a>を導入していたためです。他のブラウザベンダーは同様のメカニズムを実装していないため、`X-XSS-Protection`ヘッダーは最近のブラウザには効果がなく、安全に削除できます。それにもかかわらず、このヘッダーの採用率は昨年の15.50%から18.39%へとわずかに増加しています。
+現在18.39%のWebサイトで採用されている[`X-XSS-Protection`](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-XSS-Protection)ヘッダーは、ブラウザに内蔵されている反射型クロスサイトスクリプティングの検出機構を制御するために使用されていました。しかし、Chromeバージョン78では、ブラウザに内蔵されていたXSS検出機能が<a hreflang="en" href="https://bugs.chromium.org/p/chromium/issues/detail?id=968591">非推奨・削除</a>されています。これは、様々な迂回経路が存在し、攻撃者に悪用される可能性のある新たな<a hreflang="en" href="https://frederik-braun.com/xssauditor-bad.html">脆弱性や情報漏洩</a>を導入していたためです。他のブラウザベンダーは同様のメカニズムを実装していないため、`X-XSS-Protection`ヘッダーは最近のブラウザには効果がなく、安全に削除できます。それにもかかわらず、このヘッダーの採用率は昨年の15.50%から18.39%へとわずかに増加しています。
 
-最も広く採用されている上位5つのヘッダーの残りの部分は、ウェブサイトのTLS実装に関連する2つのヘッダーで完結しています。[Strict-Transport-Security`](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Strict-Transport-Security)ヘッダーは、`max-age`属性で定義された期間だけHTTPS接続でウェブサイトを訪問するようブラウザに指示するため使用されます。このヘッダーの設定については、この章で詳しく説明している[この章の前半](#transport-security)。`Expect-CT`ヘッダーは、現在のWebサイトに発行された証明書が公開されている[Certificate Transparency](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Expect-CT)ログに表示される必要があるかどうかを確認するようブラウザに指示します。
+最も広く採用されている上位5つのヘッダーの残りの部分は、ウェブサイトのTLS実装に関連する2つのヘッダーで完結しています。[Strict-Transport-Security](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security)ヘッダーは、`max-age`属性で定義された期間だけHTTPS接続でウェブサイトを訪問するようブラウザに指示するため使用されます。このヘッダーの設定については、この章で詳しく説明している[この章の前半](#トランスポートのセキュリティ)。`Expect-CT`ヘッダーは、現在のWebサイトに発行された証明書が公開されている[Certificate Transparency](https://developer.mozilla.org/docs/Web/HTTP/Headers/Expect-CT)ログに表示される必要があるかどうかを確認するようブラウザに指示します。
 
 全体的に見ると、昨年はセキュリティヘッダーの採用が増加していることがわかります。最も広く使用されているセキュリティヘッダーは、相対的に15～35パーセントの増加を示しています。最近導入された`Report-To`ヘッダーや`Feature-Policy`ヘッダーのような機能の採用が増加していることも注目に値します（後者は昨年の3倍以上に増加しています）。最も強い絶対的な成長はCSPヘッダーで、採用率は4.94%から10.93%に増加しています。
 
@@ -777,15 +775,15 @@ CSPの採用を容易にするもう1つのメカニズムはnoncesの使用で�
 
 他の2つのキーワード、`unsafe-inline`と`unsafe-eval`は、それぞれ97.28%、77.79%と大多数のCSPに存在しています。このことは、XSS攻撃を阻止するポリシーを実装することの難しさを思い知らされます。しかし、`strict-dynamic`キーワードが存在する場合、`unsafe-inline`や`unsafe-eval`キーワードは事実上無視されてしまいます。古いブラウザでは`strict-dynamic`キーワードはサポートされていない可能性があるため、すべてのブラウザのバージョンとの互換性を維持するため、他の2つの安全でないキーワードを含めることが最善の方法と考えられています。
 
-`strict-dynamic`や`nonce-`キーワードは、反映された持続的なXSS攻撃を防御するために使用できますが、保護されたページはDOMベースのXSS脆弱性に対して脆弱性を持っている可能性があります。このクラスの攻撃を防御するために、ウェブサイト開発者は<a hreflang="en" href="https://web.dev/trusted-types/">Trusted Types</a>を利用できます。これはかなり新しいメカニズムで、現在Chromiumベースのブラウザでのみサポートされています。Trusted Typesの採用には困難が伴う可能性があるにもかかわらず（ウェブサイトはポリシーを作成し、このポリシーに準拠するためJavaScriptコードを調整する必要があります）、また新しいメカニズムであることを考えると、11のホームページがCSPの`require-trusted-types-for`ディレクティブを通じてTrusted Typesをすでに採用していることは心強いことです。
+`strict-dynamic`や`nonce-`キーワードは、反映された持続的なXSS攻撃を防御するために使用できますが、保護されたページはDOMベースのXSS脆弱性に対して脆弱性を持っている可能性があります。このクラスの攻撃を防御するために、ウェブサイト開発者は<a hreflang="ja" href="https://web.dev/i18n/ja/trusted-types/">Trusted Types</a>を利用できます。これはかなり新しいメカニズムで、現在Chromiumベースのブラウザでのみサポートされています。Trusted Typesの採用には困難が伴う可能性があるにもかかわらず（ウェブサイトはポリシーを作成し、このポリシーに準拠するためJavaScriptコードを調整する必要があります）、また新しいメカニズムであることを考えると、11のホームページがCSPの`require-trusted-types-for`ディレクティブを通じてTrusted Typesをすでに採用していることは心強いことです。
 
 ### クロスオリジンポリシーによるXSリークの防御
 
-<a hreflang="en" href="https://xsleaks.dev/">XS-Leaks</a>と呼ばれる新しいクラスの攻撃から身を守るために、最近、様々な新しいセキュリティメカニズムが導入されました（いくつかはまだ開発中です）。一般的に、これらのセキュリティメカニズムは、他のサイトが自分のサイトとどのように相互作用するかをウェブサイトの管理者がコントロールできるようにしています。例えば、[`Cross-Origin-Openener-Policy`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy) (COOP) レスポンスヘッダーは、ページを他の悪意のある可能性のあるブラウザコンテキストから分離処理すべきであることをブラウザに指示するために使用できます。そのため、敵対者はページのグローバルオブジェクトへの参照を取得することができません。その結果、<a hreflang="en" href="https://xsleaks.dev/docs/attacks/frame-counting/">frame counting</a>のような攻撃は、このメカニズムで防ぐことができます。データ収集が始まる数日前にChrome、Edge、Firefoxでしかサポートされていなかったこのメカニズムのアーリーアダプターが31件見つかりました。
+<a hreflang="en" href="https://xsleaks.dev/">XS-Leaks</a>と呼ばれる新しいクラスの攻撃から身を守るために、最近、様々な新しいセキュリティメカニズムが導入されました（いくつかはまだ開発中です）。一般的に、これらのセキュリティメカニズムは、他のサイトが自分のサイトとどのように相互作用するかをウェブサイトの管理者がコントロールできるようにしています。例えば、[`Cross-Origin-Openener-Policy`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy) (COOP) レスポンスヘッダーは、ページを他の悪意のある可能性のあるブラウザコンテキストから分離処理すべきであることをブラウザに指示するために使用できます。そのため、敵対者はページのグローバルオブジェクトへの参照を取得することができません。その結果、<a hreflang="en" href="https://xsleaks.dev/docs/attacks/frame-counting/">frame counting</a>のような攻撃は、このメカニズムで防ぐことができます。データ収集が始まる数日前にChrome、Edge、Firefoxでしかサポートされていなかったこのメカニズムのアーリーアダプターが31件見つかりました。
 
-`Cross-Origin-Resource-Policy`(https://developer.mozilla.org/ja/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP))(CORP)ヘッダーは、Chrome、Firefox、Edgeでサポートされていますが、すでに1,712ページで採用されています（CORPはドキュメントだけでなく、すべてのリソースタイプで有効にできます/すべきであることに注意してください、したがってこの数は過小評価かもしれません）。ヘッダーは、ウェブリソースがどのように含まれることが予想されるかをブラウザに指示するために使用されます: 同一オリジン、同一サイト、クロスオリジン（制限が多いものから少ないものへ）。ブラウザは、CORPに違反する方法で含まれるリソースの読み込みを阻止します。このように、この応答ヘッダーで保護された機密リソースは、<a hreflang="en" href="https://spectreattack.com/spectre.pdf">Spectre攻撃</a>や様々な<a hreflang="en" href="https://xsleaks.dev/docs/defenses/opt-in/corp/">XS-Leaks攻撃</a>から保護されています。<a hreflang="en" href="https://fetch.spec.whatwg.org/#corb">Cross-Origin Read Blocking</a>(CORB)メカニズムも同様の保護を提供しますが、ブラウザではデフォルトで有効になっています（現在はChromiumベースのブラウザのみ）。
+[`Cross-Origin-Resource-Policy`](https://developer.mozilla.org/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP))(CORP)ヘッダーは、Chrome、Firefox、Edgeでサポートされていますが、すでに1,712ページで採用されています（CORPはドキュメントだけでなく、すべてのリソースタイプで有効にできます/すべきであることに注意してください、したがってこの数は過小評価かもしれません）。ヘッダーは、ウェブリソースがどのように含まれることが予想されるかをブラウザに指示するために使用されます: 同一オリジン、同一サイト、クロスオリジン（制限が多いものから少ないものへ）。ブラウザは、CORPに違反する方法で含まれるリソースの読み込みを阻止します。このように、この応答ヘッダーで保護された機密リソースは、<a hreflang="en" href="https://spectreattack.com/spectre.pdf">Spectre攻撃</a>や様々な<a hreflang="en" href="https://xsleaks.dev/docs/defenses/opt-in/corp/">XS-Leaks攻撃</a>から保護されています。<a hreflang="en" href="https://fetch.spec.whatwg.org/#corb">Cross-Origin Read Blocking</a>(CORB)メカニズムも同様の保護を提供しますが、ブラウザではデフォルトで有効になっています（現在はChromiumベースのブラウザのみ）。
 
-CORPに関連しているのは [`Cross-Origin-Embedder-Policy`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy)(COEP)レスポンスヘッダーで、ページに読み込まれたリソースはすべてCORPヘッダーを持つべきであることをブラウザに指示するためにドキュメントで使用できます。さらに、Cross-Origin Resource Sharing(CORS)メカニズム（`Access-Control-Allow-Origin` ヘッダーなど）を通して読み込まれるリソースも許可されます。COOPと一緒にこのヘッダーを有効にすることで、ページは高精度タイマーや`SharedArrayBuffer`のような、潜在的にセンシティブなAPIへのアクセスを得ることができ、非常に正確なタイマーを構築するために使用することもできます。COEPを有効にしているページが6つ見つかりましたが、ヘッダーのサポートはデータ収集の数日前にブラウザへ追加されただけでした。
+CORPに関連しているのは [`Cross-Origin-Embedder-Policy`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy)(COEP)レスポンスヘッダーで、ページに読み込まれたリソースはすべてCORPヘッダーを持つべきであることをブラウザに指示するためにドキュメントで使用できます。さらに、Cross-Origin Resource Sharing(CORS)メカニズム（`Access-Control-Allow-Origin` ヘッダーなど）を通して読み込まれるリソースも許可されます。COOPと一緒にこのヘッダーを有効にすることで、ページは高精度タイマーや`SharedArrayBuffer`のような、潜在的にセンシティブなAPIへのアクセスを得ることができ、非常に正確なタイマーを構築するために使用することもできます。COEPを有効にしているページが6つ見つかりましたが、ヘッダーのサポートはデータ収集の数日前にブラウザへ追加されただけでした。
 
 クロスオリジンポリシーのほとんどは、ウェブ上での利用が限られている（例えば、新しく開いたウィンドウへの参照を保持するなど）いくつかのブラウザ機能の潜在的に悪質な結果を無効にしたり、緩和したりすることを目的としています。そのため、COOPやCORPのようなセキュリティ機能を有効にすることは、ほとんどの場合、機能を壊すことなく行うことができます。したがって、これらのクロスオリジンポリシーの採用は、今後数ヶ月、数年の間に大幅に増加すると予想されます。
 
@@ -833,7 +831,7 @@ CORPに関連しているのは [`Cross-Origin-Embedder-Policy`](https://develop
   <figcaption>{{ figure_link(caption="よく使われている暗号API", sheets_gid="1256054098", sql_file="web_cryptography_api.sql") }}</figcaption>
 </figure>
 
-我々の結果によると、（安全で暗号化された方法で）乱数を生成できる`Cypto.getRandomValues`関数が最も広く利用されていることがわかりました(デスクトップ: 70%、モバイル: 68%)。Google Analyticでは、この機能を利用していることが利用状況の測定に大きく影響していると考えています。一般的に、モバイルブラウザはこのAPIを[完全にサポート](https://developer.mozilla.org/ja/docs/Web/API/Web_Crypto_API#Browser_compatibility)していますが、モバイルサイトでは暗号化処理の実行数がわずかに少なくなっていることがわかります。
+我々の結果によると、（安全で暗号化された方法で）乱数を生成できる`Cypto.getRandomValues`関数が最も広く利用されていることがわかりました(デスクトップ: 70%、モバイル: 68%)。Google Analyticでは、この機能を利用していることが利用状況の測定に大きく影響していると考えています。一般的に、モバイルブラウザはこのAPIを[完全にサポート](https://developer.mozilla.org/docs/Web/API/Web_Crypto_API#Browser_compatibility)していますが、モバイルサイトでは暗号化処理の実行数がわずかに少なくなっていることがわかります。
 
 <p class="note">注意すべき点は、受動的なクロールを行っているため、このセクションでの結果はこれによって制限されることです。関数が実行される前に何らかのインタラクションが必要なケースを特定することはできません。</p>
 

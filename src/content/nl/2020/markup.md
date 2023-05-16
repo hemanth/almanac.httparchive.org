@@ -47,7 +47,7 @@ In dit gedeelte behandelen we de aspecten van een hoger niveau van HTML, zoals d
   sql_file="summary_pages_by_device_and_doctype.sql"
 ) }}
 
-96,82% van de pagina's geeft een [_doctype_](https://developer.mozilla.org/en-US/docs/Glossary/Doctype) aan. HTML-documenten waarin wordt verklaard dat een doctype om historische redenen nuttig is, "om te voorkomen dat de modus voor eigenaardigheden in browsers wordt geactiveerd", zoals <a hreflang="en" href="https://lists.w3.org/Archives/Public/public-html-comments/2009Jul/0020.html">Ian Hickson schreef in 2009</a>. Wat zijn de meest populaire waarden?
+96,82% van de pagina's geeft een [_doctype_](https://developer.mozilla.org/docs/Glossary/Doctype) aan. HTML-documenten waarin wordt verklaard dat een doctype om historische redenen nuttig is, "om te voorkomen dat de modus voor eigenaardigheden in browsers wordt geactiveerd", zoals <a hreflang="en" href="https://lists.w3.org/Archives/Public/public-html-comments/2009Jul/0020.html">Ian Hickson schreef in 2009</a>. Wat zijn de meest populaire waarden?
 
 <figure>
   <table>
@@ -120,13 +120,12 @@ Hoe is deze situatie in het algemeen dan? Het mediaan document weegt 24,65 KB, e
 
 We hebben 2.863 verschillende waarden geïdentificeerd voor het `lang`-attribuut op de `html`-starttag (vergelijk dat met de <a hreflang="en" href="https://www.ethnologue.com/guides/how-many-languages">7.117 gesproken talen</a> volgens Ethnologue). Ze lijken bijna allemaal geldig, volgens het hoofdstuk [Toegankelijkheid](./accessibility#language-identification).
 
-22,36% van alle documenten specificeren geen `lang`-attribuut. De algemeen aanvaarde opvatting is dat <a hreflang="en" href="https://www.w3.org/TR/i18n-html-tech-lang/#overall">ze zouden moeten</a>, maar naast het idee dat software uiteindelijk <a hreflang="en" href="https://meiert.com/en/blog/lang/">taal automatisch kan detecteren</a>, kan de documenttaal ook worden gespecificeerd [op protocolniveau](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language), dat hebben we niet gecontroleerd.
+22,36% van alle documenten specificeren geen `lang`-attribuut. De algemeen aanvaarde opvatting is dat <a hreflang="en" href="https://www.w3.org/TR/i18n-html-tech-lang/#overall">ze zouden moeten</a>, maar naast het idee dat software uiteindelijk <a hreflang="en" href="https://meiert.com/en/blog/lang/">taal automatisch kan detecteren</a>, kan de documenttaal ook worden gespecificeerd [op protocolniveau](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Language), dat hebben we niet gecontroleerd.
 
 Hier zijn de 10 meest populaire (genormaliseerde) talen in ons voorbeeld. Het is belangrijk op te merken dat het HTTP Archive crawlt vanuit Amerikaanse datacentra met Engelse taalinstellingen, dus het bekijken van de taalpagina's waarin is geschreven, zal scheef naar het Engels gaan. Desalniettemin presenteren we de `lang`-attributen die gezien worden om enige context te geven aan de geanalyseerde sites.
 
 {{ figure_markup(
   image="document-language.png",
-  alt="De belangrijkste HTML-`lang` attributen.",
   caption="De top HTML `lang` attributen.",
   description="Staafdiagram met de top 10 `lang` attributen die in onze crawl worden gebruikt, waarbij 22,82% van de desktoppagina's en 22,36% van de mobiele pagina's dit niet instellen, `en` wordt gebruikt op respectievelijk 20,09% en 18,08%, `ja` op 15,17% en 13,27 %, `es` op 4,86% en 4,09%, `pt-br` op 2,65% en 2,84%, `ru` op 2,21% 2,53%, `en-gb` op 2,35% en 2,19%, `de` op 1,50 % en 1,92%, en tenslotte wordt `fr` gebruikt op respectievelijk 1,55% en 1,43%.",
   sheets_gid="2047285366",
@@ -155,7 +154,7 @@ Ongeveer 89% van de pagina's bevat minstens één HTML-opmerking, terwijl ongeve
 <![endif]-->
 ```
 
-Het bovenstaande is een niet-standaard voorwaardelijke HTML-opmerking. Hoewel deze in het verleden nuttig zijn gebleken om browserverschillen aan te pakken, ze zijn al een tijdje aan de geschiedenis toevertrouwd omdat Microsoft <a hreflang="en" href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801214(v=vs.85">voorwaardelijke opmerkingen heeft laten vallen</a>) in Internet Explorer 10.
+Het bovenstaande is een niet-standaard voorwaardelijke HTML-opmerking. Hoewel deze in het verleden nuttig zijn gebleken om browserverschillen aan te pakken, ze zijn al een tijdje aan de geschiedenis toevertrouwd omdat Microsoft <a hreflang="en" href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801214(v=vs.85)">voorwaardelijke opmerkingen heeft laten vallen</a>) in Internet Explorer 10.
 
 Toch ontdekten we bij de bovenstaande percentielextremen dat webpagina's ongeveer 6 voorwaardelijke opmerkingen in het 90e percentiel gebruiken en 1 opmerking in het 10e percentiel. De meeste pagina's bevatten ze voor helpers zoals <a hreflang="en" href="https://github.com/aFarkas/html5shiv">html5shiv</a>, [selectivizr](http://selectivizr.com/), en <a hreflang="en" href="https://github.com/scottjehl/Respond">respond.js</a>. Hoewel het fatsoenlijke en nog steeds actieve pagina's zijn, is onze conclusie dat veel van hen verouderde CMS-thema's gebruikten.
 
@@ -171,7 +170,6 @@ Aan de andere kant van het spectrum laten de cijfers zien dat ongeveer 97% van d
 
 {{ figure_markup(
   image="script-use.png",
-  alt="Gebruik van het script element",
   caption="Gebruik van het <code>script</code> -element.",
   description="Percentages pagina's die (geen) scripts bevatten, en scripts zijn in bijna elke vorm op bijna elke pagina aanwezig.",
   sheets_gid="150962402",
@@ -331,7 +329,7 @@ Hier is een eenvoudig voorbeeld dat het gebruik van een `summary` in een `detail
 </details>
 ```
 
-Een tijdje geleden wees Steve Faulkner [erop](https://twitter.com/stevefaulkner/status/806474286592561152) hoe deze twee elementen in het wild onvoldoende werden gebruikt. Zoals u aan het bovenstaande voorbeeld kunt zien, heeft u voor elk `details`-element een `summary`-element nodig dat alleen mag worden gebruikt als het [eerste kind](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary#Usage_notes) van `details`.
+Een tijdje geleden wees Steve Faulkner [erop](https://twitter.com/stevefaulkner/status/806474286592561152) hoe deze twee elementen in het wild onvoldoende werden gebruikt. Zoals u aan het bovenstaande voorbeeld kunt zien, heeft u voor elk `details`-element een `summary`-element nodig dat alleen mag worden gebruikt als het [eerste kind](https://developer.mozilla.org/docs/Web/HTML/Element/summary#Usage_notes) van `details`.
 
 Dienovereenkomstig hebben we gekeken naar het aantal `details` en `summary` elementen en het lijkt erop dat ze nog steeds worden misbruikt. Het aantal `summary`-elementen is hoger op zowel mobiel als desktop, met een verhouding van respectievelijk 1,11 `samenvatting`-elementen voor elk `details`-element op mobiel en 1,19 op desktop:
 
@@ -450,7 +448,7 @@ Standaardelementen zijn elementen die deel uitmaken van de HTML-specificatie. We
   <figcaption>{{ figure_link(caption="Lage kansen om een bepaald element op pagina's van de steekproef te vinden.", sheets_gid="184700688", sql_file="pages_element_count_by_device_and_element_type_present.sql") }}</figcaption>
 </figure>
 
-We nemen deze elementen op om een idee te geven welke elementen mogelijk uit de gratie zijn geraakt. Maar hoewel `dir` en` basefont` voor het laatst werden gespecificeerd in XHTML 1.0 (2000) en niet langer deel uitmaken van HTML, het zeldzame gebruik van `rp`, <a hreflang="en" href="https://www.w3.org/TR/1998/WD-rubya2-4">dat al in 1998 werd genoemd</a> en dat <a hreflang="en" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-rp-element">nog steeds deel uitmaakt van HTML</a>, suggereert misschien dat <a hreflang="en" href="https://www.w3.org/TR/ruby/">ruby-opmaak</a> niet erg populair is.
+We nemen deze elementen op om een idee te geven welke elementen mogelijk uit de gratie zijn geraakt. Maar hoewel `dir` en `basefont` voor het laatst werden gespecificeerd in XHTML 1.0 (2000) en niet langer deel uitmaken van HTML, het zeldzame gebruik van `rp`, <a hreflang="en" href="https://www.w3.org/TR/1998/WD-ruby-19981221/#a2-4">dat al in 1998 werd genoemd</a> en dat <a hreflang="en" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-rp-element">nog steeds deel uitmaakt van HTML</a>, suggereert misschien dat <a hreflang="en" href="https://www.w3.org/TR/ruby/">ruby-opmaak</a> niet erg populair is.
 
 ### Aangepaste elementen
 
@@ -967,7 +965,7 @@ We hebben het gebruik van HTML in het algemeen behandeld, evenals de acceptatie 
 
 ### `viewport` specificaties
 
-Het meta-element [viewport](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag) wordt gebruikt om de lay-out op mobiele browsers te beheren. Terwijl het motto jaren geleden een beetje was "vergeet het viewport-meta-element niet" bij het bouwen van een webpagina, werd dit uiteindelijk een gangbare praktijk en veranderde het motto in "zorg ervoor dat zoomen en schalen niet worden uitgeschakeld."
+Het meta-element [viewport](https://developer.mozilla.org/docs/Web/HTML/Viewport_meta_tag) wordt gebruikt om de lay-out op mobiele browsers te beheren. Terwijl het motto jaren geleden een beetje was "vergeet het viewport-meta-element niet" bij het bouwen van een webpagina, werd dit uiteindelijk een gangbare praktijk en veranderde het motto in "zorg ervoor dat zoomen en schalen niet worden uitgeschakeld."
 
 Gebruikers moeten de tekst kunnen zoomen en schalen <a hreflang="en" href="https://dequeuniversity.com/rules/axe/4.0/meta-viewport-large">tot 500%</a>. Daarom mislukken audits in populaire hulpmiddelen zoals <a hreflang="en" href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a> of <a hreflang="en" href="https://www.deque.com/axe/">axe</a> wanneer `user-scalable="no"` wordt gebruikt binnen het `meta name="viewport"` element, en wanneer de `maximum-scale` attribuutwaarde kleiner is dan `5`.
 
@@ -1198,7 +1196,7 @@ Pagina's in het 10e en 25e percentiel bevatten helemaal geen knoppen, terwijl ee
 
 ### Link doelen
 
-Het [`anchor`-element](https://developer.mozilla.org/nl/docs/Web/HTML/Element/a), of `a` element, verbindt webbronnen met elkaar. In deze sectie analyseren we de acceptatie van de protocollen die in deze linkdoelen zijn opgenomen.
+Het [`anchor`-element](https://developer.mozilla.org/docs/Web/HTML/Element/a), of `a` element, verbindt webbronnen met elkaar. In deze sectie analyseren we de acceptatie van de protocollen die in deze linkdoelen zijn opgenomen.
 
 <figure>
   <table>

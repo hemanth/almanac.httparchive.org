@@ -5,7 +5,7 @@ description: Third Parties chapter of the 2020 Web Almanac covering data of what
 authors: [simonhearne]
 reviewers: [jzyang, exterkamp]
 analysts: [max-ostapenko, paulcalvano]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: []
 simonhearne_bio: Simon is a web performance architect. He is passionate about helping deliver a faster and more accessible web. You can find him tweeting <a href="https://twitter.com/simonhearne">@SimonHearne</a> and blogging at <a hreflang="en" href="https://simonhearne.com">simonhearne.com</a>.
 discuss: 2042
@@ -109,7 +109,7 @@ The chart below shows the distribution of pages by third-party count. The 10th p
 
 ### Content-types
 
-We can break down third-party requests by their content type. This is the reported [content-type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) of the resources delivered from third-party domains.
+We can break down third-party requests by their content type. This is the reported [content-type](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Type) of the resources delivered from third-party domains.
 
 {{ figure_markup(
   image="thirdparty-by-content-types.png",
@@ -190,7 +190,7 @@ On the other end of the spectrum, the categories CDN, Content and Hosting all re
 
 ### Cacheability
 
-Some third-party responses should always be cached. Media such as images and videos served by a third-party, or JavaScript libraries are good candidates. On the other hand, tracking pixels and analytics beacons should never be cached. The results show that overall two-thirds of third-party requests are served with a valid caching header such as `cache-control`.
+Some third-party responses should always be cached. Media such as images and videos served by a third-party, or JavaScript libraries are good candidates. On the other hand, tracking pixels and analytics beacons should never be cached. The results show that overall two-thirds of third-party requests are served with a valid caching header such as `Cache-Control`.
 
 {{ figure_markup(
   image="requests-cached-by-content-type.png",
@@ -263,12 +263,11 @@ This chart shows the probability density function of total page CPU time by the 
 
 ## `timing-allow-origin` prevalence
 
-The [Resource Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API) allows website owners to measure the performance of individual resources via JavaScript. This data is, by default, extremely limited for cross-origin resources like third-party content. There are legitimate reasons for not providing this timing information such as responses that vary by authentication state: e.g. a website owner may be able to determine if a visitor is logged into a Facebook by measuring the response size of a widget request. For most third-party content, though, setting the `timing-allow-origin` header is an act of transparency to allow the hosting website to track performance and size of their third-party content.
+The [Resource Timing API](https://developer.mozilla.org/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API) allows website owners to measure the performance of individual resources via JavaScript. This data is, by default, extremely limited for cross-origin resources like third-party content. There are legitimate reasons for not providing this timing information such as responses that vary by authentication state: e.g. a website owner may be able to determine if a visitor is logged into a Facebook by measuring the response size of a widget request. For most third-party content, though, setting the `timing-allow-origin` header is an act of transparency to allow the hosting website to track performance and size of their third-party content.
 
 {{ figure_markup(
   image="requests-with-tao.png",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSNXusoFJKi8Z1i_yuG_5umUCJOZwBMaZaECq4T8lU5zIQuLR7UHfZOJmXsXzPWQTJFnFa3dcOEPJgy/pubchart?oid=1886505312&format=interactive",
-  alt="Requests with Timing-Allow-Origin header.",
   caption="Requests with `timing-allow-origin` header.",
   description="Less than 35% of third-party responses are served with a timing-allow-origin header",
   width=600,
@@ -282,7 +281,7 @@ The results in HTTP Archive show that only one third of third-party responses ex
 
 ## Repercussions
 
-We know that adding arbitrary JavaScript to our sites introduces risks to both site speed and security. Site owners must be diligent to balance the value of the third-party scripts they include with the speed penalty they may bring, and use modern features such as [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) and [content security policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) to maintain a strong security posture. See the [Security chapter](./security) for more detail on these and other browser security features.
+We know that adding arbitrary JavaScript to our sites introduces risks to both site speed and security. Site owners must be diligent to balance the value of the third-party scripts they include with the speed penalty they may bring, and use modern features such as [subresource integrity](https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity) and [content security policy](https://developer.mozilla.org/docs/Web/HTTP/CSP) to maintain a strong security posture. See the [Security chapter](./security) for more detail on these and other browser security features.
 
 ## Conclusion
 

@@ -90,7 +90,7 @@ Eh bien, nous sommes curieux de savoir combien de couleurs en double sont prése
 
 ## Unités
 
-Avec CSS, il existe de nombreuses façons d’obtenir le même résultat visuel en utilisant différents types d’unités&nbsp;: `rem`,` px`, `em`, `ch`, ou même `cm`&nbsp;! Alors, quels types d’unités sont les plus populaires&nbsp;?
+Avec CSS, il existe de nombreuses façons d’obtenir le même résultat visuel en utilisant différents types d’unités&nbsp;: `rem`, `px`, `em`, `ch`, ou même `cm`&nbsp;! Alors, quels types d’unités sont les plus populaires&nbsp;?
 
 {{ figure_markup(
   image="fig5.png",
@@ -110,7 +110,7 @@ En ce qui concerne les unités basées sur l’espace physique, l’unité `cm` 
 
 ### Unités basées sur la taille de fenêtre (<i lang="en">viewport</i> {unites-basees-sur-la-taille-de-fenetre-viewport}
 
-Nous avons constaté des différences plus importantes pour les unités basées sur le <i lang="en">viewport</i> entre les appareils mobiles et les ordinateurs de bureau. 36,8&nbsp;% des sites mobiles utilisent `vh` (hauteur de <i lang="en">viewport</i>), alors que seuls 31&nbsp;% des sites pour ordinateur le font. Nous avons également constaté que `vh` est plus courant que `vw` (largeur de <i lang="en">viewport</i>) d’environ 11&nbsp;%. `vmin` (<i lang="en">viewport</i> minimum) est plus populaire que `vmax` (<i lang="en">viewport</i> maximum), avec environ 8&nbsp;% d’utilisation de `vmin` sur mobile tandis que` vmax` n’est utilisé que par 1&nbsp;% des sites Web.
+Nous avons constaté des différences plus importantes pour les unités basées sur le <i lang="en">viewport</i> entre les appareils mobiles et les ordinateurs de bureau. 36,8&nbsp;% des sites mobiles utilisent `vh` (hauteur de <i lang="en">viewport</i>), alors que seuls 31&nbsp;% des sites pour ordinateur le font. Nous avons également constaté que `vh` est plus courant que `vw` (largeur de <i lang="en">viewport</i>) d’environ 11&nbsp;%. `vmin` (<i lang="en">viewport</i> minimum) est plus populaire que `vmax` (<i lang="en">viewport</i> maximum), avec environ 8&nbsp;% d’utilisation de `vmin` sur mobile tandis que `vmax` n’est utilisé que par 1&nbsp;% des sites Web.
 
 ### Propriétés personnalisées (<i lang="en">custom properties</i>) {proprietes-personnalisees-custom-properties}
 
@@ -186,7 +186,7 @@ Avec la montée en puissance des approches CSS comme OOCSS, <i lang="en">Atomic 
 
 ### <i lang="en">Flexbox</i> {flexbox}
 
-[Flexbox](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Flexible_Box_Layout/Concepts_de_base_flexbox) est une disposition qui, une fois appliquée à un conteneur, dirige et aligne ses enfants&nbsp;: c’est-à-dire qu’elle aide à la mise en page d’une manière contraignante. Elle a connu un début assez difficile sur le Web, car sa spécification a subi deux ou trois changements assez drastiques entre 2010 et 2013. Heureusement, elle s’est installée et a été implémentée sur tous les navigateurs en 2014. Compte tenu de cet historique, son taux d’adoption a évolué lentement, mais plusieurs années se sont écoulées depuis&nbsp;! Elle est maintenant très populaire et de nombreux articles à son sujet expliquent comment en tirer parti, mais elle est encore nouvelle comparée à d’autres méthodes de mise en page.
+[Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout/Concepts_de_base_flexbox) est une disposition qui, une fois appliquée à un conteneur, dirige et aligne ses enfants&nbsp;: c’est-à-dire qu’elle aide à la mise en page d’une manière contraignante. Elle a connu un début assez difficile sur le Web, car sa spécification a subi deux ou trois changements assez drastiques entre 2010 et 2013. Heureusement, elle s’est installée et a été implémentée sur tous les navigateurs en 2014. Compte tenu de cet historique, son taux d’adoption a évolué lentement, mais plusieurs années se sont écoulées depuis&nbsp;! Elle est maintenant très populaire et de nombreux articles à son sujet expliquent comment en tirer parti, mais elle est encore nouvelle comparée à d’autres méthodes de mise en page.
 
 {{ figure_markup(
   image="fig12.png",
@@ -200,7 +200,7 @@ Un certain succès illustré ici, car près de 50&nbsp;% du Web utilise Flexbox 
 
 ### Grid
 
-Comme Flexbox, [Grid](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout) a également traversé quelques variantes de spécifications au début de sa durée de vie, mais sans changer les implémentations dans les versions publiques des navigateurs. Microsoft avait Grid dans les premières versions de Windows 8, comme moteur de mise en page principal pour son design à défilement horizontal. Il y a d’abord été éprouvé, transféré vers le Web, puis renforcé par les autres navigateurs jusqu’à sa sortie finale en 2017. Il a connu un lancement très réussi car presque tous les navigateurs ont publié leurs implémentations en même temps, donc les développeurs et développeuses Web se sont réveillés un jour avec un superbe support de Grid. Aujourd’hui, à la fin de 2019, Grid est toujours un jeune premier, car les gens découvrent encore sa puissance et ses capacités.
+Comme Flexbox, [Grid](https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout) a également traversé quelques variantes de spécifications au début de sa durée de vie, mais sans changer les implémentations dans les versions publiques des navigateurs. Microsoft avait Grid dans les premières versions de Windows 8, comme moteur de mise en page principal pour son design à défilement horizontal. Il y a d’abord été éprouvé, transféré vers le Web, puis renforcé par les autres navigateurs jusqu’à sa sortie finale en 2017. Il a connu un lancement très réussi car presque tous les navigateurs ont publié leurs implémentations en même temps, donc les développeurs et développeuses Web se sont réveillés un jour avec un superbe support de Grid. Aujourd’hui, à la fin de 2019, Grid est toujours un jeune premier, car les gens découvrent encore sa puissance et ses capacités.
 
 {{ figure_markup(
   caption="Pourcentage de sites Web utilisant Grid.",

@@ -3,9 +3,9 @@
 title: JavaScript
 description: JavaScript chapter of the 2019 Web Almanac covering how much JavaScript we use on the web, compression, libraries and frameworks, loading, and source maps.
 authors: [housseindjirdeh]
-reviewers: [obto, paulcalvano, mathiasbynens, rviscomi]
+reviewers: [foxdavidj, paulcalvano, mathiasbynens, rviscomi]
 analysts: [rviscomi]
-editors: [obto]
+editors: [foxdavidj]
 translators: [c-torres]
 discuss: 1756
 results: https://docs.google.com/spreadsheets/d/1kBTglETN_V9UjKqK_EFmFjRexJnQOmLLr-I2Tkotvic/
@@ -75,7 +75,6 @@ Aunque estos datos muestran cuánto tiempo puede llevar un dispositivo móvil pr
 
 {{ figure_markup(
   image="js-processing-reddit.png",
-  alt="Tiempos de procesamiento de JavaScript para Reddit.com.",
   caption='Tiempos de procesamiento de JavaScript para Reddit.com. Tomado de <a hreflang="en" href="https://v8.dev/blog/cost-of-javascript-2019">El costo de JavaScript en 2019</a>.',
   description="Gráfico de barras que muestra 3 dispositivos diferentes: en la parte superior, un Pixel 3, que tiene un tiempo de procesamiento pequeño tanto en el hilo principal como en el hilo worker de menos de 400 ms. Para un Moto G4 es de aproximadamente 900 ms en el subproceso principal y otros 300 ms en el subproceso del worker. Y la barra final es un Alcatel 1X 5059D con más de 2.000 ms en el subproceso principal y más de 500 ms en el subproceso del worker.",
   width=600,
@@ -169,123 +168,123 @@ Para un análisis más profundo sobre la compresión, consulte el capítulo de [
 Código fuente abierto, o código con una licencia permisiva a la que cualquier persona pueda acceder, ver y modificar. Desde pequeñas bibliotecas hasta navegadores completos, como <a hreflang="en" href="https://www.chromium.org/Home">Chromium</a> y <a hreflang="en" href="https://www.openhub.net/p/firefox">Firefox</a>, el código fuente abierto juega un papel crucial en el mundo del desarrollo web. En el contexto de JavaScript, los desarrolladores confían en herramientas de código abierto para incluir todo tipo de funcionalidad en su página web. Independientemente de si un desarrollador decide usar una pequeña biblioteca de utilidades o un framework masivo que dicta la arquitectura de toda su aplicación, confiar en paquetes de código abierto puede hacer que el desarrollo de funciones sea más fácil y rápido. ¿Qué bibliotecas de código abierto de JavaScript se usan más?
 
 <figure>
-   <table>
-      <thead>
-        <tr>
-          <th>Librería</th>
-          <th>Escritorio</th>
-          <th>Móvil</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>jQuery</td>
-          <td class="numeric">85.03%</td>
-          <td class="numeric">83.46%</td>
-        </tr>
-        <tr>
-          <td>jQuery Migrate</td>
-          <td class="numeric">31.26%</td>
-          <td class="numeric">31.68%</td>
-        </tr>
-        <tr>
-          <td>jQuery UI</td>
-          <td class="numeric">23.60%</td>
-          <td class="numeric">21.75%</td>
-        </tr>
-        <tr>
-          <td>Modernizr</td>
-          <td class="numeric">17.80%</td>
-          <td class="numeric">16.76%</td>
-        </tr>
-        <tr>
-          <td>FancyBox</td>
-          <td class="numeric">7.04%</td>
-          <td class="numeric">6.61%</td>
-        </tr>
-        <tr>
-          <td>Lightbox</td>
-          <td class="numeric">6.02%</td>
-          <td class="numeric">5.93%</td>
-        </tr>
-        <tr>
-          <td>Slick</td>
-          <td class="numeric">5.53%</td>
-          <td class="numeric">5.24%</td>
-        </tr>
-        <tr>
-          <td>Moment.js</td>
-          <td class="numeric">4.92%</td>
-          <td class="numeric">4.29%</td>
-        </tr>
-        <tr>
-          <td>Underscore.js</td>
-          <td class="numeric">4.20%</td>
-          <td class="numeric">3.82%</td>
-        </tr>
-        <tr>
-          <td>prettyPhoto</td>
-          <td class="numeric">2.89%</td>
-          <td class="numeric">3.09%</td>
-        </tr>
-        <tr>
-          <td>Select2</td>
-          <td class="numeric">2.78%</td>
-          <td class="numeric">2.48%</td>
-        </tr>
-        <tr>
-          <td>Lodash</td>
-          <td class="numeric">2.65%</td>
-          <td class="numeric">2.68%</td>
-        </tr>
-        <tr>
-          <td>Hammer.js</td>
-          <td class="numeric">2.28%</td>
-          <td class="numeric">2.70%</td>
-        </tr>
-        <tr>
-          <td>YUI</td>
-          <td class="numeric">1.84%</td>
-          <td class="numeric">1.50%</td>
-        </tr>
-        <tr>
-          <td>Lazy.js</td>
-          <td class="numeric">1.26%</td>
-          <td class="numeric">1.56%</td>
-        </tr>
-        <tr>
-          <td>Fingerprintjs</td>
-          <td class="numeric">1.21%</td>
-          <td class="numeric">1.32%</td>
-        </tr>
-        <tr>
-          <td>script.aculo.us</td>
-          <td class="numeric">0.98%</td>
-          <td class="numeric">0.85%</td>
-        </tr>
-        <tr>
-          <td>Polyfill</td>
-          <td class="numeric">0.97%</td>
-          <td class="numeric">1.00%</td>
-        </tr>
-        <tr>
-          <td>Flickity</td>
-          <td class="numeric">0.83%</td>
-          <td class="numeric">0.92%</td>
-        </tr>
-        <tr>
-          <td>Zepto</td>
-          <td class="numeric">0.78%</td>
-          <td class="numeric">1.17%</td>
-        </tr>
-        <tr>
-          <td>Dojo</td>
-          <td class="numeric">0.70%</td>
-          <td class="numeric">0.62%</td>
-        </tr>
-      </tbody>
-    </table>
-   <figcaption>{{ figure_link(caption="Principales bibliotecas de JavaScript en computadoras de escritorio y dispositivos móviles.") }}</figcaption>
+  <table>
+    <thead>
+      <tr>
+        <th>Librería</th>
+        <th>Escritorio</th>
+        <th>Móvil</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>jQuery</td>
+        <td class="numeric">85.03%</td>
+        <td class="numeric">83.46%</td>
+      </tr>
+      <tr>
+        <td>jQuery Migrate</td>
+        <td class="numeric">31.26%</td>
+        <td class="numeric">31.68%</td>
+      </tr>
+      <tr>
+        <td>jQuery UI</td>
+        <td class="numeric">23.60%</td>
+        <td class="numeric">21.75%</td>
+      </tr>
+      <tr>
+        <td>Modernizr</td>
+        <td class="numeric">17.80%</td>
+        <td class="numeric">16.76%</td>
+      </tr>
+      <tr>
+        <td>FancyBox</td>
+        <td class="numeric">7.04%</td>
+        <td class="numeric">6.61%</td>
+      </tr>
+      <tr>
+        <td>Lightbox</td>
+        <td class="numeric">6.02%</td>
+        <td class="numeric">5.93%</td>
+      </tr>
+      <tr>
+        <td>Slick</td>
+        <td class="numeric">5.53%</td>
+        <td class="numeric">5.24%</td>
+      </tr>
+      <tr>
+        <td>Moment.js</td>
+        <td class="numeric">4.92%</td>
+        <td class="numeric">4.29%</td>
+      </tr>
+      <tr>
+        <td>Underscore.js</td>
+        <td class="numeric">4.20%</td>
+        <td class="numeric">3.82%</td>
+      </tr>
+      <tr>
+        <td>prettyPhoto</td>
+        <td class="numeric">2.89%</td>
+        <td class="numeric">3.09%</td>
+      </tr>
+      <tr>
+        <td>Select2</td>
+        <td class="numeric">2.78%</td>
+        <td class="numeric">2.48%</td>
+      </tr>
+      <tr>
+        <td>Lodash</td>
+        <td class="numeric">2.65%</td>
+        <td class="numeric">2.68%</td>
+      </tr>
+      <tr>
+        <td>Hammer.js</td>
+        <td class="numeric">2.28%</td>
+        <td class="numeric">2.70%</td>
+      </tr>
+      <tr>
+        <td>YUI</td>
+        <td class="numeric">1.84%</td>
+        <td class="numeric">1.50%</td>
+      </tr>
+      <tr>
+        <td>Lazy.js</td>
+        <td class="numeric">1.26%</td>
+        <td class="numeric">1.56%</td>
+      </tr>
+      <tr>
+        <td>Fingerprintjs</td>
+        <td class="numeric">1.21%</td>
+        <td class="numeric">1.32%</td>
+      </tr>
+      <tr>
+        <td>script.aculo.us</td>
+        <td class="numeric">0.98%</td>
+        <td class="numeric">0.85%</td>
+      </tr>
+      <tr>
+        <td>Polyfill</td>
+        <td class="numeric">0.97%</td>
+        <td class="numeric">1.00%</td>
+      </tr>
+      <tr>
+        <td>Flickity</td>
+        <td class="numeric">0.83%</td>
+        <td class="numeric">0.92%</td>
+      </tr>
+      <tr>
+        <td>Zepto</td>
+        <td class="numeric">0.78%</td>
+        <td class="numeric">1.17%</td>
+      </tr>
+      <tr>
+        <td>Dojo</td>
+        <td class="numeric">0.70%</td>
+        <td class="numeric">0.62%</td>
+      </tr>
+    </tbody>
+  </table>
+  <figcaption>{{ figure_link(caption="Principales bibliotecas de JavaScript en computadoras de escritorio y dispositivos móviles.") }}</figcaption>
 </figure>
 
 <a hreflang="en" href="https://jquery.com/">jQuery</a>, la biblioteca JavaScript más popular jamás creada, se utiliza en el 85,03% de las páginas de escritorio y el 83,46% de las páginas móviles. El advenimiento de muchas API y métodos del navegador, tales como [Fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) y [querySelector](https://developer.mozilla.org/docs/Web/API/Document/querySelector), estandarizaron gran parte de la funcionalidad proporcionada por la biblioteca en una forma nativa. Aunque la popularidad de jQuery puede parecer estar disminuyendo, ¿por qué todavía se usa en la gran mayoría de la web?
@@ -299,11 +298,12 @@ Otras bibliotecas JavaScript más utilizadas incluyen variantes de jQuery (jQuer
 
 ### Frameworks y bibliotecas de UI
 
+Aunque este análisis es interesante, es importante tener en cuenta que estos resultados se basan en una biblioteca de detección de terceros - <a hreflang="en" href="https://www.wappalyzer.com">Wappalyzer</a>. Todos estos números de uso dependen de la precisión de cada uno de los mecanismos de detección.
+
 En los últimos años, el ecosistema de JavaScript ha visto un aumento en las bibliotecas y frameworks de código abierto para facilitar la construcción de **aplicaciones de página única** (SPA por sus siglas en inglés). Una aplicación página única se caracteriza por ser una página web que carga una sola página HTML y usa JavaScript para modificar la página en la interacción del usuario en lugar de buscar nuevas páginas del servidor. Aunque esta sigue siendo la premisa principal de las aplicaciones de página única, todavía se pueden utilizar diferentes enfoques de representación del servidor para mejorar la experiencia de dichos sitios. ¿Cuántos sitios usan este tipo de frameworks?
 
 {{ figure_markup(
   image="fig12.png",
-  alt="Los frameworks más utilizados en el escritorio.",
   caption="Los frameworks más utilizados en el escritorio.",
   description="Gráfico de barras que muestra que el 4,6% de los sitios usan React, 2,0% AngiularJS, 1,8% Backbone.js, 0,8% Vue.js, 0,4% Knockout.js, 0,3% Zone.js, 0,3% Angular, 0,1% AMP, 0,1% Ember. js.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTpzDb9HGbdVvin6YPTOmw11qBVGGysltxmH545fUfnqIThAq878F_b-KxUo65IuXaeFVSnlmJ5K1Dm/pubchart?oid=1699359221&format=interactive"
@@ -316,8 +316,6 @@ Aquí solo se analiza un subconjunto de marcos populares, pero es importante ten
 - Arquitectura basada en componentes
 
 Aunque ha habido un cambio hacia un modelo basado en componentes, muchos frameworks más antiguos que siguen el paradigma MVC (<a hreflang="en" href="https://angularjs.org/">AngularJS</a>, <a hreflang="en" href="https://backbonejs.org/">Backbone.js</a>, <a hreflang="en" href="https://emberjs.com/">Ember</a>) todavía se usan en miles de páginas. Sin embargo, <a hreflang="en" href="https://reactjs.org/">React</a>, <a hreflang="en" href="https://vuejs.org/">Vue</a> y <a hreflang="en" href="https://angular.io/">Angular</a> son los frameworks basados en componentes más populares (<a hreflang="en" href="https://github.com/angular/zone.js">Zone.js</a> es un paquete que ahora forma parte del núcleo angular).
-
-Aunque este análisis es interesante, es importante tener en cuenta que estos resultados se basan en una biblioteca de detección de terceros - <a hreflang="en" href="https://www.wappalyzer.com">Wappalyzer</a>. Todos estos números de uso dependen de la precisión de cada uno de los <a hreflang="en" href="https://github.com/AliasIO/Wappalyzer/blob/master/src/apps.json">mecanismos de detección</a>.
 
 ## Carga diferenciada
 
@@ -361,7 +359,7 @@ Del mismo modo, muy pocos sitios (0,50% - 0,80%) usan el atributo `nomodule` par
 
 ## Preload y prefetch
 
-[Preload](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content) y [prefetch](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ) son directivas que le permiten ayudar al navegador a determinar qué recursos deben descargarse.
+[Preload](https://developer.mozilla.org/docs/Web/HTML/Link_types/preload) y [prefetch](https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ) son directivas que le permiten ayudar al navegador a determinar qué recursos deben descargarse.
 
 - Precargar un recurso con `<link rel="preload">` le dice al navegador que descargue este recurso lo antes posible. Esto es especialmente útil para los recursos críticos que se descubren tarde en el proceso de carga de la página (por ejemplo, JavaScript ubicado en la parte inferior de su HTML) y que, de lo contrario, se descargan al final.
 - Usar `<link rel="prefetch">` le dice al navegador que aproveche el tiempo de inactividad que tiene para obtener estos recursos necesarios para futuras navegaciones
@@ -398,12 +396,12 @@ Con HTTP Archive, podemos echar un vistazo a cualquier API más nueva que sea co
 
 **¿Cuántos sitios usan las siguientes API?**
 
-- [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
-- [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
-- [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
-- [SharedArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
-- [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
-- [WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+- [Atomics](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
+- [Intl](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+- [Proxy](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+- [SharedArrayBuffer](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
+- [WeakMap](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+- [WeakSet](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
 
 {{ figure_markup(
   image="fig17.png",
@@ -427,7 +425,6 @@ Aunque es útil, hay una serie de razones por las cuales muchos sitios pueden no
 
 {{ figure_markup(
   image="fig18.png",
-  alt="Porcentaje de sitios que usan mapas fuente.",
   caption="Porcentaje de sitios que usan mapas fuente.",
   description="Gráfico de barras que muestra el 18% de los sitios de escritorio y el 17% de los sitios móviles utilizan mapas fuente.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTpzDb9HGbdVvin6YPTOmw11qBVGGysltxmH545fUfnqIThAq878F_b-KxUo65IuXaeFVSnlmJ5K1Dm/pubchart?oid=906754154&format=interactive"

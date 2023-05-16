@@ -3,9 +3,9 @@
 title: Performance
 description: Performance chapter of the 2020 Web Almanac covering Core Web Vitals, Lighthouse Performance Score, First Contentful Paint (FCP) and Time to First Byte (TTFB).
 authors: [thefoxis]
-reviewers: [borisschapira, rviscomi, obto, noamr, Zizzamia, exterkamp]
+reviewers: [borisschapira, rviscomi, foxdavidj, noamr, Zizzamia, exterkamp]
 analysts: [max-ostapenko, dooman87]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: []
 thefoxis_bio: Karolina is a Product Design Lead at <a hreflang="en" href="https://calibreapp.com/">Calibre</a>, working on creating the most comprehensive speed monitoring platform. She curates <a hreflang="en" href="https://perf.email/">Performance Newsletter</a>, your source of performance news and resources. Karolina also <a hreflang="en" href="https://calibreapp.com/blog/category/web-platform">frequently writes</a> about how performance affects user experience.
 discuss: 2045
@@ -361,7 +361,7 @@ What's surprising is the relatively the same number of good TTFB results between
 
 ## Performance Observer usage
 
-There are dozens of different user-centric metrics that can be used to assess websites and applications. However, sometimes the predefined metrics don't quite fit our specific scenarios and needs. The [PerformanceObserver API](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver) allows us to obtain custom metric data obtained with [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API), [Long Task API](https://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API), <a hreflang="en" href="https://web.dev/custom-metrics/#event-timing-api">Event Timing API</a> and <a hreflang="en" href="https://web.dev/custom-metrics/">a handful of other low-level APIs</a>. For example, with their help, we could record the timing transitions between pages or quantify server-side-rendered (SSR) application hydration.
+There are dozens of different user-centric metrics that can be used to assess websites and applications. However, sometimes the predefined metrics don't quite fit our specific scenarios and needs. The [PerformanceObserver API](https://developer.mozilla.org/docs/Web/API/PerformanceObserver) allows us to obtain custom metric data obtained with [User Timing API](https://developer.mozilla.org/docs/Web/API/User_Timing_API), [Long Task API](https://developer.mozilla.org/docs/Web/API/Long_Tasks_API), <a hreflang="en" href="https://web.dev/custom-metrics/#event-timing-api">Event Timing API</a> and <a hreflang="en" href="https://web.dev/custom-metrics/">a handful of other low-level APIs</a>. For example, with their help, we could record the timing transitions between pages or quantify server-side-rendered (SSR) application hydration.
 
 {{ figure_markup(
   image="performance-performance-observer-usage.png",

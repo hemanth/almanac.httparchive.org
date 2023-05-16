@@ -6,7 +6,7 @@ authors: [una, argyleink]
 reviewers: [meyerweb, huijing]
 analysts: [rviscomi]
 editors: [rachellcostello]
-translators: [ksakae]
+translators: [ksakae1216]
 discuss: 1757
 results: https://docs.google.com/spreadsheets/d/1uFlkuSRetjBNEhGKWpkrXo4eEIsgYelxY-qR9Pd7QpM/
 una_bio: Una Kravetsは、ブルックリンを拠点とする国際的な講演者であり、テクニカルライターであり、Googleのマテリアルデザインの開発提唱者でもあります。Unaは、<a hreflang="en" href="https://www.youtube.com/watch?v=YK8GZBx3hpg">Designing the Browser</a> のウェブシリーズと <a hreflang="en" href="https://spec.fm/podcasts/toolsday">Toolsday</a> の開発者向けポッドキャストを主催しています。<a href="https://twitter.com/una">Twitter</a> で彼女をフォローして、クリエイティブなCSS、ユーザー体験、ウェブ開発のベストプラクティスについての彼女の考察を見つけてください。
@@ -186,7 +186,7 @@ OOCSS、アトミック、および機能的なCSS戦略の登場により要素
 
 ### Flexbox
 
-[Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)は、子を指示、整列するコンテナスタイルです。つまり制約ベースの方法でレイアウトを支援します。 2010年から2013年の間に仕様が2〜3の大幅な変更を経たため、Webでの開始は非常に困難でした。幸いなことに、2014年までにすべてのブラウザに落ち着き実装されました。その歴史を考えると採用率は低かったのですが、それから数年が経ちました！　今では非常に人気があり、それに関する多くの記事とそれを活用する方法がありますが、他のレイアウト戦術と比較してまだ新しいです。
+[Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)は、子を指示、整列するコンテナスタイルです。つまり制約ベースの方法でレイアウトを支援します。 2010年から2013年の間に仕様が2〜3の大幅な変更を経たため、Webでの開始は非常に困難でした。幸いなことに、2014年までにすべてのブラウザに落ち着き実装されました。その歴史を考えると採用率は低かったのですが、それから数年が経ちました！　今では非常に人気があり、それに関する多くの記事とそれを活用する方法がありますが、他のレイアウト戦術と比較してまだ新しいです。
 
 {{ figure_markup(
   image="fig12.png",
@@ -200,7 +200,7 @@ Webのほぼ50％がスタイルシートでflexboxを使用しているため�
 
 ### Grid
 
-flexboxと同様に、[グリッド](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)も早い段階でいくつかの仕様変更を経ましたが、公的に展開されたブラウザの実装を変更することはありませんでした。 Microsoftは、水平方向にスクロールするデザインスタイルの主要なレイアウトエンジンとして、Windows 8の最初のバージョンにグリッドを備えていました。最初にそこで検証され、Webに移行し、その後、2017年の最終リリースまで他のブラウザーによって強化されました。ほぼすべてのブラウザーが同時に実装をリリースしたため、Web開発者はある日目覚めただけで優れたグリッドサポートを得ることができました。今日2019年の終わりに、グリッドはまだ子供のように感じています。人々がまだその力と能力に気付き始めているため。
+flexboxと同様に、[グリッド](https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout)も早い段階でいくつかの仕様変更を経ましたが、公的に展開されたブラウザの実装を変更することはありませんでした。 Microsoftは、水平方向にスクロールするデザインスタイルの主要なレイアウトエンジンとして、Windows 8の最初のバージョンにグリッドを備えていました。最初にそこで検証され、Webに移行し、その後、2017年の最終リリースまで他のブラウザーによって強化されました。ほぼすべてのブラウザーが同時に実装をリリースしたため、Web開発者はある日目覚めただけで優れたグリッドサポートを得ることができました。今日2019年の終わりに、グリッドはまだ子供のように感じています。人々がまだその力と能力に気付き始めているため。
 
 {{ figure_markup(
   caption="グリッドを使用するWebサイトの割合。",

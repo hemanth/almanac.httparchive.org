@@ -9,7 +9,7 @@ iandevlin_bio: Ian Devlinは、優れたセマンティックHTMLやアクセシ
 reviewers: [zcorpan, matuzo, bkardell]
 analysts: [Tiggerito]
 editors: [rviscomi]
-translators: [ksakae]
+translators: [ksakae1216]
 discuss: 2039
 results: https://docs.google.com/spreadsheets/d/1Ta7amoUeaL4pILhWzH-SCzMX9PsZeb1x_mwrX2C4eY8/
 featured_quote: 私たちは、生きたHTMLをほぼ完全に採用しようとしており、流行のページはすぐに削除し、フレームワークの採用や廃止も迅速に行っています。しかし、HTMLが与えてくれる選択肢を使い切った形跡はありません。
@@ -47,7 +47,7 @@ HTMLをどのように使うのかでは、どれだけ素晴らしい基盤が�
   sql_file="summary_pages_by_device_and_doctype.sql"
 ) }}
 
-96.82%のページが[ _doctype_ ](https://developer.mozilla.org/ja/docs/Glossary/Doctype)を宣言しています。HTML文書がdoctypeを宣言することは、<a hreflang="en" href="https://lists.w3.org/Archives/Public/public-html-comments/2009Jul/0020.html">Ian Hickson氏が2009年に説明したように</a>、「ブラウザのquirksモードのトリガーを避けるため」という歴史的な理由から有用です。もっとも人気のある値は何ですか？
+96.82%のページが[_doctype_](https://developer.mozilla.org/docs/Glossary/Doctype)を宣言しています。HTML文書がdoctypeを宣言することは、<a hreflang="en" href="https://lists.w3.org/Archives/Public/public-html-comments/2009Jul/0020.html">Ian Hickson氏が2009年に説明したように</a>、「ブラウザのquirksモードのトリガーを避けるため」という歴史的な理由から有用です。もっとも人気のある値は何ですか？
 
 <figure>
   <table>
@@ -120,13 +120,12 @@ XHTML1.0以降、数がかなり減り、いくつかの標準的なもの、い
 
 `html`開始タグの`lang`属性に2,863の異なる値を確認しました（Ethnologueによる<a hreflang="en" href="https://www.ethnologue.com/guides/how-many-languages">7,117の話されている言語</a>と比較してみてください）。[アクセシビリティ](./accessibility#language-identification)の章によると、ほとんどすべての値が有効なようです。
 
-全ドキュメントの22.36%が`lang`属性を指定していません。一般的には<a hreflang="en" href="https://www.w3.org/TR/i18n-html-tech-lang/#overall">そうすべきだ</a>という意見は多いです、ソフトウェアが最終的に<a hreflang="en" href="https://meiert.com/en/blog/lang/">言語を自動的に検出する</a>という事実を無視してドキュメントの言語は[プロトコルレベルで](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Content-Language)指定することもできますが、これは私たちがチェックしなかったことです。
+全ドキュメントの22.36%が`lang`属性を指定していません。一般的には<a hreflang="en" href="https://www.w3.org/TR/i18n-html-tech-lang/#overall">そうすべきだ</a>という意見は多いです、ソフトウェアが最終的に<a hreflang="en" href="https://meiert.com/en/blog/lang/">言語を自動的に検出する</a>という事実を無視してドキュメントの言語は[プロトコルレベルで](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Language)指定することもできますが、これは私たちがチェックしなかったことです。
 
 ここでは、サンプルの中でもっとも人気のある（正規化された）10の言語を紹介します。HTTP Archiveは米国のデータセンターから英語の言語設定でクロールしているため、ページが書かれている言語を見ると、英語に偏っていることに注意してください。とはいえ、分析したサイトのコンテキストを示すために、`lang`属性を提示します。
 
 {{ figure_markup(
   image="document-language.png",
-  alt="トップのHTMLのlang属性です。",
   caption="HTMLの上位の`lang`属性です。",
   description="クロールで使用された`lang`属性のトップ10を示す棒グラフ、デスクトップページの22.82%、モバイルページの22.36%が属性を設定しておらず、`en`はそれぞれ20.09%、18.08%、`ja`は15.17%、13.27%で使用されています。 また、`es`は4.86％、4.09％、`pt-br`は2.65％、2.84％、`ru`は2.21％、2.53％、`en-gb`は2.35％、2.19％、`de`は1.50％、1.92％、最後に`fr`は1.55％、1.43％で使用されていました。",
   sheets_gid="2047285366",
@@ -163,7 +162,7 @@ XHTML1.0以降、数がかなり減り、いくつかの標準的なもの、い
 
 ### スクリプトの使用
 
-以下の[上位の要素](#top-elements)のセクションで示すように、`script`要素は、6番目によく使われるHTML要素です。この章では、データセットの数百万ページの中で、`script`要素がどのように使われているかに興味を持ちました。
+以下の[上位の要素](#トップ要素)のセクションで示すように、`script`要素は、6番目によく使われるHTML要素です。この章では、データセットの数百万ページの中で、`script`要素がどのように使われているかに興味を持ちました。
 
 全体では、約2%のページにスクリプトがまったく含まれておらず、`type="application/ld+json"`属性を持つ構造化データスクリプトも含まれていません。最近では、1つのページに少なくとも1つの分析ソリューション用のスクリプトが含まれていることがかなり一般的になっていることを考えると、これは注目すべきことだと思います。
 
@@ -171,7 +170,6 @@ XHTML1.0以降、数がかなり減り、いくつかの標準的なもの、い
 
 {{ figure_markup(
   image="script-use.png",
-  alt="script要素の使い方。",
   caption="<code>script</code>要素の使い方。",
   description="スクリプトを含むページ（ではない）の割合で、スクリプトはほぼすべてのページにほぼすべての形で存在しています。",
   sheets_gid="150962402",
@@ -331,7 +329,7 @@ XHTML1.0以降、数がかなり減り、いくつかの標準的なもの、い
 </details>
 ```
 
-しばらく前に、Steve Faulkner氏が、この2つの要素がいかに不適切に使われているかを[指摘](https://twitter.com/stevefaulkner/status/806474286592561152)していました。上の例からわかるように、`details`要素ごとに、`details`の[最初の子](https://developer.mozilla.org/ja/docs/Web/HTML/Element/summary#usage_notes)としてのみ使用可能な`summary`要素が必要になります。
+しばらく前に、Steve Faulkner氏が、この2つの要素がいかに不適切に使われているかを[指摘](https://twitter.com/stevefaulkner/status/806474286592561152)していました。上の例からわかるように、`details`要素ごとに、`details`の[最初の子](https://developer.mozilla.org/docs/Web/HTML/Element/summary#usage_notes)としてのみ使用可能な`summary`要素が必要になります。
 
 そこで、`details`要素と`summary`要素の数を調べてみたところ、引き続き誤用されていることがわかりました。また、`summary`要素の数は、モバイルとデスクトップの両方で多く、モバイルでは`details`要素1つに対して`summary`要素が1.11、デスクトップでは1.19となっています。
 
@@ -761,7 +759,7 @@ HTMLの使用については、廃止された要素（`applet`、`bgsound`、`b
 
 ### トップの属性
 
-[もっとも人気のある要素](#top-elements)のセクションと同様に、このセクションではウェブ上でもっとも人気のある属性について掘り下げます。`href`属性がウェブそのものにとってどれほど重要か、また`alt`属性が情報を[アクセシブル](./accessibility#images-and-their-text-alternatives)にするため、どれほど重要かを考えると、これらはもっとも人気のある属性でしょうか？
+[もっとも人気のある要素](#トップ要素)のセクションと同様に、このセクションではウェブ上でもっとも人気のある属性について掘り下げます。`href`属性がウェブそのものにとってどれほど重要か、また`alt`属性が情報を[アクセシブル](./accessibility#images-and-their-text-alternatives)にするため、どれほど重要かを考えると、これらはもっとも人気のある属性でしょうか？
 
 <figure>
   <table>
@@ -967,7 +965,7 @@ HTML仕様によると、<a hreflang="en" href="https://html.spec.whatwg.org/mul
 
 ### `viewport`の仕様
 
-[viewport](https://developer.mozilla.org/ja/docs/Mozilla/Mobile/Viewport_meta_tag)メタ要素は、モバイルブラウザでのレイアウトを制御するために使用されます。数年前まではWebページを構築する際に「viewport meta要素を忘れないように」というモットーのようなものがありましたが、やがてこれが一般的になり、「ズームやスケーリングが無効になっていないか確認する」というモットーに変わりました。
+[viewport](https://developer.mozilla.org/docs/Web/HTML/Viewport_meta_tag)メタ要素は、モバイルブラウザでのレイアウトを制御するために使用されます。数年前まではWebページを構築する際に「viewport meta要素を忘れないように」というモットーのようなものがありましたが、やがてこれが一般的になり、「ズームやスケーリングが無効になっていないか確認する」というモットーに変わりました。
 
 ユーザーは、テキストを<a hreflang="en" href="https://dequeuniversity.com/rules/axe/4.0/meta-viewport-large">最大500%</a>まで拡大・縮小できる必要があります。これが、<a hreflang="en" href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a>や<a hreflang="en" href="https://www.deque.com/axe/">axe</a>のような人気のあるツールの監査が、`meta name="viewport"`要素内で`user-scalable="no"`が使用され、`maximum-scale`属性値が`5`未満の場合に失敗する理由です。
 
@@ -1198,7 +1196,7 @@ HTML仕様によると、<a hreflang="en" href="https://html.spec.whatwg.org/mul
 
 ### リンク対象
 
-[アンカー要素](https://developer.mozilla.org/ja/docs/Web/HTML/Element/a)、つまり`a`要素は、ウェブリソースをリンクするものです。本節では、それぞれのリンク先に含まれるプロトコルの採用状況を分析します。
+[アンカー要素](https://developer.mozilla.org/docs/Web/HTML/Element/a)、つまり`a`要素は、ウェブリソースをリンクするものです。本節では、それぞれのリンク先に含まれるプロトコルの採用状況を分析します。
 
 <figure>
   <table>
@@ -1323,11 +1321,11 @@ HTML仕様によると、<a hreflang="en" href="https://html.spec.whatwg.org/mul
 
 癖のあるモードに着地するページが減りました。2016年には、その数は<a hreflang="en" href="https://discuss.httparchive.org/t/how-many-and-which-pages-are-in-quirks-mode/777">約7.4%</a>でした。2019年の終わりには、[4.85%](https://twitter.com/zcorpan/status/1205242913908838400)と観測されました。そして今は、約3.97%となっています。この傾向は、本章のレビューに登場した[Simon Pieters](./contributors#zcorpan)の言葉を借りれば、明確で励みになると思われます。
 
-開発の全体像を把握するための歴史的なデータはありませんが、「無意味な」`div`、`span`、`i`のマークアップは、1990年代から2000年代前半に見られた`table`のマークアップをほぼ[置換](#top-elements)しています。意味的により適切な代替手段がないのに、常に`div`や`span`要素が使用されていることに疑問を感じるかもしれませんが、これらの要素は`table`マークアップよりも好ましいものです。表形式のデータ以外のすべてに使用されます。
+開発の全体像を把握するための歴史的なデータはありませんが、「無意味な」`div`、`span`、`i`のマークアップは、1990年代から2000年代前半に見られた`table`のマークアップをほぼ[置換](#トップ要素)しています。意味的により適切な代替手段がないのに、常に`div`や`span`要素が使用されていることに疑問を感じるかもしれませんが、これらの要素は`table`マークアップよりも好ましいものです。表形式のデータ以外のすべてに使用されます。
 
-ページあたりの要素とページあたりの要素タイプはほぼ変わらず、2019年と比較して、私たちのHTMLの書き方に[大きな変化はない](#element-diversity)ことを示しています。このような変化は、顕在化するまでに時間を要する可能性があります。
+ページあたりの要素とページあたりの要素タイプはほぼ変わらず、2019年と比較して、私たちのHTMLの書き方に[大きな変化はない](#要素の多様性)ことを示しています。このような変化は、顕在化するまでに時間を要する可能性があります。
 
-`g:plusone`（モバイルサンプルでは17,607ページで使用）や`fb:like`（11,335ページ）のような独自の製品固有の要素は、昨年は[もっとも人気のある要素の1つ]（../2019/markup#products-and-libraries-and-their-custom-markup）だったのですが、ほとんどなくなっています。しかし、Slider RevolutionやAMP、Angularなどの[カスタム要素](#custom-elements)が多く観測されます。また、`ym-measure`、`jdiv`、`ymaps`などの要素もまだ多く見られます。ここで私たちが想像するのはゆっくりと変化するプラクティスの海の下で作者が廃止されたマークアップを捨て、新しいソリューションを採用することでHTMLが非常によく開発され、維持されているということです。
+`g:plusone`（モバイルサンプルでは17,607ページで使用）や`fb:like`（11,335ページ）のような独自の製品固有の要素は、昨年は[もっとも人気のある要素の1つ]（../2019/markup#products-and-libraries-and-their-custom-markup）だったのですが、ほとんどなくなっています。しかし、Slider RevolutionやAMP、Angularなどの[カスタム要素](#カスタム要素)が多く観測されます。また、`ym-measure`、`jdiv`、`ymaps`などの要素もまだ多く見られます。ここで私たちが想像するのはゆっくりと変化するプラクティスの海の下で作者が廃止されたマークアップを捨て、新しいソリューションを採用することでHTMLが非常によく開発され、維持されているということです。
 
 さて、[2019年Web Almanacマークアップの章](../2019/markup)では、このテーマに関する前回の大規模な調査から14年分の追記があったため、それからの1年間ではあまりカバーできないと思われるかもしれません。しかし、今年のデータで観察されたのは、HTMLの海の底や岸辺付近で多くの動きがあったということです。私たちは、生きたHTMLをほぼ完全に採用しようとしています。GoogleやFacebookのウィジェットのような流行のページはすぐに削除されています。AngularやAMP（「コンポーネントフレームワーク」と呼ばれています）の人気が著しく低下しReactやVueのようなソリューションが求められているように、私たちはフレームワークを採用するのも、避けるのも早いです。
 

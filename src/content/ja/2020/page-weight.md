@@ -5,8 +5,8 @@ description: 2020年のWeb Almanacの「ページの重さ」の章では、ペ�
 authors: [henrihelvetica]
 reviewers: [paulcalvano]
 analysts: [paulcalvano]
-editors: [bazzadp]
-translators: [ksakae]
+editors: [tunetheweb]
+translators: [ksakae1216]
 henrihelvetica_bio: Henriはフリーランスの開発者であり、興味をパフォーマンスエンジニアリングとユーザーエクスペリエンスを組み合わせたポプリに変えています。日々の研究ドキュメントやケーススタディの洪水を読んだり、開発ツールのサイトを無差別に監査したりしていないときは、コミュニティに貢献したり、<a href="https://twitter.com/towebperf">Toronto Web Performance Group</a>を含む共同プログラミングのミートアップに参加したり、様々なブートキャンプでランチをしたり学んだりするために自分の時間をボランティアで提供したりしています。それ以外の時は、音楽制作ソフトを使ってツーリングをしたり、ほぼ確実にトレーニングをして、可能な限り最速で5kmを走ることに集中しています。
 discuss: 2054
 results: https://docs.google.com/spreadsheets/d/1wG4u0LV5PT9aN-XB1hixSFtI8KIDARTOCX0sp7ZT3h0/
@@ -23,9 +23,11 @@ featured_stat_label_3: モバイルページのリクエスト数の中央値
 
 ページの重さは、利用可能な最も単純な測定基準の1つです。あなたの個人的な体重の感覚を得るため人間の体重計にのるように（まあ実際には質量ですが、あなたはそれを得ることができます）、ページをロードすると収集され要求されたリソースの数とサイズの感覚を提供します。しかしウェブとウェブページが成熟し成長してきたように、ページの重さのような関連するメトリクスも増えてきました。それは、個人の体重（質量）が同じことをできるのと同じように、ページのパフォーマンスに影響を与えることができます。この章では、ウェブページの層を深く掘り下げて、エンドユーザー（あなた、私、私たち）の不利益になる可能性のあるページの重量を構成するものが何であるかを見ていきます。
 
+<!-- markdownlint-disable MD018 -->
 ### #PageWeightStillMatters
 
 #PageWeightStillMattersは、それが重要ではなかった、あるいは今までに重要ではなかったということをほぼ暗示しています。テキストベースのCraigslistが登場したときには問題にならなかったかもしれません。しかし、それが設立された25年前、Mosaic1.0も同じ年に発売され、TLCのWaterfallsがトップヒットしました。ウェブはリソースと同様に成熟していきました。ちょうど数年前のことですが、twitterの世界では、ウェブページの平均サイズが今では [オリジナルの運命] (https://www.wired.com/2016/04/average-webpage-now-size-original-doom/) のサイズに匹敵するかどうかが議論されていました。私たちの多くは、<a hreflang="en" href="https://speedcurve.com/blog/web-performance-page-bloat/">私たち自身のTammy Everts</a>を含めて、ページのサイズが時間の経過とともにどのようなものになるかについて考えていましたが、現実は驚くべきものでした。ページのサイズは、デスクトップ/モバイルでそれぞれ75パーセンタイルで、~4MBと3.7MB、90パーセンタイルでは7.4MBと6.7MBという衝撃的なサイズになっています。このような重いページを持つことには、信頼性の低いネットワークによるユーザー体験の低下の可能性など、様々な意味合いがあります。今日では、<a hreflang="en" href="https://blog.chriszacharias.com/page-weight-matters">10年前に学んだ教訓</a> にもかかわらず、同じ課題のバリエーションを経験しています：わずかに優れたネットワークを持っているにもかかわらず、はるかに大きなリソースを使って作業しています。
+<!-- markdownlint-enable MD018 -->
 
 ### 帯域幅
 
@@ -33,7 +35,7 @@ featured_stat_label_3: モバイルページのリクエスト数の中央値
 
 要点は単純でした。帯域幅を増やすことでメリットが得られるかもしれませんが、それでも物理法則が優先されます。 オーストラリア人は遅延の法則から逃れることができません。 最良のシナリオでは、シドニーの自宅で、このオーストラリア人はインターネットが応答しないと認識されるほどの遅延を経験していました。
 
-さて同じオーストラリア人が、75パーセンタイルで、彼のページが約108リクエストを行っていることを知っていると想像してみてください（これについては後で詳しく説明します）。最新のリクエストの寿命についての詳細は[HTTP/2](./http2)と[圧縮](./compression)の章を参照してください。
+さて同じオーストラリア人が、75パーセンタイルで、彼のページが約108リクエストを行っていることを知っていると想像してみてください（これについては後で詳しく説明します）。最新のリクエストの寿命についての詳細は[HTTP/2](./http)と[圧縮](./compression)の章を参照してください。
 
 ### 資産
 
@@ -115,7 +117,7 @@ JavaScriptは平均的にページ上で2番目に豊富なリソースですが
   description="gif、ico、jpg、png、svg、webpのフォーマット別の画像サイズの分布をボックスプロットしたものです。Jpgが最も高い分布をしていて、90パーセンタイルで1枚あたり150KBを超えています。Pngは90パーセンタイルで約100KBと2番目に高いです。WebPの90パーセンタイルはpngよりも小さいですが、75パーセンタイルは高くなっています。 gif、ico、svgはいずれも0KBに近い比較的小さな分布です。.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlN4Clqeb8aPc63h0J58WfBxoJluSFT6kXn45JGPghw1LGU28hzabMYAATXNY5st9TtjKrr2HnbfGd/pubchart?oid=211653520&format=interactive",
   sheets_gid="142855724",
-  sql_file="requests_format_distribution.sql"
+  sql_file="response_format_distribution.sql"
 ) }}
 
 画像がページの重さの大きな情報源であることを知っています。上の図は、画像の重さのトップソースと重さの分布を示しています。トップ3。JPG、PNG、WebP。つまり、JPGは最も人気のある画像フォーマットであるだけでなく、サイズ的にも最も大きい傾向があります。しかし、私たちが[昨年指摘したように](../2019/page-weight#file-size-by-image-format-for-images--1024-bytes)、それはPNGの主な使用例であるアイコンやロゴに関係しています。

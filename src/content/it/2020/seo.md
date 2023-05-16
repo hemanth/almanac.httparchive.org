@@ -3,7 +3,7 @@
 title: SEO
 description: Capitolo SEO del Web Almanac 2020 che copre contenuto, meta tag, indicizzabilità, link, velocità, dati strutturati, internazionalizzazione, SPA, AMP e sicurezza.
 authors: [aleyda, ipullrank, fellowhuman1101]
-reviewers: [natedame, catalinred, dsottimano, dwsmart, en3r0, ibnesayeed, bazzadp]
+reviewers: [natedame, catalinred, dsottimano, dwsmart, en3r0, ibnesayeed, tunetheweb]
 analysts: [Tiggerito, antoineeripret]
 editors: [rviscomi]
 translators: [chefleo]
@@ -177,7 +177,7 @@ Le direttive utilizzate più di frequente si concentrano sui motori di ricerca e
   </figcaption>
 </figure>
 
-Analizzando l'utilizzo dell'istruzione `Disallow` in `robots.txt` utilizzando i dati di oltre 6 milioni di siti basati su Lighthouse, si è riscontrato che il 97.84% di essi era completamente sottoponibile a scansione, con solo l'1.05% che utilizzava un'istruzione `Disallow` .
+Analizzando l'utilizzo dell'istruzione `Disallow` in `robots.txt` utilizzando i dati di oltre 6 milioni di siti basati su Lighthouse, si è riscontrato che il 97.84% di essi era completamente sottoponibile a scansione, con solo l'1.05% che utilizzava un'istruzione `Disallow`.
 
 È stata eseguita anche un'analisi dell'utilizzo dell'istruzione `robots.txt` `Disallow` lungo le direttive <a hreflang="en" href="https://developers.google.com/search/reference/robots_meta_tag">meta robots</a> _indexability_, trovando l'1.02% dei siti tra cui un'istruzione `Disallow` lungo le pagine indicizzabili con una direttiva meta robots `index`, con solo lo 0.03% dei siti che utilizza l'istruzione `Disallow` in `robots.txt` lungo le pagine _noindexed_ tramite la direttiva meta robots `noindex`.
 
@@ -253,7 +253,7 @@ Per capire cosa sono in grado di estrarre efficacemente i motori di ricerca, abb
 
 #### Contenuto di testo sottoposto a rendering contro  contenuto di testo non sottoposto a rendering
 
-L'utilizzo delle tecnologie Single Page Application (SPA) [JavaScript](../javascript) è esploso con la crescita del web. Questo modello di progettazione introduce difficoltà per gli spider dei motori di ricerca perché sia l'esecuzione di trasformazioni JavaScript in fase di esecuzione sia le interazioni dell'utente con la pagina dopo il caricamento possono causare la visualizzazione o il rendering di contenuto aggiuntivo.
+L'utilizzo delle tecnologie Single Page Application (SPA) [JavaScript](./javascript) è esploso con la crescita del web. Questo modello di progettazione introduce difficoltà per gli spider dei motori di ricerca perché sia l'esecuzione di trasformazioni JavaScript in fase di esecuzione sia le interazioni dell'utente con la pagina dopo il caricamento possono causare la visualizzazione o il rendering di contenuto aggiuntivo.
 
 I motori di ricerca incontrano le pagine attraverso la loro attività di scansione, ma possono o meno scegliere di implementare un secondo passaggio di rendering di una pagina. Di conseguenza, potrebbero esserci disparità tra il contenuto che un utente vede e il contenuto che un motore di ricerca indicizza e considera per le classifiche.
 
@@ -492,7 +492,7 @@ La lunghezza mediana della meta description è di 19 parole. L'unica disparità 
 
 Il conteggio mediano dei caratteri per la meta description è di 138 caratteri sulle pagine desktop e 136 caratteri sulle pagine mobile. A parte il 75° percentile, c'è una piccola disparità tra le lunghezze delle meta description per dispositivi mobile e desktop distribuite nel set di dati. Le migliori pratiche SEO suggeriscono di limitare la meta description a un massimo di 160 caratteri, ma Google, in modo incoerente, può visualizzare fino a 300 caratteri nei suoi frammenti.
 
-Con le meta description che continuano ad alimentare altri snippet come social e news feed, e dato che Google le riscrive continuamente e non le considera un fattore di ranking diretto, è ragionevole aspettarsi che le meta description continueranno a crescere oltre il limite di 160 caratteri .
+Con le meta description che continuano ad alimentare altri snippet come social e news feed, e dato che Google le riscrive continuamente e non le considera un fattore di ranking diretto, è ragionevole aspettarsi che le meta description continueranno a crescere oltre il limite di 160 caratteri.
 
 #### Le immagini
 
@@ -502,9 +502,8 @@ La pagina desktop mediana include 21 tag `img` e la pagina mobile mediana ha 19 
 
 {{ figure_markup(
   image="seo-img-elements-per-page.png",
-  alt="Elementi img per pagina",
   caption="Distribuzione del numero di elementi `<img>` per pagina.",
-  description="Grafico a barre che mostra il numero di elementi `<img>` per pagina per percentile (10, 25, 50, 75 e 90). La pagina desktop mediana presenta 21 elementi `<img>` e la pagina mobile mediana presenta 19 tag `<<img>`",
+  description="Grafico a barre che mostra il numero di elementi `<img>` per pagina per percentile (10, 25, 50, 75 e 90). La pagina desktop mediana presenta 21 elementi `<img>` e la pagina mobile mediana presenta 19 elementi `<img>`",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=923860709&format=interactive",
   sheets_gid="1317352222",
   sql_file="pages_markup_by_device_and_percentile.sql"
@@ -514,7 +513,6 @@ Nella pagina web mediana manca il 2.99% degli attributi `alt` sul desktop e il 2
 
 {{ figure_markup(
   image="seo-percentage-of-missing-img-alt-attribute.png",
-  alt="Percentuale di attributi alt dell'immagine mancanti",
   caption="Distribuzione della percentuale di elementi `<img>` mancanti degli attributi immagine `alt` per pagina.",
   description="Grafico a barre che mostra la percentuale di attributi `alt` mancanti per percentile (10, 25, 50, 75 e 90). Nella pagina web mediana mancano il 2.99% degli attributi `alt` sul desktop e il 2.44% degli attributi `alt` sui dispositivi mobile.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=862590664&format=interactive",
@@ -527,7 +525,6 @@ Abbiamo scoperto che la pagina mediana contiene attributi `alt` solo nel 51.22% 
 
 {{ figure_markup(
   image="seo-percentage-of-img-alt-attributes-present.png",
-  alt="Distribuzione della percentuale di immagini con attributi alt per pagina",
   caption="Distribuzione della percentuale di immagini con attributi `alt` per pagina.",
   description="Grafico a barre che mostra la percentuale di attributi `alt` presenti per percentile (10, 25, 50, 75 e 90). È stato rilevato che solo il 53.86% delle pagine desktop e il 51.22% delle pagine mobile presentavano attributi di immagine `alt`.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=827771545&format=interactive",
@@ -539,7 +536,6 @@ La pagina web mediana ha il 10.00% di immagini con attributi `alt` vuoti su desk
 
 {{ figure_markup(
   image="seo-percentage-of-blank-img-alt-attributes.png",
-  alt="Distribuzione della percentuale di immagini con attributi alt vuoti per pagina.",
   caption="Distribuzione della percentuale di immagini con attributi `alt` vuoti per pagina.",
   description="Grafico a barre che mostra la percentuale di attributi vuoti `alt` in primo piano per percentile (10, 25, 50, 75 e 90). La pagina web mediana presenta attributi `alt` vuoti del 10% sul desktop e attributi `alt` vuoti dell'11.11% sui dispositivi mobile.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=378651979&format=interactive",
@@ -608,7 +604,7 @@ Esiste una disparità nei link tra mobile e desktop che avrà un impatto negativ
 {{ figure_markup(
   image="seo-text-links.png",
   caption="Distribuzione del numero di link testuali per pagina.",
-  description="Grafico a barre che mostra il numero di link di testo per percentile (19, 25, 50, 75 e 90). C'è una disparità nei link tra mobile e desktop (62 link su cellulare contro 68 link su desktop).",
+  description="Grafico a barre che mostra il numero di link di testo per percentile (10, 25, 50, 75 e 90). C'è una disparità nei link tra mobile e desktop (62 link su cellulare contro 68 link su desktop).",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=1588324966&format=interactive",
   sheets_gid="775602646",
   sql_file="pages_wpt_bodies_by_device_and_percentile.sql"
@@ -623,7 +619,6 @@ La nostra revisione delle pagine indica che il 28.58% delle pagine include attri
 
 {{ figure_markup(
   image="seo-nofollow-ugc-sponsored-attributes.png",
-  alt="Percentuale di pagine con attributi rel=nofollow, rel=ugc e rel=sponsored.",
   caption="Percentuale di pagine con attributi `rel=nofollow`, `rel=ugc` e `rel=sponsored`.",
   description="Grafico a barre che mostra l'utilizzo (in percentuale) degli attributi `rel` su desktop e dispositivi mobili. La nostra recensione indica che il 28.58% delle pagine presenta attributi `nofollow` nelle versioni desktop e il 30.74% nei dispositivi mobili. Tuttavia, l'adozione di `ugc` e `sponsored` è piuttosto bassa con meno dello 0.3% in entrambe le pagine.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=1177251312&format=interactive",
@@ -694,7 +689,7 @@ Il 42.98% delle pagine mobile e il 43.2% di quelle desktop hanno un meta tag vie
     {{ figure_link(
       caption="Percentuale di pagine con il valore dell'attributo <code>content</code> di ciascun metatag viewport.",
       sheets_gid="479500659",
-      sql_file="../03_Markup/summary_pages_by_device_and_viewport.sql"
+      sql_file="../markup/summary_pages_by_device_and_viewport.sql"
     ) }}
   </figcaption>
 </figure>
@@ -746,7 +741,7 @@ Abbiamo scoperto che l'80.29% delle pagine desktop e l'82.92% di quelle per disp
     {{ figure_link(
       caption="Percentuale di pagine che includono ogni funzione di media query.",
       sheets_gid="1141218471",
-      sql_file="../01_CSS/media_query_features.sql"
+      sql_file="../css/media_query_features.sql"
     ) }}
   </figcaption>
 </figure>
@@ -794,7 +789,7 @@ Il desktop continua a essere la piattaforma più performante per gli utenti nono
   description="Grafico a barre che mostra la percentuale di siti web con un buon punteggio di core vitals web per dispositivo. Il 33.13% dei siti web ha ottenuto _Good_ Core Web Vitals per desktop, mentre solo il 19.96% delle loro controparti mobile ha superato la valutazione Core Web Vitals.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=1601210449&format=interactive",
   sheets_gid="996380787",
-  sql_file="../09_Performance/web_vitals_by_device.sql"
+  sql_file="../performance/web_vitals_by_device.sql"
 ) }}
 
 #### Le esperienze di Core Web Vitals per paese
@@ -809,7 +804,7 @@ Gli utenti negli Stati Uniti hanno registrato il maggior numero assoluto di siti
   description="Grafico a barre orizzontali che mostra il rendimento aggregato dei core web vitals per paese.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=2077593128&format=interactive",
   sheets_gid="220428774",
-  sql_file="../09_Performance/web_vitals_by_country.sql",
+  sql_file="../performance/web_vitals_by_country.sql",
   width=645,
   height=792
 ) }}
@@ -1140,7 +1135,7 @@ Google pone uno specifico interesse sulla sicurezza sotto tutti gli aspetti. Il 
 
 #### Utilizzo di HTTPS
 
-Abbiamo rilevato che il 77.44% delle pagine desktop e il 73.22% delle pagine mobile hanno adottato HTTPS. Questo è il 10.38% rispetto allo scorso anno. È importante notare che i browser sono diventati più aggressivi nello spingere HTTPS segnalando che le pagine non sono sicure quando le visiti senza HTTPS. Inoltre, HTTPS è attualmente un requisito per capitalizzare su protocolli ad alte prestazioni come HTTP/2 e HTTP/3 (noto anche come HTTP su QUIC). Puoi saperne di più sullo stato di questi protocolli nel capitolo [HTTP/2](./http2).
+Abbiamo rilevato che il 77.44% delle pagine desktop e il 73.22% delle pagine mobile hanno adottato HTTPS. Questo è il 10.38% rispetto allo scorso anno. È importante notare che i browser sono diventati più aggressivi nello spingere HTTPS segnalando che le pagine non sono sicure quando le visiti senza HTTPS. Inoltre, HTTPS è attualmente un requisito per capitalizzare su protocolli ad alte prestazioni come HTTP/2 e HTTP/3 (noto anche come HTTP su QUIC). Puoi saperne di più sullo stato di questi protocolli nel capitolo [HTTP/2](./http).
 
 Tutte queste cose hanno probabilmente contribuito al tasso di adozione più elevato anno dopo anno.
 
@@ -1173,7 +1168,7 @@ Le applicazioni Single-page (SPA) consentono ai browser di conservare e aggiorna
 
 Questi framework richiedevano considerazioni SEO speciali, sebbene Google abbia lavorato per mitigare i problemi causati dal rendering lato client con strategie di caching aggressive. In un video dalla <a hreflang="en" href="https://youtu.be/rq8sFkl0KnI">conferenza di Google Webmaster del 2019</a>, il Software Engineer Erik Hendriks ha condiviso che Google non fa più affidamento sulle intestazioni `Cache-Control` e cerca invece le intestazioni `ETag` o `Last-Modified` per vedere se il contenuto del file è cambiato.
 
-Le SPA dovrebbero utilizzare le [Fetch API](https://developer.mozilla.org/it/docs/Web/API/Fetch_API) per il controllo granulare della memorizzazione nella cache. L'API consente il passaggio di oggetti `Request` con specifici override della cache impostati e può essere utilizzata per impostare le intestazioni `If-Modified` e `ETag` necessarie.
+Le SPA dovrebbero utilizzare le [Fetch API](https://developer.mozilla.org/docs/Web/API/Fetch_API) per il controllo granulare della memorizzazione nella cache. L'API consente il passaggio di oggetti `Request` con specifici override della cache impostati e può essere utilizzata per impostare le intestazioni `If-Modified` e `ETag` necessarie.
 
 Le risorse non rilevabili sono ancora la preoccupazione principale dei motori di ricerca e dei loro web crawler. I crawler di ricerca cercano gli attributi `href` nei tag `<a>` per trovare le pagine collegate. Senza questi, la pagina viene vista come isolata senza link interni. Il 5.59% delle pagine desktop studiate non conteneva link interni e il 6.04% delle pagine mobile renderizzate. Questo è un indicatore del fatto che la pagina fa parte di un framework SPA JavaScript e  il tag mancante necessario `<a>` con attributi `href` validi richiesti per il loro collegamento interno da scoprire.
 
@@ -1200,9 +1195,9 @@ Tuttavia, non tutto è migliorato nell'ultimo anno. La pagina desktop mediana in
 
 È anche importante notare come vi sia ancora un'importante opportunità di miglioramento in molte aree e configurazioni critiche relative alla SEO. Nonostante il crescente utilizzo di dispositivi mobile e il passaggio di Google a un indice mobile-first:
 
- - Il 10.84% delle pagine mobile e il 16.18% di quelle desktop non includono affatto il tag `viewport`, il che suggerisce che non sono ancora mobile friendly.
- - Sono state riscontrate disparità non banali tra le pagine mobile e desktop, come quella tra i link mobile e desktop, illustrata nei 62 link sui dispositivi mobili rispetto ai 68 link sul desktop per la pagina web mediana.
- - Il 33.13% dei siti web ha ottenuto _Good_ Core Web Vitals per desktop, mentre solo il 19.96% delle loro controparti mobile ha superato la valutazione Core Web Vitals, suggerendo che il desktop continua ad essere la piattaforma più performante per gli utenti.
+- Il 10.84% delle pagine mobile e il 16.18% di quelle desktop non includono affatto il tag `viewport`, il che suggerisce che non sono ancora mobile friendly.
+- Sono state riscontrate disparità non banali tra le pagine mobile e desktop, come quella tra i link mobile e desktop, illustrata nei 62 link sui dispositivi mobili rispetto ai 68 link sul desktop per la pagina web mediana.
+- Il 33.13% dei siti web ha ottenuto _Good_ Core Web Vitals per desktop, mentre solo il 19.96% delle loro controparti mobile ha superato la valutazione Core Web Vitals, suggerendo che il desktop continua ad essere la piattaforma più performante per gli utenti.
 
 Questi risultati potrebbero avere un impatto negativo sui siti poiché Google completa la migrazione a un <a hreflang="en" href="https://webmasters.googleblog.com/2020/07/prepare-for-mobile-first-indexing-with.html">indice mobile first nel marzo 2021</a>.
 

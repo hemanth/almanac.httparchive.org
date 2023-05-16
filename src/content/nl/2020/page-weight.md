@@ -5,7 +5,7 @@ description: Het hoofdstuk Paginagewicht van de Web Almanac 2020 behandelt waaro
 authors: [henrihelvetica]
 reviewers: [paulcalvano]
 analysts: [paulcalvano]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [noah-vdv]
 henrihelvetica_bio: Henri is een freelance ontwikkelaar die zijn interesses heeft omgezet in een potpourri van prestatie-engineering met een vleugje gebruikerservaring. Wanneer hij niet de stortvloed aan dagelijkse onderzoeksdocumenten en casestudy's leest, of lukraak sites controleert in dev-tools, kan Henri worden aangetroffen die bijdraagt aan de gemeenschap door meetups mee te programmeren, waaronder de <a href="https://twitter.com/towebperf">Toronto Web Performance Group</a> of vrijwilligerswerk doen voor de lunch en lessen bij verschillende bootcamps. Anders werkt hij met muziekproductiesoftware of met bijna zekerheidstraining en concentreert hij zich op het rennen van de snelst mogelijke 5k.
 discuss: 2054
@@ -23,9 +23,11 @@ featured_stat_label_3: Het gemiddelde aantal mobiele paginaverzoeken
 
 Paginagewicht is een van de eenvoudigere statistieken die beschikbaar zijn. Net zoals op menselijke schaal stappen om een idee te krijgen van uw persoonlijke gewicht (nou ja, massa echt, maar u begrijpt het), het laden van een pagina geeft een idee van het aantal en de grootte van de verzamelde en gevraagde bronnen. Maar naarmate het web en de webpagina's volwassener en groter zijn geworden, zijn ook de bijbehorende statistieken, zoals paginagewicht, toegenomen. Het kan de prestaties van een pagina beïnvloeden, net zoals persoonlijk gewicht (massa) hetzelfde kan doen. In dit hoofdstuk wordt dieper ingegaan op de lagen van webpagina's en wordt bekeken wat het gewicht van een pagina is, mogelijk ten nadele van de eindgebruiker: jij, ik, wij.
 
+<!-- markdownlint-disable MD018 -->
 ## #PageWeightStillMatters
 
-#PageWeightStillMatters zou bijna impliceren dat het er niet toe deed of er ooit toe deed. Het maakte misschien niet uit wanneer op tekst gebaseerde Craigslist werd gelanceerd. Maar 25 jaar geleden, toen het werd opgericht, werd Mosaic 1.0 in hetzelfde jaar ook gelanceerd, en Waterfalls van TLC was een tophit. Het web werd volwassen, net als de bronnen. Het was nog maar een paar jaar geleden dat de Twitterverse werd vastgehouden en besprak hoe de gemiddelde grootte van webpagina's nu gelijk was aan de grootte van de <a hreflang="en" href="https://www.wired.com/2016/04/average-webpage-now-size-original-doom/">oorspronkelijke ondergang</a>. Velen van ons peinsden over hoe groot de pagina in de loop van de tijd zou kunnen worden, inclusief <a hreflang="en" href="https://speedcurve.com/blog/web-performance-page-bloat/">onze eigen Tammy Everts</a>, maar de realiteit is verbluffend. Een pagina bevat respectievelijk ~4MB en 3,7MB, desktop/mobiel, op het 75e percentiel en een schokkende 7,4MB en 6,7MB op het 90e percentiel. Het hebben van zulke zware pagina's heeft talloze gevolgen, zoals de waarschijnlijkheid van een slechte gebruikerservaring door onbetrouwbare netwerken. Ondanks de lessen <a hreflang="en" href="https://blog.chriszacharias.com/page-weight-matters">die we tien jaar geleden hebben geleerd</a>, ondervinden we tegenwoordig variaties op dezelfde uitdagingen: ondanks dat we iets betere netwerken hebben, werken we met veel grotere middelen .
+#PageWeightStillMatters zou bijna impliceren dat het er niet toe deed of er ooit toe deed. Het maakte misschien niet uit wanneer op tekst gebaseerde Craigslist werd gelanceerd. Maar 25 jaar geleden, toen het werd opgericht, werd Mosaic 1.0 in hetzelfde jaar ook gelanceerd, en Waterfalls van TLC was een tophit. Het web werd volwassen, net als de bronnen. Het was nog maar een paar jaar geleden dat de Twitterverse werd vastgehouden en besprak hoe de gemiddelde grootte van webpagina's nu gelijk was aan de grootte van de <a hreflang="en" href="https://www.wired.com/2016/04/average-webpage-now-size-original-doom/">oorspronkelijke ondergang</a>. Velen van ons peinsden over hoe groot de pagina in de loop van de tijd zou kunnen worden, inclusief <a hreflang="en" href="https://speedcurve.com/blog/web-performance-page-bloat/">onze eigen Tammy Everts</a>, maar de realiteit is verbluffend. Een pagina bevat respectievelijk ~4MB en 3,7MB, desktop/mobiel, op het 75e percentiel en een schokkende 7,4MB en 6,7MB op het 90e percentiel. Het hebben van zulke zware pagina's heeft talloze gevolgen, zoals de waarschijnlijkheid van een slechte gebruikerservaring door onbetrouwbare netwerken. Ondanks de lessen <a hreflang="en" href="https://blog.chriszacharias.com/page-weight-matters">die we tien jaar geleden hebben geleerd</a>, ondervinden we tegenwoordig variaties op dezelfde uitdagingen: ondanks dat we iets betere netwerken hebben, werken we met veel grotere middelen.
+<!-- markdownlint-enable MD018 -->
 
 ### Bandbreedte
 
@@ -33,7 +35,7 @@ Toen hem in 2016 werd gevraagd om uit te leggen waarom een Australische toerist 
 
 Het punt was simpel: hoewel u misschien profiteert van een grotere bandbreedte, gelden de wetten van de fysica nog steeds. Een Australiër kan niet ontsnappen aan de latentiewetten. In het beste geval, thuis in Sydney, ervoer deze Australiër genoeg latentie dat zijn internet soms als niet-reagerend werd ervaren.
 
-Stelt u nu voor dat dezelfde Australiër, wetende dat zijn pagina op het 75e percentiel ongeveer 108 verzoeken doet (daarover later meer), en we hebben nog steeds geen idee van het netwerkprotocol, de bronnen die worden aangevraagd, het compressieniveau of optimalisatie. U kunt de hoofdstukken [HTTP/2](./http2) en [Compressie](./compression) doornemen voor meer informatie over de levensduur van een modern verzoek.
+Stelt u nu voor dat dezelfde Australiër, wetende dat zijn pagina op het 75e percentiel ongeveer 108 verzoeken doet (daarover later meer), en we hebben nog steeds geen idee van het netwerkprotocol, de bronnen die worden aangevraagd, het compressieniveau of optimalisatie. U kunt de hoofdstukken [HTTP/2](./http) en [Compressie](./compression) doornemen voor meer informatie over de levensduur van een modern verzoek.
 
 ### Activa
 
@@ -115,7 +117,7 @@ Afbeeldingen vormen opnieuw het grootste aantal verzoeken, hoewel JavaScript dic
   description="Boxplot van de verdeling van afbeeldingsformaten per indeling: gif, ico, jpg, png, svg en webp. Jpg springt eruit als de hoogste distributie met een 90e percentiel van meer dan 150KB per afbeelding. Png is de tweede hoogste met ongeveer 100KB op het 90e percentiel. Hoewel WebP een kleiner 90e percentiel heeft dan png, is het 75e percentiel hoger. gif, ico en svg hebben allemaal relatief kleine distributies van bijna 0KB.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlN4Clqeb8aPc63h0J58WfBxoJluSFT6kXn45JGPghw1LGU28hzabMYAATXNY5st9TtjKrr2HnbfGd/pubchart?oid=211653520&format=interactive",
   sheets_gid="142855724",
-  sql_file="requests_format_distribution.sql"
+  sql_file="response_format_distribution.sql"
 ) }}
 
 We weten dat afbeeldingen een grote bron van paginagewicht zijn. Deze afbeelding hierboven toont ons de belangrijkste bronnen van beeldgewicht en de gewichtsverdeling. Top 3: JPG, PNG en WebP. Dus niet alleen is de JPG het meest populaire afbeeldingsformaat, het heeft ook de neiging om ook het grootste formaat te hebben - zelfs groter dan een verliesvrij formaat zoals de PNG. Maar zoals we [vorig jaar opmerkten](../2019/page-weight#bestandsgrootte-op-afbeeldingsformaat-voor-afbeeldingen--1024-bytes), heeft dat te maken met de overheersende use case voor de PNG , die pictogrammen en logo's lijken te zijn.

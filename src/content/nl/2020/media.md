@@ -5,7 +5,7 @@ description: Mediahoofdstuk van de Web Almanac 2020 met betrekking tot bestandsg
 authors: [tpiros, bseymour, eeeps]
 reviewers: [nhoizey, colinbendell, dougsillars, Navaneeth-akam]
 analysts: [smatei]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [noah-vdv]
 tpiros_bio: Tamas Piros is een Developer Experience Engineer bij <a hreflang="en" href="https://cloudinary.com/">Cloudinary</a>, Google Developer Expert en technisch instructeur met <a hreflang="en" href="https://fullstacktraining.com">Full Stack-training</a>.
 bseymour_bio: Ben Seymour is een Dynamic Media & Content Specialist met <a hreflang="en" href="https://cloudinary.com/">Cloudinary</a>, auteur van <a hreflang="en" href="http://responsiveimag.es/">Practical Responsive Images</a> en mede-oprichter van <a hreflang="en" href="https://storyus.life/">Storyus</a> en <a hreflang="en" href="https://haktive.com/">Haktive</a>.
@@ -43,7 +43,7 @@ Bijvoorbeeld:
 
 ```html
 <img srcset="images/example_3x.jpg 3x, images/example_2x.jpg 2x"
-     src="images/example.jpg" alt="..." />
+      src="images/example.jpg" alt="...">
 ```
 
 Ongeveer 26,5% van alle pagina's bevat nu `srcset`
@@ -79,15 +79,15 @@ Bij het verstrekken van de kandidatenlijst aan de user-agent, hebben we twee mec
 
 ```html
 <img srcset="images/example_3x.jpg 3x, images/example_2x.jpg 2x"
-     src="images/example.jpg" alt="..." />
+      src="images/example.jpg" alt="...">
 ```
 
 `w`-descriptoren beschrijven de pixelbreedte van de kandidaat, samen met een `sizes`-attribuut dat wordt gebruikt om de juiste afbeelding te selecteren.
 
 ```html
 <img srcset="images/example_small.jpg 600w, images/example_medium.jpg 1400w, images/example_large.jpg 2400w"
-     sizes="100vw"
-     src="images/example_fallback.jpg" alt="..." />
+      sizes="100vw"
+      src="images/example_fallback.jpg" alt="...">
 ```
 
 Beide benaderingen stellen de user-agent in staat om wiskundig rekening te houden met de huidige pixelverhouding van het apparaat bij het beoordelen van de meest geschikte afbeeldingskandidaat.
@@ -114,8 +114,8 @@ Bijvoorbeeld:
 
 ```html
 <img sizes="(min-width: 640px) 50vw, 100vw"
-     srcset="images/example_small.jpg 600w, images/example_medium.jpg 1400w, images/example_large.jpg 2400w"
-     src="images/example_fallback.jpg" alt="..." />
+      srcset="images/example_small.jpg 600w, images/example_medium.jpg 1400w, images/example_large.jpg 2400w"
+      src="images/example_fallback.jpg" alt="...">
 ```
 
 {{ figure_markup(
@@ -138,7 +138,6 @@ Terwijl `srcset` en `sizes` ons hulpmiddelen bieden om browsers te helpen met af
 
 {{ figure_markup(
   image="use-of-picture.png",
-  alt="Gebruik van picture.",
   caption="Gebruik van `<picture>`.",
   description="Gestapeld staafdiagram dat laat zien dat 19,30% van de pagina's `<picture>` op desktop gebruikt en 80,70% niet. Op mobiel is het vergelijkbaar: 18,54% wel en 81,46% niet.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLNnD9VNqXNxMu60VovxIEp_L6vmNo1oWt8-C18DOetXB3qIkee_-KjZwYYPIkkIM-7So-5wBwQ4QY/pubchart?oid=416496535&format=interactive",
@@ -155,8 +154,8 @@ Hoewel er enkele services en afbeeldings-CDN's zijn die het automatisch overscha
 
 ```html
 <picture>
-    <source type="image/webp" srcset="images/example.webp" />
-    <img src="images/example.jpg" alt="..." />
+    <source type="image/webp" srcset="images/example.webp">
+    <img src="images/example.jpg" alt="...">
 </picture>
 ```
 
@@ -164,7 +163,6 @@ Opsplitsend in het aantal aangeboden formaten:
 
 {{ figure_markup(
   image="picture-number-of-formats.png",
-  alt="picture aantal formaten.",
   caption="`<picture>` aantal formaten.",
   description="Staafdiagram met het aantal formaten in beeldgebruik. 68,01% van de pagina's op desktop (68,03% op mobiel) gebruikt 1 formaat. 2 formaten is respectievelijk 23,78% en 23,78%, 3 formaten is 7,00% en 6,97% en 4+ formaten worden alleen gebruikt op respectievelijk 1,21% en 1,22% pagina's.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLNnD9VNqXNxMu60VovxIEp_L6vmNo1oWt8-C18DOetXB3qIkee_-KjZwYYPIkkIM-7So-5wBwQ4QY/pubchart?oid=1963933588&format=interactive",
@@ -193,11 +191,11 @@ Hier is een voorbeeld van de markup-syntaxis die kan worden gebruikt om meerdere
 
 ```html
 <picture>
-  <source type="image/avif" srcset="images/example.avif" />
-  <source type="image/webp" srcset="images/example.webp" />
-  <source type="image/jp2" srcset="images/example.jp2" />
-  <source type="image/vnd.ms-photo"  srcset="images/example.jxr" />
-  <img src="images/example.jpg" alt="Description" />
+  <source type="image/avif" srcset="images/example.avif">
+  <source type="image/webp" srcset="images/example.webp">
+  <source type="image/jp2" srcset="images/example.jp2">
+  <source type="image/vnd.ms-photo"  srcset="images/example.jxr">
+  <img src="images/example.jpg" alt="Description">
 </picture>
 ```
 
@@ -237,11 +235,11 @@ In dit voorbeeld veranderen we de aspectverhouding van de aangeboden media, van 
 ```html
 <picture>
   <source media="(max-width: 780px)"
-          srcset="image/example_square.jpg 1x, image/example_square_2x.jpg 2x" />
+          srcset="image/example_square.jpg 1x, image/example_square_2x.jpg 2x">
   <source media="(max-width: 1400px)"
-          srcset="image/example_4_3_aspect.jpg 1x, image/example_4_3_aspect_2x.jpg 2x" />
-  <source srcset="image/example_16_9_aspect.jpg 1x, image/example_16_9_aspect_2x.jpg 2x" />
-  <img src="image/example_fallback.jpg" alt="..." />
+          srcset="image/example_4_3_aspect.jpg 1x, image/example_4_3_aspect_2x.jpg 2x">
+  <source srcset="image/example_16_9_aspect.jpg 1x, image/example_16_9_aspect_2x.jpg 2x">
+  <img src="image/example_fallback.jpg" alt="...">
 </picture>
 ```
 
@@ -251,7 +249,6 @@ Hoewel uit de gegevens blijkt dat slechts iets minder dan 1% van de pagina's die
 
 {{ figure_markup(
   image="picture-usage-of-orientation.png",
-  alt="Picture gebruik van oriëntatie.",
   caption="`<picture>` gebruik van oriëntatie.",
   description="Staafdiagram dat laat zien dat 0,93% van de desktoppagina's en 0,91% van de mobiele pagina's `<picture>` met oriëntatie gebruikt. 0,59% van de gevallen van `<picture>` op desktop en 0,60% bij mobiel gebruik.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLNnD9VNqXNxMu60VovxIEp_L6vmNo1oWt8-C18DOetXB3qIkee_-KjZwYYPIkkIM-7So-5wBwQ4QY/pubchart?oid=56906843&format=interactive",
@@ -270,7 +267,7 @@ Voorbeeld syntaxis:
           media="(min-width: 960px) and (orientation: landscape)">
   <source srcset="images/example_tall.jpg"
           media="(min-width: 960px) and (orientation: portrait)">
-  <img src="..." alt="..." />
+  <img src="..." alt="...">
 </picture>
 ```
 

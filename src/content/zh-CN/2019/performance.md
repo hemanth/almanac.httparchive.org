@@ -3,7 +3,7 @@
 title: 性能
 description: 2019 Web Almanac网络年鉴的性能章节，包括 首次有内容的绘制 (FCP), 首包字节 (TTFB), 以及首次输入延迟 (FID)。
 authors: [rviscomi]
-reviewers: [JMPerez,obto,sergeychernyshev,zeman]
+reviewers: [JMPerez,foxdavidj,sergeychernyshev,zeman]
 analysts: [rviscomi, raghuramakrishnan71]
 editors: [rachellcostello]
 translators: [chengxicn]
@@ -43,13 +43,13 @@ featured_stat_label_3: 有快速FID的站点
   - 4G
 - 用户地理位置
 
-用户体验按月量度，包括绘制、加载和交互性指标。我们要看的第一个度量是<a hreflang="en" href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_first_contentful_paint">首次有内容的绘制</a> (FCP)。这个指标是用户等待在屏幕上显示出有用处的页面内容（例如图像或文本）所花费的时间。然后，我们来看一下加载指标[首包时间](https://developer.mozilla.org/zh-CN/docs/Glossary/%E7%AC%AC%E4%B8%80%E5%AD%97%E8%8A%82%E6%97%B6%E9%97%B4) (TTFB)。这是网页从用户导航到接收到响应的第一个字节所花费的时间的指标。最后，我们要看的最后一个真实用户指标是<a hreflang="en" href="https://developers.google.com/web/updates/2018/05/first-input-delay">首次输入延迟</a> (FID)。这是一个相对较新的度量标准，它表示的是用户体验的部分，而不是加载性能。它测量从用户第一次与页面UI交互到浏览器主线程准备好处理事件的时间。
+用户体验按月量度，包括绘制、加载和交互性指标。我们要看的第一个度量是<a hreflang="en" href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_first_contentful_paint">首次有内容的绘制</a> (FCP)。这个指标是用户等待在屏幕上显示出有用处的页面内容（例如图像或文本）所花费的时间。然后，我们来看一下加载指标[首包时间](https://developer.mozilla.org/docs/Glossary/%E7%AC%AC%E4%B8%80%E5%AD%97%E8%8A%82%E6%97%B6%E9%97%B4) (TTFB)。这是网页从用户导航到接收到响应的第一个字节所花费的时间的指标。最后，我们要看的最后一个真实用户指标是<a hreflang="en" href="https://developers.google.com/web/updates/2018/05/first-input-delay">首次输入延迟</a> (FID)。这是一个相对较新的度量标准，它表示的是用户体验的部分，而不是加载性能。它测量从用户第一次与页面UI交互到浏览器主线程准备好处理事件的时间。
 
 因此，让我们深入研究看看可以找到哪些见解。
 
 ### 首次有内容的绘制
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig1.png",
   caption="网站的快速，中速和慢速FCP性能分布。",
   description="1,000个网站的快速，中速和慢速FCP的分布。快速FCP的分布从100％到0％呈线性关系",
@@ -63,7 +63,7 @@ featured_stat_label_3: 有快速FID的站点
 
 为了对网站是否足够**快速**进行分类，我们将使用新的<a hreflang="en" href="https://developers.google.com/speed/docs/insights/v5/about#categories">PageSpeed Insights</a> (PSI) 方法，其中至少有75％的网站FCP体验必须快于1秒。同样，一个足够**慢速**的网站具有25％或更多的FCP体验慢于3秒。我们说一个网站不符合以上两个条件时，它们的性能就是**中速**。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig2.png",
   caption="标有快速，中速或慢速FCP的网站的分布。",
   description="条形图显示，有13％的网站具有快速FCP，有66％的网站具有中速FCP，有20％的网站具有慢速的FCP。",
@@ -77,18 +77,16 @@ featured_stat_label_3: 有快速FID的站点
 
 #### 按设备类型看FCP
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig3.png",
-  alt="桌面站点的快速，中速和慢速的FCP性能分布。",
   caption="<em>桌面</em> 站点的快速，中速和慢速的FCP性能分布。",
   description="1,000个桌面站点的快速，中速和慢速的FCP性能分布。快速FCP的分布从100％到0％呈线性关系，中间略有凸起。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=1231764008&format=interactive"
   )
 }}
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig4.png",
-  alt="移动站点的快速，中速和慢速的FCP性能分布。",
   caption="<em>移动</em> 站点的快速，中速和慢速的FCP性能分布。",
   description="1,000个移动站点的快速，中速和慢速的FCP性能分布。快速FCP的分布从100％到0％呈线性关系，而没有出现与桌面站点相同的中间凸起。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=167423587&format=interactive"
@@ -97,7 +95,7 @@ featured_stat_label_3: 有快速FID的站点
 
 在上面的图7.3和图7.4中，FCP分布按桌面和移动设备分类。可看到一个细微的区别，就是桌面快速FCP分布的主干似乎比移动用户的分布更凸出一点点。这种视觉上的近似值表明，桌面用户的快速FCP总体比例更高。 为了验证这一点，我们可以将PSI方法应用于每个分布。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig5.png",
   caption="按设备类型划分，被标记为具有快速、中速或慢速FCP的网站分布。",
   description="桌面和移动FCP分布的条形图。桌面快速，中速，慢速分别为: 17%，67%和16%。移动: 11%，66%和23%。",
@@ -111,9 +109,8 @@ featured_stat_label_3: 有快速FID的站点
 
 #### 按有效连接类型看FCP
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig6.png",
-  alt="被标记为具有快速、中速或慢速FCP的网站分布，按ECT分类。",
   caption='被标记为具有快速、中速或慢速FCP的网站分布，按 <abbr title="effective connection type">ECT</abbr> 分类。',
   description="每个有效连接类型的FCP分布条形图。4G 快速, 中速, 慢速: 14%, 67%以及19%。 3G: 1%, 38%以及61%. 2G: 0%, 9%, 90%. 慢速 2G: 0%, 1%, 99%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=1987967547&format=interactive"
@@ -124,7 +121,7 @@ featured_stat_label_3: 有快速FID的站点
 
 #### 按地理位置看FCP
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig7.png",
   caption="标有快速，中速或慢速FCP的网站分布，按地理位置细分。",
   description="排名前23位的最受欢迎地区的FCP分布条形图。韩国拥有最多快速的站点，为36％。从那里开始，其他地区的快速网站百分比迅速下降：日本28％，台湾26％，荷兰21％等。",
@@ -153,9 +150,9 @@ featured_stat_label_3: 有快速FID的站点
   )
 }}
 
-为了帮助解释TTFB及其影响因素，让我们借鉴一份[Navigation Timing API 规范](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API)中的图表。在上面的图7.8中，TTFB是从`开始时间 startTime` 到 `响应时间 responseStart`，包括介于两者之间的所有内容：`卸载 unload`，`重定向 redirects`，`AppCache`，`DNS`，`SSL`，`TCP`，以及服务器处理请求的时间。在这些条件下，我们来看看这一指标用户的体验。
+为了帮助解释TTFB及其影响因素，让我们借鉴一份[Navigation Timing API 规范](https://developer.mozilla.org/docs/Web/API/Navigation_timing_API)中的图表。在上面的图7.8中，TTFB是从`开始时间 startTime` 到 `响应时间 responseStart`，包括介于两者之间的所有内容：`卸载 unload`，`重定向 redirects`，`AppCache`，`DNS`，`SSL`，`TCP`，以及服务器处理请求的时间。在这些条件下，我们来看看这一指标用户的体验。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig9.png",
   caption="网站的快速，中速和慢速TTFB性能分布。",
   description="1,000个网站的快速，中速和慢速TTFB分布。快速TTFB的分布在第10最快分位从约90％迅速下降到50％。然后，其余的90％的网站从50％逐渐降低到0％。",
@@ -169,7 +166,7 @@ featured_stat_label_3: 有快速FID的站点
 
 让我们从上面用于FCP的PSI方法中获得灵感，将TTFB速度标签应用于每个网站。如果网站的快速TTFB达到75％或更高的用户体验，则标记为**快速**。否则，如果它为25％或更多的用户体验提供**慢速**用户体验，则被标为慢速。如果这些条件都不适用，就被标为 **中速** 。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig10.png",
   caption="标有快速，中速或慢速TTFB的网站分布。",
   description="条形图显示2％的网站拥有快速的TTFB，56％的网站具有中速的TTFB，42％的网站有慢速的TTFB。",
@@ -181,7 +178,7 @@ featured_stat_label_3: 有快速FID的站点
 
 #### 按地理位置看TTFB
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig11.png",
   caption="标有快速，中速或慢速TTFB的网站分布，按地理位置细分。",
   description="最受欢迎的23个地理区域的TTFB分布条形图。韩国拥有最多的快速网站，为14％。之后其他区域的快速网站百分比迅速下降：台湾7％，日本5％，荷兰4％等。",
@@ -201,7 +198,7 @@ featured_stat_label_3: 有快速FID的站点
 
 让我们从定义一些阈值开始。根据新的PSI方法，**快速**FID是在100毫秒内发生的。这为应用程序提供了足够的时间来处理输入事件，并在瞬时的感觉时间内向用户提供反馈。一个**慢速**FID在300毫秒或更长时间内发生的。 介于两者之间的一切成为**中速**。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig12.png",
   caption="网站的快速，中速和慢速FID性能分布。",
   description="1,000个网站的快速，中速和慢速FID分布。对于最快的四分之三的网站，快速FID的分布保持在75％以上，然后迅速下降到0％。",
@@ -209,9 +206,10 @@ featured_stat_label_3: 有快速FID的站点
   )
 }}
 
+<!-- markdownlint-disable-next-line MD051 -->
 这样你就应该明白了。此图显示了网站的快速，中速和慢速FID体验的分布。这与以前的FCP和TTFB图表截然不同。(分别参见[图 7.1](#fig-1)和[图 7.9](#fig-9))。快速FID曲线从100％缓慢下降到75％，然后急速下降。 大多数网站的绝大多数FID体验都很快。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig13.png",
   caption="标有快速，中速或慢速TTFB的网站的分布。",
   description="条形图显示40％的网站具有快速FID，45％的网站具有中速FID，15％的网站具有慢速FID。",
@@ -225,18 +223,16 @@ featured_stat_label_3: 有快速FID的站点
 
 #### 按设备类型看FID
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig14.png",
-  alt="快速，中度和慢速FID性能桌面站点的分布",
   caption="快速，中度和慢速FID性能 <em>桌面</em> 站点的分布",
   description="1,000个桌面网站的快速，中速和慢速FID分布。对于最快的四分之三的网站，快速FID的分布非常缓慢地从100％降低到90％。之后，快速FID会略微降低到75％。几乎所有桌面网站都拥有超过75％的快速FID体验。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=16379508&format=interactive"
   )
 }}
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig15.png",
-  alt="移动网站的快速，中速和慢速FID性能分布。",
   caption="<em>移动</em> 网站的快速，中速和慢速FID性能分布。",
   description="1,000个移动网站的快速，中速和慢速FID分布。 快速FID的分布稳定下降，但比桌面快得多。在四分之三的网站中，它的速度达到75％，然后迅速下降到0％。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=519511409&format=interactive"
@@ -245,7 +241,7 @@ featured_stat_label_3: 有快速FID的站点
 
 通过按设备划分FID，我们可以清楚地看到两个非常不同的故事。桌面用户几乎一直都在享受快速FID。当然，有些网站有时会带来缓慢的体验，但基本上都是快的。另一方面，移动用户似乎拥有以下两种体验之一：相当快（但不如桌面用户那么高频）和几乎从来不快。后者只有在尾部10%的站点，用户才会体验到，但这仍然是一个很大的差异。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig16.png",
   caption="标有快速，中速或慢速FID的网站分布，按设备类型细分。",
   description="桌面和移动FID分布条形图。桌面快速，中速，慢速:分别为82%、12%和5%。移动:26%，52%，22%。",
@@ -257,9 +253,8 @@ featured_stat_label_3: 有快速FID的站点
 
 #### 按有效链接类型看FID
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig17.png",
-  alt="按ECT划分为具有快速，中速或慢速FID的网站分布。",
   caption='按 <abbr title="effective connection type">ECT</abbr> 划分为具有快速，中速或慢速FID的网站分布。',
   description="每个有效连接类型FID分布的条形图。4G的快速，中速，慢速分别为：41%，45%，15%。3G：22%，52%，26%。2G：19%，58%，23%。慢速2G：15%，58%，27%。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQlf3_ySLPB5322aTumUZhbVGdaUdkmi1Hs4bYuO3Z1kqM4xspx7REbwXukwPd_tsOSg6oImzpYLM9/pubchart?oid=1173039776&format=interactive"
@@ -272,7 +267,7 @@ featured_stat_label_3: 有快速FID的站点
 
 #### 按地理位置看FID
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig18.png",
   caption="标有快速，中速或慢速FID的网站分布，按地理位置细分。",
   description="最受欢迎的23个地区的FID分布条形图。韩国拥有最多快速的网站，为69％。从那里开始，其他区域的快速网站百分比稳步下降：澳大利亚55％，美国52％，加拿大51％等。",

@@ -5,7 +5,7 @@ description: Page Weight chapter of the 2020 Web Almanac covering why page weigh
 authors: [henrihelvetica]
 reviewers: [paulcalvano]
 analysts: [paulcalvano]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: []
 henrihelvetica_bio: Henri is a freelance developer who has turned his interests to a potpourri of performance engineering with pinches of user experience. When not reading the deluge of daily research docs and case studies, or indiscriminately auditing sites in dev tools, Henri can be found contributing back to the community, co-programming meetups including the <a href="https://twitter.com/towebperf">Toronto Web Performance Group</a> or volunteering his time for lunch and learns at various bootcamps. Otherwise, he's tooling with music production software or with near certainty training and focusing on running the fastest 5k possible.
 discuss: 2054
@@ -23,9 +23,11 @@ featured_stat_label_3: The median number of mobile page requests
 
 Page weight is one of the simpler metrics available. Much like stepping on a human scale to get a sense of your personal weight (well, mass really, but you get it), loading a page will provide a sense of the number and size of resources collected and requested. But as the web and web pages have matured and grown, so have associated metrics — such as page weight. It can affect a page's performance much like personal weight (mass) can do the same. This chapter will take a deeper dive and peel back the layers of web pages and see what it is that constitutes a page's weight at the possible detriment of the end user: you, I, us.
 
+<!-- markdownlint-disable MD018 -->
 ## #PageWeightStillMatters
 
 #PageWeightStillMatters would almost imply that it didn't or ever mattered. It might not have mattered when text based Craigslist launched. But 25 years ago when it was founded, Mosaic 1.0 also launched the same year, and Waterfalls by TLC was a top hit. The web matured as did resources. It was just a few years back when the twitterverse was tied up discussing how the average size of web pages now equaled the size of the <a hreflang="en" href="https://www.wired.com/2016/04/average-webpage-now-size-original-doom/">original doom</a>. Many of us mused about what the size the page could become in time, including <a hreflang="en" href="https://speedcurve.com/blog/web-performance-page-bloat/">our very own Tammy Everts</a>, but the reality is startling. A page sits @  ~4 MB and 3.7 MB, desktop/mobile respectively, at the 75th percentile, and a shocking 7.4 MB and 6.7 MB at the 90th percentile. There are multitudes of implications in having such heavy pages, like the likelihood of poor user experience due to unreliable networks. Today, despite lessons <a hreflang="en" href="https://blog.chriszacharias.com/page-weight-matters">learned a decade ago</a>, we are experiencing variations of the same challenges: despite having slightly better networks, we are working with much larger resources.
+<!-- markdownlint-enable MD018 -->
 
 ### Bandwidth
 
@@ -33,7 +35,7 @@ In 2016, when asked to explain why an Australian tourist I'd talked to was delig
 
 The point was simple: though you might benefit from increased bandwidth, the laws of physics still prevail. An Australian is unable to escape laws of latency. In the best case scenario, at home in Sydney, this Australian was experiencing enough latency that his internet was at times perceived as unresponsive.
 
-Now, imagine that the same Australian, knowing that at the 75th percentile, his page is making about 108 requests (more on that later), and we still have no idea of the network protocol, the resources being requested, the level of compression or optimization. You can pursue the [HTTP/2](./http2) and [Compression](./compression) chapters for more information on the life of a modern request.
+Now, imagine that the same Australian, knowing that at the 75th percentile, his page is making about 108 requests (more on that later), and we still have no idea of the network protocol, the resources being requested, the level of compression or optimization. You can pursue the [HTTP/2](./http) and [Compression](./compression) chapters for more information on the life of a modern request.
 
 ### Assets
 
@@ -115,7 +117,7 @@ Images again make up the largest number of requests, though JavaScript is closin
   description="Box plot of the distribution of image sizes by format: gif, ico, jpg, png, svg, and webp. Jpg sticks out as having the highest distribution with a 90th percentile exceeding 150 KB per image. Png is second highest at about 100 KB at the 90th percentile. While WebP has a smaller 90th percentile than png, its 75th percentile is higher. gif, ico, and svg all have relatively small distributions near 0 KB.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlN4Clqeb8aPc63h0J58WfBxoJluSFT6kXn45JGPghw1LGU28hzabMYAATXNY5st9TtjKrr2HnbfGd/pubchart?oid=211653520&format=interactive",
   sheets_gid="142855724",
-  sql_file="requests_format_distribution.sql"
+  sql_file="response_format_distribution.sql"
 ) }}
 
 We know that images are a great source of page weight. This graphic above shows us the top sources of image weight and the weight distribution. Top 3: JPG, PNG and WebP. So not only is the JPG the most popular image format, it also tends to be the largest by size as well - even larger than a lossless format like the PNG. But as we [noted last year](../2019/page-weight#file-size-by-image-format-for-images--1024-bytes), that has to do with the predominant use case for the PNG, which seems to be icons and logos.

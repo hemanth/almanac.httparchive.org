@@ -23,7 +23,7 @@ featured_stat_label_3: Variants of carousels found
 
 In 2005, Ian "Hixie" Hickson posted <a hreflang="en" href="https://web.archive.org/web/20060203035414/http://code.google.com/webstats/index.html">some analysis of markup data</a>  building upon various previous work. Much of this work aimed to investigate class names to see if there were common informal semantics that were being adopted by developers which it might make sense to standardize upon.  Some of this research helped inform new elements in HTML5.
 
-14 years later, it's time to take a fresh look.  Since then, we've also had the introduction of [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) and the <a hreflang="en" href="https://extensiblewebmanifesto.org/">Extensible Web Manifesto</a> encouraging that we find better ways to pave the cowpaths by allowing developers to explore the space of elements themselves and allow standards bodies to <a hreflang="en" href="https://bkardell.com/blog/Dropping-The-F-Bomb-On-Standards.html">act more like dictionary editors</a>.  Unlike CSS class names, which might be used for anything, we can be far more certain that authors who used a non-standard *element* really intended this to be an element.
+14 years later, it's time to take a fresh look.  Since then, we've also had the introduction of [Custom Elements](https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements) and the <a hreflang="en" href="https://extensiblewebmanifesto.org/">Extensible Web Manifesto</a> encouraging that we find better ways to pave the cowpaths by allowing developers to explore the space of elements themselves and allow standards bodies to <a hreflang="en" href="https://bkardell.com/blog/Dropping-The-F-Bomb-On-Standards.html">act more like dictionary editors</a>.  Unlike CSS class names, which might be used for anything, we can be far more certain that authors who used a non-standard *element* really intended this to be an element.
 
 As of July 2019, the HTTP Archive has begun collecting all used *element* names in the DOM for about 4.4 million desktop home pages, and about 5.3 million mobile home pages which we can now begin to research and dissect. _(Learn more about our [Methodology](./methodology).)_
 
@@ -180,7 +180,6 @@ In order to discuss numbers about the use of elements (standard, deprecated or c
 
 {{ figure_markup(
   image="fig7_full.png",
-  alt="Top 150 elements.",
   caption='Top 150 elements (<a hreflang="en" href="/static/images/2019/markup/fig7_full.png">full detail</a>).',
   description="Bar chart showing a decreasing used of elements in descending order: html, head, body, title at above 99% usage, meta, a, div above 98% usage, link, script, img, span above 90% usage, ul, li , p, style, input, br, form above 70% usage, h2, h1, iframe, h3, button, footer, header, nav above 50% usage and other less well-known tags trailing down from below 50% to almost 0% usage.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTbHgqcSepZye6DrCTpifFAUYxKT1hEO56585awyMips8oiPMLYu20GETuIE8mALkm814ObJyktEe2P/pubchart?oid=1694360298&format=interactive",

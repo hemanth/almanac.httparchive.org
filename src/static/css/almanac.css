@@ -173,6 +173,33 @@
 /* devanagari */
 @font-face {
   font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 700;
+  font-display: block;
+  src: url('/static/fonts/Poppins-BoldItalic-devanagari.woff2') format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 700;
+  font-display: block;
+  src: url('/static/fonts/Poppins-BoldItalic-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 700;
+  font-display: block;
+  src: url('/static/fonts/Poppins-BoldItalic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 900;
   font-display: block;
@@ -201,34 +228,34 @@
 /* Browser elements */
 
 /**
- * A word on font-sizing units
- * ---------------------------
- * Font-sizes should in general be sized in rem (1rem usually equals 16px)
- * This allows fonts to be resized in browser, which is better for accessibility
- * (see https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html).
- *
- * We can also use ems, if you wish to nest elements and scale (components), but
- * this gets tricky quite quickly, so for the most part we use rems.
- *
- * We show the px value before, as a fallback for non-rem browsers and to remind
- * us of the calculated size.
- *
- * Margins and paddings should be considered if the need to be relative (em or rem)
- * or happy not to scale with fonts and want set about in px.
- * If scaling, then in general top and bottom should scale with element (em), and
- * left and right with root element (rem) to have consistent alignment (see
- * https://zellwk.com/blog/rem-vs-em/#rems-or-ems%3F for why).
- * So we set margin like this:
- *
- *   h2.header {
- *     font-size: 25px;
- *     font-size: 1.5625rem;
- *     margin: 14px;
- *     margin: 0.56em 0.875rem
- *   }
- *
- * and remember for the non-font elements, ems are relative to current font size (25px in above example), and rems to root (16px)
- */
+  * A word on font-sizing units
+  * ---------------------------
+  * Font-sizes should in general be sized in rem (1rem usually equals 16px)
+  * This allows fonts to be resized in browser, which is better for accessibility
+  * (see https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html).
+  *
+  * We can also use ems, if you wish to nest elements and scale (components), but
+  * this gets tricky quite quickly, so for the most part we use rems.
+  *
+  * We show the px value before, as a fallback for non-rem browsers and to remind
+  * us of the calculated size.
+  *
+  * Margins and paddings should be considered if the need to be relative (em or rem)
+  * or happy not to scale with fonts and want set about in px.
+  * If scaling, then in general top and bottom should scale with element (em), and
+  * left and right with root element (rem) to have consistent alignment (see
+  * https://zellwk.com/blog/rem-vs-em/#rems-or-ems%3F for why).
+  * So we set margin like this:
+  *
+  *   h2.header {
+  *     font-size: 25px;
+  *     font-size: 1.5625rem;
+  *     margin: 14px;
+  *     margin: 0.56em 0.875rem
+  *   }
+  *
+  * and remember for the non-font elements, ems are relative to current font size (25px in above example), and rems to root (16px)
+  */
 
 body {
   font-family: 'Lato', sans-serif;
@@ -499,13 +526,19 @@ footer nav ul {
   align-items: center;
   margin: 0;
   padding-inline-start: 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 header nav li,
 footer nav li {
   display: flex;
   line-height: 1.4em;
+  text-align: center;
+}
+
+header nav li li,
+footer nav li li {
+  text-align: left;
 }
 
 header nav .menu li .year-switcher,
@@ -521,7 +554,7 @@ header nav {
 }
 
 header nav > ul > li > * {
-  margin-right: 2vw;
+  margin-right: 1.5em;
 }
 
 header nav > ul > li:last-child > * {
@@ -548,6 +581,34 @@ header .cta {
   position: relative;
   font-size: 14px;
   font-size: 0.875rem;
+}
+
+.search-nav input {
+  min-width: 400px;
+  text-indent: 5px;
+}
+
+.header-search,
+.footer-search {
+  padding: 5px;
+}
+
+.search-input {
+  line-height: 1.65;
+}
+
+.search-button {
+  border-color: #000;
+  background-color: #f7f779;
+  padding: 6px 27px;
+  width: auto;
+  border: 1px solid #666;
+  border-radius: 2px;
+}
+
+.search-button svg {
+  fill: #000;
+  color: #000;
 }
 
 .table-of-contents-switcher:hover,
@@ -674,7 +735,8 @@ hr {
   opacity: 0.2;
 }
 
-blockquote {
+blockquote,
+blockquote p {
   position: relative;
   font-style: italic;
   font-size: 19px;
@@ -690,8 +752,13 @@ blockquote::before {
   left: -7rem;
   opacity: 0.05;
   font-size: 20rem;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Courier New', 'Courier', monospace;
   line-height: 1;
+  pointer-events: none;
+}
+
+blockquote em {
+  font-style: normal;
 }
 
 /* Footer */
@@ -799,7 +866,7 @@ p.copyright a {
   color: currentColor;
 }
 
-@media (max-width: 56.25em) and (min-width: 37.51em) {
+@media (max-width: 72em) and (min-width: 37.51em) {
   /* Header */
   .top-header,
   footer {
@@ -818,12 +885,17 @@ p.copyright a {
     margin: 0;
   }
 
-  header nav > ul > li > a {
+  header nav > ul > li > a,
+  header nav > ul > li > .search-nav {
     margin-bottom: 50px;
     margin-bottom: 3.125rem;
     font-size: 16px;
     font-size: 1rem;
     line-height: 1.4em;
+  }
+
+  .search-nav input {
+    min-width: 400px;
   }
 
   header nav > ul > li:last-child {
@@ -938,6 +1010,16 @@ p.copyright a {
     overflow-wrap: break-word;
   }
 
+  .visually-hidden-mobile {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
+  }
+
   .title-lg {
     font-size: 40px;
     font-size: 2.5rem;
@@ -984,11 +1066,17 @@ p.copyright a {
     margin: 0;
   }
 
-  header nav > ul > li > a {
+  header nav > ul > li > a,
+  header nav > ul > li > .search-nav {
     margin-bottom: 50px;
     font-size: 16px;
     font-size: 1rem;
     line-height: 1.4em;
+  }
+
+  .search-nav input {
+    min-width: 200px;
+    margin-bottom: 10px;
   }
 
   header nav > ul > li:last-child {
@@ -1095,7 +1183,7 @@ p.copyright a {
   }
 }
 
-@media (max-width: 56.25em) {
+@media (max-width: 72em) {
   #menu,
   #mobile-footer-nav-items {
     display: block;
@@ -1130,7 +1218,7 @@ p.copyright a {
     color: #f7f779;
   }
 
-  .menu-btn__bar {
+  .menu-btn-bar {
     display: block;
     width: 27px;
     height: 2px;
@@ -1139,30 +1227,30 @@ p.copyright a {
     transition: 0.15s cubic-bezier(0.75, -0.55, 0.25, 1.55);
   }
 
-  .menu-btn__bar + .menu-btn__bar {
+  .menu-btn-bar + .menu-btn-bar {
     margin-top: 7px;
   }
 
-  .menu-btn__bar:nth-child(2) {
+  .menu-btn-bar:nth-child(2) {
     width: 20px;
     margin-left: auto;
   }
 
-  .menu-btn--active .menu-btn__bar {
+  .menu-btn-active .menu-btn-bar {
     margin: 0;
     position: absolute;
   }
 
-  .menu-btn--active .menu-btn__bar:nth-child(1) {
+  .menu-btn-active .menu-btn-bar:nth-child(1) {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
   }
 
-  .menu-btn--active .menu-btn__bar:nth-child(2) {
+  .menu-btn-active .menu-btn-bar:nth-child(2) {
     opacity: 0;
   }
 
-  .menu-btn--active .menu-btn__bar:nth-child(3) {
+  .menu-btn-active .menu-btn-bar:nth-child(3) {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
@@ -1254,6 +1342,7 @@ p.copyright a {
   margin-top: -9px;
 }
 
+.search-nav .nav-dropdown-btn.dropdown-open::after,
 .table-of-contents .nav-dropdown-btn.dropdown-open::after {
   height: 7px;
   width: 7px;
@@ -1285,7 +1374,7 @@ p.copyright a {
 }
 
 .footer .nav-dropdown-list {
-  bottom: 60px;
+  bottom: 56px;
   border-radius: 29px 29px 29px 0;
   flex-direction: column-reverse;
 }
@@ -1322,6 +1411,11 @@ p.copyright a {
   padding: 16px 8px 8px 16px;
   font-weight: bold;
   font-size: 1.25rem;
+}
+
+.header-search .nav-dropdown-list-part,
+.footer .footer-search .nav-dropdown-list-part {
+  padding: 16px;
 }
 
 .nav-dropdown-list-part a {
@@ -1377,13 +1471,11 @@ p.copyright a {
 /* Allow more wrapping for extremely small screens (e.g. very zoomed in) */
 @media (max-width: 20em) {
   body {
-    word-break: break-word;
     overflow-wrap: break-word;
   }
 
   .no-wrap {
     white-space: initial;
-    word-break: break-word;
     overflow-wrap: break-word;
   }
 }
@@ -1419,7 +1511,6 @@ th code {
   border-radius: 0;
   background-color: transparent;
   background-color: unset;
-  word-break: unset;
   overflow-wrap: unset;
 }
 
@@ -1429,7 +1520,6 @@ code {
   background-color: #f7f7f7;
   border: 1px solid #dadce0;
   padding: 1px 2px;
-  word-break: break-all;
   overflow-wrap: break-word;
 }
 
@@ -1438,7 +1528,7 @@ pre .comment {
 }
 
 pre .support {
-  color: #0086b3;
+  color: #006080;
 }
 
 pre .tag,
@@ -1502,33 +1592,39 @@ pre .regexp {
 }
 
 /*
- * Automatically adds language after an anchor if not same language
- *
- * Add for links that are obviously in English
+  * Automatically adds language after an anchor if not same language
+  *
+  * Add for links that are obviously in English
 */
 html:not([lang="en"]) main a[href*="/en-US/"]::after,
 html:not([lang="en"]) main a[href*="/en/"]::after,
 html:not([lang="en"]) main a[href^="https://en."]::after {
   content: '(en)';
-  vertical-align: super;
+  /* vertical-align: super; */
   font-size: 0.6em;
+  vertical-align: baseline;
+  position: relative;
+  top: -1em;
 }
 
 /*
- * Add links if an explicit `hreflang` attribute exists
- */
+  * Add links if an explicit `hreflang` attribute exists
+  */
 main a[hreflang]::after {
   content: '(' attr(hreflang) ')';
-  vertical-align: super;
+  /* vertical-align: super; */
   font-size: 0.6em;
+  vertical-align: baseline;
+  position: relative;
+  top: -1em;
 }
 
 /*
- * Remove it for English in English pages
- * (allows us to add this to base content to make it easier for translators)
- */
+  * Remove it for English in English pages
+  * (allows us to add this to base content to make it easier for translators)
+  */
 html[lang="en"] main a[hreflang="en"]::after {
-  content: '';
+  content: initial;
 }
 
 @media print {
@@ -1543,6 +1639,8 @@ html[lang="en"] main a[hreflang="en"]::after {
   footer .language-switcher,
   footer .social-media,
   footer .accessibility-statement,
+  footer .footer-bullet,
+  footer .rss-feed,
   footer hr {
     display: none;
   }

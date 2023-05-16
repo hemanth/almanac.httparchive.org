@@ -3,10 +3,10 @@
 title: SEO
 description: コンテンツ、METAタグ、インデックス性、リンク、スピード、構造化データ、国際化、SPA、AMP、セキュリティを網羅した2020年Web AlmanacのSEO編。
 authors: [aleyda, ipullrank, fellowhuman1101]
-reviewers: [natedame, catalinred, dsottimano, dwsmart, en3r0, ibnesayeed, bazzadp]
+reviewers: [natedame, catalinred, dsottimano, dwsmart, en3r0, ibnesayeed, tunetheweb]
 analysts: [Tiggerito, antoineeripret]
 editors: [rviscomi]
-translators: [ksakae]
+translators: [ksakae1216]
 aleyda_bio: SEOコンサルタント、作家、講演者、起業家。<a hreflang="en" href="https://www.orainti.com/">Orainti</a>（SaaSからマーケットプレイスまで、トップレベルのウェブプロパティやブランドを扱うブティック型SEOコンサルタント）の創設者であり、<a hreflang="en" href="https://remoters.net/">Remoters.net</a>（リモートワークを促進するためのリモートジョブ、ツール、イベント、ガイドなどを提供する、無料のリモートワークハブ）の共同創設者でもあります。また、<a hreflang="en" href="https://www.aleydasolis.com/en/blog/">ブログ</a>、<a hreflang="en" href="https://www.aleydasolis.com/en/seo-tips/">#SEOFOMO ニュースレター</a>、<a hreflang="en" href="https://www.aleydasolis.com/en/crawling-mondays-videos/">Crawling Mondays</a> ビデオとポッドキャストシリーズ、<a href="https://twitter.com/aleyda">Twitter</a>などを通じて、SEOについての情報を発信しています。
 ipullrank_bio: アーティストであり、テクノロジストでもあるマイケル・キングは、企業向けデジタルマーケティングエージェンシーである<a hreflang="en" href="https://ipullrank.com">iPullRank</a>の創設者であり、自然言語生成アプリ<a hreflang="en" href="https://www.copyscience.io">CopyScience</a>の創設者でもあります。独立系のヒップホップミュージシャンとしての経歴を活かし、魅力的なコンテンツを作成し、受賞歴のあるダイナミックな講演者として、世界中のテクノロジーやマーケティングに関するカンファレンスやブログで活躍しています。また、<a href="https://twitter.com/ipullrank">Twitter</a>では、マイクがゴミの話をしているところを見ることができます。
 fellowhuman1101_bio: 100%人間であり、完全にロボットではないJamie Indigoは、人間が有益な情報にアクセスし、企業が価値あるデジタル体験を提供できるよう、テクノロジーを解きほぐします。彼女は<a hreflang="en" href="https://not-a-robot.com">Not a Robot</a>を設立し、技術的なSEOの人間的な側面に焦点を当て、技術や検索業界における倫理やインクルージョンを含めたコンサルティングを行っています。 彼女は、<a href="https://twitter.com/Jammer_Volts">Twitter</a>で公の場で学んでいるのを見つけることができます。
@@ -68,7 +68,7 @@ Googleは、2019年に`robots.txt`をインターネットの公式規格にす�
 
 全体として、80.46%のモバイルページが`robots.txt`に対して2XXの応答をしました。このうち、25.09%は有効であると認識されませんでした。これは、[27.84%のモバイルサイトが有効な`robots.txt`を持っていた](../2019/seo#robotstxt)ことが判明した2019年よりも若干改善されています。
 
-`robots.txt`の有効性をテストするためのデータソースであるLighthouseは、v6アップデートの一環として、<a hreflang="en" href="https://web.dev/robots-txt/">`robots.txt`の監査</a>を導入しました。この導入により、リクエストが正常に解決されても、基礎ファイルがWebクローラーに必要な指示を与えることができるとは限らないことが強調されました。
+`robots.txt`の有効性をテストするためのデータソースであるLighthouseは、v6アップデートの一環として、<a hreflang="ja" href="https://web.dev/i18n/ja/robots-txt/">`robots.txt`の監査</a>を導入しました。この導入により、リクエストが正常に解決されても、基礎ファイルがWebクローラーに必要な指示を与えることができるとは限らないことが強調されました。
 
 <figure>
   <table>
@@ -253,7 +253,7 @@ Lighthouseのテストでmeta robotsタグの使用状況を分析したとこ�
 
 #### レンダリングされたテキストコンテンツとレンダリングされていないテキストコンテンツ
 
-ウェブの発展に伴い、シングルページアプリケーション（SPA）[JavaScript](../javascript)技術の使用が爆発的に増加しています。このデザインパターンは実行時のJavaScript変換の実行と、ロード後のページでのユーザーのインタラクションの両方が、追加コンテンツの表示やレンダリングを引き起こす可能性があるため、検索エンジンのスパイダーにとっては困難なものとなっています。
+ウェブの発展に伴い、シングルページアプリケーション（SPA）[JavaScript](./javascript)技術の使用が爆発的に増加しています。このデザインパターンは実行時のJavaScript変換の実行と、ロード後のページでのユーザーのインタラクションの両方が、追加コンテンツの表示やレンダリングを引き起こす可能性があるため、検索エンジンのスパイダーにとっては困難なものとなっています。
 
 検索エンジンはそのクロール活動を通じてページに出会いますが、ページをレンダリングする第2段階を実施することを選択する場合もあれば、しない場合もあります。その結果、ユーザーが目にするコンテンツと、検索エンジンがインデックスを作成し、ランキングの対象とするコンテンツとの間に差異が生じることがあります。
 
@@ -502,7 +502,6 @@ meta descriptionは、Webページの広告キャッチフレーズの役割を�
 
 {{ figure_markup(
   image="seo-img-elements-per-page.png",
-  alt="ページあたりのimg要素",
   caption="ページあたりの`<img>`要素数の分布。",
   description="ページあたりの`<img>`要素の数をパーセンタイル（10、25、50、75、90）で表した棒グラフです。デスクトップページの中央値には21個の`<img>`要素が、モバイルページの中央値には19個の`<img>`タグが配置されていることがわかります。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=923860709&format=interactive",
@@ -514,7 +513,6 @@ meta descriptionは、Webページの広告キャッチフレーズの役割を�
 
 {{ figure_markup(
   image="seo-percentage-of-missing-img-alt-attribute.png",
-  alt="画像のalt属性がない割合",
   caption="イメージの`alt`属性を欠く`<img>`要素のページあたりの割合の分布。",
   description="パーセンタイル（10、25、50、75、90）ごとに欠落している`alt`属性の割合を示す棒グラフ。中央値のWebページでは、デスクトップで2.99%の`alt`属性が欠落しており、モバイルでは2.44%の`alt`属性が欠落しています。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=862590664&format=interactive",
@@ -527,7 +525,6 @@ meta descriptionは、Webページの広告キャッチフレーズの役割を�
 
 {{ figure_markup(
   image="seo-percentage-of-img-alt-attributes-present.png",
-  alt="ページごとのalt属性を持つ画像の割合の分布",
   caption="ページごとの`alt`属性を持つ画像の割合の分布。",
   description="パーセンタイル（10、25、50、75、90）ごとに存在する`alt`属性の割合を示す棒グラフ。デスクトップでは53.86％、モバイルでは51.22％のページにしか画像の`alt`属性が表示されていないことがわかりました。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=827771545&format=interactive",
@@ -539,7 +536,6 @@ meta descriptionは、Webページの広告キャッチフレーズの役割を�
 
 {{ figure_markup(
   image="seo-percentage-of-blank-img-alt-attributes.png",
-  alt="ページごとに、空白のalt属性を持つ画像の割合の分布。",
   caption="空白の`alt`属性を持つイメージのページごとの割合の分布。",
   description="パーセンタイル（10、25、50、75、90）ごとに、フィーチャーされた`alt`のブランク属性の割合を示す棒グラフ。ウェブページの中央値は、デスクトップでは10％、モバイルでは11.11％の空白の`alt`属性が表示されます。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=378651979&format=interactive",
@@ -608,7 +604,7 @@ Googleがモバイルファーストインデックスだけでなく、モバ�
 {{ figure_markup(
   image="seo-text-links.png",
   caption="ページごとのテキストリンク数の分布。",
-  description="パーセンタイル（19、25、50、75、90）ごとのテキストリンク数を示す棒グラフ。モバイルとデスクトップではリンク数に格差がある（モバイル：62リンク、デスクトップ：68リンク）。",
+  description="パーセンタイル（10、25、50、75、90）ごとのテキストリンク数を示す棒グラフ。モバイルとデスクトップではリンク数に格差がある（モバイル：62リンク、デスクトップ：68リンク）。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=1588324966&format=interactive",
   sheets_gid="775602646",
   sql_file="pages_wpt_bodies_by_device_and_percentile.sql"
@@ -623,7 +619,6 @@ Googleがモバイルファーストインデックスだけでなく、モバ�
 
 {{ figure_markup(
   image="seo-nofollow-ugc-sponsored-attributes.png",
-  alt="rel=nofollow、rel=ugc、およびrel=sponsored属性を持つページの割合。",
   caption="`rel=nofollow`、`rel=ugc`、`rel=sponsored`の属性を持つページの割合です。",
   description="デスクトップとモバイルにおける`rel`属性の使用率（%）を示す棒グラフ。我々の調査によると、デスクトップ版で28.58%、モバイル版では30.74%のページが `nofollow`属性を採用しています。しかし、`ugc`と`sponsored`の採用率は非常に低く、0.3%以下のページしか採用されていません。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=1177251312&format=interactive",
@@ -694,7 +689,7 @@ Googleがモバイルファーストインデックスだけでなく、モバ�
     {{ figure_link(
       caption="各ビューポートメタタグの<code>content</code>属性値を持つページの割合。",
       sheets_gid="479500659",
-      sql_file="../03_Markup/summary_pages_by_device_and_viewport.sql"
+      sql_file="../markup/summary_pages_by_device_and_viewport.sql"
     ) }}
   </figcaption>
 </figure>
@@ -746,7 +741,7 @@ Googleがモバイルファーストインデックスだけでなく、モバ�
     {{ figure_link(
       caption="各メディアクエリ機能が含まれているページの割合。",
       sheets_gid="1141218471",
-      sql_file="../01_CSS/media_query_features.sql"
+      sql_file="../css/media_query_features.sql"
     ) }}
   </figcaption>
 </figure>
@@ -769,17 +764,17 @@ Googleがモバイルファーストインデックスだけでなく、モバ�
 
 2020年11月に発表されたように、<a hreflang="en" href="https://webmasters.googleblog.com/2020/05/evaluating-page-experience.html">Core Web Vitals</a>と呼ばれる3つのパフォーマンス指標は、2021年5月に「ページ体験」シグナルの一部としてランキング要因となる予定です。Core Web Vitalsの構成は以下の通りです。
 
-**<a hreflang="en" href="https://web.dev/lcp/">Largest Contentful Paint</a> (LCP)**
+**<a hreflang="ja" href="https://web.dev/i18n/ja/lcp/">Largest Contentful Paint</a> (LCP)**
 - 表現：ユーザーが感じるロードエクスペリエンス
 - 測定：ページロードタイムラインにおいて、ビューポート内にページ最大の画像またはテキストブロックが表示される時点
 - 目標：2.5秒未満
 
-**<a hreflang="en" href="https://web.dev/fid/">First Input Delay</a> (FID)**
+**<a hreflang="ja" href="https://web.dev/i18n/ja/fid/">First Input Delay</a> (FID)**
 - 表現：ユーザーの入力に対するレスポンスの良さ
 - 計測：ユーザーが最初にページへアクセスしてから、そのアクセスに対応するイベントハンドラーの処理をブラウザが実際に開始できるまでの時間
 - 目標：300ミリ秒未満
 
-**<a hreflang="en" href="https://web.dev/cls/">Cumulative Layout Shift</a> (CLS)**
+**<a hreflang="ja" href="https://web.dev/i18n/ja/cls/">Cumulative Layout Shift</a> (CLS)**
 - 表現：視覚的安定性
 - 計測方法：シフトしたビューポートの割合に近似した _レイアウトシフトスコア_ の数の合計値
 - 目標：<0.10
@@ -794,7 +789,7 @@ Googleがモバイルファーストインデックスだけでなく、モバ�
   description="デバイスごとにコア・ウェブ・バイタルの良いスコアを獲得したウェブサイトの割合を示す棒グラフです。デスクトップ版では33.13%のウェブサイトが「良い」と評価されたのに対し、モバイル版では19.96%しかコア・ウェブ・バイタルの評価に合格していません。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=1601210449&format=interactive",
   sheets_gid="996380787",
-  sql_file="../09_Performance/web_vitals_by_device.sql"
+  sql_file="../performance/web_vitals_by_device.sql"
 ) }}
 
 #### 国ごとのCore Web Vitalsの経験
@@ -809,7 +804,7 @@ Googleがモバイルファーストインデックスだけでなく、モバ�
   description="国別のコア・ウェブ・バイタルのパフォーマンスを集約した横棒グラフ。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeddX0_5hUvxpYkd-927hEBlIqzuQiFn5450F2gNc9RJ5K8Wy0ln3KKD-gPWAxJ5Lo3H_km4ljHQEt/pubchart?oid=2077593128&format=interactive",
   sheets_gid="220428774",
-  sql_file="../09_Performance/web_vitals_by_country.sql",
+  sql_file="../performance/web_vitals_by_country.sql",
   width=645,
   height=792
 ) }}
@@ -1140,7 +1135,7 @@ Googleは、あらゆる面でセキュリティにとくに力を入れてい�
 
 #### HTTPSの使用
 
-デスクトップページの77.44％、モバイルページの73.22％がHTTPSを採用していることがわかりました。これは昨年に比べて10.38%増加しています。ここで重要なのは、ブラウザがHTTPSを積極的に推進するようになったことで、HTTPSなしでページを閲覧すると安全ではないというシグナルを発するようになったことです。また、HTTPSは現在、HTTP/2やHTTP/3（HTTP over QUICとも呼ばれる）のようなより高性能なプロトコルを活用するための要件となっています。これらのプロトコルの状況については、[HTTP/2](./http2)の章で詳しく説明しています。
+デスクトップページの77.44％、モバイルページの73.22％がHTTPSを採用していることがわかりました。これは昨年に比べて10.38%増加しています。ここで重要なのは、ブラウザがHTTPSを積極的に推進するようになったことで、HTTPSなしでページを閲覧すると安全ではないというシグナルを発するようになったことです。また、HTTPSは現在、HTTP/2やHTTP/3（HTTP over QUICとも呼ばれる）のようなより高性能なプロトコルを活用するための要件となっています。これらのプロトコルの状況については、[HTTP/2](./http)の章で詳しく説明しています。
 
 これらのことが、前年比での採用率の上昇につながっていると思われます。
 
@@ -1173,7 +1168,7 @@ AMPベースではないページの代替バージョンとしてのAMPの使�
 
 これらのフレームワークは特別なSEO上の配慮が必要でしたが、Googleは積極的なキャッシング戦略により、クライアントサイドレンダリングによる問題を軽減するよう努めてきました。<a hreflang="en" href="https://youtu.be/rq8sFkl0KnI">Google Webmaster's 2019 conference</a>のビデオの中でソフトウェアエンジニアのErik Hendriksは、Googleはもはや`Cache-Control`ヘッダーに依存せず、代わりに`ETag`または`Last-Modified`ヘッダーを探してファイルのコンテンツが変更されたかどうかを確認していることを共有しました。
 
-SPAはキャッシュを細かく制御するために、[Fetch API](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API)を利用する必要があります。このAPIでは、特定のキャッシュオーバーライドを設定した `Request` オブジェクトを渡すことができ、必要な `If-Modified` や `ETag` ヘッダーを設定するのに使用できます。
+SPAはキャッシュを細かく制御するために、[Fetch API](https://developer.mozilla.org/docs/Web/API/Fetch_API)を利用する必要があります。このAPIでは、特定のキャッシュオーバーライドを設定した `Request` オブジェクトを渡すことができ、必要な `If-Modified` や `ETag` ヘッダーを設定するのに使用できます。
 
 検索エンジンやそのWebクローラーにとって、発見できないリソースはやはり最大の関心事です。検索クローラーは、リンクされたページを見つけるために、`<a>`タグの`href`属性を探します。これらがないと、ページは内部リンクのない孤立したものとみなされます。調査対象となったデスクトップページの5.59％、モバイルレンダリングページの6.04％に内部リンクが含まれていませんでした。これは、そのページがJavaScriptフレームワークのSPAの一部であり、内部リンクを発見するために必要な有効な`href`属性を持つ`<a>`タグがないことを示しています。
 
@@ -1200,9 +1195,9 @@ SPAに使用されている主要なJavaScriptフレームワークのリンク�
 
 また、多くの重要なSEO関連の領域と構成にわたって改善の重要な機会がまだあることに注意することも重要です。 モバイルデバイスの使用が増え、Googleがモバイルファーストインデックスに移行したにもかかわらず、次のようになりました。
 
- - モバイルページの10.84％、デスクトップページの16.18％は、`viewport`タグをまったく含んでおらず、まだモバイルフレンドリーではないことを示唆しています。
- - モバイルページとデスクトップページでは、些細な違いが見られました。たとえばモバイルとデスクトップのリンクの違いは、中央値のウェブページでモバイルのリンクが62であるのに対し、デスクトップのリンクが68であることで示されています。
- - ウェブサイトの33.13％がデスクトップで _Good_ Core Web Vitalsを獲得しましたが、モバイル版の19.96％のみがCore Web Vitalsの評価に合格しました。これは、デスクトップが引き続きユーザーにとってよりパフォーマンスの高いプラットフォームであることを示しています。
+- モバイルページの10.84％、デスクトップページの16.18％は、`viewport`タグをまったく含んでおらず、まだモバイルフレンドリーではないことを示唆しています。
+- モバイルページとデスクトップページでは、些細な違いが見られました。たとえばモバイルとデスクトップのリンクの違いは、中央値のウェブページでモバイルのリンクが62であるのに対し、デスクトップのリンクが68であることで示されています。
+- ウェブサイトの33.13％がデスクトップで _Good_ Core Web Vitalsを獲得しましたが、モバイル版の19.96％のみがCore Web Vitalsの評価に合格しました。これは、デスクトップが引き続きユーザーにとってよりパフォーマンスの高いプラットフォームであることを示しています。
 
 これらの調査結果は、Googleが<a hreflang="en" href="https://webmasters.googleblog.com/2020/07/prepare-for-mobile-first-indexing-with.html">2021年3月にモバイルファーストインデックス</a>への移行を完了する際に、サイトに悪影響を及ぼす可能性があります。
 

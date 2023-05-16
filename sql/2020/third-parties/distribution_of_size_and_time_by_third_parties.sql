@@ -10,6 +10,7 @@ WITH requests AS (
   FROM
     `httparchive.summary_requests.2020_08_01_*`
 ),
+
 third_party AS (
   SELECT
     category,
@@ -19,6 +20,7 @@ third_party AS (
   WHERE
     date = '2020-08-01'
 ),
+
 base AS (
   SELECT
     client,
@@ -37,7 +39,7 @@ SELECT
   category,
   percentile,
   APPROX_QUANTILES(body_size, 1000)[OFFSET(percentile * 10)] AS body_size,
-  APPROX_QUANTILES(time, 1000)[OFFSET(percentile * 10)] AS time
+  APPROX_QUANTILES(time, 1000)[OFFSET(percentile * 10)] AS time -- noqa: L010
 FROM
   base,
   UNNEST([10, 25, 50, 75, 90]) AS percentile

@@ -5,7 +5,7 @@ description: Chapitre Média du Web Almanac 2019 couvrant les tailles et formats
 authors: [colinbendell, dougsillars]
 reviewers: [ahmadawais, eeeps]
 analysts: [dougsillars, rviscomi]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [borisschapira]
 discuss: 1759
 results: https://docs.google.com/spreadsheets/d/1hj9bY6JJZfV9yrXHsoCRYuG8t8bR-CHuuD98zXV7BBQ/
@@ -153,7 +153,7 @@ Chaque format a ses propres mérites et a des utilisations idéales pour le web.
       </tr>
     </tbody>
   </table>
-   <figcaption>{{ figure_link(caption="Explication des principaux formats de fichiers.") }}</figcaption>
+  <figcaption>{{ figure_link(caption="Explication des principaux formats de fichiers.") }}</figcaption>
 </figure>
 
 ### Formats d’images
@@ -240,7 +240,6 @@ Les gains obtenus dans ce test A/B <span lang="en">Lighthouse</span> ne concerne
 
 {{ figure_markup(
   image="fig13_project_perf_improvements_image_optimization.png",
-  alt="Projection que fait Lighthouse de l’amélioration des performances des pages grâce à l’optimisation des images.",
   caption='Projection que fait <span lang="en">Lighthouse</span> de l’amélioration des performances des pages grâce à l’optimisation des images.',
   description="Diagramme à barres montrant qu’au 10e percentile, 0&nbsp;ms pourrait être sauvée, de même au 25e percentile. Au 50e percentile, 150&nbsp;ms pourraient être sauvées. Au 75e percentile, 1460&nbsp;ms pourraient être sauvées et 90e percentile, 5720&nbsp;ms pourraient être sauvées.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSViHIntdF6-bHAI0cl1HelY_X8rR4lf0P3W2Y8I5SyVMxG-ptggTHfWA0qrrU47RvuAydLE6Zex6L3/pubchart?oid=167590779"
@@ -267,7 +266,7 @@ La méthode la plus courante pour implémenter des images adaptatives est de con
   )
 }}
 
-L’utilisation nettement plus faible de `<picture>` n’est pas surprenante dans la mesure où cet élément est le plus souvent utilisé pour des gabarits adaptatifs avancés en termes de [direction artistique](https://developer.mozilla.org/fr/docs/Apprendre/HTML/Comment/Ajouter_des_images_adaptatives_%C3%A0_une_page_web#D%C3%A9cision_de_nature_artistique).
+L’utilisation nettement plus faible de `<picture>` n’est pas surprenante dans la mesure où cet élément est le plus souvent utilisé pour des gabarits adaptatifs avancés en termes de [direction artistique](https://developer.mozilla.org/docs/Apprendre/HTML/Comment/Ajouter_des_images_adaptatives_%C3%A0_une_page_web#D%C3%A9cision_de_nature_artistique).
 
 ### Utilisation de sizes
 
@@ -322,7 +321,6 @@ L’utilité de `srcset` dépend généralement de la précision de la requête 
 
 {{ figure_markup(
   image="fig16_top_patterns_of_img_sizes.png",
-  alt="Top patterns of img sizes.",
   caption="Principaux modèles de conception de <code><img sizes></code>.",
   description="Diagramme à barres montrant que 11,3 millions d’images utilisent 'img sizes=`(max-width: 300px) 100vw, 300px`', 1,60 million utilisent 'auto', 1,00 million utilisent 'img sizes=`(max-width : 767px) 89vw...etc.`', 0,23 million utilisent '100vw' et 0,13 million utilisent '300px'.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSViHIntdF6-bHAI0cl1HelY_X8rR4lf0P3W2Y8I5SyVMxG-ptggTHfWA0qrrU47RvuAydLE6Zex6L3/pubchart?oid=663985412&format=interactive"
@@ -331,13 +329,12 @@ L’utilité de `srcset` dépend généralement de la précision de la requête 
 
 ### Indications Client
 
-Les Indications Client, ou <a hreflang="en" href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/client-hints"><span lang="en">Client Hints</span></a> permettent aux créateurs et créatrices de contenus de déplacer le redimensionnement des images vers la négociation de contenu HTTP. De cette manière, vous n’avez pas besoin de surcharger votre balisage HTML avec des `<img srcset>`, et vous reposer à la place sur la capacité du serveur ou du <a hreflang="en" href="https://cloudinary.com/blog/client_hints_and_responsive_images_what_changed_in_chrome_67">CDN d’images à sélectionner l’image optimale</a> suivant le contexte. Cela permet de simplifier le HTML et permet aux serveurs d’origine de s’adapter au fil du temps et de déconnecter les couches de contenu et de présentation.
+Les Indications Client, ou <a hreflang="en" href="https://web.dev/user-agent-client-hints/"><span lang="en">Client Hints</span></a> permettent aux créateurs et créatrices de contenus de déplacer le redimensionnement des images vers la négociation de contenu HTTP. De cette manière, vous n’avez pas besoin de surcharger votre balisage HTML avec des `<img srcset>`, et vous reposer à la place sur la capacité du serveur ou du <a hreflang="en" href="https://cloudinary.com/blog/client_hints_and_responsive_images_what_changed_in_chrome_67">CDN d’images à sélectionner l’image optimale</a> suivant le contexte. Cela permet de simplifier le HTML et permet aux serveurs d’origine de s’adapter au fil du temps et de déconnecter les couches de contenu et de présentation.
 
 Pour activer les Indications Client, la page web doit envoyer un signal au navigateur en utilisant soit un en-tête HTTP supplémentaire `Accept-CH: DPR, Width, Viewport-Width` _ou_ en ajoutant dans le balisage HTML `<meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">`. Le choix de l’une ou l’autre technique dépend de l’équipe qui la met en œuvre et les deux sont proposées pour des raisons de commodité.
 
 {{ figure_markup(
   image="fig17_usage_of_accept-ch_http_v_html.png",
-  alt="Utilisation de l’en-tête Accept-CH comparé à son équivalent meta tag.",
   caption="Utilisation de l’en-tête <code>Accept-CH</code> comparé à son équivalent <code><meta></code> tag.",
   description="Graphique en barres montrant que 71&nbsp;% utilisent le `meta http-equiv`, 30&nbsp;% utilisent l’en-tête HTTP `Accept-CH` et 1&nbsp;% utilisent les deux.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSViHIntdF6-bHAI0cl1HelY_X8rR4lf0P3W2Y8I5SyVMxG-ptggTHfWA0qrrU47RvuAydLE6Zex6L3/pubchart?oid=284657706&format=interactive"
@@ -362,11 +359,11 @@ Les Indications Client liés au réseau, `downlink`, `rtt`, et `ect`, ne sont di
 
 L’amélioration des performances des pages web peut être partiellement caractérisée comme un jeu de miroirs&nbsp;: sans les supprimer, on décale les éléments les plus lents en dehors de la zone d’usage de l’utilisateur. Par exemple, le <span lang="en">lazy loading</span> d’images est une de ces illusions où les images et les contenus médias ne sont chargés que lorsque l’utilisateur fait défiler la page. Cela améliore les performances perçues, même sur des réseaux lents, et évite à l’utilisateur de télécharger des octets qui ne sont pas visualisés autrement.
 
+<!-- markdownlint-disable-next-line MD051 -->
 Plus tôt, dans la <a hreflang="en" href="#fig-5">Figure 5</a>, nous avons montré que le volume de contenu d’image au 75e percentile est bien plus important que ce qui pourrait théoriquement être affiché sur un seul écran de bureau ou de téléphone portable. L’audit <span lang="en">Lighthouse</span> concernant les <a hreflang="en" href="https://developers.google.com/web/tools/lighthouse/audits/offscreen-images">images hors champs</a> confirme ce soupçon. La page web médiane contient 27&nbsp;% d’images situées nettement sous la partie visible de la page. Ce pourcentage passe à 84&nbsp;% au 90e percentile.
 
 {{ figure_markup(
   image="fig19_lighthouse_audit_offscreen.png",
-  alt="Audit Lighthouse : Hors-Écran.",
   caption='Audit <span lang="en">Lighthouse</span>&nbsp;: Hors-Écran.',
   description="Un diagramme à barres montrant qu’au 10e percentile, 0&nbsp;% des images sont hors champ, au 25e percentile, 2&nbsp;% sont hors champ, au 50e percentile, 27&nbsp;% sont hors champ, au 75e percentile, 64&nbsp;% sont hors champ et au 90e percentile, 84&nbsp;% des images sont hors champ.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSViHIntdF6-bHAI0cl1HelY_X8rR4lf0P3W2Y8I5SyVMxG-ptggTHfWA0qrrU47RvuAydLE6Zex6L3/pubchart?oid=2123391693&format=interactive"

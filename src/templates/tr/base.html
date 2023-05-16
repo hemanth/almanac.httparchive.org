@@ -30,8 +30,9 @@ Misyonumuz, HTTP Archive&#8217;ın ham istatistiklerini ve eğilimlerini web top
 
 {% block page_navigation %}Sayfa navigasyonu{% endblock %}
 
-{% block help_translate %}Çeviriye Yardımı Edin{% endblock %}
+{% block help_translate %}Çeviriye yardımı edin{% endblock %}
 {% block translation_not_available %}İngilizce - İngilizce olarak mevcut değil{% endblock %}
+{% block in_english %} (İngilizce){% endblock %}
 {% block language_switcher %}Dil Değiştirici{% endblock %}
 {% block year_switcher %}Yıl Değiştirici{% endblock %}
 {% block table_of_contents_switcher %}İçindekiler Tablosu Değiştiricisi{% endblock %}
@@ -40,6 +41,7 @@ Misyonumuz, HTTP Archive&#8217;ın ham istatistiklerini ve eğilimlerini web top
 {% block table_of_contents_title %}İçindekiler Tablosu{% endblock %}
 {% block contributors_title %}Katkıda Bulunanlar{% endblock %}
 {% block methodology_title %}Metodoloji{% endblock %}
+{% block search_title %}Arama{% endblock %}
 
 {% block part %}Kısım{% endblock %}
 {% block chapter %}Bölüm{% endblock %}
@@ -81,10 +83,33 @@ Misyonumuz, HTTP Archive&#8217;ın ham istatistiklerini ve eğilimlerini web top
 {% block reviewed_and_analyzed_by_after %}{% endblock %}
 {% block analysis_and_editing_by_after %}{% endblock %}
 
+{% block date_published %}Yayınlanma tarihi: {% endblock %}
+{% block date_updated %}Güncellenme tarihi: {% endblock %}
+
 {% block unedited %}[Düzenlenmiş olan]{% endblock %}
 
 {% block author %}Yazar{% endblock %}
 {% block authors %}Yazarlar{% endblock %}
+
+{% block reaction %}reaksiyon{% endblock %}
+{% block reactions %}reaksiyonlar{% endblock %}
+{% block reactionsTitle %}Reaksiyonlar{% endblock %}
+{% block reactionsAlt %}{% endblock %}
+{% block source %}Kaynağı görüntüle{% endblock %}
+{% block share %}Share{% endblock %}
+
+{% block like %}beğenisi{% endblock %}
+{% block repost %}yayınlamak{% endblock %}
+{% block reply %}yanıtı{% endblock %}
+{% block mention %}anma{% endblock %}
+{% block likes %}beğenileri{% endblock %}
+{% block reposts %}gönderileri{% endblock %}
+{% block replies %}yanıtları{% endblock %}
+{% block mentions %}bahseder{% endblock %}
+{% block likesAlt %}{% endblock %}
+{% block repostsAlt %}{% endblock %}
+{% block repliesAlt %}{% endblock %}
+{% block mentionsAlt %}{% endblock %}
 
 {% macro onTwitter(twitterHandle) %}@{{twitterHandle}}Twitter üzerinde{% endmacro %}
 {% macro onGitHub(gitHubHandle) %}{{gitHubHandle}}GitHub üzerinde {% endmacro %}
@@ -96,9 +121,10 @@ Misyonumuz, HTTP Archive&#8217;ın ham istatistiklerini ve eğilimlerini web top
 {% block footer_title %}Footer navigasyon{% endblock %}
 {% block copyright %}© Web Almanac. <a hreflang="en" href="https://github.com/HTTPArchive/almanac.httparchive.org/blob/main/LICENSE">Apache 2.0</a> altında lisanslanmıştır.{% endblock %}
 {% block accessibility_statement %}Erişilebilirlik Bildirimi{% endblock %}
+{% block rss_feed %}RSS Feed{% endblock %}
 
 {% block featured_chapter %}Öne Çıkan Bölüm{% endblock %}
-{% block featured_chapter_last_year %}{{ year|int -1 }} Web Almanac'tan <br/>Öne Çıkan Bölüm{% endblock %}
+{% block featured_chapter_last_year %}{{ year|int -1 }} Web Almanac'tan <br>Öne Çıkan Bölüm{% endblock %}
 
 {# Check if read_chapter already defined in child template as macros can't be overridden #}
 {% if not read_chapter %}
@@ -142,6 +168,7 @@ Aksi belirtilmedikçe, {{ year }} Web Almanac&#8217;ın tüm {{ supported_chapte
     "IV. Content Distribution": "IV. İçerik Dağıtımı"
   }
 %}
+
 {%
   set localizedChapterTitles = {
     "javascript": "JavaScript",
@@ -163,12 +190,19 @@ Aksi belirtilmedikçe, {{ year }} Web Almanac&#8217;ın tüm {{ supported_chapte
     "cdn": "CDN",
     "page-weight": "Sayfa Ağırlığı",
     "resource-hints": "Kaynak İpuçları",
-    "http2": "HTTP/2",
+    "http": "HTTP",
     "privacy": "Gizlilik",
     "capabilities": "Yetenekler",
-    "jamstack": "Jamstack"
+    "jamstack": "Jamstack",
+    "webassembly": "WebAssembly",
+    "structured-data": "Structured Data",
+    "sustainability": "Sürdürülebilirlik",
+    "interop": "Birlikte çalışabilirlik"
   }
 %}
+{% if (year == "2019" or year == "2020") %}
+{% set _dummy = localizedChapterTitles.__setitem__("http", "HTTP/2") %}
+{% endif %}
 
 {% set localizedTeamNames = {
   "analysts": "Analistler",
@@ -180,5 +214,18 @@ Aksi belirtilmedikçe, {{ year }} Web Almanac&#8217;ın tüm {{ supported_chapte
   "leads": "Proje Liderleri",
   "reviewers": "Gözden Geçirenler",
   "translators": "Çevirmenler",
+  }
+%}
+
+{% set localizedTeamRole = {
+  "analysts": "Analist",
+  "authors": "Yazar",
+  "brainstormers": "Fikir Üreten",
+  "designers": "Tasarımcı",
+  "developers": "Geliştirici",
+  "editors": "Editor",
+  "leads": "Proje Lider",
+  "reviewers": "Gözden Geçiren",
+  "translators": "Çevirmen",
   }
 %}

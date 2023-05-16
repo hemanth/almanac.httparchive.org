@@ -3,17 +3,17 @@
 
 SELECT
   client, firstHtml, vary,
-  if(_cdn_provider != '', 'CDN', 'Origin') as source,
-  count(0) as total
+  IF(_cdn_provider != '', 'CDN', 'Origin') AS source,
+  COUNT(0) AS total
 FROM
   `httparchive.almanac.requests`,
-  UNNEST(split(REGEXP_REPLACE(REGEXP_REPLACE(lower(resp_vary), '\"', ''), '[, ]+|\\\\0', ','), ',')) as vary
+  UNNEST(split(REGEXP_REPLACE(REGEXP_REPLACE(LOWER(resp_vary), '"', ''), '[, ]+|\\\\0', ','), ',')) AS vary
 WHERE
   date = '2019-07-01'
 GROUP BY
   client, firstHtml, vary, source
 HAVING
-  vary <> '' AND vary IS NOT NULL
+  vary != '' AND vary IS NOT NULL
 ORDER BY
   client DESC,
   firstHtml DESC,

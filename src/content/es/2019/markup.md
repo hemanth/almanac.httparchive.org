@@ -180,7 +180,6 @@ Para discutir números sobre el uso de elementos (estándar, obsoleto o personal
 
 {{ figure_markup(
   image="fig7_full.png",
-  alt="Principales 150 elementos",
   caption='Principales 150 elementos (<a hreflang="en" href="fig7_full.png">detalle completo</a>).',
   description="Gráfico de barras que muestra un uso decreciente de elementos en orden descendente: html, head, body, title por encima del 99% de uso, meta, a, div por encima del 98% de uso, link, script, img, span por encima del 90% de uso, ul, li , p, style, input, br, form por encima del 70% de uso, h2, h1, iframe, h3, button, footer, header, nav por encima del 50% de uso y otras etiquetas menos conocidas que descienden desde menos del 50% hasta casi 0 % de uso.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTbHgqcSepZye6DrCTpifFAUYxKT1hEO56585awyMips8oiPMLYu20GETuIE8mALkm814ObJyktEe2P/pubchart?oid=1694360298&format=interactive",
@@ -271,7 +270,7 @@ Para varios elementos no estándar, su prevalencia puede tener más que ver con 
 - Algunos de los `<actinic:*>` elementos del proveedor de comercio electrónico británico <a hreflang="en" href="https://www.oxatis.co.uk">Oxatis</a> aparecen en incluso más páginas. Por ejemplo, <a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/30dfca0fde9fad9b2ec58b12cb2b0271a272fb5c8970cd40e316adc728a09d19.html">`<actinic:basehref>`</a> todavía aparece en 154 páginas en los datos del escritorio.
 - Los elementos de Macromedia parecen haber desaparecido en gran medida. Solo un elemento, <a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/836d469b8c29e5892dedfd43556ed1b0e28a5647066858ca1c395f5b30f8485c.html">`<mm:endlock>`</a>, aparece en nuestra lista y en solo 22 páginas.
 - El elemento de Adobe Go-Live <a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/579abc77652df3ac2db1338d17aab0a8dc737b9d945510b562085d8522b18799.html">`<csscriptdict>`</a> todavía aparece en 640 páginas en el escritorio dataset.
-- El elemento de Microsoft Office <a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/bc8f154a95dfe06a6d0fdb099b6c8df61727b2289141a0ef16dc17b2b57d3068.html">`<o:p>`</a> El elemento todavía aparece en el 0,5% de las páginas de escritorio, más de 20.000 páginas.
+- El elemento de Microsoft Office <a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/579abc77652df3ac2db1338d17aab0a8dc737b9d945510b562085d8522b18799.html">`<o:p>`</a> El elemento todavía aparece en el 0,5% de las páginas de escritorio, más de 20.000 páginas.
 
 Pero hay muchos recién llegados que tampoco estaban en el informe original de Hixie, y con números aún mayores.
 
@@ -297,7 +296,7 @@ Comparemos esto con algunos de los elementos HTML nativos que están por debajo 
 
 Usted podría descubrir ideas interesantes como estas durante todo el día.
 
-Aquí hay una que es un poco diferente: los elementos populares pueden ser causados por errores directos en los productos. Por ejemplo, <a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/3214f840b6ae3ef1074291f60fa1be4b9d9df401fe0190bfaff4bb078c8614a5.html">`<pclass="ddc-font-size-large">`</a> ocurre en más de 1,000 sitios. Esto fue gracias a la falta de espacio en un popular tipo de producto "como servicio". Afortunadamente, informamos este error durante nuestra investigación y se solucionó rápidamente.
+Aquí hay una que es un poco diferente: los elementos populares pueden ser causados por errores directos en los productos. Por ejemplo, `<pclass="ddc-font-size-large">` ocurre en más de 1,000 sitios. Esto fue gracias a la falta de espacio en un popular tipo de producto "como servicio". Afortunadamente, informamos este error durante nuestra investigación y se solucionó rápidamente.
 
 En su artículo original, Hixie menciona que:
 

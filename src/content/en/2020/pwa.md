@@ -4,19 +4,19 @@ title: PWA
 description: PWA chapter of the 2020 Web Almanac covering service workers (registrations, installability, events and filesizes), Web App Manifests properties, and Workbox.
 authors: [hemanth]
 reviewers: [thepassle, jadjoubran, pearlbea, gokulkrishh]
-analysts: [bazzadp]
-editors: [bazzadp]
+analysts: [tunetheweb]
+editors: [tunetheweb]
 translators: []
 hemanth_bio: <a hreflang="en" href="https://h3manth.com">Hemanth HM</a> is a Computer polyglot, FOSS philosopher, GDE for web and payments domain, DuckDuckGo community member, TC39 delegate and Google Launchpad Accelerator mentor. Loves The WEB && CLI. Hosts <a hreflang="en" href="https://TC39er.us">TC39er.us</a> podcast.
 discuss: 2050
 results: https://docs.google.com/spreadsheets/d/1AOqCkb5EggnE8BngpxvxGj_fCfssT9sZ0ElCQKp4pOw/
 featured_quote: Web application which progresses into a native-like application can be considered as a PWA.
 featured_stat_1: 16.6%
-featured_stat_label_1: Percentage of page loads using a service worker.
+featured_stat_label_1: Percentage of page loads using a service worker
 featured_stat_2: 27.97%
-featured_stat_label_2: Web apps that load fast enough for a PWA.
+featured_stat_label_2: Web apps that load fast enough for a PWA
 featured_stat_3: 25%
-featured_stat_label_3: Percentage of mobile PWA sites using importScripts.
+featured_stat_label_3: Percentage of mobile PWA sites using importScripts
 ---
 
 ## Introduction
@@ -37,7 +37,7 @@ Service workers are at the very center of progressive web apps. They help develo
 
 ### Service worker usage
 
-From the data we gathered we can see that about 0.88% desktop sites and 0.87% mobile sites use a service worker. This was for the month of August 2020 and, to put that into perspective, that equates to 49,305 (out of 5,593,642) desktop sites and 55,019 (out of 6,347,919) mobile sites. While that usage may seem low, it is important that we realize that other measurements equate that to 16.6% of the <a hreflang="en" href="https://www.chromestatus.com/metrics/feature/timeline/popularity/990">web traffic</a>–the difference being due to high traffic websites tending to use service workers more.
+From the data we gathered we can see that about 0.88% desktop sites and 0.87% mobile sites use a service worker. This was for the month of August 2020 and, to put that into perspective, that equates to 49,305 (out of 5,593,642) desktop sites and 55,019 (out of 6,347,919) mobile sites.
 
 {{ figure_markup(
   image="pwa-timeseries-of-service-worker-installations.png",
@@ -48,6 +48,8 @@ From the data we gathered we can see that about 0.88% desktop sites and 0.87% mo
   sql_file="sw_adoption_over_time.sql"
   )
 }}
+
+While that usage may seem low, it is important that we realize that other measurements equate that to 16.6% of the <a hreflang="en" href="https://www.chromestatus.com/metrics/feature/timeline/popularity/990">web traffic</a>–the difference being due to high traffic websites tending to use service workers more.
 
 ## Lighthouse insights
 
@@ -146,7 +148,7 @@ If you're building a Progressive Web App, consider using a service worker so tha
 
 Browsers can proactively prompt users to add your app to their home screen, which can lead to higher engagement. 2.21% of pages had an <a hreflang="en" href="https://web.dev/installable-manifest/">installable manifest</a>. Manifest plays an important role in how the application starts, the looks and feel of the icon on the home screen and as an impact on the engagement rate directly.
 
-All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding <a hreflang="en" href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content">mixed content</a>, where some resources are loaded over HTTP despite the initial request being served over HTTPS. HTTPS prevents intruders from tampering with or passively listening in on the communications between your app and your users and is a prerequisite for service workers and many new web platform features and APIs like [HTTP/2](./http2). The <a hreflang="en" href="https://web.dev/is-on-https/">is-on-https check</a> shows that 67.27% of sites were on HTTPS without mixed content and it is surprising that we haven't reached higher yet. The [Security](./security#transport-security) chapter shows that 86.91% of sites are using HTTPS, suggesting that mixed content may be the bigger issue now. This number will get better as browsers mandate the applications to be on HTTPS and scrutinize those which are not on HTTPS more.
+All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding <a hreflang="en" href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content">mixed content</a>, where some resources are loaded over HTTP despite the initial request being served over HTTPS. HTTPS prevents intruders from tampering with or passively listening in on the communications between your app and your users and is a prerequisite for service workers and many new web platform features and APIs like [HTTP/2](./http). The <a hreflang="en" href="https://web.dev/is-on-https/">is-on-https check</a> shows that 67.27% of sites were on HTTPS without mixed content and it is surprising that we haven't reached higher yet. The [Security](./security#transport-security) chapter shows that 86.91% of sites are using HTTPS, suggesting that mixed content may be the bigger issue now. This number will get better as browsers mandate the applications to be on HTTPS and scrutinize those which are not on HTTPS more.
 
 If you've already set up HTTPS, make sure that you <a hreflang="en" href="https://web.dev/redirects-http/">redirect all HTTP traffic to HTTPS</a> in order to enable secure connection the users without changing the URL: only 69.92% of the sites pass this audit. Redirecting all the HTTP to HTTPS on your application should be simple steps towards robustness, though the HTTP redirection to HTTPS has a decent number of sites passing, it can do better.
 
@@ -172,14 +174,14 @@ Your app should display some content when JavaScript is disabled, even if it is 
 
 In a service worker one can listen for a number of events:
 
-1.  `install`, which occurs upon service worker installation.
-2.  `activate`, which occurs upon service worker activation.
-3.  `fetch`, which occurs whenever a resource is fetched.
-4.  `push`, which occurs when a push notification arrives.
-5.  `notificationclick`, which occurs when a notification is being clicked.
-6.  `notificationclose`, which occurs when a notification is being closed.
-7.  `message`, which occurs when a message sent via postMessage() arrives.
-8.  `sync`, which occurs when a background sync event occurs.
+1. `install`, which occurs upon service worker installation.
+2. `activate`, which occurs upon service worker activation.
+3. `fetch`, which occurs whenever a resource is fetched.
+4. `push`, which occurs when a push notification arrives.
+5. `notificationclick`, which occurs when a notification is being clicked.
+6. `notificationclose`, which occurs when a notification is being closed.
+7. `message`, which occurs when a message sent via postMessage() arrives.
+8. `sync`, which occurs when a background sync event occurs.
 
 We have examined which of these events are being listened to by service workers in our dataset.
 
@@ -193,7 +195,7 @@ We have examined which of these events are being listened to by service workers 
   )
 }}
 
- The results for mobile and desktop are very similar with `install`, `fetch`, and `activate` being the three most popular events, followed by `message`, `notification click`, `push` and `sync`. If we interpret these results, offline use cases that service workers enable are the most attractive feature for app developers, far ahead of push notifications. Due to its limited availability, and less common use case, background sync doesn't play a significant role at this time.
+The results for mobile and desktop are very similar with `install`, `fetch`, and `activate` being the three most popular events, followed by `message`, `notification click`, `push` and `sync`. If we interpret these results, offline use cases that service workers enable are the most attractive feature for app developers, far ahead of push notifications. Due to its limited availability, and less common use case, background sync doesn't play a significant role at this time.
 
 ## Web app manifests
 
@@ -260,7 +262,6 @@ We also found a non-trivial number of mistyped properties; our favorite ones bei
 
 {{ figure_markup(
   image="pwa-most-used-display-values-for-service-worker-pages.png",
-  alt="Most used display values for service worker pages.",
   caption="Most used `display` values for service worker pages.",
   description="Bar chart showing the percentage of pages using the 5 most common `display` values, dominated by `standalone` which is used by 86.73% of desktop and 89.28% of mobile pages, `minimal-ui` is used by 6.30% of desktop and 5.00% of mobile, `fullscreen` by 4.80% of desktop and 4.11% of mobile, 1.15% of desktop pages and 0.88% of mobile pages do not set a `display` value, and finally 1.00% of desktop and 0.72% of mobile set this to `browser`.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRRpTSA4fsHwUap-ByQ08j95uo7Zm1kY6lTSvA-DZT54g2QZ0guV7db3QyQwQgMPzsKsJ43gbzqfJst/pubchart?oid=872942071&format=interactive",
@@ -344,7 +345,7 @@ There are many cases, where the service workers use libraries as dependencies, b
 
 ### Popular import scripts
 
-The [importScripts() API](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts) of the [WorkerGlobalScope interface](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope) synchronously imports one or more scripts into the worker's scope. The same is used to import external dependencies to the service worker.
+The [importScripts() API](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/importScripts) of the [WorkerGlobalScope interface](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope) synchronously imports one or more scripts into the worker's scope. The same is used to import external dependencies to the service worker.
 
 <figure>
 <table>

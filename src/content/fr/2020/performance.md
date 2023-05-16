@@ -3,9 +3,9 @@
 title: Performance
 description: Chapitre Performance du Web Almanac 2020 couvrant les Signaux Web Essentiels (Core Web Vitals), le score de performance de Lighthouse, le First Contentful Paint (FCP) et le Time to First Byte (TTFB).
 authors: [thefoxis]
-reviewers: [borisschapira, rviscomi, obto, noamr, Zizzamia]
+reviewers: [borisschapira, rviscomi, foxdavidj, noamr, Zizzamia]
 analysts: [max-ostapenko, dooman87]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [borisschapira]
 thefoxis_bio: Karolina est <em lang="en">Product Design Lead</em> chez <a hreflang="en" lang="en" href="https://calibreapp.com/">Calibre</a>, travaillant à la création de la plate-forme de surveillance de la vitesse la plus complète. Elle réalise la curation de la <a hreflang="en" lang="en" href="https://perf.email/">Performance Newsletter</a>, votre source d’informations et de ressources sur la performance. Karolina <a hreflang="en" href="https://calibreapp.com/blog/category/web-platform">écrit aussi fréquemment</a> sur la façon dont la performance affecte l’expérience d’utilisation.
 discuss: 2045
@@ -263,7 +263,7 @@ Dans les graphiques ci-dessus, les distributions de FCP sont réparties entre le
 
 En comparant le FCP sur les appareils mobiles sur une base annuelle, nous observons moins de bonnes expériences et plus d’expériences modérées et mauvaises. 75 % des sites web ont un FCP inférieur à la moyenne. Nous pouvons supposer que ce pourcentage élevé de mesures de FCP inférieures à l’idéal est une source de frustration et de dégradation de l’expérience d’utilisation.
 
-De nombreux facteurs peuvent retarder le rendu, comme la latence du serveur (mesurée par une poignée d’indicateurs, tels que [<span lang="en">Time to First Byte</span> (TTFB)](#time-to-first-byte) et RTT), le blocage des requêtes JavaScript, ou la manipulation inappropriée des polices personnalisées, pour n’en citer que quelques-uns.
+De nombreux facteurs peuvent retarder le rendu, comme la latence du serveur (mesurée par une poignée d’indicateurs, tels que [<span lang="en">Time to First Byte</span> (TTFB)](#time-to-first-byte) et RTT), le blocage des requêtes JavaScript, ou la manipulation inappropriée des polices personnalisées, pour n’en citer que quelques-uns.<!-- markdownlint-disable-line MD051 -->
 
 ### FCP par répartition géographique
 
@@ -361,7 +361,7 @@ Ce qui est surprenant, c’est le nombre relativement identique de bons résulta
 
 ## Utilisation des <span lang="en">Performance Observers</span> {utilisation-des-performance-observers}
 
-Il existe des dizaines de mesures différentes, orientées utilisation, qui peuvent être utilisées pour évaluer les sites web et les applications. Cependant, il arrive que les mesures prédéfinies ne correspondent pas tout à fait à nos scénarios et besoins spécifiques. <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver">L’API <span lang="en">PerformanceObserver</span></a> nous permet d’obtenir des données de mesure personnalisées grâce à <a href="https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API">l’API <span lang="en">User Timing</span></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API">l’API <span lang="en">Long Task</span></a>, <a hreflang="en" href="https://web.dev/custom-metrics/#event-timing-api">l’API <span lang="en">Event Timing</span></a> et <a hreflang="en" href="https://web.dev/custom-metrics/">une poignée d’autres API de bas niveau</a>. Par exemple, avec leur aide, nous pourrions enregistrer les transitions temporelles entre les pages ou quantifier l’hydratation des applications en <span lang="en">Server Side Rendering</span> (SSR, rendues côté serveur).
+Il existe des dizaines de mesures différentes, orientées utilisation, qui peuvent être utilisées pour évaluer les sites web et les applications. Cependant, il arrive que les mesures prédéfinies ne correspondent pas tout à fait à nos scénarios et besoins spécifiques. <a href="https://developer.mozilla.org/docs/Web/API/PerformanceObserver">L’API <span lang="en">PerformanceObserver</span></a> nous permet d’obtenir des données de mesure personnalisées grâce à <a href="https://developer.mozilla.org/docs/Web/API/User_Timing_API">l’API <span lang="en">User Timing</span></a>, <a href="https://developer.mozilla.org/docs/Web/API/Long_Tasks_API">l’API <span lang="en">Long Task</span></a>, <a hreflang="en" href="https://web.dev/custom-metrics/#event-timing-api">l’API <span lang="en">Event Timing</span></a> et <a hreflang="en" href="https://web.dev/custom-metrics/">une poignée d’autres API de bas niveau</a>. Par exemple, avec leur aide, nous pourrions enregistrer les transitions temporelles entre les pages ou quantifier l’hydratation des applications en <span lang="en">Server Side Rendering</span> (SSR, rendues côté serveur).
 
 {{ figure_markup(
   image="performance-performance-observer-usage.png",

@@ -5,7 +5,7 @@ description: Hoofdstuk Derden van de Web Almanac 2020 met informatie over welke 
 authors: [simonhearne]
 reviewers: [jzyang, exterkamp]
 analysts: [max-ostapenko, paulcalvano]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [noah-vdv]
 simonhearne_bio: Simon is een webprestatie-architect. Hij heeft een passie voor het helpen leveren van een sneller en toegankelijker web. U kunt hem vinden op twitter<a href="https://twitter.com/simonhearne">@SimonHearne</a> en zijn blog <a hreflang="en" href="https://simonhearne.com">simonhearne.com</a>.
 discuss: 2042
@@ -109,7 +109,7 @@ De onderstaande grafiek toont de verdeling van pagina's op basis van het aantal 
 
 ### Inhoudstypen
 
-We kunnen verzoeken van derden opsplitsen op basis van hun inhoudstype. Dit is het gerapporteerde [inhoudstype](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) van de bronnen die worden geleverd vanuit domeinen van derden.
+We kunnen verzoeken van derden opsplitsen op basis van hun inhoudstype. Dit is het gerapporteerde [inhoudstype](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Type) van de bronnen die worden geleverd vanuit domeinen van derden.
 
 {{ figure_markup(
   image="thirdparty-by-content-types.png",
@@ -129,7 +129,7 @@ Dit toont een verschuiving wanneer [vergeleken met 2019](../2019/third-parties#r
 
 ### Domeinen van derden
 
-Wanneer we dieper ingaan op domeinen die inhoud van derden aanbieden, zien we dat Google Fonts verreweg de meest voorkomende is. Het is aanwezig op meer dan 7,5% van de geteste mobiele pagina's. Hoewel lettertypen slechts ongeveer 3% van de inhoud van derden uitmaken, worden deze bijna allemaal geleverd door de Google Fonts-service. Als uw pagina Google Fonts gebruikt, volg dan de <a hreflang="en" href="https://csswizardry.com/2020/05/the-fastest-google-fonts/">best practices</a> om de best mogelijke gebruikerservaring te garanderen.
+Wanneer we dieper ingaan op domeinen die inhoud van derden aanbieden, zien we dat Google Fonts verreweg de meest voorkomende is. Het is aanwezig op meer dan 7,5% van de geteste mobiele pagina's. Hoewel lettertypen slechts ongeveer 3% van de inhoud van derden uitmaken, worden deze bijna allemaal geleverd door de Google Fonts-service. Als uw pagina Google Fonts gebruikt, volg dan de <a hreflang="en" href="https://csswizardry.com/2020/05/the-fastest-google-fonts/">beste praktijken</a> om de best mogelijke gebruikerservaring te garanderen.
 
 {{ figure_markup(
   image="top-domains-by-prevalence.png",
@@ -190,7 +190,7 @@ Aan de andere kant van het spectrum vertegenwoordigen de categorieën CDN, Inhou
 
 ### <span lang="en">Cacheability</span> {cacheability}
 
-Sommige reacties van derden moeten altijd in de cache worden opgeslagen. Media zoals afbeeldingen en video's die door een derde partij worden aangeboden, of JavaScript-bibliotheken zijn goede kandidaten. Aan de andere kant mogen trackingpixels en analysebakens nooit in de cache worden opgeslagen. De resultaten laten zien dat in totaal tweederde van de verzoeken van derden wordt bediend met een geldige caching-header, zoals `cache-control`.
+Sommige reacties van derden moeten altijd in de cache worden opgeslagen. Media zoals afbeeldingen en video's die door een derde partij worden aangeboden, of JavaScript-bibliotheken zijn goede kandidaten. Aan de andere kant mogen trackingpixels en analysebakens nooit in de cache worden opgeslagen. De resultaten laten zien dat in totaal tweederde van de verzoeken van derden wordt bediend met een geldige caching-header, zoals `Cache-Control`.
 
 {{ figure_markup(
   image="requests-cached-by-content-type.png",
@@ -263,12 +263,11 @@ Deze grafiek toont de kansdichtheidsfunctie van de totale CPU-tijd van de pagina
 
 ## Prevalentie van `timing-allow-origin`
 
-Met de [Resource Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API) kunnen website-eigenaren de prestaties van individuele bronnen meten via JavaScript. Deze gegevens zijn standaard extreem beperkt voor bronnen van verschillende oorsprong, zoals inhoud van derden. Er zijn legitieme redenen om deze timinginformatie niet te verstrekken, zoals reacties die verschillen per authenticatiestatus: bijv. een website-eigenaar kan mogelijk bepalen of een bezoeker is ingelogd op Facebook door de responsgrootte van een widgetverzoek te meten. Voor de meeste inhoud van derden is het instellen van de `timing-allow-origin`-header echter een daad van transparantie om de hostingwebsite in staat te stellen de prestaties en de grootte van hun inhoud van derden te volgen.
+Met de [Resource Timing API](https://developer.mozilla.org/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API) kunnen website-eigenaren de prestaties van individuele bronnen meten via JavaScript. Deze gegevens zijn standaard extreem beperkt voor bronnen van verschillende oorsprong, zoals inhoud van derden. Er zijn legitieme redenen om deze timinginformatie niet te verstrekken, zoals reacties die verschillen per authenticatiestatus: bijv. een website-eigenaar kan mogelijk bepalen of een bezoeker is ingelogd op Facebook door de responsgrootte van een widgetverzoek te meten. Voor de meeste inhoud van derden is het instellen van de `timing-allow-origin`-header echter een daad van transparantie om de hostingwebsite in staat te stellen de prestaties en de grootte van hun inhoud van derden te volgen.
 
 {{ figure_markup(
   image="requests-with-tao.png",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSNXusoFJKi8Z1i_yuG_5umUCJOZwBMaZaECq4T8lU5zIQuLR7UHfZOJmXsXzPWQTJFnFa3dcOEPJgy/pubchart?oid=1886505312&format=interactive",
-  alt="Verzoeken met de Timing-Allow-Origin koptekst.",
   caption="Verzoeken met de `timing-allow-origin` koptekst.",
   description="Minder dan 35% van de reacties van derden wordt weergegeven met een timing-allow-origin-header",
   width=600,
@@ -282,11 +281,11 @@ De resultaten in HTTP Archive laten zien dat slechts een derde van de reacties v
 
 ## Gevolgen
 
-We weten dat het toevoegen van willekeurig JavaScript aan onze sites risico's met zich meebrengt voor zowel de sitesnelheid als de veiligheid. Site-eigenaren moeten ijverig zijn om de waarde van de scripts van derden die ze bevatten in evenwicht te brengen met de snelheidsbeperking die ze met zich meebrengen, en moderne functies gebruiken, zoals [integriteit van subbronnen](https://developer.mozilla.org/nl/docs/Web/Security/Subresource_Integrity) en [content security policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) om een sterke beveiligingshouding te behouden. Zie het [hoofdstuk Beveiliging](./security) voor meer informatie over deze en andere browserbeveiligingsfuncties.
+We weten dat het toevoegen van willekeurig JavaScript aan onze sites risico's met zich meebrengt voor zowel de sitesnelheid als de veiligheid. Site-eigenaren moeten ijverig zijn om de waarde van de scripts van derden die ze bevatten in evenwicht te brengen met de snelheidsbeperking die ze met zich meebrengen, en moderne functies gebruiken, zoals [integriteit van subbronnen](https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity) en [content security policy](https://developer.mozilla.org/docs/Web/HTTP/CSP) om een sterke beveiligingshouding te behouden. Zie het [hoofdstuk Beveiliging](./security) voor meer informatie over deze en andere browserbeveiligingsfuncties.
 
 ## Gevolgtrekking
 
-Een van de verrassingen in de data uit 2020 is de daling van de relatieve JavaScript-verzoeken: van 32% van het totaal naar slechts 22%. Het is onwaarschijnlijk dat de werkelijke hoeveelheid JavaScript op internet dit aanzienlijk heeft afgenomen, het is waarschijnlijker dat websites toestemmingsbeheer implementeren, zodat de meeste dynamische inhoud van derden alleen wordt geladen wanneer de gebruiker zich aanmeldt. Dit aanmeldingsproces kan in sommige gevallen worden beheerd door een Platform voor Toestemmingsbeheer (CMP). De database van derden heeft nog geen categorie voor CMP's, maar dit zou een goede analyse zijn voor de 2021 Web Almanac en wordt behandeld via een andere methodologie in [het hoofdstuk Privacy](./privacy#platforms-voor-toestemmingsbeheer) .
+Een van de verrassingen in de data uit 2020 is de daling van de relatieve JavaScript-verzoeken: van 32% van het totaal naar slechts 22%. Het is onwaarschijnlijk dat de werkelijke hoeveelheid JavaScript op internet dit aanzienlijk heeft afgenomen, het is waarschijnlijker dat websites toestemmingsbeheer implementeren, zodat de meeste dynamische inhoud van derden alleen wordt geladen wanneer de gebruiker zich aanmeldt. Dit aanmeldingsproces kan in sommige gevallen worden beheerd door een Platform voor Toestemmingsbeheer (CMP). De database van derden heeft nog geen categorie voor CMP's, maar dit zou een goede analyse zijn voor de 2021 Web Almanac en wordt behandeld via een andere methodologie in [het hoofdstuk Privacy](./privacy#platforms-voor-toestemmingsbeheer).
 
 Advertentieverzoeken lijken een grotere impact te hebben op de CPU-tijd. De mediaanpagina met advertentiescripts verbruiken drie keer zoveel CPU als die zonder. Interessant is echter dat advertentiescripts niet gecorreleerd zijn met een verhoogd paginagewicht. Dit maakt het nog belangrijker om de totale impact van scripts van derden op de browser te evalueren, niet alleen het aantal aanvragen en de grootte.
 

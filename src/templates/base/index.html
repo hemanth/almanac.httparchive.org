@@ -4,7 +4,24 @@
 {% block image_height %}600{% endblock %}
 {% block image_width %}1200{% endblock %}
 
-{% set year_with_chapters = featured_chapters_exists(lang, year) or featured_chapters_exists('en', year) %}
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://almanac.httparchive.org/{{ lang }}/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://almanac.httparchive.org/{{ lang }}/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>
+{% endblock %}
 
 {% block breadcrumb %}
 <script type="application/ld+json">
@@ -24,7 +41,6 @@
 {% block styles %}
   {{ super() }}
   <link rel="stylesheet" href="{{ get_versioned_filename('/static/css/index.css') }}">
-  <link rel="preload" href="{{ get_versioned_filename('/static/css/index.css') }}" as="style" />
   <link rel="preload" href="/static/fonts/Poppins-Light.woff2" as="font" type="font/woff2" crossorigin>
 {% endblock %}
 
@@ -35,8 +51,12 @@
       <div class="intro-year">{{ year }}</div>
       <h1 class="title title-lg title-alt">{{ self.intro_title() }}</h1>
       <h2>{{ self.intro_sub_title() }}</h2>
+      {% if year > DEFAULT_YEAR %}
+      <p class="coming-soon">{{ self.coming_soon() }}</p>
+      {% else %}
       {{ self.mission() }}
-      {% if year_with_chapters %}
+      {% endif %}
+      {% if year <= DEFAULT_YEAR %}
       <a href="{{ url_for('table_of_contents', year=year, lang=lang) }}" class="btn">
         {{ self.start_exploring() }}
       </a>
@@ -47,23 +67,27 @@
       {% endif %}
     </div>
     <div class="intro-image-wrapper">
-      {% if year < "2020" %}
-      <svg viewBox="0 0 50 16">
-        <text x="7" y="15">{{ year }}</text>
-      </svg>
-      {% else %}
+      {% if year == "2022" %}
       <svg viewBox="0 0 56 16">
+        <text x="9" y="15">{{ year }}</text>
+      </svg>
+      {% elif year != "2020" %}
+      <svg viewBox="0 0 50 16">
         <text x="8" y="15">{{ year }}</text>
       </svg>
+      {% else %}
+      <svg viewBox="0 0 57 16">
+        <text x="9" y="15">{{ year }}</text>
+      </svg>
       {% endif %}
-      <img src="/static/images/home-hero.png" alt="" width="820" height="562">
+      <img src="/static/images/home-hero.png" alt="" width="820" height="562" fetchpriority="high">
     </div>
   </section>
   {% block featured_chapter_section %}
   {% macro featuredChapter(featured_chapter, featured_chapter_quote, featured_chapter_stats, quote_language) %}
   <section id="featured-chapter" class="featured-chapter">
     <div class="featured-chapter-content">
-      {% if year_with_chapters %}
+      {% if year <= DEFAULT_YEAR %}
       <h2 class="title title-center">{{ self.featured_chapter() }}</h2>
       {% else %}
       <h2 class="title title-center">{{ self.featured_chapter_last_year() }}</h2>
@@ -118,7 +142,7 @@
         {% endif %}
       </div>
       {% endif %}
-      {% if year_with_chapters %}
+      {% if year <= DEFAULT_YEAR %}
       <a href="{{ url_for('chapter', year=year, chapter=featured_chapter, lang=lang) }}" class="btn">
         {{ read_chapter(localizedChapterTitles[featured_chapter]) }}
       </a>
@@ -130,7 +154,7 @@
     </div>
   </section>
   {% endmacro %}
-  {% if year_with_chapters %}
+  {% if year <= DEFAULT_YEAR %}
     {% if featured_chapters_exists(lang, year) %}
     {% include "%s/%s/featured_chapters.html" % (lang, year) %}
     {% elif featured_chapters_exists('en', year) %}
@@ -144,6 +168,7 @@
     {% endif %}
   {% endif %}
   {% endblock %}
+  {% if year <= DEFAULT_YEAR %}
   <section id="contributors" class="contributors-container alt-bg">
     <div class="container">
       <div class="contributors">
@@ -155,9 +180,9 @@
       </div>
       <div class="people" aria-hidden="true">
         <div class="people-number">{{ self.contributors() }}</div>
-        <img id="character-markup" class="character" src="/static/images/character-markup.png" alt="" width="154" height="252" loading="lazy" />
-        <img id="character-star" class="character" src="/static/images/character-star.png" alt="" width="245" height="254" loading="lazy" />
-        <img id="character-hat" class="character" src="/static/images/character-hat.png" alt="" width="186" height="207" loading="lazy" />
+        <img id="character-markup" class="character" src="/static/images/character-markup.png" alt="" width="154" height="252" loading="lazy">
+        <img id="character-star" class="character" src="/static/images/character-star.png" alt="" width="245" height="254" loading="lazy">
+        <img id="character-hat" class="character" src="/static/images/character-hat.png" alt="" width="186" height="207" loading="lazy">
       </div>
     </div>
   </section>
@@ -185,13 +210,14 @@
       <p class="methodology-info">
         {{ self.methodology_description() }}
       </p>
-      {% if year_with_chapters %}
+      {% if year <= DEFAULT_YEAR %}
       <a href="{{ url_for('methodology', year=year, lang=lang) }}" class="alt btn">
         {{ self.methodology_link() }}
       </a>
       {% endif %}
-      <img class="methodology-characters" src="/static/images/methodology-characters.png" alt="" width="984" height="354" loading="lazy" />
+      <img class="methodology-characters" src="/static/images/methodology-characters.png" alt="" width="984" height="354" loading="lazy">
     </div>
   </section>
+  {% endif %}
 </main>
 {% endblock %}

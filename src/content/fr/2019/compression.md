@@ -3,9 +3,9 @@
 title: Compression
 description: Chapitre sur la compression par Web Almanac 2019, les algorithmes, les types de contenu, la compression 1ere partie et tierce partie et les possibilités.
 authors: [paulcalvano]
-reviewers: [obto, yoavweiss]
+reviewers: [foxdavidj, yoavweiss]
 analysts: [paulcalvano]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [allemas]
 discuss: 1770
 results: https://docs.google.com/spreadsheets/d/1IK9kaScQr_sJUwZnWMiJcmHEYJV292C9DwCfXH6a50o/
@@ -32,7 +32,7 @@ Dans ce chapitre, nous allons analyser comment le contenu textuel est compressé
 
 ## Comment fonctionne la compression HTTP
 
-Lorsqu’un client effectue une requête HTTP, celle-ci comprend souvent un en-tête [`Accept-Encoding`](https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Accept-Encoding) pour communiquer les algorithmes qu’il est capable de décoder. Le serveur peut alors choisir parmi eux un encodage qu’il prend en charge et servir la réponse compressée. La réponse compressée comprendra un en-tête [`Content-Encoding`](https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Encoding) afin que le client sache quelle compression a été utilisée. En outre, l’en-tête [`Content-Type`](https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Type) est souvent utilisé pour indiquer le [type MIME](https://developer.mozilla.org/fr/docs/Web/HTTP/Basics_of_HTTP/MIME_types) de la ressource servie.
+Lorsqu’un client effectue une requête HTTP, celle-ci comprend souvent un en-tête [`Accept-Encoding`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding) pour communiquer les algorithmes qu’il est capable de décoder. Le serveur peut alors choisir parmi eux un encodage qu’il prend en charge et servir la réponse compressée. La réponse compressée comprendra un en-tête [`Content-Encoding`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Encoding) afin que le client sache quelle compression a été utilisée. En outre, l’en-tête [`Content-Type`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Type) est souvent utilisé pour indiquer le [type MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types) de la ressource servie.
 
 Dans l’exemple ci-dessous, le client indique supporter la compression Gzip, Brotli et deflate. Le serveur a décidé de renvoyer une réponse compressée avec Gzip contenant un document `text/html`.
 

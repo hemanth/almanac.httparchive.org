@@ -3,9 +3,9 @@
 title: Caching
 description: Caching chapter of the 2019 Web Almanac covering cache-control, expires, TTLs, validitaty, vary, set-cookies, AppCache, Service Workers and opportunities.
 authors: [paulcalvano]
-reviewers: [obto, bkardell]
-analysts: [paulcalvano, obto]
-editors: [bazzadp]
+reviewers: [foxdavidj, bkardell]
+analysts: [paulcalvano, foxdavidj]
+editors: [tunetheweb]
 translators: []
 discuss: 1771
 results: https://docs.google.com/spreadsheets/d/1mnq03DqrRBwxfDV05uEFETK0_hPbYOynWxZkV3tFgNk/
@@ -89,7 +89,6 @@ The tool <a hreflang="en" href="https://redbot.org/">RedBot.org</a> allows you t
 
 {{ figure_markup(
   image="ch16_fig1_redbot_example.jpg",
-  alt="Cache-Control information from RedBot.",
   caption="<code>Cache-Control</code> information from RedBot.",
   description="Redbot example response showing detailed information about when the resource was changed, whether caches can store it, how long it can be considered fresh for and warnings.",
   width=600,
@@ -103,7 +102,6 @@ If no caching headers are present in a response, then the <a hreflang="en" href=
 
 {{ figure_markup(
   image="fig2.png",
-  alt="Presence of HTTP Cache-Control and Expires headers.",
   caption="Presence of HTTP <code>Cache-Control</code> and <code>Expires</code> headers.",
   description="Two identical bar charts for mobile and desktop showing 72% of requests use Cache-Control headers, 56% use Expires and the 27% use neither.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=1611664016&format=interactive"
@@ -271,7 +269,6 @@ HTTP/1.1 introduced the `Cache-Control` header, and most modern clients support 
 
 {{ figure_markup(
   image="fig7.png",
-  alt="Usage of Cache-Control versus Expires headers.",
   caption="Usage of <code>Cache-Control</code> versus <code>Expires</code> headers.",
   description="A bar chart showing 53% of responses have a `Cache-Control: max-age`, 54%-55% use `Expires`, 41%-42% use both, and 34% use neither. The figures are given for both desktop and mobile but the figures are near identical with mobile having a percentage point higher in use of expires.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=1909701542&format=interactive"
@@ -285,56 +282,56 @@ The HTTP/1.1 <a hreflang="en" href="https://tools.ietf.org/html/rfc7234#section-
 <figure>
   <table>
     <tr>
-     <th>Directive</th>
-     <th>Description</th>
+      <th>Directive</th>
+      <th>Description</th>
     </tr>
     <tr>
-     <td>max-age</td>
-     <td>Indicates the number of seconds that a resource can be cached for.</td>
+      <td>max-age</td>
+      <td>Indicates the number of seconds that a resource can be cached for.</td>
     </tr>
     <tr>
-     <td>public</td>
-     <td>Any cache may store the response.</td>
+      <td>public</td>
+      <td>Any cache may store the response.</td>
     </tr>
     <tr>
-     <td>no-cache</td>
-     <td>A cached entry must be revalidated prior to its use.</td>
+      <td>no-cache</td>
+      <td>A cached entry must be revalidated prior to its use.</td>
     </tr>
     <tr>
-     <td>must-revalidate</td>
-     <td>A stale cached entry must be revalidated prior to its use.</td>
+      <td>must-revalidate</td>
+      <td>A stale cached entry must be revalidated prior to its use.</td>
     </tr>
     <tr>
-     <td>no-store</td>
-     <td>Indicates that a response is not cacheable.</td>
+      <td>no-store</td>
+      <td>Indicates that a response is not cacheable.</td>
     </tr>
     <tr>
-     <td>private</td>
-     <td>The response is intended for a specific user and should not be stored by shared caches.</td>
+      <td>private</td>
+      <td>The response is intended for a specific user and should not be stored by shared caches.</td>
     </tr>
     <tr>
-     <td>no-transform</td>
-     <td>No transformations or conversions should be made to this resource.</td>
+      <td>no-transform</td>
+      <td>No transformations or conversions should be made to this resource.</td>
     </tr>
     <tr>
-     <td>proxy-revalidate</td>
-     <td>Same as must-revalidate but applies to shared caches.</td>
+      <td>proxy-revalidate</td>
+      <td>Same as must-revalidate but applies to shared caches.</td>
     </tr>
     <tr>
-     <td>s-maxage</td>
-     <td>Same as max age but applies to shared caches only.</td>
+      <td>s-maxage</td>
+      <td>Same as max age but applies to shared caches only.</td>
     </tr>
     <tr>
-     <td>immutable</td>
-     <td>Indicates that the cached entry will never change, and that revalidation is not necessary.</td>
+      <td>immutable</td>
+      <td>Indicates that the cached entry will never change, and that revalidation is not necessary.</td>
     </tr>
     <tr>
-     <td>stale-while-revalidate</td>
-     <td>Indicates that the client is willing to accept a stale response while asynchronously checking in the background for a fresh one.</td>
+      <td>stale-while-revalidate</td>
+      <td>Indicates that the client is willing to accept a stale response while asynchronously checking in the background for a fresh one.</td>
     </tr>
     <tr>
-     <td>stale-if-error</td>
-     <td>Indicates that the client is willing to accept a stale response if the check for a fresh one fails.</td>
+      <td>stale-if-error</td>
+      <td>Indicates that the client is willing to accept a stale response if the check for a fresh one fails.</td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="<code>Cache-Control</code> directives.") }}</figcaption>
@@ -344,7 +341,6 @@ For example, `cache-control: public, max-age=43200` indicates that a cached entr
 
 {{ figure_markup(
   image="fig9.png",
-  alt="Usage of Cache-Control directives on mobile.",
   caption="Usage of <code>Cache-Control</code> directives on mobile.",
   description="A bar chart of 15 cache control directives and their usage ranging from 74.8% for max-age, 37.8% for public, 27.8% for no-cache, 18% for no-store, 14.3% for private, 3.4% for immutable, 3.3% for no-transform, 2.4% for stale-while-revalidate, 2.2% for pre-check, 2.2% for post-check, 1.9% for s-maxage, 1.6% for proxy-revalidate, 0.3% for set-cookie and 0.2% for stale-if-error. The stats are near identical for desktop and mobile.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=1054108345&format=interactive",
@@ -359,7 +355,7 @@ Figure 16.9 above illustrates the top 15 `Cache-Control` directives in use on mo
 
 * `max-age` is used by almost 75% of `Cache-Control` headers, and `no-store` is used by 18%.
 * `public` is rarely necessary since cached entries are assumed `public` unless `private` is specified. Approximately 38% of responses include `public`.
-* The `immutable` directive is relatively new, <a hreflang="en" href="https://code.facebook.com/posts/557147474482256/this-browser-tweak-saved-60-of-requests-to-facebook">introduced in 2017</a> and is [supported on Firefox and Safari](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Browser_compatibility). Its usage has grown to 3.4%, and it is widely used in <a hreflang="en" href="https://discuss.httparchive.org/t/cache-control-immutable-a-year-later/1195">Facebook and Google third-party responses</a>.
+* The `immutable` directive is relatively new, <a hreflang="en" href="https://code.facebook.com/posts/557147474482256/this-browser-tweak-saved-60-of-requests-to-facebook">introduced in 2017</a> and is [supported on Firefox and Safari](https://developer.mozilla.org/docs/Web/HTTP/Headers/Cache-Control#Browser_compatibility). Its usage has grown to 3.4%, and it is widely used in <a hreflang="en" href="https://discuss.httparchive.org/t/cache-control-immutable-a-year-later/1195">Facebook and Google third-party responses</a>.
 
 Another interesting set of directives to show up in this list are `pre-check` and `post-check`, which are used in 2.2% of `Cache-Control` response headers (approximately 7.8 million responses). This pair of headers was <a hreflang="en" href="https://blogs.msdn.microsoft.com/ieinternals/2009/07/20/internet-explorers-cache-control-extensions/">introduced in Internet Explorer 5 to provide a background validation</a> and was rarely implemented correctly by websites. 99.2% of responses using these headers had used the combination of `pre-check=0` and `post-check=0`. When both of these directives are set to 0, then both directives are ignored. So, it seems these directives were never used correctly!
 
@@ -421,22 +417,22 @@ When we break this out by first vs third-party, we can also see that 70% of firs
 <figure>
   <table>
     <tr>
-     <th>Client</th>
-     <th>1st Party</th>
-     <th>3rd Party</th>
-     <th>Overall</th>
+      <th>Client</th>
+      <th>1st Party</th>
+      <th>3rd Party</th>
+      <th>Overall</th>
     </tr>
     <tr>
-     <td>Desktop</td>
-     <td class="numeric">70.7%</td>
-     <td class="numeric">47.9%</td>
-     <td class="numeric">59.2%</td>
+      <td>Desktop</td>
+      <td class="numeric">70.7%</td>
+      <td class="numeric">47.9%</td>
+      <td class="numeric">59.2%</td>
     </tr>
     <tr>
-     <td>Mobile</td>
-     <td class="numeric">71.4%</td>
-     <td class="numeric">46.8%</td>
-     <td class="numeric">59.6%</td>
+      <td>Mobile</td>
+      <td class="numeric">71.4%</td>
+      <td class="numeric">46.8%</td>
+      <td class="numeric">59.6%</td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="Percent of requests with short TTLs.") }}</figcaption>
@@ -485,7 +481,6 @@ Overall, 65% of responses are served with a `Last-Modified` header, 42% are serv
 
 {{ figure_markup(
   image="fig12.png",
-  alt="Adoption of validating freshness via Last-Modified and ETag headers for desktop websites.",
   caption="Adoption of validating freshness via <code>Last-Modified</code> and <code>ETag</code> headers for desktop websites.",
   description="A bar chart showing 64.4% of desktop requests have a last modified, 42.8% have an ETag, 37.9% have both and 30.7% have neither. The stats for mobile are almost identical at 65.3% for Last Modified, 42.8% for ETag, 38.0% for both and 29.9% for neither.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=20297100&format=interactive"
@@ -587,7 +582,6 @@ One of the risks of caching responses with `Set-Cookie` is that the cookie value
 
 {{ figure_markup(
   image="ch16_fig16_cacheable_responses_set_cookie.jpg",
-  alt="Cacheable responses of Set-Cookie responses.",
   caption="Cacheable responses of <code>Set-Cookie</code> responses.",
   description="A bar chart showing 97% of responses do not use Set-Cookie, and 3% do. This 3% is zoomed into for another bar chart showing the split of 15.3% private, 84.7% public for desktop and similar for mobile at 18.4% public and 81.6% private.",
   width=600,
@@ -597,13 +591,12 @@ One of the risks of caching responses with `Set-Cookie` is that the cookie value
 
 ## AppCache and service workers
 
-The Application Cache or AppCache is a feature of HTML5 that allows developers to specify resources the browser should cache and make available to offline users. This feature was <a hreflang="en" href="https://html.spec.whatwg.org/multipage/offline.html#offline">deprecated and removed from web standards</a>, and browser support has been diminishing. In fact, when its use is detected, [Firefox v44+ recommends that developers should use service workers instead](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers). <a hreflang="en" href="https://www.chromestatus.com/feature/5714236168732672">Chrome 70 restricts the Application Cache to secure context only</a>. The industry has moved more towards implementing this type of functionality with service workers - and <a hreflang="en" href="https://caniuse.com/#feat=serviceworkers">browser support</a> has been rapidly growing for it.
+The Application Cache or AppCache is a feature of HTML5 that allows developers to specify resources the browser should cache and make available to offline users. This feature was <a hreflang="en" href="https://web.archive.org/web/20191115024726/https://html.spec.whatwg.org/multipage/offline.html">deprecated and removed from web standards</a>, and browser support has been diminishing. In fact, when its use is detected, [Firefox v44+ recommends that developers should use service workers instead](https://developer.mozilla.org/docs/Web/API/Service_Worker_API/Using_Service_Workers). <a hreflang="en" href="https://www.chromestatus.com/feature/5714236168732672">Chrome 70 restricts the Application Cache to secure context only</a>. The industry has moved more towards implementing this type of functionality with service workers - and <a hreflang="en" href="https://caniuse.com/#feat=serviceworkers">browser support</a> has been rapidly growing for it.
 
 In fact, one of the <a hreflang="en" href="https://httparchive.org/reports/progressive-web-apps#swControlledPages">HTTP Archive trend reports shows the adoption of service workers</a> shown below:
 
 {{ figure_markup(
   image="ch16_fig14_service_worker_adoption.jpg",
-  alt="Timeseries of service worker controlled pages.",
   caption='Timeseries of service worker controlled pages. (Source: <a hreflang="en" href="https://httparchive.org/reports/progressive-web-apps#swControlledPages">HTTP Archive</a>)',
   description="A time series chart showing service worker controlled site usage from October 2016 until July 2019. Usage has been steadily growing throughout the years for both mobile and desktop but is still less than 0.6% for both.",
   width=600,

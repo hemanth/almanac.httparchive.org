@@ -2,15 +2,15 @@
 #See https://github.com/HTTPArchive/almanac.httparchive.org/wiki/Authors'-Guide#metadata-to-add-at-the-top-of-your-chapters
 title: 无障碍可访问性
 description: 2019 Web Almanac 网络年鉴的无障碍易访问性章节，涵盖易阅读、媒体、易于导航和与辅助技术的兼容性。
-authors: [nektarios-paisios, obto, kleinab]
+authors: [nektarios-paisios, foxdavidj, kleinab]
 reviewers: [ljme]
-analysts: [dougsillars, rviscomi, obto]
-editors: [obto]
+analysts: [dougsillars, rviscomi, foxdavidj]
+editors: [foxdavidj]
 translators: [chengxicn]
 discuss: 1764
 results: https://docs.google.com/spreadsheets/d/16JGy-ehf4taU0w4ABiKjsHGEXNDXxOlb__idY8ifUtQ/
 nektarios-paisios_bio: Nektarios Paisios 是过去5年致力于Chrome辅助功能的软件工程师。 他主要致力于使Chrome与第三方辅助软件（例如屏幕阅读器和屏幕放大镜）兼容。 在研究Chrome的辅助功能之前，Nektarios曾在公司担任过其他各种职务，例如GSuite辅助功能和展示广告。 Nektarios拥有博士学位。 纽约大学计算机科学专业。
-obto_bio: David Fox 是LookZook的首席可用性研究人员和创始人，LookZook沉迷于发现有关构建满足用户期望的Web体验的所有一切。 他是一位网站心理学家，他深入研究网站不仅要学习用户正在苦苦挣扎的东西，而且要学习为什么以及如何最好地改善他们的体验。 他还是Google Chromium的撰稿人，演讲者以及网络研讨会和UX培训的提供者。
+foxdavidj_bio: David Fox 是LookZook的首席可用性研究人员和创始人，LookZook沉迷于发现有关构建满足用户期望的Web体验的所有一切。 他是一位网站心理学家，他深入研究网站不仅要学习用户正在苦苦挣扎的东西，而且要学习为什么以及如何最好地改善他们的体验。 他还是Google Chromium的撰稿人，演讲者以及网络研讨会和UX培训的提供者。
 kleinab_bio: Abigail Klein 是谷歌的软件工程师. 她致力于谷歌文档、表格和幻灯片的web可访问性 她为谷歌幻灯片添加了<a hreflang="en" href="https://www.blog.google/outreach-initiatives/accessibility/whats-you-say-present-captions-google-slides/">自动字幕</a>,并改进了屏幕阅读器、盲文、屏幕放大镜和高对比度支持。 她目前致力于谷歌Chrome和ChromeOS的可访问性。她拥有麻省理工学院(MIT)计算机科学学士和硕士学位，在那里她参与创立了一个辅助技术黑客马拉松，她还是该辅助技术课程的实验室助理和客座讲师。
 featured_quote: 互联网的无障碍可访问性对一个包容和公平的社会至关重要。随着我们的社会生活和工作生活越来越多地转移到网络世界，残障人士能够无障碍地参与所有在线互动就变得更加重要了。正如建筑设计师可以创建或省略无障碍功能，例如轮椅坡道，web开发人员可以帮助或阻碍用户依赖的辅助技术。
 featured_stat_1: 22%
@@ -64,7 +64,7 @@ featured_stat_label_3: 使用跳过链接的网站
 
 在少数情况下，禁用缩放是可以接受的，比如有问题的页面是一个使用触摸控制的基于web的游戏。如果在这种情况下保持开启状态，玩家的手机游戏会在玩家双击时放大或缩小，讽刺的是，这个功能反而使得游戏无法访问。
 
-因此，开发人员被赋予禁用此特性的能力。可以通过设置[viewport元标签](https://developer.mozilla.org/zh-CN/docs/Mobile/Viewport_meta_tag)中的两个属性其中之一：
+因此，开发人员被赋予禁用此特性的能力。可以通过设置[viewport元标签](https://developer.mozilla.org/docs/Web/HTML/Viewport_meta_tag)中的两个属性其中之一：
 
 1. `user-scalable` 设为 `0` 或 `no`
 
@@ -72,7 +72,7 @@ featured_stat_label_3: 使用跳过链接的网站
 
 遗憾的是，开发者们滥用了这一功能，以至于几乎三分之一(32.21%)的移动版网站禁用了这一功能，而苹果(例如 iOS 10)也不再允许网络开发者禁用缩放功能。移动版Safari直接<a hreflang="en" href="https://archive.org/details/ios-10-beta-release-notes">忽略了这个标记</a>。无论如何设置，所有网站都可以在更新的iOS设备上进行缩放。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig2.png",
   caption="禁用缩放的站点与设备类型的百分比。",
   description="垂直测量百分比数据， 从0到80，以20为增量，与设备类型相对应，分为桌面和移动设备。启用桌面版：75.46％； 禁用桌面版24.54％； 启用移动版：67.79％； 禁用移动版：32.21％。",
@@ -84,7 +84,7 @@ featured_stat_label_3: 使用跳过链接的网站
 
 网络充满了惊人数量的内容。但是，这里有一个问题：世界上有超过1000种不同的语言，而你要找的内容可能不是用你能流利使用的语言书写的。近年来我们在翻译技术方面取得了很大的进步，你可能已经在网络上使用过其中的一种(例如，谷歌翻译)。
 
-为了方便使用这个功能，翻译引擎需要知道你的页面是用什么语言编写的。这是通过使用 [lang`属性`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/lang) 来实现的。否则，计算机必须猜测你的页面是用什么语言写的。正如你所想象的那样，这会导致很多错误，特别是当页面使用多种语言时（例如，你的页面导航是英文的，但是发布的内容是日语的）。
+为了方便使用这个功能，翻译引擎需要知道你的页面是用什么语言编写的。这是通过使用 [lang`属性`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang) 来实现的。否则，计算机必须猜测你的页面是用什么语言写的。正如你所想象的那样，这会导致很多错误，特别是当页面使用多种语言时（例如，你的页面导航是英文的，但是发布的内容是日语的）。
 
 这个问题在使用类似屏幕阅读器这样的文字转语音辅助技术时会更加明显，如果没有指定语言，它们倾向于使用默认的用户语言来读取文本。
 
@@ -94,7 +94,7 @@ featured_stat_label_3: 使用跳过链接的网站
 
 有些使用者，比如有认知障碍的人，很难长时间专注于同一项任务。这些用户不希望处理包含大量移动和动画的页面，特别是当这些效果是纯修饰性的、与手上的任务无关的时候。至少，这些用户需要一种方法来关闭所有分散注意力的动画。
 
-不幸的是，我们的发现表明无限循环动画在web上很常见，有21.04%的页面通过无限的CSS动画或者[`<marquee>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/marquee)和[`<blink>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/blink) 元素来使用它们。
+不幸的是，我们的发现表明无限循环动画在web上很常见，有21.04%的页面通过无限的CSS动画或者[`<marquee>`](https://developer.mozilla.org/docs/Web/HTML/Element/marquee)和[`<blink>`](https://developer.mozilla.org/docs/Web/HTML/Element/blink) 元素来使用它们。
 
 有趣的是，这个问题大部分似乎是因为一些流行的第三方样式表默认包含了无限循环的CSS动画。我们无法确定有多少页面实际使用了这些动画样式。
 
@@ -110,7 +110,7 @@ featured_stat_label_3: 使用跳过链接的网站
 
 正如图片是强有力的故事讲述者一样，音频和视频在吸引注意力和表达想法方面也是如此。当音频和视频内容没有字幕时，无法听到这些内容的用户会错过大部分web内容。我们从耳聋或重听的用户中最常听到的需求之一就是需要为所有音频和视频内容加上字幕。
 
-在使用  [`<audio>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/audio)或 [`<video>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video) 元素的网站中，只有0.54％提供字幕(根据包含[`<track>`](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video)  元素来评估)。请注意，某些网站具有用于向用户提供视频和音频字幕的自定义解决方案。我们无法检测到这些，因此使用字幕的网站的真实百分比略高。
+在使用  [`<audio>`](https://developer.mozilla.org/docs/Web/HTML/Element/audio)或 [`<video>`](https://developer.mozilla.org/docs/Web/HTML/Element/video) 元素的网站中，只有0.54％提供字幕(根据包含[`<track>`](https://developer.mozilla.org/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video)  元素来评估)。请注意，某些网站具有用于向用户提供视频和音频字幕的自定义解决方案。我们无法检测到这些，因此使用字幕的网站的真实百分比略高。
 
 ## 页面导航的便捷性
 
@@ -140,11 +140,11 @@ featured_stat_label_3: 使用跳过链接的网站
 
 ### Main 地标
 
-一个[main 地标](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Main_role) 向屏幕阅读器指出网页主要内容的开始位置，以便用户可以直接跳至该页面。如果没有此设置，屏幕阅读器用户每次进入您网站的新页面时都必须手动跳过您的导航。显然，这很令人沮丧。
+一个[main 地标](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/Main_role) 向屏幕阅读器指出网页主要内容的开始位置，以便用户可以直接跳至该页面。如果没有此设置，屏幕阅读器用户每次进入您网站的新页面时都必须手动跳过您的导航。显然，这很令人沮丧。
 
 我们发现，每四个页面中只有一页（26.03％）包含main地标。令人惊讶的是，8.06％的页面错误地包含多个main地标，使这些用户猜测哪个地标包含实际的主要内容。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig4.png",
   caption="按“main”地标数量划分的页面百分比。",
   description="垂直条形图显示百分比数据，范围从0到80，以20为增量，而条形图则表示每页从0到4的“main”地标数量。数据源：HTTP Archive (2019年7月). 0：73.97%; 1：17.97%; 2：7.41%; 3：0.15%; 4：0.06%.",
@@ -156,13 +156,13 @@ featured_stat_label_3: 使用跳过链接的网站
 
 自HTML5于2008年发布并于2014年成为正式标准以来，有许多HTML元素可帮助计算机和屏幕阅读器理解我们的页面布局和结构。
 
-类似 [`<header>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/header)， [`<footer>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer)， [`<navigation>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/nav) 等元素，和[`<main>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/main)指出特定类型的内容所在的位置，并允许用户快速跳转到您的页面。这些已在网络上广泛使用，其中大多数已在50％以上的页面上使用 (`<main>` 是例外离群值).
+类似 [`<header>`](https://developer.mozilla.org/docs/Web/HTML/Element/header)， [`<footer>`](https://developer.mozilla.org/docs/Web/HTML/Element/footer)， [`<navigation>`](https://developer.mozilla.org/docs/Web/HTML/Element/nav) 等元素，和[`<main>`](https://developer.mozilla.org/docs/Web/HTML/Element/main)指出特定类型的内容所在的位置，并允许用户快速跳转到您的页面。这些已在网络上广泛使用，其中大多数已在50％以上的页面上使用 (`<main>` 是例外离群值).
 
-其他元素类似[`<article>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/article)，[`<hr>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hr)，和[`<aside>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside) 帮助读者理解页面的主要内容。例如， `<article>` 说明了一篇文章的结尾，同时也意味着另一篇文章的开头。这些元素的使用率不高，每个元素的使用率约为20％。并非每个网页都拥有所有这些元素，因此这不一定是一个令人担忧的统计数据。
+其他元素类似[`<article>`](https://developer.mozilla.org/docs/Web/HTML/Element/article)，[`<hr>`](https://developer.mozilla.org/docs/Web/HTML/Element/hr)，和[`<aside>`](https://developer.mozilla.org/docs/Web/HTML/Element/aside) 帮助读者理解页面的主要内容。例如， `<article>` 说明了一篇文章的结尾，同时也意味着另一篇文章的开头。这些元素的使用率不高，每个元素的使用率约为20％。并非每个网页都拥有所有这些元素，因此这不一定是一个令人担忧的统计数据。
 
 所有这些元素主要是为无障碍可访问性支持而设计的，并且没有视觉效果，这意味着您可以安全地用它们替换现有元素，并且不会遭受意外的后果。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig5.png",
   caption="各种HTML语义元素的使用。",
   description="垂直条形图，每种元素类型的条形与页面百分比的关系，范围从0到60，增量为20。. nav：53.94%; header：54.82%; footer：55.92%; main：18.47%; aside：16.99%; article：22.59%; hr：19.1%; section：36.55%.",
@@ -174,7 +174,7 @@ featured_stat_label_3: 使用跳过链接的网站
 
 许多流行的屏幕阅读器还允许用户通过快速跳转链接，列表，列表项，iframe和表单字段（如编辑字段，按钮和列表框）进行导航。图9.6详细说明了我们观察到的使用这些元素的页面的频率。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig6.png",
   caption="用于导航的其他HTML元素。",
   description="垂直条形图，每种元素的类型与页面百分比之间的关系，从0到100，以25为增量。a：98.22%; ul：88.62%; input：76.63%; iframe：60.39%; button：56.74%; select：19.68%; textarea：12.03%.",
@@ -203,13 +203,13 @@ featured_stat_label_3: 使用跳过链接的网站
 
 ### 快捷方式
 
-快捷方式通过<a hreflang="en" href="https://www.w3.org/TR/wai-aria-1.1/#aria-keyshortcuts">`aria-keyshortcuts`</a>或者[`accesskey`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/accesskey)属性设置， 可以用于以下两种方式之一：
+快捷方式通过<a hreflang="en" href="https://www.w3.org/TR/wai-aria-1.1/#aria-keyshortcuts">`aria-keyshortcuts`</a>或者[`accesskey`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/accesskey)属性设置， 可以用于以下两种方式之一：
 
 1. 激活页面上的元素，例如链接或按钮。
 
 2. 在页面焦点上赋予特定元素。例如，将焦点转移到页面上的特定输入框，然后允许用户开始在页面上输入内容。
 
-在我们的样本中几乎没有采用 <a hreflang="en" href="https://www.w3.org/TR/wai-aria-1.1/#aria-keyshortcuts">`aria-keyshortcuts`</a> ，在分析的超过400万网站中仅仅有159个站点使用了它。而 [`accesskey`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/accesskey) 属性的使用频率更高，在2.47％的桌面站点上被找到（移动站点的比例是1.74％）。我们认为，桌面上快捷方式的使用率较高是由于开发人员预计移动网站只能通过触摸屏而非键盘来访问。
+在我们的样本中几乎没有采用 <a hreflang="en" href="https://www.w3.org/TR/wai-aria-1.1/#aria-keyshortcuts">`aria-keyshortcuts`</a> ，在分析的超过400万网站中仅仅有159个站点使用了它。而 [`accesskey`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/accesskey) 属性的使用频率更高，在2.47％的桌面站点上被找到（移动站点的比例是1.74％）。我们认为，桌面上快捷方式的使用率较高是由于开发人员预计移动网站只能通过触摸屏而非键盘来访问。
 
 尤其令人惊讶的是，使用快捷键的移动站点和桌面站点中有15.56％和13.03％的用户将同一快捷方式分配给多个不同的元素。这意味着浏览器必须猜测哪个元素应拥有此快捷键。
 
@@ -221,13 +221,13 @@ featured_stat_label_3: 使用跳过链接的网站
 
 根据特定表格的建构方式，利用表头使跨列或行的阅读更加容易，同时不会错过特定列或行所引用的数据的上下文。对于屏幕阅读器用户而言，不得不浏览缺少行头或列头的表格是一种低于标准的体验。这是因为屏幕阅读器用户很难追踪他们在没有表头的表单中的位置，尤其是当表很大时。
 
-要标记表头，只需使用 [`<th>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/th)  标记（而不是[`<td>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/td)) ，或者使用ARIA的 [`columnheader`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Table_Role) 或 [`rowheader`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Table_Role) 角色。在分析中发现只有24.5％的带有表格的页面使用了这两种方法做了标记了。因此，有四分之三的页面选择了包含不带表头的表，这对屏幕阅读器用户构成了严峻的挑战。
+要标记表头，只需使用 [`<th>`](https://developer.mozilla.org/docs/Web/HTML/Element/th)  标记（而不是[`<td>`](https://developer.mozilla.org/docs/Web/HTML/Element/td)) ，或者使用ARIA的 [`columnheader`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/Table_Role) 或 [`rowheader`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/Table_Role) 角色。在分析中发现只有24.5％的带有表格的页面使用了这两种方法做了标记了。因此，有四分之三的页面选择了包含不带表头的表，这对屏幕阅读器用户构成了严峻的挑战。
 
 到目前为止，使用 `<th>` 和 `<td>` 是标记表头的最常用方法。几乎不存在使用 `columnheader` 和 `rowheader` 角色的情况，只有677个站点使用了它们（0.058％）。
 
 #### 标题
 
-通过 [`<caption>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/caption)  元素标记的表格标题有助于为各类读者提供更多的上下文。标题可以使读者对表格内分享的信息做好阅读准备，这对可能容易注意力分散或容易被打扰的人特别有用。对于可能在大表格内丢失位置的人（例如屏幕阅读器用户或有学习或智力障碍的人），它们也很有用。使读者越容易了解他们所分析的内容就越好。
+通过 [`<caption>`](https://developer.mozilla.org/docs/Web/HTML/Element/caption)  元素标记的表格标题有助于为各类读者提供更多的上下文。标题可以使读者对表格内分享的信息做好阅读准备，这对可能容易注意力分散或容易被打扰的人特别有用。对于可能在大表格内丢失位置的人（例如屏幕阅读器用户或有学习或智力障碍的人），它们也很有用。使读者越容易了解他们所分析的内容就越好。
 
 尽管如此，只有4.32％的带有表单的页面提供标题。
 
@@ -239,10 +239,10 @@ featured_stat_label_3: 使用跳过链接的网站
 
 正确和适当的使用ARIA可能会遇到挑战。例如，在使用ARIA属性的页面中，我们发现12.31％的属性分配了无效值。这是有问题的，因为任何使用ARIA属性的错误都不会对页面产生视觉影响。这些错误中的一些可以通过使用自动验证工具来检测，但是通常它们需要动手使用真正的辅助软件（例如屏幕阅读器）。本节将研究如何在网络上使用ARIA，特别是该标准的哪些部分最为普遍。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig8.png",
   caption="页面总数与ARIA属性的百分比。",
-  description="垂直条形图显示百分比数据，范围从0到25，以5为增量，条形图代表每个属性。Aria-hidden：23.46%，aria-label：17.67%，aria-expanded：8.68%，aria-current：7.76%，aria-labelledby：6.85%，aria-controls：3.56%，aria-haspopup：2.62%，aria-invalid：2.68%，aria-describedby：1.69%，aria-live：1.04%，aria-required：1%",
+  description="垂直条形图显示百分比数据，范围从0到25，以5为增量，条形图代表每个属性。`aria-hidden`：23.46%，`aria-label`：17.67%，`aria-expanded`：8.68%，`aria-current`：7.76%，`aria-labelledby`：6.85%，`aria-controls`：3.56%，`aria-haspopup`：2.62%，`aria-invalid`：2.68%，`aria-describedby`：1.69%，`aria-live`：1.04%，`aria-required`：1%",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vSG3DTnx7j-YT1hnQpQYjDRD-rCSF1dXbgva-iJQZKdCKIt34ojGMDRhx74fF93CpPg7oGW_C68fWGT/pubchart?oid=792161340&format=interactive"
   )
 }}
@@ -253,7 +253,7 @@ featured_stat_label_3: 使用跳过链接的网站
 
 当前，有46.91％的页面使用至少一个ARIA角色属性。在下面的图9.9中，我们汇总了使用最广泛的十个ARIA角色值。
 
- {{ figure_markup(
+{{ figure_markup(
   image="fig9.png",
   caption="前10名aria角色。",
   description=" 垂直条形图，每种角色类型的条形图和使用的站点百分比，范围是0到25，以5为增量。Navigation：20.4%; search：15.49%; main：14.39%; banner：13.62%; contentinfo：11.23%; button：10.59%; dialog：7.87%; complementary：6.06%; menu：4.71%; form：3.75%",
@@ -273,7 +273,7 @@ featured_stat_label_3: 使用跳过链接的网站
 
 ##### 许多站点试图使对话框易于访问
 
-因为使屏幕阅读器用户可以访问对话框非常具有挑战性 ，所以[dialog对话角色](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)的相对受欢迎程度在分析中脱颖而出。我们兴奋的观察到，大约有8％的分析页面正准备迎接挑战。同样，我们怀疑这可能是由于使用了某些UI框架所致。
+因为使屏幕阅读器用户可以访问对话框非常具有挑战性 ，所以[dialog对话角色](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/dialog_role)的相对受欢迎程度在分析中脱颖而出。我们兴奋的观察到，大约有8％的分析页面正准备迎接挑战。同样，我们怀疑这可能是由于使用了某些UI框架所致。
 
 #### 互动元素的标签
 
@@ -285,11 +285,11 @@ Tab顺序中几乎总是包含按钮和链接，因此具有极高的可见性�
 
 ### 表单控件的可访问性
 
-填写表格是我们许多人每天要做的一项任务。无论我们是购物，预订旅行还是求职，表格都是用户与网页共享信息的主要方式。因此，确保您的表单可访问性非常重要。实现此目的的最简单方法是为每个输入提供标签 (通过 [`<label>`元素](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label)，[`aria-label`](https://developer.mozilla.org/zh-CN/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) 或者 [`aria-labelledby`](https://developer.mozilla.org/zh-CN/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute))。不幸的是，只有 22.33% 页面为其所有表单输入提供标签，这意味着每5页中有4个页面的表格可能非常难以填写。
+填写表格是我们许多人每天要做的一项任务。无论我们是购物，预订旅行还是求职，表格都是用户与网页共享信息的主要方式。因此，确保您的表单可访问性非常重要。实现此目的的最简单方法是为每个输入提供标签 (通过 [`<label>`元素](https://developer.mozilla.org/docs/Web/HTML/Element/label)，[`aria-label`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) 或者 [`aria-labelledby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute))。不幸的是，只有 22.33% 页面为其所有表单输入提供标签，这意味着每5页中有4个页面的表格可能非常难以填写。
 
 #### 必填字段和无效字段的指示符
 
-当我们遇到一个旁边有一个大红色星号的字段时，我们知道它是必填字段。或者，当我们点击“提交”并被告知存在无效的输入时，需要更正用不同颜色突出显示的所有内容，然后重新提交。但是，视力低下或没有视力的人不能依靠这些视觉提示， 这就是为什么HTML输入属性 `required`， `aria-required`，和`aria-invalid`如此重要的原因。它们为屏幕阅读器提供了相当于红色星号和红色突出显示字段的内容。额外的好处是，当您通知浏览器需要哪些字段时，它们会为您 [验证表单的某些部分](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Forms/Data_form_validation)。而无需JavaScript.
+当我们遇到一个旁边有一个大红色星号的字段时，我们知道它是必填字段。或者，当我们点击“提交”并被告知存在无效的输入时，需要更正用不同颜色突出显示的所有内容，然后重新提交。但是，视力低下或没有视力的人不能依靠这些视觉提示， 这就是为什么HTML输入属性 `required`， `aria-required`，和`aria-invalid`如此重要的原因。它们为屏幕阅读器提供了相当于红色星号和红色突出显示字段的内容。额外的好处是，当您通知浏览器需要哪些字段时，它们会为您 [验证表单的某些部分](https://developer.mozilla.org/docs/Learn/HTML/Forms/Data_form_validation)。而无需JavaScript.
 
 在使用表单的网页中，有21.73% 在标记必填字段时使用 `required` 或者 `aria-required`。每五个站点中只有一个使用此功能。这是使您的网站无障碍并为所有用户解锁有帮助的浏览器功能的简单步骤。
 
@@ -297,11 +297,11 @@ Tab顺序中几乎总是包含按钮和链接，因此具有极高的可见性�
 
 #### 重复的ID
 
-在HTML中 ，ID可以用于将两个元素链接在一起。例如，[`<label>`元素](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label) 以这种方式工作。您指定此标签描述的输入字段的ID，然后浏览器将它们链接在一起。结果？用户现在可以点击此标签以将焦点放在输入字段上，屏幕阅读器将使用此标签作为说明。
+在HTML中 ，ID可以用于将两个元素链接在一起。例如，[`<label>`元素](https://developer.mozilla.org/docs/Web/HTML/Element/label) 以这种方式工作。您指定此标签描述的输入字段的ID，然后浏览器将它们链接在一起。结果？用户现在可以点击此标签以将焦点放在输入字段上，屏幕阅读器将使用此标签作为说明。
 
 不幸的是，34.62％的站点具有重复的ID，这意味着在许多站点上，用户指定的ID可以引用多个不同的输入。因此，当用户单击标签选择一个字段时，他们可能没有选择他们期望的内容，而是会最终 <a hreflang="en" href="https://www.deque.com/blog/unique-id-attributes-matter/">选择不同的内容</a>。您可能会想到，这也许会对购物车等产生负面影响。
 
-对于屏幕阅读器来说，这个问题更加明显，因为他们的用户可能无法直观地二次检查所选内容。另外，许多ARIA属性，例如 [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute) 和 [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute)与上述标签元素的功能相似。因此，要使您的网站无障碍化，删除所有重复的ID是一个很好的第一步。
+对于屏幕阅读器来说，这个问题更加明显，因为他们的用户可能无法直观地二次检查所选内容。另外，许多ARIA属性，例如 [`aria-describedby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute) 和 [`aria-labelledby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute)与上述标签元素的功能相似。因此，要使您的网站无障碍化，删除所有重复的ID是一个很好的第一步。
 
 ## 结论
 

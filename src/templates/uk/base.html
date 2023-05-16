@@ -32,6 +32,7 @@
 
 {% block help_translate %}Допомогти з перекладом{% endblock %}
 {% block translation_not_available %}англійською - переклад недоступний{% endblock %}
+{% block in_english %} (англійською - переклад недоступний){% endblock %}
 {% block language_switcher %}Змінити мову{% endblock %}
 {% block year_switcher %}Змінити рік{% endblock %}
 {% block table_of_contents_switcher %}Переключити зміст{% endblock %}
@@ -40,6 +41,7 @@
 {% block table_of_contents_title %}Зміст{% endblock %}
 {% block contributors_title %}Контриб'ютори{% endblock %}
 {% block methodology_title %}Методологія{% endblock %}
+{% block search_title %}Пошук{% endblock %}
 
 {% block part %}Частина{% endblock %}
 {% block chapter %}Розділ{% endblock %}
@@ -81,10 +83,33 @@
 {% block reviewed_and_analyzed_by_after %}{% endblock %}
 {% block analysis_and_editing_by_after %}{% endblock %}
 
+{% block date_published %}Дата публікації: {% endblock %}
+{% block date_updated %}Дата оновлення: {% endblock %}
+
 {% block unedited %}[Очікує корегування]{% endblock %}
 
 {% block author %}Автор{% endblock %}
 {% block authors %}Автори{% endblock %}
+
+{% block reaction %}pеакція{% endblock %}
+{% block reactions %}pеакції{% endblock %}
+{% block reactionsTitle %}Pеакції{% endblock %}
+{% block reactionsAlt %}pеакцій{% endblock %}
+{% block source %}Переглянути джерело{% endblock %}
+{% block share %}поділитися{% endblock %}
+
+{% block like %}лайк{% endblock %}
+{% block repost %}репост{% endblock %}
+{% block reply %}відповідь{% endblock %}
+{% block mention %}згадка{% endblock %}
+{% block likes %}лайків{% endblock %}
+{% block reposts %}репостів{% endblock %}
+{% block replies %}відповідей{% endblock %}
+{% block mentions %}згадок{% endblock %}
+{% block likesAlt %}лайки{% endblock %}
+{% block repostsAlt %}репости{% endblock %}
+{% block repliesAlt %}відповіді{% endblock %}
+{% block mentionsAlt %}згадки{% endblock %}
 
 {% macro onTwitter(twitterHandle) %}@{{twitterHandle}} у Twitter{% endmacro %}
 {% macro onGitHub(gitHubHandle) %}{{gitHubHandle}} на GitHub{% endmacro %}
@@ -96,9 +121,10 @@
 {% block footer_title %}Підвальна навігація{% endblock %}
 {% block copyright %}© Web Almanac. Ліцензія <a hreflang="en" href="https://github.com/HTTPArchive/almanac.httparchive.org/blob/main/LICENSE">Apache 2.0</a>.{% endblock %}
 {% block accessibility_statement %}Заява про доступність{% endblock %}
+{% block rss_feed %}RSS Feed{% endblock %}
 
 {% block featured_chapter %}Рекомендований розділ{% endblock %}
-{% block featured_chapter_last_year %}Рекомендований розділ<br/>з Web Almanac {{ year|int -1 }}{% endblock %}
+{% block featured_chapter_last_year %}Рекомендований розділ<br>з Web Almanac {{ year|int -1 }}{% endblock %}
 
 {# Check if read_chapter already defined in child template as macros can't be overridden #}
 {% if not read_chapter %}
@@ -142,6 +168,7 @@
     "IV. Content Distribution": "IV. Розповсюдження контенту"
   }
 %}
+
 {%
   set localizedChapterTitles = {
     "javascript": "JavaScript",
@@ -163,12 +190,19 @@
     "cdn": "CDN",
     "page-weight": "Розмір сторінки",
     "resource-hints": "Підказки для ресурсів",
-    "http2": "HTTP/2",
+    "http": "HTTP",
     "privacy": "Приватність",
     "capabilities": "Можливості",
-    "jamstack": "Jamstack"
+    "jamstack": "Jamstack",
+    "webassembly": "WebAssembly",
+    "structured-data": "Structured Data",
+    "sustainability": "Стійкість",
+    "interop": "Cумісність"
   }
 %}
+{% if (year == "2019" or year == "2020") %}
+{% set _dummy = localizedChapterTitles.__setitem__("http", "HTTP/2") %}
+{% endif %}
 
 {% set localizedTeamNames = {
   "analysts": "Аналітики",
@@ -177,8 +211,21 @@
   "designers": "Дизайнери",
   "developers": "Розробники",
   "editors": "Редактори",
-  "leads": "Керівники проектів",
+  "leads": "Керівники проєкту",
   "reviewers": "Рецензенти",
   "translators": "Перекладачі"
+  }
+%}
+
+{% set localizedTeamRole = {
+  "analysts": "Аналітик",
+  "authors": "Автор",
+  "brainstormers": "Творча група",
+  "designers": "Дизайнер",
+  "developers": "Розробник",
+  "editors": "Редактор",
+  "leads": "Керівник проєкту",
+  "reviewers": "Рецензент",
+  "translators": "Перекладач"
   }
 %}

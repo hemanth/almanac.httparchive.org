@@ -3,9 +3,9 @@
 title: Fonts
 description: Fonts chapter of the 2019 Web Almanac covering where fonts are loaded from, font formats, font loading performance, variable fonts and color fonts.
 authors: [zachleat]
-reviewers: [hyperpress, AymenLoukil]
+reviewers: [logicalphase, AymenLoukil]
 analysts: [tjmonsi, rviscomi]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: []
 discuss: 1761
 results: https://docs.google.com/spreadsheets/d/108g6LXdC3YVsxmX1CCwrmpZ3-DmbB8G_wwgQHX5pn6Q/
@@ -33,7 +33,7 @@ Using hosted web fonts enables ease of implementation and maintenance, but self-
 
 ### Are fonts being hosted on the same host or by a different host?
 
-Differentiating self-hosting against third-party hosting is increasingly relevant in an [HTTP/2](./http2) world, where the performance gap between a same-host and different-host connection can be wider. Same-host requests have the huge benefit of a better potential for prioritization against other same-host requests in the waterfall.
+Differentiating self-hosting against third-party hosting is increasingly relevant in an [HTTP/2](./http) world, where the performance gap between a same-host and different-host connection can be wider. Same-host requests have the huge benefit of a better potential for prioritization against other same-host requests in the waterfall.
 
 Recommendations to mitigate the performance costs of loading web fonts from another host include using the `preconnect`, `dns-prefetch`, and `preload` [resource hints](./resource-hints), but high priority web fonts should be same-host requests to minimize the performance impact of web fonts. This is especially important for fonts used by very visually prominent content or body copy occupying the majority of a page.
 
@@ -181,7 +181,7 @@ While the high usage of Google Fonts here is very impressive, it is also notewor
 
 - When pages uses Google Fonts, they use _a lot_ of Google Fonts. They are provided without monetary cost, after all. Perhaps they're being used in a popular WYSIWYG editor? This seems like a very likely explanation.
 - Or a more unlikely story is that it could mean that a lot of people are using Google Fonts with `@import` instead of `<link>`.
-- Or if we want to go off the deep end into super unlikely scenarios, it could mean that many people are using Google Fonts with an [HTTP `Link:` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link) instead.
+- Or if we want to go off the deep end into super unlikely scenarios, it could mean that many people are using Google Fonts with an [HTTP `Link:` header](https://developer.mozilla.org/docs/Web/HTTP/Headers/Link) instead.
 
 {{ figure_markup(
   caption="Percent of pages that include a Google Fonts stylesheet link as the first child in the document <code><head></code>.",
@@ -373,7 +373,6 @@ Let's dig a bit deeper and look at the `format()` values used in the `src:` prop
 
 {{ figure_markup(
   image="fig8.png",
-  alt="Popularity of font formats in @font-face declarations.",
   caption="Popularity of font formats in <code>@font-face</code> declarations.",
   description="Bar chart showing the popularity of formats used in font-face declarations. 69% of desktop pages' @font-face declarations specify the WOFF2 format, 11% WOFF, 10% TrueType, 8% SVG, 2% EOT, and fewer than 1% OpenType, TTF, and OTF. The distribution for mobile pages is similar.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDogXDb3BwZZHrBT39qccP_LJoCScD3QEi_FmjT_8VDPD_1Srpz-g7ZuuTUEb8pYXBpDmQzZ1hQh7q/pubchart?oid=700778025&format=interactive"
@@ -541,13 +540,12 @@ The number one tool we have to fight the default web font loading behavior of "i
 
 I assume this will be creeping up over time, especially now that <a hreflang="en" href="https://www.zachleat.com/web/google-fonts-display/">Google Fonts is adding `font-display` to all new code snippets</a> copied from their site.
 
-If you're using Google Fonts, update your snippets! If you're not using Google Fonts, use `font-display`! Read more about `font-display` on [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display).
+If you're using Google Fonts, update your snippets! If you're not using Google Fonts, use `font-display`! Read more about `font-display` on [MDN](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display).
 
 Let's have a look at what `font-display` values are popular:
 
 {{ figure_markup(
   image="fig11.png",
-  alt="Usage of font-display values.",
   caption="Usage of <code>font-display</code> values.",
   description="Bar chart showing the usage of the font-display style. 2.6% of mobile pages set this style to `swap`, 1.5% to `auto`, 0.7% to `block`, 0.4% to `fallback`, 0.2% to optional, and 0.1% to `swap` enclosed in quotes, which is invalid. The desktop distribution is similar except `swap` usage is lower by 0.4 percentage points and `auto` usage is higher by 0.1 percentage points.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDogXDb3BwZZHrBT39qccP_LJoCScD3QEi_FmjT_8VDPD_1Srpz-g7ZuuTUEb8pYXBpDmQzZ1hQh7q/pubchart?oid=1988783738&format=interactive"
@@ -606,7 +604,7 @@ Ironic that a performance optimization plugin can make your performance much wor
 )
 }}
 
-[`unicode-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face/unicode-range) is a great CSS property to let the browser know specifically which code points the page would like to use in the font file. If the `@font-face` declaration has a `unicode-range`, content on the page must match one of the code points in the range before the font is requested. It is a very good thing.
+[`unicode-range`](https://developer.mozilla.org/docs/Web/CSS/%40font-face/unicode-range) is a great CSS property to let the browser know specifically which code points the page would like to use in the font file. If the `@font-face` declaration has a `unicode-range`, content on the page must match one of the code points in the range before the font is requested. It is a very good thing.
 
 This is another metric that I expect was skewed by Google Fonts usage, as Google Fonts uses `unicode-range` in most (if not all) of its CSS. I'd expect this to be less common in user land, but perhaps filtering out Google Fonts requests in the next edition of the Almanac may be possible.
 
@@ -632,13 +630,13 @@ It should also be noted here that it has been said by smarter people than I (Bra
 )
 }}
 
-Historically, `font-stretch` has suffered from poor browser support and was not a well-known `@font-face` property. Read more about [`font-stretch` on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-stretch). But <a hreflang="en" href="https://caniuse.com/#feat=css-font-stretch">browser support</a> has broadened.
+Historically, `font-stretch` has suffered from poor browser support and was not a well-known `@font-face` property. Read more about [`font-stretch` on MDN](https://developer.mozilla.org/docs/Web/CSS/font-stretch). But <a hreflang="en" href="https://caniuse.com/#feat=css-font-stretch">browser support</a> has broadened.
 
 It has been suggested that using condensed fonts on smaller viewports allows more text to be viewable, but this approach isn't commonly used. That being said, that this property is used half a percentage point more on desktop than mobile is unexpected, and 7% seems much higher than I would have predicted.
 
 ## Variable fonts are the future
 
-[Variable fonts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide) allow several font weights and styles to be included in the one font file.
+[Variable fonts](https://developer.mozilla.org/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide) allow several font weights and styles to be included in the one font file.
 
 {{ figure_markup(
   caption="Percent of pages that include a variable font.",
@@ -651,7 +649,6 @@ Even at 1.8% this was higher than expected, although I am excited to see this ta
 
 {{ figure_markup(
   image="fig19.png",
-  alt="Usage of font-variation-settings axes.",
   caption="Usage of <code>font-variation-settings</code> axes.",
   description="Bar chart showing the usage of the font-variation-settings property. 42% of properties on desktop pages are set to the `opsz` value, 32% to `wght`, 16% to `wdth`, 2% or fewer to `roun`, `crsb`, `slnt`, `inln`, and more. The most notable differences between desktop and mobile pages are 26% usage of `opsz`, 38% of `wght`, and 23% of `wdth`.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQDogXDb3BwZZHrBT39qccP_LJoCScD3QEi_FmjT_8VDPD_1Srpz-g7ZuuTUEb8pYXBpDmQzZ1hQh7q/pubchart?oid=699343351&format=interactive"

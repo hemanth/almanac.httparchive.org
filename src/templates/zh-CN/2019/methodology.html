@@ -40,13 +40,13 @@
     <section>
       <!-- Show large image for large screens and high density screens and use webp when supported -->
       <picture>
-          <source media="(min-width: 327px)" type="image/webp" srcset="/static/images/methodology-banner.webp" />
-          <source media="(min-width: 327px)" type="image/jpeg" srcset="/static/images/methodology-banner.png" />
-          <source type="image/webp" srcset="/static/images/methodology-banner.webp 2x" />
-          <source type="image/jpeg" srcset="/static/images/methodology-banner.png 2x" />
-          <source type="image/webp" srcset="/static/images/methodology-banner-sm.webp" />
-          <source type="image/jpeg" srcset="/static/images/methodology-banner-sm.png" />
-          <img src="/static/images/methodology-banner.png" class="content-banner" alt="" width="1200" height="984" loading="eager" />
+          <source media="(min-width: 327px)" type="image/webp" srcset="/static/images/methodology-banner.webp">
+          <source media="(min-width: 327px)" type="image/jpeg" srcset="/static/images/methodology-banner.png">
+          <source type="image/webp" srcset="/static/images/methodology-banner.webp 2x">
+          <source type="image/jpeg" srcset="/static/images/methodology-banner.png 2x">
+          <source type="image/webp" srcset="/static/images/methodology-banner-sm.webp">
+          <source type="image/jpeg" srcset="/static/images/methodology-banner-sm.png">
+          <img src="/static/images/methodology-banner.png" class="content-banner" alt="" width="1200" height="984" fetchpriority="high">
         </picture>
         <h2 id="overview"><a href="#overview" class="anchor-link">概览</a></h2>
 
@@ -67,7 +67,7 @@
         <h2 id="dataset"><a href="#dataset" class="anchor-link">关于数据集</a></h2>
 
         <p>
-          HTTP Archive 数据集每月持续更新新的数据。对于2019年版的Web Almanac，除非本章另有说明，否则所有的指标都来自于2019年7月的抓取。这些结果<a hreflang="en" href="https://github.com/HTTPArchive/httparchive.org/blob/master/docs/gettingstarted_bigquery.md">可以用 <code>2019_07_01</code>为前缀在BigQuery公开的查询</a>
+          HTTP Archive 数据集每月持续更新新的数据。对于2019年版的Web Almanac，除非本章另有说明，否则所有的指标都来自于2019年7月的抓取。这些结果<a hreflang="en" href="https://github.com/HTTPArchive/httparchive.org/blob/main/docs/gettingstarted_bigquery.md">可以用 <code>2019_07_01</code>为前缀在BigQuery公开的查询</a>
         </p>
 
         <p>
@@ -147,7 +147,7 @@
       </p>
 
       <p>
-       有些指标是完全无法达到的。例如，我们不一定有能力检测用于创建网站的工具。如果一个网站是使用create-react-app构建的，我们可以看出它使用的是React框架，但不一定是使用了特定的构建工具。除非这些工具在网站代码中留下可探测的指纹，否则我们无法测量它们的使用情况。
+        有些指标是完全无法达到的。例如，我们不一定有能力检测用于创建网站的工具。如果一个网站是使用create-react-app构建的，我们可以看出它使用的是React框架，但不一定是使用了特定的构建工具。除非这些工具在网站代码中留下可探测的指纹，否则我们无法测量它们的使用情况。
       </p>
 
       <p>
@@ -167,7 +167,7 @@
       <h3 id="webpagetest"><a href="#webpagetest" class="anchor-link">WebPageTest</a></h3>
 
       <p>
-        <a hreflang="en" href="https://www.webpagetest.org/">WebPageTest</a> 是一个卓越的web性能测试工具，同时是HTTP Archive的骨干。我们使用一个WebPageTest的 <a hreflang="en" href="https://github.com/WPO-Foundation/webpagetest-docs/blob/master/user/Private%20Instances/README.md">私有实例</a> ，携带着私有的测试UA，它是测试每个web页面的实际浏览器。 桌面和移动网站在不同的配置下进行测试:
+        <a hreflang="en" href="https://www.webpagetest.org/">WebPageTest</a> 是一个卓越的web性能测试工具，同时是HTTP Archive的骨干。我们使用一个WebPageTest的 <a hreflang="en" href="https://docs.webpagetest.org/private-instances/">私有实例</a> ，携带着私有的测试UA，它是测试每个web页面的实际浏览器。 桌面和移动网站在不同的配置下进行测试:
       </p>
       <div class="table-wrap"><div class="table-wrap-container">
       <table>
@@ -235,7 +235,7 @@
       </p>
 
       <p>
-        HTTP Archive 的 WebPageTest 私有实例和最新的公有版本保持一致，使用 <a hreflang="en" href="https://github.com/HTTPArchive/legacy.httparchive.org/tree/master/custom_metrics">自定义指标</a>来增强。 这些是测试结尾时在每个网站上评估测试的JavaScript片段<a hreflang="en" href="https://github.com/HTTPArchive/legacy.httparchive.org/blob/master/custom_metrics/almanac.js">almanac.js</a> 。自定义指标包括一些其他情况下无法计算的指标，例如那些依赖于DOM状态的指标。
+        HTTP Archive 的 WebPageTest 私有实例和最新的公有版本保持一致，使用 <a hreflang="en" href="https://github.com/HTTPArchive/custom-metrics">自定义指标</a>来增强。 这些是测试结尾时在每个网站上评估测试的JavaScript片段<a hreflang="en" href="https://github.com/HTTPArchive/legacy.httparchive.org/blob/master/custom_metrics/almanac.js">almanac.js</a> 。自定义指标包括一些其他情况下无法计算的指标，例如那些依赖于DOM状态的指标。
       </p>
 
       <p>

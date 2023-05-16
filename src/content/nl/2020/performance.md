@@ -3,9 +3,9 @@
 title: Prestatie
 description: Prestatiehoofdstuk van de Web Almanac 2020 met betrekking tot Core Web Vitals, Lighthouse Performance Score, First Contentful Paint (FCP) en Time to First Byte (TTFB).
 authors: [thefoxis]
-reviewers: [borisschapira, rviscomi, obto, noamr, Zizzamia, exterkamp]
+reviewers: [borisschapira, rviscomi, foxdavidj, noamr, Zizzamia, exterkamp]
 analysts: [max-ostapenko, dooman87]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [noah-vdv]
 thefoxis_bio: Karolina is Product Design Lead bij <a hreflang="en" href="https://calibreapp.com/">Calibre</a> en werkt aan het creëren van het meest uitgebreide platform voor snelheidscontrole. Ze beheert de <a hreflang="en" lang="en" href="https://perf.email/">Performance Newsletter</a>, uw bron van nieuws over prestaties en bronnen. Karolina <a hreflang="en" href="https://calibreapp.com/blog/category/web-platform">schrijft ook regelmatig</a> over hoe prestaties de gebruikerservaring beïnvloeden.
 discuss: 2045
@@ -99,7 +99,7 @@ In de bovenstaande grafiek kunnen we zien dat tussen 43% en 53% van de websites 
 
 Het hoogste percentage goede LCP-metingen wordt voornamelijk verspreid onder Europese en Aziatische landen, waarbij de Republiek Korea (Zuid-Korea) voorop staat met 76% van goede metrische metingen. Zuid-Korea is een constante leider op het gebied van mobiele snelheden, met een indrukwekkende download van 145 Mbps <a hreflang="en" href="https://www.speedtest.net/global-index">gerapporteerd door Speedtest Global Index</a> voor oktober. Japan, Tsjechië, Taiwan, Duitsland en België zijn ook een handvol landen met betrouwbaar hoge mobiele snelheden. Australië is toonaangevend op het gebied van mobiele netwerksnelheden, maar wordt in de steek gelaten door langzame desktopverbindingen en latentie, waardoor het onderaan in de bovenstaande ranglijst staat.
 
-India blijft de laatste in onze reeks gegevens, met slechts 16% goede ervaringen. Hoewel de populatie van mensen die voor het eerst verbinding maken met internet voortdurend toeneemt, zijn de snelheden van mobiele en desktopnetwerken <a hreflang="en" href="https://www.opensignal.com/reports/2020/04/india/mobile-netwerkervaring">nog steeds een probleem</a>, met gemiddelde downloads van 10 Mbps voor 4G, 3 Mbps voor 3G en minder dan 50 Mbps voor desktop.
+India blijft de laatste in onze reeks gegevens, met slechts 16% goede ervaringen. Hoewel de populatie van mensen die voor het eerst verbinding maken met internet voortdurend toeneemt, zijn de snelheden van mobiele en desktopnetwerken <a hreflang="en" href="https://www.opensignal.com/reports/2020/04/india/mobile-network-experience">nog steeds een probleem</a>, met gemiddelde downloads van 10 Mbps voor 4G, 3 Mbps voor 3G en minder dan 50 Mbps voor desktop.
 
 ### LCP per verbindingstype
 
@@ -263,7 +263,7 @@ In de bovenstaande grafieken zijn de FCP-distributies uitgesplitst naar desktop 
 
 Als we FCP op mobiele apparaten op jaarbasis vergelijken, zien we minder goede ervaringen en meer gematigde en slechte ervaringen. 75% van de websites heeft een ondermaatse FCP. We kunnen speculeren dat dit hoge percentage van minder dan ideale FCP-metingen een bron van frustratie en verminderde gebruikerservaring is.
 
-Talrijke factoren kunnen verven vertragen, zoals serverlatentie (gemeten aan de hand van een handvol metrische gegevens, zoals [<span Lang="en">Time to First Byte</span> (TTFB)](#time-to-first-byte) en RTT), het blokkeren van JavaScript-verzoeken of ongepaste behandeling van aangepaste lettertypen om er maar een paar te noemen.
+Talrijke factoren kunnen verven vertragen, zoals serverlatentie (gemeten aan de hand van een handvol metrische gegevens, zoals [<span Lang="en">Time to First Byte</span> (TTFB)](#time-to-first-byte) en RTT), het blokkeren van JavaScript-verzoeken of ongepaste behandeling van aangepaste lettertypen om er maar een paar te noemen.<!-- markdownlint-disable-line MD051 -->
 
 ### FCP op geografische locatie
 
@@ -301,7 +301,7 @@ Nogmaals, er zijn verschillende redenen die FCP negatief beïnvloeden, zoals sle
 
 Net als bij andere statistieken wordt FCP beïnvloed door verbindingssnelheden. Op 3G scoort slechts 2% van de ervaringen goed, terwijl op 4G 31%. Het is geen ideale staat van FCP-prestaties, maar het [is verbeterd sinds 2019](../2019/performance#fcp-by-effectieve-verbindingstype) op sommige gebieden, wat opnieuw kan worden veroorzaakt door de verandering in categorisering van goede en slechte categorisering. We zien dezelfde stijging in het percentage goede websites en slechte websites, waardoor het aantal matige ("moet worden verbeterd") site-ervaringen worden verkleind.
 
-Deze trend illustreert de groeiende digitale kloof, waarbij ervaringen op langzamere netwerken en mogelijk minder capabele apparaten consequent slechter zijn. Het verbeteren van FCP op langzame verbindingen hangt direct samen met het verbeteren van TTFB, wat we zien in [Geaggregeerde TTFB-prestaties per diagram met verbindingstypes](#ttfb-by-connection-type) - slecht TTFB = slecht FCP.
+Deze trend illustreert de groeiende digitale kloof, waarbij ervaringen op langzamere netwerken en mogelijk minder capabele apparaten consequent slechter zijn. Het verbeteren van FCP op langzame verbindingen hangt direct samen met het verbeteren van TTFB, wat we zien in [Geaggregeerde TTFB-prestaties per diagram met verbindingstypes](#ttfb-per-verbindingstype) - slecht TTFB = slecht FCP.
 
 De keuze van <a hreflang="en" href="https://ismyhostfastyet.com/">hostingprovider</a> of <a hreflang="en" href="https://www.cdnperf.com/">CDN</a> zal een trapsgewijs effect hebben op de snelheid. Het nemen van deze beslissingen op basis van de snelst mogelijke levering zal helpen bij het verbeteren van FCP en TTFB, vooral op langzamere netwerken. FCP wordt ook aanzienlijk beïnvloed door de laadtijd van lettertypen, dus <a hreflang="en" href="https://web.dev/font-display/">ervoor zorgen dat tekst zichtbaar is terwijl weblettertypen worden gedownload</a> is ook een waardevolle strategie (vooral waar bij langzamere verbindingen deze bronnen kostbaar zijn om te halen).
 
@@ -361,7 +361,7 @@ Wat verrassend is, is het relatief evenveel goede TTFB-resultaat tussen offline 
 
 ## <span lang="en">Performance Observer</span> gebruik {performance-observer-gebruik}
 
-Er zijn tientallen verschillende gebruikersgerichte statistieken die kunnen worden gebruikt om websites en applicaties te beoordelen. Soms passen de vooraf gedefinieerde statistieken echter niet helemaal bij onze specifieke scenario's en behoeften. Met de [PerformanceObserver API](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver) kunnen we aangepaste metrische gegevens verkrijgen die zijn verkregen met [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API), [Long Task API](https://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API), <a hreflang="en" href="https://web.dev/custom-metrics/#event-timing-api">Event Timing API</a> en <a hreflang="en" href="https://web.dev/custom-metrics/">een handvol andere low-level API's</a>. Met hun hulp kunnen we bijvoorbeeld de timingovergangen tussen pagina's vastleggen of de hydratatie van de server-side-rendered (SSR) -toepassing kwantificeren.
+Er zijn tientallen verschillende gebruikersgerichte statistieken die kunnen worden gebruikt om websites en applicaties te beoordelen. Soms passen de vooraf gedefinieerde statistieken echter niet helemaal bij onze specifieke scenario's en behoeften. Met de [PerformanceObserver API](https://developer.mozilla.org/docs/Web/API/PerformanceObserver) kunnen we aangepaste metrische gegevens verkrijgen die zijn verkregen met [User Timing API](https://developer.mozilla.org/docs/Web/API/User_Timing_API), [Long Task API](https://developer.mozilla.org/docs/Web/API/Long_Tasks_API), <a hreflang="en" href="https://web.dev/custom-metrics/#event-timing-api">Event Timing API</a> en <a hreflang="en" href="https://web.dev/custom-metrics/">een handvol andere low-level API's</a>. Met hun hulp kunnen we bijvoorbeeld de timingovergangen tussen pagina's vastleggen of de hydratatie van de server-side-rendered (SSR) -toepassing kwantificeren.
 
 {{ figure_markup(
   image="performance-performance-observer-usage.png",

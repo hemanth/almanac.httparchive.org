@@ -3,9 +3,9 @@
 title: 性能
 description: 2020年 Web 年鉴性能篇，涵盖了网页核心指标、Lighthouse 性能评分、首次内容绘制（FCP）、首字节时间（TTFB）。
 authors: [thefoxis]
-reviewers: [borisschapira, rviscomi, obto, noamr, Zizzamia, exterkamp]
+reviewers: [borisschapira, rviscomi, foxdavidj, noamr, Zizzamia, exterkamp]
 analysts: [max-ostapenko, dooman87]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [Zuckjet]
 thefoxis_bio: Karolina 是 <a hreflang="en" href="https://calibreapp.com/">Calibre</a> 产品设计主管，致力打造最全面的速度监测平台。她创办了性能期刊，也就是你平时看到的性能简讯的来源。Karolina <a hreflang="en" href="https://calibreapp.com/blog/category/web-platform">也经常发表</a>关于性能如何影响用户体验的文章。
 discuss: 2045
@@ -301,7 +301,7 @@ FID 评分的地理分布图证实了前面设备汇总图的发现。在最差�
 
 和其他指标相似，FCP 会被连接速度影响。在3G网络中，只有2%的体验是良好，而在4G网络中，达到了31%。它不是 FCP 性能的理想状态，但是[自2019年以来已经有改进](../2019/performance#fcp-by-effective-connection-type)，这可能又是和站点被评定为良好和差的标准的更改有关。我们看到好的站点和差站点的比例都有一样的增长，这减少了中等（需要改进）体验的网站数目。
 
-这个趋势说明了数字鸿沟在不断加剧，用户体验在较慢的网络和较差性能的设备上会一直恶化。在较慢连接的场景中提高 FCP 和增强 TTFB 是正相关的，这在[通过连接类型汇总 TTFB 性能图标](#ttfb-by-connection-type)中可以观察到，也就是说较差的 TTFB 等同于较差的 FCP。
+这个趋势说明了数字鸿沟在不断加剧，用户体验在较慢的网络和较差性能的设备上会一直恶化。在较慢连接的场景中提高 FCP 和增强 TTFB 是正相关的，这在[通过连接类型汇总 TTFB 性能图标](#按连接类型查看-ttfb)中可以观察到，也就是说较差的 TTFB 等同于较差的 FCP。
 
 <a hreflang="en" href="https://ismyhostfastyet.com/">主机提供商</a>或<a hreflang="en" href="https://www.cdnperf.com/">内容分发网络</a>的选择将会对速度有叠加的影响。尽可能选择最快伺服的主机提供商和内容分发网络，将会对提高 FCP 和 TTFB 有帮助，特别是在较慢的网络状况下。字体加载时间也很大程度上影响了 FCP，因此，<a hreflang="en" href="https://web.dev/font-display/">确保字体加载过程中页面文本仍然可见</a>是一个有价值的策略（特别是在连接速度较慢的情况下，这些资源的获取成本很高）。
 
@@ -361,7 +361,7 @@ TTFB 受网络延迟和连接类型的影响。由上图可知，延迟越高、
 
 ## 性能监测的使用
 
-有许多不同的以用户为中心的指标可用于评估网站和应用程序。然而，有时预定义的指标并不完全符合我们的特定场景和需要。[性能监测对象 API](https://developer.mozilla.org/zh-CN/docs/Web/API/PerformanceObserver)允许我们通过[自定义时间测量 API](https://developer.mozilla.org/zh-CN/docs/Web/API/User_Timing_API)、[Long Tasks API](https://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API)、<a hreflang="en" href="https://web.dev/custom-metrics/#event-timing-api">Event Timing API</a>和<a hreflang="en" href="https://web.dev/custom-metrics/">一些底层 APIs</a>去获取自定义度量数据。举例来说，在这些 API 的帮助下我们可以记录页面转场时间或者量化服务端渲染应用的客户端激活。
+有许多不同的以用户为中心的指标可用于评估网站和应用程序。然而，有时预定义的指标并不完全符合我们的特定场景和需要。[性能监测对象 API](https://developer.mozilla.org/docs/Web/API/PerformanceObserver)允许我们通过[自定义时间测量 API](https://developer.mozilla.org/docs/Web/API/User_Timing_API)、[Long Tasks API](https://developer.mozilla.org/docs/Web/API/Long_Tasks_API)、<a hreflang="en" href="https://web.dev/custom-metrics/#event-timing-api">Event Timing API</a>和<a hreflang="en" href="https://web.dev/custom-metrics/">一些底层 APIs</a>去获取自定义度量数据。举例来说，在这些 API 的帮助下我们可以记录页面转场时间或者量化服务端渲染应用的客户端激活。
 
 {{ figure_markup(
   image="performance-performance-observer-usage.png",

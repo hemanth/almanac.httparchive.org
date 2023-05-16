@@ -5,11 +5,13 @@ const prettier = require('prettier');
 
 const { convertSimpleMarkdown, find_markdown_files, get_yearly_configs, size_of, parse_array } = require('./shared');
 const { generate_table_of_contents } = require('./generate_table_of_contents');
+const { generate_extra_markdown_conversions } = require('./generate_extra_markdown_conversions');
 const { generate_header_links } = require('./generate_header_links');
 const { generate_figure_ids } = require('./generate_figure_ids');
 const { generate_typographic_punctuation_body, generate_typographic_punctuation_metadata } = require('./generate_typographic_punctuation');
 const { generate_featured_chapters, generate_chapter_featured_quote } = require('./generate_featured_chapters');
 const { generate_sitemap } = require('./generate_sitemap');
+const { generate_rss } = require('./generate_rss');
 const { lazy_load_content } = require('./lazy_load_content');
 const { wrap_tables } = require('./wrap_tables');
 const { generate_table_figure_dropdowns } = require('./generate_table_figure_dropdowns');
@@ -29,6 +31,7 @@ converter.setOption('customizedHeaderId', true);
 const generate_chapters = async (chapter_match) => {
 
   let sitemap = [];
+  let rss = [];
   let sitemap_languages = {};
   let ebook_chapters = [];
   let configs = {};
@@ -45,7 +48,9 @@ const generate_chapters = async (chapter_match) => {
       "analysts": new Set(),
       "editors": new Set()
     };
-    sitemap_languages[year] = configs[year].settings[0].supported_languages;
+    if (configs[year].settings[0].is_live) {
+      sitemap_languages[year] = configs[year].settings[0].supported_languages;
+    }
     for (const part in configs[year].outline) {
       for (const chapter in configs[year].outline[part].chapters) {
         const theconfig = configs[year].outline[part].chapters[chapter];
@@ -91,7 +96,7 @@ const generate_chapters = async (chapter_match) => {
       const { metadata, body, toc } = await parse_file(markdown,chapter);
 
       // Only included "done" chapters in featured quotes, sitemaps...etc.
-      if (!chapter_config[year][chapter].todo) {
+      if (chapter_config[year][chapter] && !chapter_config[year][chapter].todo) {
         const chapter_featured_quote = generate_chapter_featured_quote(metadata);
         if (Object.keys(chapter_featured_quote).length > 0) {
           if (!(language in featured_quotes)) {
@@ -102,10 +107,14 @@ const generate_chapters = async (chapter_match) => {
           }
           featured_quotes[language][year][chapter] = chapter_featured_quote;
         }
-        if ( sitemap_languages[year].includes(language) ) {
+        if ( sitemap_languages[year] && sitemap_languages[year].includes(language) ) {
           sitemap.push({ language, year, chapter });
+          const {description, title, authors} = metadata;
+          rss.push({ language, year, chapter, title, description, authors });
         }
         ebook_chapters.push({ language, year, chapter, metadata, body, toc });
+
+        await write_template(language, year, chapter, metadata, body, toc);
       }
 
       const {authors, reviewers, analysts, editors} = metadata;
@@ -117,8 +126,6 @@ const generate_chapters = async (chapter_match) => {
         analysts.forEach(analyst=>contributors[year]["analysts"].add(analyst));
       if(editors && editors.length > 0)
         editors.forEach(editor=>contributors[year]["editors"].add(editor));
-
-      await write_template(language, year, chapter, metadata, body, toc);
     } catch (error) {
       console.error(error);
       console.error('  Failed to generate chapter, moving onto the next one. ');
@@ -134,6 +141,8 @@ const generate_chapters = async (chapter_match) => {
     const sitemap_path = await generate_sitemap(sitemap,sitemap_languages);
     await size_of(sitemap_path);
 
+    await generate_rss(configs,rss,sitemap_languages);
+
     await get_contributors_difference(configs, contributors);
   }
 
@@ -144,6 +153,7 @@ const parse_file = async (markdown,chapter) => {
   let body = html;
 
   let m = converter.getMetadata();
+  body = generate_extra_markdown_conversions(body);
   body = generate_syntax_highlighting(body);
   body = generate_header_links(body);
   body = generate_figure_ids(body);
@@ -159,13 +169,15 @@ const parse_file = async (markdown,chapter) => {
   const authors = parse_array(m.authors);
   const reviewers = parse_array(m.reviewers);
 
-  authors.forEach((author) => {
-    const author_bio_name = author + '_bio';
-    const author_bio_value = m[author_bio_name];
-    if (author_bio_value) {
-      m[author_bio_name] = convertSimpleMarkdown(author_bio_value);
-    }
-  });
+  if (authors && authors.length > 0) {
+    authors.forEach((author) => {
+      const author_bio_name = author + '_bio';
+      const author_bio_value = m[author_bio_name];
+      if (author_bio_value) {
+        m[author_bio_name] = convertSimpleMarkdown(author_bio_value);
+      }
+    });
+  }
 
   let translators;
   if (m.translators) {

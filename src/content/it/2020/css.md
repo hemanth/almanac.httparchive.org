@@ -5,7 +5,7 @@ description: Capitolo CSS del Web Almanac 2020 che copre colore, unità, seletto
 authors: [LeaVerou, svgeesus, rachelandrew]
 reviewers: [estelle, fantasai, j9t, mirisuzanne, catalinred, hankchizljaw]
 analysts: [rviscomi, LeaVerou, dooman87]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [chefleo]
 LeaVerou_bio: Lea <a hreflang="en" href="https://designftw.mit.edu">insegna HCI e programmazione web</a> e <a hreflang="en" href="https://mavo.io">ricerca come rendere più facile la programmazione web</a> al <a hreflang="en" href="https://mit.edu">MIT</a>. È un <a hreflang="en" href="https://www.amazon.com/CSS-Secrets-Lea-Verou/dp/1449372635?tag=leaverou-20">autore</a> tecnico di bestseller ed è una ottima <a hreflang="en" href="https://lea.verou.me/speaking">speaker</a>. È appassionata di standard web aperti ed è membro di lunga data del <a hreflang="en" href="https://www.w3.org/Style/CSS/members.en.php3">CSS Working Group</a>. Lea ha avviato <a hreflang="en" href="https://github.com/leaverou">diversi popolari progetti open source e applicazioni web</a>, come <a hreflang="en" href="https://prismjs.com">Prism</a> e <a hreflang="en" href="https://github.com/leaverou/awesomplete">Awesomplete</a>. Lei twitta <a href="https://twitter.com/leaverou">@leaverou</a> e fa blog su <a hreflang="en" href="https://lea.verou.me">lea.verou.me</a>.
 svgeesus_bio: Chris Lilley è un direttore tecnico presso il World Wide Web Consortium (W3C). Considerato "il padre di SVG", è stato anche coautore di PNG, è stato co-editore di CSS2, ha presieduto il gruppo che ha sviluppato <code>@font-face</code> e ha co-sviluppato WOFF. Ex Gruppo di Architettura Tecnica. Chris sta ancora cercando di ottenere la gestione del colore sul web, sigh. Attualmente sta lavorando ai livelli CSS 3/4/5, Web Audio e WOFF2.
@@ -14,7 +14,7 @@ discuss: 2037
 results: https://docs.google.com/spreadsheets/d/1sMWXWjMujqfAREYxNbG_t1fOJKYCA6ASLwtz4pBQVTw/
 featured_quote: Il web non è più un adolescente, ora ha 30 anni e si comporta così. Tende a dare la priorità alla stabilità e alla leggibilità rispetto alla complessità, a parte i piaceri occasionali.
 featured_stat_1: 72.58%
-featured_stat_label_1: Percentuale di valori `<length>` che utilizzano l'unità `px`.
+featured_stat_label_1: Percentuale di valori `<length>` che utilizzano l'unità `px`
 featured_stat_2: 91.05%
 featured_stat_label_2: Percentuale di pagine per dispositivi mobile che utilizzano una funzione con prefisso del fornitore
 featured_stat_3: `darken()`
@@ -27,9 +27,9 @@ Cascading Stylesheets (CSS) è un linguaggio utilizzato per disporre, formattare
 
 In [Web Almanac inaugurale dello scorso anno](../2019/), abbiamo esaminato [una varietà di metriche CSS](../2019/css) misurate tramite 41 query SQL sul corpus dell'archivio HTTP, per valutare lo stato della tecnologia nel 2019. Quest'anno siamo andati molto più in profondità, per misurare non solo quante pagine usano una determinata funzione CSS, ma anche *come* la usano.
 
-Nel complesso, ciò che abbiamo osservato è stato un Web in due diversi ingranaggi quando si tratta di adozione di CSS. Nei nostri post sul blog e su Twitter, tendiamo a discutere principalmente del nuovo e splendente, tuttavia, ci sono ancora milioni di siti che utilizzano codice vecchio di dieci anni. Cose come [prefissi del fornitore di un'epoca passata](#vendor-prefixes), [filtri IE proprietari](#filters) e [i float per i layout](#layout), in tutta la loro gloria di [clearfix](#class-names). Ma abbiamo anche osservato un'impressionante adozione di molte nuove funzionalità, anche quelle che hanno ricevuto supporto su tutta la linea solo quest'anno, come [`min()` e `max()`](#feature-queries). Tuttavia, esiste generalmente una correlazione inversa tra quanto è percepito un elemento popolare e quanto viene effettivamente utilizzato; per esempio, le funzionalità all'avanguardia di [Houdini](#houdini) erano praticamente inesistenti.
+Nel complesso, ciò che abbiamo osservato è stato un Web in due diversi ingranaggi quando si tratta di adozione di CSS. Nei nostri post sul blog e su Twitter, tendiamo a discutere principalmente del nuovo e splendente, tuttavia, ci sono ancora milioni di siti che utilizzano codice vecchio di dieci anni. Cose come [prefissi del fornitore di un'epoca passata](#prefissi-del-fornitore), [filtri IE proprietari](#filtri) e [i float per i layout](#layout), in tutta la loro gloria di [clearfix](#nomi-delle-classi). Ma abbiamo anche osservato un'impressionante adozione di molte nuove funzionalità, anche quelle che hanno ricevuto supporto su tutta la linea solo quest'anno, come [`min()` e `max()`](#le-funzionalità-delle-query). Tuttavia, esiste generalmente una correlazione inversa tra quanto è percepito un elemento popolare e quanto viene effettivamente utilizzato; per esempio, le funzionalità all'avanguardia di [Houdini](#houdini) erano praticamente inesistenti.
 
-Allo stesso modo, nelle nostre conferenze, spesso tendiamo a concentrarci su casi d'uso complicati ed elaborati che sono fuori di testa e i feed di Twitter si riempiono di "CSS può fare *quello*?!". Tuttavia, risulta che la maggior parte dell'utilizzo del classico CSS è abbastanza semplice. [Le variabili CSS sono usate principalmente come costanti](#complexity) e raramente si riferiscono ad altre variabili, `calc()` è [usato principalmente con due termini](#calculations), gradienti [principalmente hanno due sfumature](#gradients) e cosi via.
+Allo stesso modo, nelle nostre conferenze, spesso tendiamo a concentrarci su casi d'uso complicati ed elaborati che sono fuori di testa e i feed di Twitter si riempiono di "CSS può fare *quello*?!". Tuttavia, risulta che la maggior parte dell'utilizzo del classico CSS è abbastanza semplice. [Le variabili CSS sono usate principalmente come costanti](#complessità) e raramente si riferiscono ad altre variabili, `calc()` è [usato principalmente con due termini](#calcoli), gradienti [principalmente hanno due sfumature](#gradienti) e cosi via.
 
 Il web non è più un adolescente, ora ha 30 anni e si comporta così. Tende a dare la priorità alla stabilità e alla leggibilità rispetto alla complessità, a parte i piaceri occasionali.
 
@@ -41,11 +41,11 @@ Per quest'anno abbiamo deciso di coinvolgere la community su quali metriche stud
 
 La produzione dei dati in questo capitolo ha richiesto 121 query SQL, per un totale di oltre 10.000 righe di SQL incluse 3.000 righe di funzioni JavaScript all'interno dell'SQL. Questo lo rende il più grande capitolo nella storia del Web Almanac.
 
-È stato fatto molto lavoro di ingegneria per rendere fattibile questa scala di analisi. Come l'anno scorso, abbiamo inserito tutto il codice CSS attraverso un <a hreflang="en" href="https://github.com/reworkcss/css">CSS parser</a> e memorizzato gli [Abstract Syntax Trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST) per tutti i fogli di stile nel corpo, risultando in un enorme 10 TB di dati. Quest'anno, abbiamo anche sviluppato una <a hreflang="en" href="https://github.com/leaverou/rework-utils">libreria di helper</a> che opera su questo AST e un <a hreflang="en" href="https://projects.verou.me/parsel">selector parser</a>, entrambi sono stati rilasciati anche come progetti open source separati. La maggior parte delle metriche coinvolgeva <a hreflang="en" href="https://github.com/LeaVerou/css-almanac/tree/master/js">JavaScript</a> per raccogliere dati da un singolo AST e <a hreflang="en" href="https://github.com/HTTPArchive/almanac.httparchive.org/tree/main/sql/2020/01_CSS">SQL</a> per aggregare questi dati sull'intero corpo. Sei curioso di sapere come si comporta il tuo CSS rispetto alle nostre metriche? Abbiamo creato un <a hreflang="en" href="https://projects.verou.me/css-almanac/playground">playground online</a> in cui puoi provarli sui tuoi siti.
+È stato fatto molto lavoro di ingegneria per rendere fattibile questa scala di analisi. Come l'anno scorso, abbiamo inserito tutto il codice CSS attraverso un <a hreflang="en" href="https://github.com/reworkcss/css">CSS parser</a> e memorizzato gli [Abstract Syntax Trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST) per tutti i fogli di stile nel corpo, risultando in un enorme 10 TB di dati. Quest'anno, abbiamo anche sviluppato una <a hreflang="en" href="https://github.com/leaverou/rework-utils">libreria di helper</a> che opera su questo AST e un <a hreflang="en" href="https://projects.verou.me/parsel">selector parser</a>, entrambi sono stati rilasciati anche come progetti open source separati. La maggior parte delle metriche coinvolgeva <a hreflang="en" href="https://github.com/LeaVerou/css-almanac/tree/master/js">JavaScript</a> per raccogliere dati da un singolo AST e <a hreflang="en" href="https://github.com/HTTPArchive/almanac.httparchive.org/tree/main/sql/2020/css">SQL</a> per aggregare questi dati sull'intero corpo. Sei curioso di sapere come si comporta il tuo CSS rispetto alle nostre metriche? Abbiamo creato un <a hreflang="en" href="https://projects.verou.me/css-almanac/playground">playground online</a> in cui puoi provarli sui tuoi siti.
 
 Per alcune metriche, guardare al CSS AST non era sufficiente. Volevamo esaminare <a hreflang="en" href="https://sass-lang.com/">SCSS</a> ovunque fosse fornito tramite le mappe dei sorgenti poiché ci mostra ciò di cui gli sviluppatori hanno bisogno dai CSS che non è ancora possibile, mentre lo studio dei CSS ci mostra ciò che gli sviluppatori usano attualmente. Per questo, abbiamo dovuto utilizzare una *custom metric* — codice JavaScript che viene eseguito nel crawler quando visita una determinata pagina. Non è stato possibile utilizzare un parser SCSS appropriato in quanto potrebbe rallentare troppo la scansione, quindi abbiamo dovuto ricorrere a <a hreflang="en" href="https://github.com/LeaVerou/css-almanac/blob/master/runtime/sass.js">espressioni regolari</a>. Nonostante l'approccio rozzo, abbiamo ottenuto [una sovrabbondanza di intuizioni](#sass)!
 
-Le metriche personalizzate (custom metrics) sono state utilizzate anche per parte dell'[analisi delle proprietà personalizzate](#custom-properties). Sebbene possiamo ottenere molte informazioni sull'utilizzo delle proprietà personalizzate solo dai fogli di stile, non possiamo costruire un grafico delle dipendenze senza essere in grado di guardare l'albero DOM per il contesto, poiché le proprietà personalizzate vengono ereditate. Guardando lo stile di calcolo dei nodi DOM ci dà anche informazioni come a quali tipi di elementi è applicata ciascuna proprietà e quali di essi sono [registrati](https://developer.mozilla.org/en-US/docs/Web/API/CSS/RegisterProperty) - informazioni che non possiamo ottenere dai fogli di stile.
+Le metriche personalizzate (custom metrics) sono state utilizzate anche per parte dell'[analisi delle proprietà personalizzate](#proprietà-personalizzate). Sebbene possiamo ottenere molte informazioni sull'utilizzo delle proprietà personalizzate solo dai fogli di stile, non possiamo costruire un grafico delle dipendenze senza essere in grado di guardare l'albero DOM per il contesto, poiché le proprietà personalizzate vengono ereditate. Guardando lo stile di calcolo dei nodi DOM ci dà anche informazioni come a quali tipi di elementi è applicata ciascuna proprietà e quali di essi sono [registrati](https://developer.mozilla.org/docs/Web/API/CSS/RegisterProperty) - informazioni che non possiamo ottenere dai fogli di stile.
 
 <p class="note">Eseguiamo la scansione delle nostre pagine sia in modalità desktop che mobile ma per molti dati danno risultati simili quindi, se non diversamente specificato, le statistiche presentate in questo capitolo si riferiscono al set di pagine mobile.</p>
 
@@ -122,7 +122,7 @@ Solo alcune delle classi migliori erano relative alla presentazione, con la magg
 
 Nonostante gli ID siano scoraggiati in questi giorni in alcuni circoli a causa della loro specificità molto più elevata, la maggior parte dei siti Web li utilizza ancora, anche se con parsimonia. Meno della metà delle pagine utilizzava più di un ID in uno qualsiasi dei loro selettori (aveva una specificità massima di (1,x,y) o inferiore) e quasi tutte avevano una specificità mediana che non includeva ID (0,x,y) . Vedere la <a hreflang="en" href="https://www.w3.org/TR/selectors/#specificity-rules">specifica dei selettori</a> per maggiori dettagli sul calcolo della specificità e di questa notazione (a,b,c).
 
-Ma a cosa servono questi ID? Risulta che gli ID più popolari sono strutturali: `#content`, `#footer`, `#header`, `#main`, nonostante [gli elementi HTML corrispondenti](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure#HTML_layout_elements_in_more_detail) esistenti che potrebbero essere utilizzati come selettori migliorando allo stesso tempo il markup semantico.
+Ma a cosa servono questi ID? Risulta che gli ID più popolari sono strutturali: `#content`, `#footer`, `#header`, `#main`, nonostante [gli elementi HTML corrispondenti](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure#HTML_layout_elements_in_more_detail) esistenti che potrebbero essere utilizzati come selettori migliorando allo stesso tempo il markup semantico.
 
 {{ figure_markup(
   image="popular-ids.png",
@@ -163,7 +163,6 @@ Cos'è che gli sviluppatori sono così desiderosi di sovrascrivere? Abbiamo esam
 
 {{ figure_markup(
   image="important-top-properties.png",
-  alt="Le prime proprietà !important in base alla percentuale di pagine.",
   caption="Le prime proprietà `!important` in base alla percentuale di pagine.",
   description="Grafico a barre che mostra le principali 10 proprietà utilizzate con `!important`. Mobile e desktop hanno un utilizzo simile. La proprietà `display` viene utilizzata maggiormente con `!important`, dal 79% delle pagine mobile. In ordine decrescente, le proprietà successive sul 71-58% delle pagine mobile sono: `color`, `width`, `height`, `background`, `padding`, `margin`, `border`, `background-color` e `float`.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=257343566&format=interactive",
@@ -240,7 +239,6 @@ C'è sempre molta inerzia quando cambiamo qualcosa nella piattaforma web dopo ch
 
 {{ figure_markup(
   image="selector-pseudo-classes.png",
-  alt="Utilizzo della sintassi legacy :pseudo-class per ::pseudo-elements come percentuale delle pagine mobile.",
   caption="Uso della sintassi legacy `:pseudo-class` per `::pseudo-elements` come percentuale delle pagine mobile.",
   description="Grafico a barre che mostra la percentuale di pagine che utilizzano la sintassi della pseudo-class (preceduta da un due punti) rispetto alla sintassi degli pseudo-element (due punti) per gli pseudo-elements. Lo pseudo-element `before` viene utilizzato con la sintassi della pseudo-class sul 71% delle pagine mobile e la sintassi dello pseudo-element sul 33% delle pagine mobile. Lo pseudo-element `after` viene utilizzato con la sintassi di classe ed elemento sul 68% e 30% delle pagine mobile,`first-letter` sul 7% e 1% delle pagine mobile e `first-line` sull'1% e 0 % di pagine per dispositivi mobile.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=227968207&format=interactive",
@@ -250,7 +248,7 @@ C'è sempre molta inerzia quando cambiamo qualcosa nella piattaforma web dopo ch
 
 Le pseudo-classi di gran lunga più popolari sono quelle di azione dell'utente, con `:hover`, `:focus`, e `:active` all'inizio dell'elenco, tutte utilizzate in oltre due terzi delle pagine, a indicare che agli sviluppatori piace la comodità di specificare le interazioni dichiarative dell'interfaccia utente.
 
-`:root` sembra molto più popolare di quanto sia giustificato dalla sua funzione, usata in un terzo delle pagine. Nel contenuto HTML, seleziona semplicemente l'elemento `<html>`, quindi perché gli sviluppatori non hanno usato semplicemente `html`? Una possibile risposta potrebbe risiedere in una pratica comune relativa alla definizione di proprietà personalizzate, [che sono anche molto usate](#custom-properties), sulla pseudo-class `:root`. Un'altra risposta potrebbe risiedere nella specificità: `:root`, essendo una pseudo-classe, ha una specificità maggiore di `html`: (0,1,0) vs (0,0,1). È un trucco comune aumentare la specificità di un selettore anteponendolo a `:root`, ad es. `:root .foo` ha una specificità di (0, 2, 0) rispetto a solo (0, 1, 0) per `.foo`. Questo è spesso tutto ciò che serve per spingere un selettore leggermente sopra un altro nella cascade race ed evitare la martellata che è `!important`. Per verificare questa ipotesi, abbiamo anche misurato esattamente questo: quante pagine usano `:root` all'inizio di un selettore discendente? I risultati hanno verificato la nostra ipotesi: un notevole 29% delle pagine usa `:root` in questo modo! Inoltre, il 14% delle pagine desktop e il 19% delle pagine mobile utilizzano `html` all'inizio di un selettore discendente, forse per dare al selettore un incremento di specificità ancora minore. La popolarità di questi hack di specificità indica fortemente che gli sviluppatori necessitano di un controllo granulare più fine per modificare la specificità rispetto a quello che viene loro offerto tramite `!important`. Per fortuna, arriverà presto con [`:where()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:where), che è già <a hreflang="en" href="https://caniuse.com/mdn-css_selectors_where">implementato su tutta la linea</a> (anche se dietro una bandiera in Chrome per ora).
+`:root` sembra molto più popolare di quanto sia giustificato dalla sua funzione, usata in un terzo delle pagine. Nel contenuto HTML, seleziona semplicemente l'elemento `<html>`, quindi perché gli sviluppatori non hanno usato semplicemente `html`? Una possibile risposta potrebbe risiedere in una pratica comune relativa alla definizione di proprietà personalizzate, [che sono anche molto usate](#proprietà-personalizzate), sulla pseudo-class `:root`. Un'altra risposta potrebbe risiedere nella specificità: `:root`, essendo una pseudo-classe, ha una specificità maggiore di `html`: (0,1,0) vs (0,0,1). È un trucco comune aumentare la specificità di un selettore anteponendolo a `:root`, ad es. `:root .foo` ha una specificità di (0, 2, 0) rispetto a solo (0, 1, 0) per `.foo`. Questo è spesso tutto ciò che serve per spingere un selettore leggermente sopra un altro nella cascade race ed evitare la martellata che è `!important`. Per verificare questa ipotesi, abbiamo anche misurato esattamente questo: quante pagine usano `:root` all'inizio di un selettore discendente? I risultati hanno verificato la nostra ipotesi: un notevole 29% delle pagine usa `:root` in questo modo! Inoltre, il 14% delle pagine desktop e il 19% delle pagine mobile utilizzano `html` all'inizio di un selettore discendente, forse per dare al selettore un incremento di specificità ancora minore. La popolarità di questi hack di specificità indica fortemente che gli sviluppatori necessitano di un controllo granulare più fine per modificare la specificità rispetto a quello che viene loro offerto tramite `!important`. Per fortuna, arriverà presto con [`:where()`](https://developer.mozilla.org/docs/Web/CSS/:where), che è già <a hreflang="en" href="https://caniuse.com/mdn-css_selectors_where">implementato su tutta la linea</a> (anche se dietro una bandiera in Chrome per ora).
 
 {{ figure_markup(
   image="popular-selector-pseudo-classes.png",
@@ -462,7 +460,7 @@ Le lunghezze sono gli unici tipi di valori CSS per i quali possiamo omettere l'u
 
 ### Calcoli
 
-Quando la funzione [`calc()`](https://developer.mozilla.org/en-US/docs/Web/CSS/calc()) è stata introdotta per eseguire calcoli tra diverse unità in CSS, è stata una rivoluzione. In precedenza, solo i preprocessori erano in grado di accogliere tali calcoli, ma i risultati erano limitati a valori statici e inaffidabili, poiché mancava il contesto dinamico che è spesso necessario.
+Quando la funzione [`calc()`](https://developer.mozilla.org/docs/Web/CSS/calc()) è stata introdotta per eseguire calcoli tra diverse unità in CSS, è stata una rivoluzione. In precedenza, solo i preprocessori erano in grado di accogliere tali calcoli, ma i risultati erano limitati a valori statici e inaffidabili, poiché mancava il contesto dinamico che è spesso necessario.
 
 Oggi, `calc()` è <a hreflang="en" href="https://caniuse.com/calc">supportato da ogni browser</a> già da nove anni, quindi non sorprende che sia stato ampiamente adottato con il 60% delle pagine che lo utilizzano almeno una volta. Semmai, ci aspettavamo un'adozione ancora maggiore di questa.
 
@@ -481,7 +479,6 @@ Sembra che la maggior parte di questo utilizzo sia quello di sottrarre pixel dal
 
 {{ figure_markup(
   image="calc-units.png",
-  alt="Popolarità relativa delle unità che utilizzano calc() come percentuale di occorrenze.",
   caption="Popolarità relativa delle unità che usano `calc()` come percentuale di occorrenze.",
   description="Grafico a barre che mostra la popolarità relativa delle proprietà che utilizzano la funzione calc come percentuale di occorrenze. Desktop e mobile hanno risultati simili. La funzione calc viene utilizzata spesso nella proprietà `width`, il 59% delle occorrenze di calc su pagine mobile. Viene usato sulla proprietà `left` l'11% delle volte, `top` 5%, `max-width` 4%, `height` 4% e le restanti proprietà stanno diminuendo al 2% e all'1%: `min-height`, `margin-left`, `flex-basis`, `margin-right`, `max-height` (1%), `right`, `padding-bottom`, `padding-left`, `font-size`, and `padding-right`.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=477094785&format=interactive",
@@ -491,7 +488,6 @@ Sembra che la maggior parte di questo utilizzo sia quello di sottrarre pixel dal
 
 {{ figure_markup(
   image="calc-operators.png",
-  alt="Popolarità relativa degli operatori che utilizzano calc() come percentuale di occorrenze.",
   caption="Popolarità relativa degli operatori che usano `calc()` come percentuale di occorrenze.",
   description="Grafico a barre che mostra la popolarità relativa degli operatori che utilizzano la funzione calc come percentuale di occorrenze. Desktop e mobile hanno risultati simili. La funzione calc viene utilizzata più spesso con l'operatore di sottrazione (segno meno), 64% delle istanze di calc su pagine mobili, seguito da divisione (barra in avanti) 20%, addizione (segno più) 11% e moltiplicazione (asterisco) 5%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=1909242522&format=interactive",
@@ -503,7 +499,6 @@ La maggior parte dei calcoli è molto semplice, con il 99.5% dei calcoli che coi
 
 {{ figure_markup(
   image="calc-complexity-units.png",
-  alt="Distribuzione del numero di unità per occorrenza calc().",
   caption="Distribuzione del numero di unità per occorrenza `calc()`.",
   description="Grafico a barre che mostra la distribuzione del numero di unità per occorrenza della funzione di calc. Desktop e mobile hanno risultati simili. Calc viene utilizzato con un'unità per l'11% delle volte sulle pagine mobile, due volte l'89% delle volte e 3 o più volte circa lo 0% delle volte.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=695698141&format=interactive",
@@ -514,11 +509,11 @@ La maggior parte dei calcoli è molto semplice, con il 99.5% dei calcoli che coi
 
 ### Parole chiave globali e `all`
 
-Per molto tempo, CSS ha supportato solo una parola chiave globale: [`inherit`](https://developer.mozilla.org/en-US/docs/Web/CSS/inherit), che consente il ripristino di una proprietà ereditabile per il suo valore ereditato o riutilizzando il valore del genitore per una data proprietà non ereditabile. Si scopre che il primo è molto più comune del secondo, con l'81.37% dell'utilizzo di `inherit` trovato su proprietà ereditabili. Il resto è principalmente ereditare sfondi, bordi o dimensioni. Quest'ultimo probabilmente indica problemi di layout, poiché con la giusta modalità di layout uno raramente ha bisogno di forzare `width` e `height` da ereditare.
+Per molto tempo, CSS ha supportato solo una parola chiave globale: [`inherit`](https://developer.mozilla.org/docs/Web/CSS/inherit), che consente il ripristino di una proprietà ereditabile per il suo valore ereditato o riutilizzando il valore del genitore per una data proprietà non ereditabile. Si scopre che il primo è molto più comune del secondo, con l'81.37% dell'utilizzo di `inherit` trovato su proprietà ereditabili. Il resto è principalmente ereditare sfondi, bordi o dimensioni. Quest'ultimo probabilmente indica problemi di layout, poiché con la giusta modalità di layout uno raramente ha bisogno di forzare `width` e `height` da ereditare.
 
 La parola chiave `inherit` è particolarmente utile per reimpostare il colore del link predefinito con il colore del testo principale. Non sorprende quindi che `color` sia la proprietà più comune su cui viene usata `inherit`. Quasi un terzo di tutto l'utilizzo di `inherit` si trova nella proprietà `color`. Il 75% delle pagine usa `color: inherit` almeno una volta.
 
-Sebbene il *valore iniziale* di una proprietà sia un concetto che <a hreflang="en" href="https://www.w3.org/TR/CSS1/#cascading-order">esiste dai CSS 1</a>, ha solo la sua parola chiave dedicata, `initial`, per fare riferimento esplicito ad esso <a hreflang="en" href="https://www.w3.org/TR/2013/WD-css3-cascade-20130103/#initial-keyword">17 anni dopo</a> e ci sono voluti altri due anni per quella parola chiave ottenere <a hreflang="en" href="https://caniuse.com/css-initial-value">supporto browser universale</a> nel 2015. Non sorprende quindi che sia usato molto meno di `inherit`. Mentre la vecchia inherit si trova nell'85% delle pagine, `initial` appare nel 51% di esse. Inoltre, c'è molta confusione su cosa fa effettivamente `initial`, dal momento che `display` è in cima alla lista delle proprietà più comunemente usate con `initial`, con `display: initial` che appare nel 10% delle pagine. Presumibilmente, gli sviluppatori hanno pensato che questo resetta `display` al suo valore dal valore [user agent stylesheet](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#User-agent_stylesheets) e lo usavamo per attivare e disattivare `display: none`. Tuttavia, <a hreflang="en" href="https://drafts.csswg.org/css-display/#the-display-properties">il valore iniziale di `display` è `inline`</a>, quindi `display: initial` è solo un altro modo di scrivere `display: inline` e non ha proprietà magiche dipendenti dal contesto.
+Sebbene il *valore iniziale* di una proprietà sia un concetto che <a hreflang="en" href="https://www.w3.org/TR/CSS1/#cascading-order">esiste dai CSS 1</a>, ha solo la sua parola chiave dedicata, `initial`, per fare riferimento esplicito ad esso <a hreflang="en" href="https://www.w3.org/TR/2013/WD-css3-cascade-20130103/#initial-keyword">17 anni dopo</a> e ci sono voluti altri due anni per quella parola chiave ottenere <a hreflang="en" href="https://caniuse.com/css-initial-value">supporto browser universale</a> nel 2015. Non sorprende quindi che sia usato molto meno di `inherit`. Mentre la vecchia inherit si trova nell'85% delle pagine, `initial` appare nel 51% di esse. Inoltre, c'è molta confusione su cosa fa effettivamente `initial`, dal momento che `display` è in cima alla lista delle proprietà più comunemente usate con `initial`, con `display: initial` che appare nel 10% delle pagine. Presumibilmente, gli sviluppatori hanno pensato che questo resetta `display` al suo valore dal valore [user agent stylesheet](https://developer.mozilla.org/docs/Web/CSS/Cascade#User-agent_stylesheets) e lo usavamo per attivare e disattivare `display: none`. Tuttavia, <a hreflang="en" href="https://drafts.csswg.org/css-display/#the-display-properties">il valore iniziale di `display` è `inline`</a>, quindi `display: initial` è solo un altro modo di scrivere `display: inline` e non ha proprietà magiche dipendenti dal contesto.
 
 Invece, `display: revert` avrebbe effettivamente fatto quello che questi sviluppatori probabilmente si aspettavano e avrebbero resettato `display` al valore UA per l'elemento dato. Tuttavia, `revert` è molto più recente: è stato definito <a hreflang="en" href="https://www.w3.org/TR/2015/WD-css-cascade-4-20150908/#valdef-all-revert">nel 2015</a> e <a hreflang="en" href="https://caniuse.com/css-revert-value">ha ottenuto il supporto del browser universale solo quest'anno</a>, il che spiega il suo sottoutilizzo: appare solo nello 0.14% delle pagine e metà del suo utilizzo è `line-height: revert;`, che si trova in <a hreflang="en" href="https://github.com/WordPress/WordPress/commit/303180b392c530b8e2c8b3c27532d591b915caeb">versioni recenti del tema TwentyTwenty di WordPress</a>.
 
@@ -534,6 +529,7 @@ L'ultima parola chiave globale, `unset`, è essenzialmente un ibrido di `initial
 ) }}
 
 La proprietà `all` è stata <a hreflang="en" href="https://www.w3.org/TR/2013/WD-css3-cascade-20130103/#all-shorthand">introdotta nel 2013</a> e ha ottenuto <a hreflang="en" href="https://caniuse.com/css-all">supporto quasi universale nel 2016 (tranne Edge) e il supporto universale all'inizio di quest'anno</a>. È una shorthand di quasi tutte le proprietà in CSS (eccetto le proprietà personalizzate, `direction` e `unicode-bidi`), e accetta solo le <a hreflang="en" href="https://drafts.csswg.org/css-cascade-4/#defaulting-keywords">quattro parole chiave globali</a> (`initial`, `inherit`, `unset`, e `revert`) come valori. È stato concepito come un ripristino CSS di una riga, come `all: unset` o `all: revert`, a seconda del tipo di ripristino che volevamo. Tuttavia, l'adozione è ancora molto bassa: abbiamo trovato solo `all` su 477 pagine (0.01% di tutte le pagine) e utilizzato solo con la parola chiave `revert`.
+
 ## Colore
 
 Dicono che le vecchie barzellette siano le migliori, e questo vale anche per i colori. La sintassi esadecimale originale, criptica, `#rrggbb` rimane il modo più popolare per specificare un colore in CSS nel 2020: la metà di tutti i colori è scritta in questo modo. Il prossimo formato più popolare è il formato esadecimale a tre cifre `#rgb` un po' più corto al 26%. Sebbene sia più corto, è anche in grado di esprimere *molti* meno colori; solo 4096, su 16,7 milioni di valori sRGB.
@@ -564,12 +560,11 @@ HSL dovrebbe essere <a hreflang="en" href="https://drafts.csswg.org/css-color-4/
 
 E i colori con nome? La parola chiave `transparent`, che è solo un altro modo per dire `rgb (0 0 0 / 0)`, è la più popolare, con l'8.25% di tutti i valori sRGB (66% di tutti i colori con nome); seguito da tutti i colori nominati (X11) - Sto parlando di te, `papayawhip` - all'1,48%. I più popolari di questi erano i nomi facilmente comprensibili come `white`, `black`, `red`, `gray`, `blue`. `whitesmoke` era il più comune dei nomi non ordinari (certo, possiamo visualizzare whitesmoke, giusto) mentre `gainsboro`, `lightCoral` e `burlywood` venivano usati molto meno. Possiamo capire perché: devi cercarli per vedere cosa significano effettivamente!
 
-E se stai cercando nomi di colori fantasiosi, perché non definirne uno tuo con CSS [Custom properties](#custom-properties)? `--intensePurple` e `--corporateBlue` significano qualunque cosa tu voglia che significhino. Questo probabilmente spiega perché [50% delle custom properties](#usage-by-type) viene utilizzato per i colori.
+E se stai cercando nomi di colori fantasiosi, perché non definirne uno tuo con CSS [Custom properties](#proprietà-personalizzate)? `--intensePurple` e `--corporateBlue` significano qualunque cosa tu voglia che significhino. Questo probabilmente spiega perché [50% delle custom properties](#utilizzo-per-tipo) viene utilizzato per i colori.
 
 {{ figure_markup(
   link="https://codepen.io/leaverou/pen/GRjjJwJ",
   image="color-keywords-app.png",
-  alt="Esplora in modo interattivo i dati sull'utilizzo delle parole chiave del colore con l'app.",
   caption='Esplora in modo interattivo i dati sull\`utilizzo delle parole chiave a colori con <a hreflang="en" href="https://codepen.io/leaverou/pen/GRjjJwJ">questa app interattiva</a>!',
   description="Screenshot di un'app interattiva che ti consente di selezionare i colori e vedere il loro utilizzo relativo in un grafico a torta. I dati per i colori sono mostrati nella tabella successiva.",
   width=600,
@@ -942,7 +937,7 @@ E ci stiamo ancora perdendo. Nonostante sia stato <a hreflang="en" href="https:/
 {{ figure_markup(
   image="p3-chromaticity-big.svg",
   object="p3-chromaticity-big.svg",
-  caption="cromaticità UV dei colori display-p3 specificati e i loro fallback.",
+  caption="Cromaticità UV dei colori display-p3 specificati e i loro fallback.",
   description="Questo diagramma u'v del 1976 mostra la cromaticità dei colori (appiattita in 2D, quindi la luminosità non viene mostrata). La forma curva esterna rappresenta lo spettro delle lunghezze d'onda singole pure; non ci sono colori visibili al di fuori di questo. La linea retta è porpora, una miscela di rosso e viola. Il triangolo più piccolo, grigio, è la gamma sRGB, mentre il triangolo più grande e più scuro è la gamma display-p3. Vengono mostrati i 23 colori unici del display-p3 attualmente in uso sul web nel 2020; per ogni coppia di colori il cerchio più grande è il fallback sRGB mentre il cerchio più piccolo è il colore del display-p3. Se è all'interno della gamma sRGB, quei cerchi mostrano il colore corretto. In caso contrario, un cerchio bianco con un bordo rosso indica colori fuori gamma sRGB.",
   width=600,
   height=600
@@ -986,7 +981,7 @@ I gradienti prefissati sono ancora molto popolari, anche se i gradienti non rich
 
 Usare le interruzioni di colore con colori diversi nella stessa posizione (interruzioni nette) per creare strisce e altri motivi è una tecnica <a hreflang="en" href="https://lea.verou.me/2010/12/checkered-stripes-other-background-patterns-with-css3-gradients/">resa popolare per la prima volta da Lea Verou nel 2010</a>, che ormai ha molte variazioni interessanti, incluse <a hreflang="en" href="https://bennettfeely.com/gradients/">alcune davvero interessanti con la 'modalità di fusione' (blend modes)</a>. Anche se può sembrare un trucco, nel 50% delle pagine si trovano dei punti fermi, il che indica una forte esigenza degli sviluppatori di grafica leggera dall'interno dei CSS senza ricorrere a editor di immagini o SVG esterni.
 
- Le interpolation hints (o come Adobe, che ha reso popolare la tecnica, li chiama: "midpoints") si trovano solo nel 22% delle pagine, nonostante <a hreflang="en" href="https://caniuse.com/mdn-css_types_image_gradient_linear-gradient_interpolation_hints">il supporto del browser quasi universale dal 2015</a>. Il che è un peccato, perché senza di loro, le interruzioni di colore sono collegate da linee rette nello spazio colore, piuttosto che da curve morbide. Questo basso utilizzo probabilmente riflette un malinteso su ciò che fanno o su come usarli; confrontalo con le transizioni e le animazioni CSS, dove le easing function (che fanno più o meno la stessa cosa, cioè connettono i fotogrammi chiave con le curve piuttosto che con linee rette a scatti) sono più comunemente usate ([80% delle transizioni](#transitions-and-animations)). "Midpoints" non è una descrizione molto comprensibile e "interpolation hint" sembra che tu stia aiutando il browser a fare semplici calcoli aritmetici.
+Le interpolation hints (o come Adobe, che ha reso popolare la tecnica, li chiama: "midpoints") si trovano solo nel 22% delle pagine, nonostante <a hreflang="en" href="https://caniuse.com/mdn-css_types_image_gradient_linear-gradient_interpolation_hints">il supporto del browser quasi universale dal 2015</a>. Il che è un peccato, perché senza di loro, le interruzioni di colore sono collegate da linee rette nello spazio colore, piuttosto che da curve morbide. Questo basso utilizzo probabilmente riflette un malinteso su ciò che fanno o su come usarli; confrontalo con le transizioni e le animazioni CSS, dove le easing function (che fanno più o meno la stessa cosa, cioè connettono i fotogrammi chiave con le curve piuttosto che con linee rette a scatti) sono più comunemente usate ([80% delle transizioni](#transizioni-e-animazioni)). "Midpoints" non è una descrizione molto comprensibile e "interpolation hint" sembra che tu stia aiutando il browser a fare semplici calcoli aritmetici.
 
 La maggior parte dell'utilizzo del gradiente è piuttosto semplice, con oltre il 75% dei gradienti trovati nell'intero set di dati utilizzando solo 2 interruzioni di colore. In effetti, meno della metà delle pagine contiene anche una singola sfumatura con più di 3 interruzioni di colore!
 
@@ -997,7 +992,6 @@ Il gradiente con il maggior numero di interruzioni di colore è <a hreflang="en"
   classes="height-16vw-122px",
   caption="Il gradiente con il maggior numero di interruzioni di colore, 646.",
   description="Uno screenshot del gradiente con il maggior numero di interruzioni di colore, che è una serie di intricate strisce multicolori di varie tonalità.",
-  alt="Uno screenshot del gradiente con il maggior numero di interruzioni di colore, che è una serie di intricate strisce multicolori di varie tonalità.",
   width=600,
   height=122
 ) }}
@@ -1008,9 +1002,9 @@ CSS ora ha una serie di opzioni di layout che lo distinguono dalle tabelle che d
 
 ### Adozione di Flexbox e Grid
 
-[L'edizione 2019](../2019/css#flexbox), ha riportato che il 41% delle pagine su dispositivi mobile e desktop conteneva proprietà [Flexbox](https://developer.mozilla.org/it/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox). Nel 2020, questo numero è cresciuto al 63% per i dispositivi mobile e al 65% per i desktop. Questo metodo di layout è ampiamente adottato, poiché esistono ancora numerosi siti legacy sviluppati prima che Flexbox diventasse uno strumento valido.
+[L'edizione 2019](../2019/css#flexbox), ha riportato che il 41% delle pagine su dispositivi mobile e desktop conteneva proprietà [Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox). Nel 2020, questo numero è cresciuto al 63% per i dispositivi mobile e al 65% per i desktop. Questo metodo di layout è ampiamente adottato, poiché esistono ancora numerosi siti legacy sviluppati prima che Flexbox diventasse uno strumento valido.
 
-Se guardiamo [Grid layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout), la percentuale di siti che utilizzano il layout Grid è aumentata al 4% per i dispositivi mobile e al 5% per desktop. L'utilizzo è raddoppiato dall'anno scorso, ma è ancora molto indietro rispetto al layout flessibile.
+Se guardiamo [Grid layout](https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout), la percentuale di siti che utilizzano il layout Grid è aumentata al 4% per i dispositivi mobile e al 5% per desktop. L'utilizzo è raddoppiato dall'anno scorso, ma è ancora molto indietro rispetto al layout flessibile.
 
 {{ figure_markup(
   image="flexbox-grid-mobile.png",
@@ -1051,7 +1045,7 @@ I motivi per scegliere Flexbox su Grid sono spesso citati come supporto del brow
 
 ### Utilizzo di diverse tecniche di layout Grid
 
-La specifica del layout Grid offre diversi modi per descrivere e definire il layout in CSS. L'utilizzo più elementare prevede la disposizione degli elementi [da una grid line all'altra](https://www.smashingmagazine.com/2020/01/understanding-css-grid-lines/). Che dire delle [linee di denominazione](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Layout_using_Named_Grid_Lines) o dell'uso di `grid-template-areas`?
+La specifica del layout Grid offre diversi modi per descrivere e definire il layout in CSS. L'utilizzo più elementare prevede la disposizione degli elementi [da una grid line all'altra](https://www.smashingmagazine.com/2020/01/understanding-css-grid-lines/). Che dire delle [linee di denominazione](https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout/Layout_using_Named_Grid_Lines) o dell'uso di `grid-template-areas`?
 
 Per le righe con nome, abbiamo verificato la presenza di parentesi quadre in un elenco di tracce. Il nome o i nomi inseriti tra parentesi quadre.
 
@@ -1064,21 +1058,20 @@ Per le righe con nome, abbiamo verificato la presenza di parentesi quadre in un 
 
 Di conseguenza, lo 0.23% delle pagine che utilizzano Grid sui dispositivi mobile avevano linee denominate, rispetto allo 0.27% sui desktop.
 
-La funzione [Grid template areas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Grid_Template_Areas), che consente agli autori di denominare gli grid item e di posizionarli sulla griglia come valore della proprietà `grid-template-areas`. Dei siti che utilizzano Grid, il 19% su dispositivi mobile e il 20% su desktop utilizzava questo metodo.
+La funzione [Grid template areas](https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout/Grid_Template_Areas), che consente agli autori di denominare gli grid item e di posizionarli sulla griglia come valore della proprietà `grid-template-areas`. Dei siti che utilizzano Grid, il 19% su dispositivi mobile e il 20% su desktop utilizzava questo metodo.
 
 Questi risultati mostrano che non solo l'utilizzo del layout Grid è ancora relativamente basso sui siti Web di produzione, ma anche il suo utilizzo è relativamente semplice. L'autore preferisce una semplice disposizione basata sulla riga rispetto al modo in cui è possibile denominare righe e aree. Sebbene non ci sia nulla di sbagliato nella scelta di farlo, mi chiedo se la lenta adozione del layout Grid sia in parte dovuta al fatto che gli autori non hanno ancora realizzato la potenza di queste funzionalità. Se il layout Grid è visto essenzialmente come Flexbox con uno scarso supporto del browser, questo lo renderebbe sicuramente una scelta meno convincente.
 
 ### Layout a più colonne
 
-Il [layout a più colonne](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns/Basic_Concepts_of_Multicol) o *multicol*, consente la disposizione del contenuto in colonne, proprio come un quotidiano. Sebbene popolare nei CSS come utilizzato per la stampa, è meno utile sul Web a causa del rischio di creare una situazione in cui un lettore deve scorrere su e giù per leggere il contenuto. Sulla base dei dati, tuttavia, ci sono molte più pagine che utilizzano il layout multicol rispetto al layout Grid con il 15.33% su desktop e il 14.95% su dispositivi mobile. Sebbene le proprietà base multicol siano ben supportate, l'uso più complesso e il controllo delle column break con <a hreflang="en" href="https://www.smashingmagazine.com/2019/02/css-fragmentation/">fragmentation</a> ha <a hreflang="en" href="https://caniuse.com/multicolumn">supporto irregolare</a>. Detto questo, è stato abbastanza sorprendente che ci fossero così tanti usi.
+Il [layout a più colonne](https://developer.mozilla.org/docs/Web/CSS/CSS_Columns/Basic_Concepts_of_Multicol) o *multicol*, consente la disposizione del contenuto in colonne, proprio come un quotidiano. Sebbene popolare nei CSS come utilizzato per la stampa, è meno utile sul Web a causa del rischio di creare una situazione in cui un lettore deve scorrere su e giù per leggere il contenuto. Sulla base dei dati, tuttavia, ci sono molte più pagine che utilizzano il layout multicol rispetto al layout Grid con il 15.33% su desktop e il 14.95% su dispositivi mobile. Sebbene le proprietà base multicol siano ben supportate, l'uso più complesso e il controllo delle column break con <a hreflang="en" href="https://www.smashingmagazine.com/2019/02/css-fragmentation/">fragmentation</a> ha <a hreflang="en" href="https://caniuse.com/multicolumn">supporto irregolare</a>. Detto questo, è stato abbastanza sorprendente che ci fossero così tanti usi.
 
 ### Box sizing
 
-È utile sapere quanto saranno grandi le caselle sulla tua pagina, ma con il [standard CSS box model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#What_is_the_CSS_box_model) aggiungendo padding e border alla dimensione della content-box, la dimensione che hai dato alla tua casella è più piccola della casella visualizzata sulla tua pagina. Sebbene non possiamo cambiare la cronologia, la proprietà `box-sizing` consente agli autori di passare ad applicare la dimensione specificata al `border-box`, quindi la dimensione che imposti è la dimensione che vedi renderizzata. Quanti siti usano la proprietà `box-sizing`? La maggior parte di loro! La proprietà `box-sizing` appare nell'83.79% dei CSS desktop e nell'86.39% sui dispositivi mobile.
+È utile sapere quanto saranno grandi le caselle sulla tua pagina, ma con il [standard CSS box model](https://developer.mozilla.org/docs/Learn/CSS/Building_blocks/The_box_model#What_is_the_CSS_box_model) aggiungendo padding e border alla dimensione della content-box, la dimensione che hai dato alla tua casella è più piccola della casella visualizzata sulla tua pagina. Sebbene non possiamo cambiare la cronologia, la proprietà `box-sizing` consente agli autori di passare ad applicare la dimensione specificata al `border-box`, quindi la dimensione che imposti è la dimensione che vedi renderizzata. Quanti siti usano la proprietà `box-sizing`? La maggior parte di loro! La proprietà `box-sizing` appare nell'83.79% dei CSS desktop e nell'86.39% sui dispositivi mobile.
 
 {{ figure_markup(
   image="box-sizing.png",
-  alt="Distribuzione del numero di dichiarazioni border-box per pagina.",
   caption="Distribuzione del numero di dichiarazioni `border-box` per pagina.",
   description="Grafico a barre che mostra la distribuzione del numero di dichiarazioni `box-sizing` per pagina per desktop e mobile. La distribuzione mobile porta i desktop da 0 a 11 dichiarazioni per pagina, crescendo nei percentili più alti. I 10, 25, 50, 75 e 90° percentile della distribuzione mobile sono: 0, 4, 17, 46 e 96 dichiarazioni `border-box` per pagina.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=1626960751&format=interactive",
@@ -1146,7 +1139,7 @@ L'anno scorso, l'8% delle pagine utilizzava i metodi di fusione (blend modes). Q
 
 ### Filtri
 
-L'adozione dei filtri è rimasta elevata, con la proprietà `filter` che compare nel 79.43% delle pagine. Anche se all'inizio era abbastanza eccitante, è probabile che molti siano vecchi [filtri DX IE](https://developer.mozilla.org/en-US/docs/Archive/Web/CSS/-ms-filter), che condividevano lo stesso nome di proprietà. Quando abbiamo preso in considerazione solo i filtri CSS validi che Blink riconosce, l'utilizzo scende al 22% per i dispositivi mobile e al 20% per i desktop, con `blur()` che è il tipo di filtro più popolare e compare nel 4% delle pagine.
+L'adozione dei filtri è rimasta elevata, con la proprietà `filter` che compare nel 79.43% delle pagine. Anche se all'inizio era abbastanza eccitante, è probabile che molti siano vecchi filtri DX IE (`-ms-filter`), che condividevano lo stesso nome di proprietà. Quando abbiamo preso in considerazione solo i filtri CSS validi che Blink riconosce, l'utilizzo scende al 22% per i dispositivi mobile e al 20% per i desktop, con `blur()` che è il tipo di filtro più popolare e compare nel 4% delle pagine.
 
 Un'altra proprietà del filtro, `background-filter`, ci consente di applicare filtri solo all'area dietro un elemento, che è incredibilmente utile per migliorare il contrasto su sfondi traslucidi e creare l'elegante <a hreflang="en" href="https://css-tricks.com/backdrop-filter-effect-with-css/">effetto "vetro smerigliato"</a> che abbiamo imparato da molte interfacce utente native. Anche se non così popolare come `filter`, abbiamo trovato `background-filter` nel 6% delle pagine.
 
@@ -1169,7 +1162,7 @@ Un decennio fa, abbiamo ottenuto le maschere in Safari con `-webkit-mask-image` 
 
 ### I clipping path
 
-Più o meno nello stesso periodo le maschere sono diventate popolari, un'altra proprietà simile ma più semplice (originariamente da SVG) ha iniziato a girare: `clip-path`. Tuttavia, a differenza delle maschere, ha avuto un destino migliore. È stato standardizzato abbastanza rapidamente e ha ottenuto supporto su tutta la linea relativamente velocemente, con l'ultimo blocco è stato Safari che ha abbandonato il prefisso nel 2016. Oggi, si trova sul 19% delle pagine non prefissate e sul 13% con il prefisso `-webkit-` .
+Più o meno nello stesso periodo le maschere sono diventate popolari, un'altra proprietà simile ma più semplice (originariamente da SVG) ha iniziato a girare: `clip-path`. Tuttavia, a differenza delle maschere, ha avuto un destino migliore. È stato standardizzato abbastanza rapidamente e ha ottenuto supporto su tutta la linea relativamente velocemente, con l'ultimo blocco è stato Safari che ha abbandonato il prefisso nel 2016. Oggi, si trova sul 19% delle pagine non prefissate e sul 13% con il prefisso `-webkit-`.
 
 ## Responsive design
 
@@ -1202,9 +1195,8 @@ Il breakpoint più comune in uso tra desktop e mobile è un `min-width` di 768px
 
 {{ figure_markup(
   image="breakpoints.png",
-  alt="I breakpoint più popolari per min-width e max-width come percentuale delle pagine per dispositivi mobile.",
   caption="I breakpoint più popolari per `min-width` e `max-width` come percentuale delle pagine per dispositivi mobile",
-  description="I breakpoint più popolari di `min-width` e `max-width` come percentuale delle pagine mobile. `480px` viene utilizzato come min-width sul 21% delle pagine per dispositivi mobile e come `max-width` sul 35%. `600px` su 27% e 37% rispettivamente per larghezze min e max, `767px` su 8% e 50%, `768px` su 54% e 35%,` 800px` su 8% e 24%, `991px` su 3% e 30%, `992px` su 37% e 11%, `1024px` su 13% e 23%, `1199px` su solo 31% come `max-width` e `1200px` su 40% e 19%.",
+  description="I breakpoint più popolari di `min-width` e `max-width` come percentuale delle pagine mobile. `480px` viene utilizzato come min-width sul 21% delle pagine per dispositivi mobile e come `max-width` sul 35%. `600px` su 27% e 37% rispettivamente per larghezze min e max, `767px` su 8% e 50%, `768px` su 54% e 35%, `800px` su 8% e 24%, `991px` su 3% e 30%, `992px` su 37% e 11%, `1024px` su 13% e 23%, `1199px` su solo 31% come `max-width` e `1200px` su 40% e 19%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=502128948&format=interactive",
   sheets_gid="1070028321",
   sql_file="media_query_values.sql"
@@ -1219,7 +1211,7 @@ Il 79% delle media query sui dispositivi mobile e il 77% sui desktop vengono uti
 {{ figure_markup(
   image="media-query-properties.png",
   caption="Le proprietà più popolari utilizzate nelle media query come percentuale delle pagine.",
-  description="Grafico a barre delle proprietà più popolari utilizzate nelle media query come percentuale delle pagine. Desktop e mobile sono molto simili. La percentuale di pagine mobile varia dal 79% al 71% per `display`, `width`, `margin-left`, `padding`, `font-size`,` height`, `margin`, `margin-right` , `margin-top` e `position`, in quest'ordine.",
+  description="Grafico a barre delle proprietà più popolari utilizzate nelle media query come percentuale delle pagine. Desktop e mobile sono molto simili. La percentuale di pagine mobile varia dal 79% al 71% per `display`, `width`, `margin-left`, `padding`, `font-size`, `height`, `margin`, `margin-right` , `margin-top` e `position`, in quest'ordine.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=1199544976&format=interactive",
   sheets_gid="190367365",
   sql_file="media_query_properties.sql"
@@ -1301,13 +1293,13 @@ Negli ultimi anni, l'interazione tra CSS e JavaScript è cresciuta, non solo imp
 
 ### Houdini
 
-Probabilmente avrai già sentito parlare di [Houdini](https://developer.mozilla.org/en-US/docs/Web/Houdini). Houdini è un insieme di API di basso livello che espone parti del motore CSS, dando agli sviluppatori il potere di estendere CSS agganciandosi allo stile e al processo di layout del motore di rendering di un browser. Poiché <a hreflang="en" href="https://ishoudinireadyyet.com/">diverse specifiche Houdini sono state fornite nei browser</a>, abbiamo pensato che fosse ora di vedere se sono state effettivamente utilizzate allo stato brado. Risposta breve: no. E ora per la risposta più lunga ...
+Probabilmente avrai già sentito parlare di [Houdini](https://developer.mozilla.org/docs/Web/Houdini). Houdini è un insieme di API di basso livello che espone parti del motore CSS, dando agli sviluppatori il potere di estendere CSS agganciandosi allo stile e al processo di layout del motore di rendering di un browser. Poiché <a hreflang="en" href="https://ishoudinireadyyet.com/">diverse specifiche Houdini sono state fornite nei browser</a>, abbiamo pensato che fosse ora di vedere se sono state effettivamente utilizzate allo stato brado. Risposta breve: no. E ora per la risposta più lunga ...
 
-In primo luogo, abbiamo esaminato le [API Properties e Values](https://developer.mozilla.org/en-US/docs/Web/API/CSS/RegisterProperty), che consente agli sviluppatori di registrare una proprietà personalizzata e assegnarle un type, un valore iniziale e impedire che venga ereditato. Uno dei casi d'uso principali è la possibilità di animare le proprietà personalizzate, quindi abbiamo anche esaminato la frequenza con cui le proprietà personalizzate vengono animate.
+In primo luogo, abbiamo esaminato le [API Properties e Values](https://developer.mozilla.org/docs/Web/API/CSS/RegisterProperty), che consente agli sviluppatori di registrare una proprietà personalizzata e assegnarle un type, un valore iniziale e impedire che venga ereditato. Uno dei casi d'uso principali è la possibilità di animare le proprietà personalizzate, quindi abbiamo anche esaminato la frequenza con cui le proprietà personalizzate vengono animate.
 
 Come spesso accade con la tecnologia più avanzata, specialmente quando non è supportata in tutti i browser, l'adozione naturale è stata estremamente bassa. È stato riscontrato che solo 32 pagine desktop e 20 pagine per dispositivi mobile avevano proprietà personalizzate registrate, sebbene ciò escluda le proprietà personalizzate registrate ma non applicate al momento della scansione. Solo 325 pagine per dispositivi mobile e 330 pagine desktop (0,00%) utilizzano proprietà personalizzate nelle animazioni e la maggior parte (74%) sembra essere guidata da un <a hreflang="en" href="https://quasar.dev/vue-components/expansion-item">componente Vue</a>. Praticamente nessuno di questi sembra averli registrati, anche se è probabile che l'animazione non fosse attiva al momento della scansione, quindi non era necessario registrare alcun stile di calcolo.
 
-La [Paint API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API) è una specifica Houdini implementata in modo più ampio che consente agli sviluppatori di creare funzioni CSS personalizzate che restituiscono valori `<image>`, ad es per implementare sfumature o pattern personalizzati. È stato riscontrato che solo 12 pagine utilizzano `paint()`. È stato visualizzato un solo nome del worklet (`hexagon`, `ruler`, `lozenge`, `image-cross`, `grid`, `dashed-line`, `ripple`) per pagina
+La [Paint API](https://developer.mozilla.org/docs/Web/API/CSS_Painting_API) è una specifica Houdini implementata in modo più ampio che consente agli sviluppatori di creare funzioni CSS personalizzate che restituiscono valori `<image>`, ad es per implementare sfumature o pattern personalizzati. È stato riscontrato che solo 12 pagine utilizzano `paint()`. È stato visualizzato un solo nome del worklet (`hexagon`, `ruler`, `lozenge`, `image-cross`, `grid`, `dashed-line`, `ripple`) per pagina
 
 <a hreflang="en" href="https://github.com/w3c/css-houdini-drafts/blob/master/css-typed-om/README.md">Typed OM</a>, un'altra specifica Houdini, consente l'accesso a valori strutturati invece che alle stringhe di il classico CSS OM. Sembra avere un'adozione notevolmente maggiore rispetto ad altre specifiche Houdini, anche se nel complesso ancora bassa. Viene utilizzato in 9.864 pagine desktop (0.18%) e 6.391 pagine mobile (0.1%). Anche se questo può sembrare basso, per metterlo in prospettiva, questi sono numeri simili all'adozione di `<input type ="date">`! Si noti che, a differenza della maggior parte delle statistiche in questo capitolo, questi numeri riflettono l'utilizzo effettivo e non solo l'inclusione nelle risorse di un sito Web.
 
@@ -1320,7 +1312,7 @@ Ci sono state così tante discussioni sui CSS-in-JS che tutti sembrano usarlo.
   content="2%",
   classes="big-number",
   sheets_gid="1368222498",
-  sql_file="css_in_js"
+  sql_file="css_in_js.sql"
 )
 }}
 
@@ -1353,7 +1345,7 @@ Perché impostare la direzione utilizzando gli attributi HTML anziché lo stile 
 
 Molte delle prime proprietà che ci vengono insegnate quando impariamo i CSS, cose come `width`, `height`, `margin-left`,`padding-bottom`, `right` e così via sono basate su una specifica direzione fisica. Tuttavia, quando il contenuto deve essere presentato in più lingue con diverse caratteristiche di direzionalità, queste direzioni fisiche dipendono spesso dalla lingua, ad es. `margin-left` spesso ha bisogno di diventare `margin-right` in una lingua da destra a sinistra come l'arabo. La direzionalità è una caratteristica 2D. Ad esempio, `height` potrebbe dover diventare `width` quando presentiamo il contenuto in scrittura verticale (come il cinese tradizionale).
 
-In passato, l'unica soluzione a questi problemi era un foglio di stile separato con sostituzioni per diversi sistemi di scrittura. Tuttavia, più recentemente i CSS hanno acquisito [proprietà e valori *logici*](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) che funzionano proprio come i loro omologhi *fisici* ma sono sensibili alla direzionalità del loro contesto. Ad esempio, invece di `width` potremmo scrivere `inline-size`, e invece di `left` potremmo usare [`inset-inline`](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline). Oltre alle *proprietà* logiche, ci sono anche parole *chiave* logiche, come `float: inline-start` invece di `float: left`.
+In passato, l'unica soluzione a questi problemi era un foglio di stile separato con sostituzioni per diversi sistemi di scrittura. Tuttavia, più recentemente i CSS hanno acquisito [proprietà e valori *logici*](https://developer.mozilla.org/docs/Web/CSS/CSS_Logical_Properties) che funzionano proprio come i loro omologhi *fisici* ma sono sensibili alla direzionalità del loro contesto. Ad esempio, invece di `width` potremmo scrivere `inline-size`, e invece di `left` potremmo usare [`inset-inline`](https://developer.mozilla.org/docs/Web/CSS/inset-inline). Oltre alle *proprietà* logiche, ci sono anche parole *chiave* logiche, come `float: inline-start` invece di `float: left`.
 
 Sebbene queste proprietà siano abbastanza <a hreflang="en" href="https://caniuse.com/css-logical-props">ben supportate</a> (con alcune eccezioni), non sono usate molto al di fuori dei fogli di stile del programma utente. Nessuna delle proprietà logiche è stata utilizzata su più dello 0.6% delle pagine. La maggior parte dell'uso era specificare i margin e i padding. Le parole chiave logiche per `text-align` sono state utilizzate nel 2.25% delle pagine, ma a parte questo, nessuna delle altre parole chiave è stata nemmeno incontrata. Ciò è in gran parte guidato dal supporto del browser: `text-align: start` e `end` hanno <a hreflang="en" href="https://caniuse.com/mdn-css_properties_text-align_flow_relative_values_start_and_end">un supporto browser abbastanza buono</a> mentre le parole chiave logiche per `clear` e `float` sono supportati solo in Firefox.
 
@@ -1457,9 +1449,9 @@ Quasi tutto l'uso di funzioni con prefisso (98%) è per specificare i gradienti,
   sql_file="vendor_prefix_functions.sql"
 ) }}
 
-L'utilizzo delle funzionalità multimediale con prefisso è complessivamente inferiore, con la più popolare, `-webkit-min-pixel-ratio`, utilizzata nel 13% delle pagine per rilevare i display "Retina". La corrispondente funzionalità multimediale standard, [`resolution`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution) l'ha finalmente superata in popolarità ed è usata nel 22% degli pagine per dispositivi mobile e il 15% di pagine desktop.
+L'utilizzo delle funzionalità multimediale con prefisso è complessivamente inferiore, con la più popolare, `-webkit-min-pixel-ratio`, utilizzata nel 13% delle pagine per rilevare i display "Retina". La corrispondente funzionalità multimediale standard, [`resolution`](https://developer.mozilla.org/docs/Web/CSS/@media/resolution) l'ha finalmente superata in popolarità ed è usata nel 22% degli pagine per dispositivi mobile e il 15% di pagine desktop.
 
-Complessivamente, `-*-min-pixel-ratio` comprende tre quarti delle funzionalità multimediali con prefisso su desktop e circa la metà su dispositivi mobile. La ragione della differenza non è il ridotto utilizzo dei dispositivi mobile, ma il fatto che un'altra funzione multimediale con prefisso, `-*-high-contrast`, è molto più popolare sui dispositivi mobile e rappresenta quasi tutta l'altra metà delle funzioni multimediali con prefisso, ma solo il 18% su desktop. La funzione multimediale standard corrispondente, [forced-colors](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors) è ancora sperimentale in Chrome e Firefox.
+Complessivamente, `-*-min-pixel-ratio` comprende tre quarti delle funzionalità multimediali con prefisso su desktop e circa la metà su dispositivi mobile. La ragione della differenza non è il ridotto utilizzo dei dispositivi mobile, ma il fatto che un'altra funzione multimediale con prefisso, `-*-high-contrast`, è molto più popolare sui dispositivi mobile e rappresenta quasi tutta l'altra metà delle funzioni multimediali con prefisso, ma solo il 18% su desktop. La funzione multimediale standard corrispondente, [forced-colors](https://developer.mozilla.org/docs/Web/CSS/@media/forced-colors) è ancora sperimentale in Chrome e Firefox.
 
 {{ figure_markup(
   image="vendor-prefixed-media.png",
@@ -1472,7 +1464,7 @@ Complessivamente, `-*-min-pixel-ratio` comprende tre quarti delle funzionalità 
 
 ### Le funzionalità delle query
 
-Le funzionalità delle query ([@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)) stanno guadagnando terreno negli ultimi anni e sono state utilizzate nel 39% dei pagine, in notevole aumento rispetto al 30% dello scorso anno.
+Le funzionalità delle query ([@supports](https://developer.mozilla.org/docs/Web/CSS/@supports)) stanno guadagnando terreno negli ultimi anni e sono state utilizzate nel 39% dei pagine, in notevole aumento rispetto al 30% dello scorso anno.
 
 Ma a cosa servono? Abbiamo esaminato le query più popolari. Il risultato è stato sorprendente. Ci aspettavamo che le query relative a Grid fossero in cima alla lista, ma invece, le funzionalità delle query più popolari sono di gran lunga per `position: sticky`! Comprendono la metà di tutte le funzionalità delle query e vengono utilizzate in circa un quarto delle pagine. Al contrario, le query relative a Grid rappresentano solo il 2% di tutte le query, indicando che gli sviluppatori si sentono abbastanza a loro agio con il supporto del browser di Grid da non aver bisogno di usarlo solo come miglioramento progressivo.
 
@@ -1484,7 +1476,6 @@ Un piccolo ma notevole numero di pagine (circa 3000 o 0.05%) utilizzava straname
 
 {{ figure_markup(
   image="supports-criteria.png",
-  alt="Popolarità relativa delle funzionalità delle query @supports come percentuale di occorrenze.",
   caption="Popolarità relativa delle funzionalità delle query @supports come percentuale di occorrenze.",
   description="Grafico a barre della popolarità relativa delle funzionalità delle query @supports come percentuale di occorrenze. La funzionalità più popolare è `sticky` al 49% delle occorrenze su pagine mobile, seguita da `ime-align` al 24%, `mask-image` al 12%, `overflow-scrolling` al 5%, `grid` al 2%, proprietà personalizzate, `transform-style`, `max()` e `object-fit` tutto all'1% e `appearance` a circa 0%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=1901533222&format=interactive",
@@ -1577,7 +1568,7 @@ Quindi con che frequenza si verifica questo? Molto, a quanto pare. L'88% delle p
 {{ figure_markup(
   image="most-popular-longhand-after-shorthand.png",
   caption="Le forme complete più popolari che vengono dopo le abbreviazioni nella stessa regola.",
-  description="Grafico a barre che mostra `background-size` al 15% per desktop e 41% per mobile, `background-image` rispettivamente all'8% e al 6%, `margin-bottom` al 6% e 4%, `margin-top` a 6% e 4%, `border-bottom-color` al 5% e 3%, `font-size` al 4% e 3%, `border-top-color` al 4% e 3%, `background-color` al 4% e al 2%, `padding-left` al 3% e al 2% e infine `margin-left ` al 3% e al 2%.",
+  description="Grafico a barre che mostra `background-size` al 15% per desktop e 41% per mobile, `background-image` rispettivamente all'8% e al 6%, `margin-bottom` al 6% e 4%, `margin-top` a 6% e 4%, `border-bottom-color` al 5% e 3%, `font-size` al 4% e 3%, `border-top-color` al 4% e 3%, `background-color` al 4% e al 2%, `padding-left` al 3% e al 2% e infine `margin-left` al 3% e al 2%.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=176504610&format=interactive",
   sheets_gid="17890636",
   sql_file="meta_shorthand_first_properties.sql",
@@ -1628,7 +1619,7 @@ Sia le shorthand `margin` che `padding`, così come le loro forme complete, eran
 
 #### Flex
 
-Quasi tutte le proprietà `flex`, `flex-*` sono molto usate e appaiono nel 30-60% delle pagine. Tuttavia, sia `flex-wrap` che `flex-direction` sono usati molto più della loro shorthand, `flex-flow`. Quando viene utilizzato `flex-flow`, viene utilizzato con due valori, ovvero come un modo più breve per impostare entrambe le forme complete. Nonostante gli [elaborati valori predefiniti ragionevoli](https://developer.mozilla.org/it/docs/Web/CSS/flex#syntax) per l'uso di `flex` con uno o due valori, circa il 90% dell'utilizzo consiste nella sintassi dei 3 valori, impostando esplicitamente tutti e tre delle sue forme complete.
+Quasi tutte le proprietà `flex`, `flex-*` sono molto usate e appaiono nel 30-60% delle pagine. Tuttavia, sia `flex-wrap` che `flex-direction` sono usati molto più della loro shorthand, `flex-flow`. Quando viene utilizzato `flex-flow`, viene utilizzato con due valori, ovvero come un modo più breve per impostare entrambe le forme complete. Nonostante gli [elaborati valori predefiniti ragionevoli](https://developer.mozilla.org/docs/Web/CSS/flex#syntax) per l'uso di `flex` con uno o due valori, circa il 90% dell'utilizzo consiste nella sintassi dei 3 valori, impostando esplicitamente tutti e tre delle sue forme complete.
 
 {{ figure_markup(
   image="flex-shorthand-vs-longhand.png",
@@ -1669,7 +1660,7 @@ Abbiamo anche esaminato le proprietà inesistenti più comuni, utilizzando un el
 - Il 37% di loro era una forma alterata di una proprietà con prefisso (ad es. `webkit-Transition` o `-transition`)
 - Il 43% era una forma non prefissata di una proprietà che esiste solo con un prefisso (ad esempio `font-smoothing`, che appariva su 384K siti web), probabilmente inclusa per compatibilità sotto l'errato presupposto che sia standard, o a causa di un pio desiderio che diventerà standard.
 - Un errore di battitura che ha trovato la sua strada in una libreria popolare. Attraverso questa analisi, abbiamo scoperto che la proprietà `white-wpace` era presente in 234.027 siti web. Ci sono troppi siti Web perché lo stesso errore di battitura si sia verificato in modo organico, quindi abbiamo deciso di esaminarlo. Ed ecco, [si scopre](https://twitter.com/rick_viscomi/status/1326739379533000704) era il widget di Facebook! La correzione è già in atto.
-- E un'altra stranezza: la proprietà `font-rendering` appare su 2.575 pagine. Tuttavia, non possiamo trovare prove dell'esistenza di tale proprietà, con o senza un prefisso. C'è il non standard <a hreflang="en" href="https://medium.com/better-programming/improving-font-rendering-with-css-3383fc358cbc">`-webkit-font-smoothing`</a> che è molto popolare, comparendo in 3 milioni di siti web, o circa il 49% delle pagine, ma `font-rendering` non è sufficientemente vicino per essere un errore di ortografia. C'è [`text-rendering`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering) che viene utilizzato in circa 100K di siti web, quindi è concepibile che 2.5K tutti gli sviluppatori abbiano erroneamente scambiato `font-smoothing` e `text-rendering`.
+- E un'altra stranezza: la proprietà `font-rendering` appare su 2.575 pagine. Tuttavia, non possiamo trovare prove dell'esistenza di tale proprietà, con o senza un prefisso. C'è il non standard <a hreflang="en" href="https://medium.com/better-programming/improving-font-rendering-with-css-3383fc358cbc">`-webkit-font-smoothing`</a> che è molto popolare, comparendo in 3 milioni di siti web, o circa il 49% delle pagine, ma `font-rendering` non è sufficientemente vicino per essere un errore di ortografia. C'è [`text-rendering`](https://developer.mozilla.org/docs/Web/CSS/text-rendering) che viene utilizzato in circa 100K di siti web, quindi è concepibile che 2.5K tutti gli sviluppatori abbiano erroneamente scambiato `font-smoothing` e `text-rendering`.
 
 {{ figure_markup(
   image="most-popupular-unknown-properties.png",
@@ -1742,7 +1733,7 @@ Un'altra specifica futura su cui si sta attualmente lavorando è <a hreflang="en
 
 {{ figure_markup(
   image="usage-of-explicit-nesting-in-scss.png",
-  caption="usage-of-explicit-nesting-in-scss.",
+  caption="Utilizzo della nidificazione esplicita in SCSS.",
   description="Il grafico a barre che mostra `Total` è utilizzato dall'85% su desktop e dall'85% su dispositivi mobile, `&:pseudo-class` è rispettivamente dell'83% e dell'83%, `&.class` è dell'80% e dell'80%, `&::pseudo-element` è 66% e 66%, `& (by itself)` è 62% e 62%, `&[attr]` è 57% e 57%, `& >` 24% e 23%, `& +` 21% e 20%, `& descendant` è 16% e 15% e `&#id` è 6% su desktop e 6% su dispositivo mobile.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_HsNGpekn6YZV9k6QGmcZPxalqnDrL7DrDY-7X65RZEf_-aGfWuEvhk-yWV83ctIceE1bppCLpj/pubchart?oid=370242263&format=interactive",
   sheets_gid="1872903377",

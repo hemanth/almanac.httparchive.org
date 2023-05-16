@@ -3,10 +3,10 @@
 title: リソースヒント
 description: 2019年のWeb Almanacのリソースヒントの章では、dns-prefetch、preconnect、preload、prefetch、priority hints、ネイティブの遅延ローディングの使用法をカバーしています。
 authors: [khempenius]
-reviewers: [andydavies, bazzadp, yoavweiss]
+reviewers: [andydavies, tunetheweb, yoavweiss]
 analysts: [rviscomi]
 editors: [rviscomi]
-translators: [ksakae]
+translators: [ksakae1216]
 discuss: 1774
 results: https://docs.google.com/spreadsheets/d/14QBP8XGkMRfWRBbWsoHm6oDVPkYhAIIpfxRn4iOkbUU/
 khempenius_bio: Katie HempeniusはChromeチームのエンジニアで、ウェブの高速化に取り組んでいます。
@@ -33,11 +33,11 @@ featured_stat_label_3: 優先順位のヒントの使い方
 
 ### `dns-prefetch`
 
-[`dns-prefetch`](https://developer.mozilla.org/en-US/docs/Learn/Performance/dns-prefetch)の役割は、初期のDNS検索を開始することである。サードパーティのDNSルックアップを完了させるのに便利です。たとえば、CDN、フォントプロバイダー、サードパーティAPIのDNSルックアップなどです。
+[`dns-prefetch`](https://developer.mozilla.org/docs/Learn/Performance/dns-prefetch)の役割は、初期のDNS検索を開始することである。サードパーティのDNSルックアップを完了させるのに便利です。たとえば、CDN、フォントプロバイダー、サードパーティAPIのDNSルックアップなどです。
 
 ### `preconnect`
 
-<a hreflang="en" href="https://web.dev/uses-rel-preconnect">`preconnect`</a>は、DNSルックアップ、TCPハンドシェイク、TLSネゴシエーションを含む早期接続を開始します。このヒントはサードパーティとの接続を設定する際に有用である。`preconnect`の用途は`dns-prefetch`の用途と非常によく似ているが、`preconnect`はブラウザのサポートが少ない。しかし、IE 11のサポートを必要としないのであれば、preconnectの方が良い選択であろう。
+<a hreflang="ja" href="https://web.dev/i18n/ja/uses-rel-preconnect">`preconnect`</a>は、DNSルックアップ、TCPハンドシェイク、TLSネゴシエーションを含む早期接続を開始します。このヒントはサードパーティとの接続を設定する際に有用である。`preconnect`の用途は`dns-prefetch`の用途と非常によく似ているが、`preconnect`はブラウザのサポートが少ない。しかし、IE 11のサポートを必要としないのであれば、preconnectの方が良い選択であろう。
 
 ### `preload`
 
@@ -49,19 +49,19 @@ featured_stat_label_3: 優先順位のヒントの使い方
 
 ## 文法
 
-リソースヒント使用率の97%は、リソースヒントを指定するために[`<link>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/link)タグを使用しています。たとえば、以下のようになります。
+リソースヒント使用率の97%は、リソースヒントを指定するために[`<link>`](https://developer.mozilla.org/docs/Web/HTML/Element/link)タグを使用しています。たとえば、以下のようになります。
 
 ```html
 <link rel="prefetch" href="shopping-cart.js">
 ```
 
-リソースヒント使用率のわずか3%は、リソースヒントの指定に[HTTPヘッダ](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link)を使用しました。たとえば、以下のようになります。
+リソースヒント使用率のわずか3%は、リソースヒントの指定に[HTTPヘッダ](https://developer.mozilla.org/docs/Web/HTTP/Headers/Link)を使用しました。たとえば、以下のようになります。
 
 ```
 Link: <https://example.com/shopping-cart.js>; rel=prefetch
 ```
 
-HTTPヘッダー内のリソースヒントの使用量が非常に少ないため、本章の残りの部分では、`<link>`タグと組み合わせたリソースヒントの使用量の分析のみに焦点を当てています。しかし、今後、[HTTP/2 Push](./http2#http2プッシュ)が採用されるようになると、HTTPヘッダーでのリソースヒントの使用量が増える可能性のあることは注目に値します。これは、HTTP/2 Pushがリソースをプッシュするためのシグナルとして、HTTPのプリロード `Link` ヘッダーを再利用していることに起因しています。
+HTTPヘッダー内のリソースヒントの使用量が非常に少ないため、本章の残りの部分では、`<link>`タグと組み合わせたリソースヒントの使用量の分析のみに焦点を当てています。しかし、今後、[HTTP/2 Push](./http#http2プッシュ)が採用されるようになると、HTTPヘッダーでのリソースヒントの使用量が増える可能性のあることは注目に値します。これは、HTTP/2 Pushがリソースをプッシュするためのシグナルとして、HTTPのプリロード `Link` ヘッダーを再利用していることに起因しています。
 
 ## リソースヒント
 
@@ -70,38 +70,38 @@ HTTPヘッダー内のリソースヒントの使用量が非常に少ないた�
 <figure>
   <table>
     <tr>
-     <th>リソースヒント</th>
-     <th>利用状況（サイトの割合）</th>
+      <th>リソースヒント</th>
+      <th>利用状況（サイトの割合）</th>
     </tr>
     <tr>
-     <td><code>dns-prefetch</code>
-     </td>
-     <td>29%
-     </td>
+      <td><code>dns-prefetch</code>
+      </td>
+      <td>29%
+      </td>
     </tr>
     <tr>
-     <td><code>preload</code>
-     </td>
-     <td>16%
-     </td>
+      <td><code>preload</code>
+      </td>
+      <td>16%
+      </td>
     </tr>
     <tr>
-     <td><code>preconnect</code>
-     </td>
-     <td>4%
-     </td>
+      <td><code>preconnect</code>
+      </td>
+      <td>4%
+      </td>
     </tr>
     <tr>
-     <td><code>prefetch</code>
-     </td>
-     <td>3%
-     </td>
+      <td><code>prefetch</code>
+      </td>
+      <td>3%
+      </td>
     </tr>
     <tr>
-     <td><code>prerender</code> (非推奨)
-     </td>
-     <td>0.13%
-     </td>
+      <td><code>prerender</code> (非推奨)
+      </td>
+      <td>0.13%
+      </td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="リソースヒントの採用。") }}</figcaption>
@@ -116,49 +116,49 @@ HTTPヘッダー内のリソースヒントの使用量が非常に少ないた�
 <figure>
   <table>
     <tr>
-     <th>リソースヒント</th>
-     <th>ページごとのリソースヒント<br>中央値</th>
-     <th>ページごとのリソースヒント<br>90パーセンタイル</th>
+      <th>リソースヒント</th>
+      <th>ページごとのリソースヒント<br>中央値</th>
+      <th>ページごとのリソースヒント<br>90パーセンタイル</th>
     </tr>
     <tr>
-     <td><code>dns-prefetch</code>
-     </td>
-     <td>2
-     </td>
-     <td>8
-     </td>
+      <td><code>dns-prefetch</code>
+      </td>
+      <td>2
+      </td>
+      <td>8
+      </td>
     </tr>
     <tr>
-     <td><code>preload</code>
-     </td>
-     <td>2
-     </td>
-     <td>4
-     </td>
+      <td><code>preload</code>
+      </td>
+      <td>2
+      </td>
+      <td>4
+      </td>
     </tr>
     <tr>
-     <td><code>preconnect</code>
-     </td>
-     <td>2
-     </td>
-     <td>8
-     </td>
+      <td><code>preconnect</code>
+      </td>
+      <td>2
+      </td>
+      <td>8
+      </td>
     </tr>
     <tr>
-     <td><code>prefetch</code>
-     </td>
-     <td>1
-     </td>
-     <td>3
-     </td>
+      <td><code>prefetch</code>
+      </td>
+      <td>1
+      </td>
+      <td>3
+      </td>
     </tr>
     <tr>
-     <td><code>prerender</code> (非推奨)
-     </td>
-     <td>1
-     </td>
-     <td>1
-     </td>
+      <td><code>prerender</code> (非推奨)
+      </td>
+      <td>1
+      </td>
+      <td>1
+      </td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="そのリソースヒントを使用している全ページのうち、1ページあたりに使用されているリソースヒントの数の中央値と90パーセンタイル。") }}</figcaption>
@@ -168,7 +168,7 @@ HTTPヘッダー内のリソースヒントの使用量が非常に少ないた�
 
 ## `crossorigin`属性
 
-ウェブ上に取り込まれるほとんどの「伝統的な」リソース（[images](./media)、[stylesheets](./css)、[script](./javascript)）は、クロスオリジンリソース共有（[CORS](https://developer.mozilla.org/ja/docs/Web/HTTP/CORS)）を選択せずに取り込まれています。つまり、これらのリソースがクロスオリジンサーバーからフェッチされた場合、デフォルトでは同一オリジンポリシーのために、その内容をページで読み返すことができないということです。
+ウェブ上に取り込まれるほとんどの「伝統的な」リソース（[images](./media)、[stylesheets](./css)、[script](./javascript)）は、クロスオリジンリソース共有（[CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS)）を選択せずに取り込まれています。つまり、これらのリソースがクロスオリジンサーバーからフェッチされた場合、デフォルトでは同一オリジンポリシーのために、その内容をページで読み返すことができないということです。
 
 場合によっては、ページはコンテンツを読む必要がある場合、CORSを使用してリソースを取得するようにオプトインできます。CORSは、ブラウザが「許可を求める」ことを可能にし、それらのクロスオリジンリソースへのアクセスを取得します。
 
@@ -177,33 +177,33 @@ HTTPヘッダー内のリソースヒントの使用量が非常に少ないた�
 <figure>
   <table>
     <tr>
-     <th><code>クロスオリジン</code>値</th>
-     <th>使用方法</th>
-     <th>説明</th>
+      <th><code>クロスオリジン</code>値</th>
+      <th>使用方法</th>
+      <th>説明</th>
     </tr>
     <tr>
-     <td>未設定
-     </td>
-     <td>92%
-     </td>
-     <td>crossorigin属性がない場合、リクエストはシングルオリジンポリシーに従います。
-     </td>
+      <td>未設定
+      </td>
+      <td>92%
+      </td>
+      <td>crossorigin属性がない場合、リクエストはシングルオリジンポリシーに従います。
+      </td>
     </tr>
     <tr>
-     <td>anonymous(に相当する)
-     </td>
-     <td>7%
-     </td>
-     <td>クレデンシャルを含まないクロスオリジンリクエストを実行します。
-     </td>
+      <td>anonymous(に相当する)
+      </td>
+      <td>7%
+      </td>
+      <td>クレデンシャルを含まないクロスオリジンリクエストを実行します。
+      </td>
     </tr>
     <tr>
-     <td>use-credentials
-     </td>
-     <td>0.47%
-     </td>
-     <td>クレデンシャルを含むクロスオリジンリクエストを実行します。
-     </td>
+      <td>use-credentials
+      </td>
+      <td>0.47%
+      </td>
+      <td>クレデンシャルを含むクロスオリジンリクエストを実行します。
+      </td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="リソースヒントインスタンスの割合としての <code>クロスオリジン</code> 属性の採用。") }}</figcaption>
@@ -238,9 +238,9 @@ HTTPヘッダー内のリソースヒントの使用量が非常に少ないた�
 
 <a hreflang="en" href="https://wicg.github.io/priority-hints/">優先度ヒント</a>は、リソースのフェッチの優先度を`high`,`low`,`auto`のいずれかで表現するためのAPIです。これらは幅広いHTMLタグで利用できます。とくに`<image>`,`<link`>,`<script>`,`<iframe>`などです。
 
-<figure>
+<figure class="figure-block">
 <div class="code-block floating-card">
-  <pre><code>&lt;carousel>
+  <pre role="region" aria-label="Code 0" tabindex="0"><code>&lt;carousel>
   &lt;img src="cat1.jpg" importance="high">
   &lt;img src="cat2.jpg" importance="low">
   &lt;img src="cat3.jpg" importance="low">

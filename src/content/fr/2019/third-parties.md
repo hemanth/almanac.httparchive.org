@@ -3,20 +3,20 @@
 title: Tierces Parties
 description: Le chapitre sur les ressources tierces du Web Almanac 2019, qui aborde les tierces parties utilisées, pourquoi elles le sont et les répercussions de leur usage sur le rendu et la confidentialité.
 authors: [patrickhulce]
-reviewers: [zcorpan, obto, jasti]
+reviewers: [zcorpan, foxdavidj, jasti]
 analysts: [patrickhulce]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [borisschapira]
 discuss: 1760
 results: https://docs.google.com/spreadsheets/d/1iC4WkdadDdkqkrTY32g7hHKhXs9iHrr3Bva8CuPjVrQ/
 patrickhulce_bio: Patrick Hulce est un ancien ingénieur de Chrome, fondateur de <a hreflang="en" href="https://eris.ventures/">Eris Ventures</a>, membre de l’équipe principale de <a hreflang="en" href="https://github.com/GoogleChrome/lighthouse">Lighthouse</a> et de <a hreflang="en" href="https://github.com/GoogleChrome/lighthouse-ci">Lighthouse CI</a>, co-organisateur de la rencontre <a hreflang="en" href="https://www.meetup.com/DallasJS/">DallasJS</a> et auteur du projet <a hreflang="en" href="https://github.com/patrickhulce/third-party-web">third-party-web</a>.
 featured_quote: Le Web ouvert a été conçu pour être vaste, interconnectable et interopérable. La possibilité d’accéder à de puissantes librairies tierces et de les utiliser sur votre site avec des éléments `<link>` ou `<script>` a décuplé la productivité des développeurs et permis de nouvelles et incroyables expériences web ; par contre, l’immense popularité de quelques fournisseurs tiers (3P) pose d’importants problèmes en termes de performances et de confidentialité. Ce chapitre examine la prévalence et l’impact du code tiers sur le Web en 2019, les modèles d’utilisation du Web qui mènent à la popularité des solutions tierces et les répercussions potentielles sur l’avenir des performances Web et de la confidentialité.
 featured_stat_1: 93 %
-featured_stat_label_1: pages avec 3P.
+featured_stat_label_1: pages avec 3P
 featured_stat_2: 49 %
-featured_stat_label_2: des requêtes.
+featured_stat_label_2: des requêtes
 featured_stat_3: 28 %
-featured_stat_label_3: des octets.
+featured_stat_label_3: des octets
 ---
 
 ## Introduction

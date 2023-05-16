@@ -1,8 +1,9 @@
 #standardSQL
 # CSP on home pages: most commonly used header values
 CREATE TEMPORARY FUNCTION getHeader(headers STRING, headername STRING)
-  RETURNS STRING DETERMINISTIC
-  LANGUAGE js AS '''
+RETURNS STRING
+DETERMINISTIC
+LANGUAGE js AS '''
   const parsed_headers = JSON.parse(headers);
   const matching_headers = parsed_headers.filter(h => h.name.toLowerCase() == headername.toLowerCase());
   if (matching_headers.length > 0) {
@@ -24,7 +25,7 @@ FROM (
   FROM
     `httparchive.almanac.requests`
   WHERE
-    date = "2020-08-01" AND
+    date = '2020-08-01' AND
     firstHtml
 )
 WHERE

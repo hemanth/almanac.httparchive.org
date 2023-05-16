@@ -3,9 +3,9 @@
 title: PWA
 description: PWA chapter of the 2019 Web Almanac covering service workers (registations, installability, events and filesizes), Web App Manifests properties, and Workbox.
 authors: [tomayac, jeffposnick]
-reviewers: [hyperpress, ahmadawais]
+reviewers: [logicalphase, ahmadawais]
 analysts: [jrharalson]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: []
 discuss: 1766
 results: https://docs.google.com/spreadsheets/d/19BI3RQc_vR9bUPPZfVsF_4gpFWLNT6P0pLcAdL-A56c/
@@ -22,7 +22,7 @@ featured_stat_label_3: PWAs that use the `standalone` `display` property
 
 ## Introduction
 
-Progressive Web Apps (PWAs) are a new class of web applications, building on top of platform primitives like the [Service Worker APIs](https://developer.mozilla.org/en/docs/Web/API/Service_Worker_API). Service workers allow apps to support network-independent loading by acting as a network proxy, intercepting your web app's outgoing requests, and replying with programmatic or cached responses. Service workers can receive push notifications and synchronize data in the background even when the corresponding app is not running. Additionally, service workers, together with [Web App Manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest), allow users to install PWAs to their devices' home screens.
+Progressive Web Apps (PWAs) are a new class of web applications, building on top of platform primitives like the [Service Worker APIs](https://developer.mozilla.org/docs/Web/API/Service_Worker_API). Service workers allow apps to support network-independent loading by acting as a network proxy, intercepting your web app's outgoing requests, and replying with programmatic or cached responses. Service workers can receive push notifications and synchronize data in the background even when the corresponding app is not running. Additionally, service workers, together with [Web App Manifests](https://developer.mozilla.org/docs/Web/Manifest), allow users to install PWAs to their devices' home screens.
 
 Service workers were <a hreflang="en" href="https://blog.chromium.org/2014/12/chrome-40-beta-powerful-offline-and.html">first implemented in Chrome 40</a>, back in December 2014, and the term Progressive Web Apps was <a hreflang="en" href="https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/">coined by Frances Berriman and Alex Russell</a> in 2015. As service workers are now finally <a hreflang="en" href="https://jakearchibald.github.io/isserviceworkerready/">implemented in all major browsers</a>, the goal for this chapter is to determine how many PWAs are actually out there, and how they make use of these new technologies. Certain advanced APIs like <a hreflang="en" href="https://developers.google.com/web/updates/2015/12/background-sync">Background Sync</a> are currently still <a hreflang="en" href="https://caniuse.com/#feat=background-sync">only available on Chromium-based browsers</a>, so as an additional question, we looked into which features these PWAs actually use.
 
@@ -95,7 +95,7 @@ File size or lines of code are generally a bad proxy for the complexity of the t
   )
 }}
 
-The median service worker file on desktop is 895 bytes, whereas on mobile it's 694 bytes. Throughout all percentiles desktop service workers are larger than mobile service workers. We note that these stats don't account for dynamically imported scripts through the [`importScripts()`](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts) method, which likely skews the results higher.
+The median service worker file on desktop is 895 bytes, whereas on mobile it's 694 bytes. Throughout all percentiles desktop service workers are larger than mobile service workers. We note that these stats don't account for dynamically imported scripts through the [`importScripts()`](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/importScripts) method, which likely skews the results higher.
 
 ## Web app manifests
 
@@ -146,7 +146,6 @@ Looking at the values developers set for the `display` property, it becomes imme
 
 {{ figure_markup(
   image="fig7.png",
-  alt="Usage of web app manifest display properties.",
   caption="Usage of web app manifest <code>display</code> properties.",
   description='Bar chart showing how the display property of web app manifests is used by desktop and mobile websites. In both cases, the "standalone" value is used 57% of the time. The property is not set at all in 38% of manifests. The "minimal UI", "browser", and "fullscreen" values each make up only 1 or 2% of usage.',
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT7DUzACr4eBhNU4cDz8-17oSx2qYbi9OFDjngz0NXNBP2IzZFxvDxLX2XThlN4SZymKMygOXzpI2AJ/pubchart?oid=1514793237&format=interactive"
@@ -218,6 +217,6 @@ The HTTP Archive shows that 12.71% of websites that register a service worker ar
 
 The stats in this chapter show that PWAs are still only used by a small percentage of sites. However, this relatively small usage is driven by the more popular sites which have a much larger share of traffic, and pages beyond the home page may use this more: we showed that 15% of page loads use a service workers. The advantages they give for [performance](./performance) and greater control over [caching](./caching) particularly for [mobile](./mobile-web) should mean that usage will continue to grow.
 
-PWAs have often been seen as Chrome-driven technology. Other browsers have made great strides recently to implement most of the underlying technologies, although first-class installability lags on some platforms. It's positive to see support becoming more widespread. [Maximiliano Firtman](https://twitter.com/firt) does a great job of tracking this on iOS, including <a hreflang="en" href="https://medium.com/@firt/iphone-11-ipados-and-ios-13-for-pwas-and-web-development-5d5d9071cc49">explaining Safari PWA support</a>. Apple doesn't use the term PWA much, and has <a hreflang="en" href="https://developer.apple.com/news/?id=09062019b">explicitly stated that these HTML5 apps are best delivered outside of the App Store</a>. Microsoft went the opposite direction, not only <a hreflang="en" href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps/microsoft-store">encouraging PWAs in its app store, but even automatically shortlisting PWAs to be added that were found via the Bing web crawler</a>. Google has also provided a method for listing web apps in the Google Play Store, via <a hreflang="en" href="https://developers.google.com/web/updates/2019/02/using-twa">Trusted Web Activities</a>.
+PWAs have often been seen as Chrome-driven technology. Other browsers have made great strides recently to implement most of the underlying technologies, although first-class installability lags on some platforms. It's positive to see support becoming more widespread. [Maximiliano Firtman](https://twitter.com/firt) does a great job of tracking this on iOS, including <a hreflang="en" href="https://medium.com/@firt/iphone-11-ipados-and-ios-13-for-pwas-and-web-development-5d5d9071cc49">explaining Safari PWA support</a>. Apple doesn't use the term PWA much, and has <a hreflang="en" href="https://developer.apple.com/news/?id=09062019b">explicitly stated that these HTML5 apps are best delivered outside of the App Store</a>. Microsoft went the opposite direction, not only <a hreflang="en" href="https://web.archive.org/web/20190711051508/https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps/microsoft-store">encouraging PWAs in its app store, but even automatically shortlisting PWAs to be added that were found via the Bing web crawler</a>. Google has also provided a method for listing web apps in the Google Play Store, via <a hreflang="en" href="https://developers.google.com/web/updates/2019/02/using-twa">Trusted Web Activities</a>.
 
 PWAs provide a path forward for developers who would prefer to build and release on the web instead of on native platforms and app stores. Not every operating system and browser offers full parity with native software, but improvements continue, and perhaps 2020 is the year where we see an explosion in deployments?

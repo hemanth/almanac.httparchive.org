@@ -5,7 +5,7 @@ description: Capítulo sobre comercio electrónico del Almanaque Web de 2019 que
 authors: [samdutton, alankent]
 reviewers: [voltek62]
 analysts: [rviscomi]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: [JMPerez]
 discuss: 1768
 results: https://docs.google.com/spreadsheets/d/1FUMHeOPYBgtVeMU5_pl2r33krZFzutt9vkOpphOSOss/
@@ -410,7 +410,7 @@ Los siguientes gráficos son para peticiones de escritorio:
 
 Las imágenes constituyen el mayor número de peticiones y la mayor proporción de bytes para las páginas de comercio electrónico. La página de comercio electrónico de escritorio promedio incluye 39 imágenes con un peso de 1.514 KB (1,5 MB).
 
-El número de peticiones [JavaScript](./javascript) indica que un mejor _bundling_ (y/o multiplexación [HTTP/2](./http2)) podría mejorar el rendimiento. Los archivos JavaScript no son significativamente grandes en términos de bytes totales, pero se realizan muchas peticiones por separado. Según el capítulo [HTTP/2](./http2#adopcion-de-contenido-de-usuario-http2), más del 40% de las peticiones no se realizan usando HTTP/2. Del mismo modo, los archivos CSS tienen el tercer mayor número de peticiones, pero generalmente son pequeños. La combinación de archivos CSS (y/o HTTP/2) podría mejorar el rendimiento de dichos sitios. Según la experiencia de los autores, muchas páginas de comercio electrónico tienen una alta proporción de CSS y JavaScript no utilizados. [Los vídeos](./media) pueden requerir una pequeña cantidad de peticiones pero, como es lógico, representan una alta proporción del peso de la página, particularmente en sitios con _payloads_ pesadas.
+El número de peticiones [JavaScript](./javascript) indica que un mejor _bundling_ (y/o multiplexación [HTTP/2](./http)) podría mejorar el rendimiento. Los archivos JavaScript no son significativamente grandes en términos de bytes totales, pero se realizan muchas peticiones por separado. Según el capítulo [HTTP/2](./http#adopcion-de-contenido-de-usuario-http2), más del 40% de las peticiones no se realizan usando HTTP/2. Del mismo modo, los archivos CSS tienen el tercer mayor número de peticiones, pero generalmente son pequeños. La combinación de archivos CSS (y/o HTTP/2) podría mejorar el rendimiento de dichos sitios. Según la experiencia de los autores, muchas páginas de comercio electrónico tienen una alta proporción de CSS y JavaScript no utilizados. [Los vídeos](./media) pueden requerir una pequeña cantidad de peticiones pero, como es lógico, representan una alta proporción del peso de la página, particularmente en sitios con _payloads_ pesadas.
 
 ## Tamaño del HTML
 
@@ -483,7 +483,7 @@ El uso de WebP haciendo _fallback_ a PNG puede ser una alternativa mucho más ef
 
 Sólo el 1% de las imágenes en las plataformas de comercio electrónico son WebP, lo que coincide con la experiencia de los autores en las revisiones del sitio. WebP es <a hreflang="en" href="https://caniuse.com/#feat=webp">compatible con todos los navegadores modernos excepto Safari</a> y tiene buenos mecanismos de _fallback_ disponibles. WebP admite transparencia y es un formato mucho más eficiente que PNG para imágenes fotográficas (consulte la sección PNG anterior).
 
-Nosotros, como comunidad web, podemos abogar por proporcionar transparencia usando WebP con unn _fallback_ a PNG y/o usando WebP/JPEG con un fondo de color sólido. Parece que WebP rara vez se usa en plataformas de comercio electrónico, a pesar de la disponibilidad de <a hreflang="en" href="https://web.dev/serve-images-webp">guías</a> y herramientas (por ejemplo, <a hreflang="en" href="https://squoosh.app/">Squoosh</a> y <a hreflang="en" href="https://developers.google.com/speed/webp/docs/cwebp">cwebp</a>). Necesitamos investigar más sobre por qué no ha habido más aceptación de WebP, que ahora tiene <a hreflang="en" href="https://blog.chromium.org/2010/09/webp-new-image-format-for-web.html">casi 10 años</a>.
+Nosotros, como comunidad web, podemos abogar por proporcionar transparencia usando WebP con unn _fallback_ a PNG y/o usando WebP/JPEG con un fondo de color sólido. Parece que WebP rara vez se usa en plataformas de comercio electrónico, a pesar de la disponibilidad de <a hreflang="es" href="https://web.dev/i18n/es/serve-images-webp">guías</a> y herramientas (por ejemplo, <a hreflang="en" href="https://squoosh.app/">Squoosh</a> y <a hreflang="en" href="https://developers.google.com/speed/webp/docs/cwebp">cwebp</a>). Necesitamos investigar más sobre por qué no ha habido más aceptación de WebP, que ahora tiene <a hreflang="en" href="https://blog.chromium.org/2010/09/webp-new-image-format-for-web.html">casi 10 años</a>.
 
 ## Dimensiones de la imagen
 

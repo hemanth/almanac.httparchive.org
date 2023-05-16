@@ -47,7 +47,7 @@ In questa sezione, tratteremo gli aspetti di livello superiore dell'HTML come i 
   sql_file="summary_pages_by_device_and_doctype.sql"
 ) }}
 
-Il 96.82% delle pagine dichiara un [_doctype_](https://developer.mozilla.org/it/docs/Glossary/Doctype). I documenti HTML che dichiarano un doctype sono utili per ragioni storiche, "per evitare di attivare la modalità quirks nei browser", come <a hreflang="en" href="https://lists.w3.org/Archives/Public/public-html-comments/2009Jul/0020.html">ha spiegato Ian Hickson nel 2009</a>. Quali sono i valori più popolari?
+Il 96.82% delle pagine dichiara un [_doctype_](https://developer.mozilla.org/docs/Glossary/Doctype). I documenti HTML che dichiarano un doctype sono utili per ragioni storiche, "per evitare di attivare la modalità quirks nei browser", come <a hreflang="en" href="https://lists.w3.org/Archives/Public/public-html-comments/2009Jul/0020.html">ha spiegato Ian Hickson nel 2009</a>. Quali sono i valori più popolari?
 
 <figure>
   <table>
@@ -120,13 +120,12 @@ Come è questa situazione in generale, allora? Il documento mediano pesa 24.65 K
 
 Abbiamo identificato 2.863 valori diversi per l'attributo `lang` nel tag di inizio `html` (confrontandole con le <a hreflang="en" href="https://www.ethnologue.com/guides/how-many-languages">7.117 lingue parlate</a> secondo l'Etnologo). Quasi tutti sembrano validi, secondo il capitolo [Accessibilità](./accessibility#language-identification).
 
-Il 22,36% di tutti i documenti non specifica alcun attributo `lang`. L'opinione comunemente accettata è che <a hreflang="en" href="https://www.w3.org/TR/i18n-html-tech-lang/#overall">dovrebbero</a>, ma ignorano il fatto che il software potrebbe eventualmente <a hreflang="en" href="https://meiert.com/en/blog/lang/">rilevare automaticamente la lingua</a>, la lingua del documento può anche essere specificata [a livello di protocollo](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language), cosa che non abbiamo controllato.
+Il 22,36% di tutti i documenti non specifica alcun attributo `lang`. L'opinione comunemente accettata è che <a hreflang="en" href="https://www.w3.org/TR/i18n-html-tech-lang/#overall">dovrebbero</a>, ma ignorano il fatto che il software potrebbe eventualmente <a hreflang="en" href="https://meiert.com/en/blog/lang/">rilevare automaticamente la lingua</a>, la lingua del documento può anche essere specificata [a livello di protocollo](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Language), cosa che non abbiamo controllato.
 
 Ecco le 10 lingue più popolari (normalizzate) nel nostro campione. È importante notare che l'HTTP Archive esegue la scansione dai data center degli Stati Uniti con le impostazioni della lingua inglese, quindi guardando le pagine della lingua in cui sono scritte, sarà orientato verso l'inglese. Tuttavia presentiamo gli attributi `lang` visti per dare un contesto ai siti analizzati.
 
 {{ figure_markup(
   image="document-language.png",
-  alt="I principali attributi HTML lang.",
   caption="I principali attributi HTML `lang`.",
   description="Grafico a barre che mostra i primi 10 attributi `lang` utilizzati nella nostra scansione con il 22.82% delle pagine desktop e il 22.36% delle pagine mobile che non lo impostano, `en` utilizzato rispettivamente al 20.09% e 18.08%, `ja` al 15.17% e 13.27%, `es` su 4.86% e 4.09%, `pt-br` su 2.65% e 2.84%, `ru` su 2.21% 2.53%, `en-gb` su 2.35% e 2.19%, `de` su 1.50 % e 1.92%, e infine `fr` utilizzato rispettivamente su 1.55% e 1.43%.",
   sheets_gid="2047285366",
@@ -155,7 +154,7 @@ Circa l'89% delle pagine contiene almeno un commento HTML, mentre circa il 46% d
 <![endif]-->
 ```
 
-Quanto sopra è un commento condizionale HTML non standard. Sebbene questi si siano dimostrati utili in passato per affrontare le differenze del browser, sono stati consegnati alla cronologia per un po' di tempo poiché Microsoft <a hreflang="en" href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801214(v=vs.85">ha rilasciato commenti condizionali</a>) in Internet Explorer 10.
+Quanto sopra è un commento condizionale HTML non standard. Sebbene questi si siano dimostrati utili in passato per affrontare le differenze del browser, sono stati consegnati alla cronologia per un po' di tempo poiché Microsoft <a hreflang="en" href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801214(v=vs.85)">ha rilasciato commenti condizionali</a>) in Internet Explorer 10.
 
 Tuttavia, agli estremi percentili sopra, abbiamo scoperto che le pagine web utilizzano circa 6 commenti condizionali nel 90° percentile e 1 commento condizionale nel 10° percentile.  La maggior parte delle pagine li include come aiutanti quali <a hreflang="en" href="https://github.com/aFarkas/html5shiv">html5shiv</a>, [selectivizr](http://selectivizr.com/), and <a hreflang="en" href="https://github.com/scottjehl/Respond">respond.js</a>. Pur essendo pagine decenti e ancora attive, la nostra conclusione è che molte di esse utilizzavano temi CMS obsoleti.
 
@@ -163,7 +162,7 @@ Per la produzione, i commenti HTML vengono solitamente rimossi dagli strumenti d
 
 ### Utilizzo dello script
 
-Come mostrato nella sezione [Elementi principali](#top-elements) di seguito, l'elemento `script` è il sesto elemento HTML utilizzato più di frequente. Per gli scopi di questo capitolo, eravamo interessati al modo in cui l'elemento `script` viene utilizzato in questi milioni di pagine dal set di dati.
+Come mostrato nella sezione [Elementi principali](#gli-elementi-principali) di seguito, l'elemento `script` è il sesto elemento HTML utilizzato più di frequente. Per gli scopi di questo capitolo, eravamo interessati al modo in cui l'elemento `script` viene utilizzato in questi milioni di pagine dal set di dati.
 
 Complessivamente, circa il 2% delle pagine non contiene affatto script, nemmeno script di dati strutturati con l'attributo `type="application/ld+json"`. Considerando che al giorno d'oggi è abbastanza comune per una pagina includere almeno uno script per una soluzione di analisi, questo sembra degno di nota.
 
@@ -171,7 +170,6 @@ All'estremità opposta dello spettro, i numeri mostrano che circa il 97% delle p
 
 {{ figure_markup(
   image="script-use.png",
-  alt="Utilizzo dell'elemento script.",
   caption="Utilizzo dell'elemento <code> script </code>.",
   description="Le percentuali di pagine (non) contenenti script e gli script sono presenti in quasi tutte le forme su quasi tutte le pagine.",
   sheets_gid="150962402",
@@ -319,7 +317,7 @@ Non è cambiato nulla nella Top 7, ma l'elemento `option` sta perdendo popolarit
 
 #### `details` e `summary`
 
-Un'altra cosa che ci incuriosiva era l'uso degli <a hreflang="en" href="https://html.spec.whatwg.org/multipage/rendering.html#the-details-and-summary-elements">elementi `details` e` summary`</a>, soprattutto dal 2020 ha portato <a hreflang="en" href="https://caniuse.com/details">ampio sostegno</a>. Vengono utilizzati? Sono attraenti - anche popolari - tra gli autori? A quanto pare, solo lo 0,39% di tutte le pagine testate le utilizza - anche se è difficile valutare se sono state utilizzate tutte nel modo corretto esattamente nelle situazioni in cui ne hai bisogno - "popolare" è la parola sbagliata.
+Un'altra cosa che ci incuriosiva era l'uso degli <a hreflang="en" href="https://html.spec.whatwg.org/multipage/rendering.html#the-details-and-summary-elements">elementi `details` e `summary`</a>, soprattutto dal 2020 ha portato <a hreflang="en" href="https://caniuse.com/details">ampio sostegno</a>. Vengono utilizzati? Sono attraenti - anche popolari - tra gli autori? A quanto pare, solo lo 0,39% di tutte le pagine testate le utilizza - anche se è difficile valutare se sono state utilizzate tutte nel modo corretto esattamente nelle situazioni in cui ne hai bisogno - "popolare" è la parola sbagliata.
 
 Ecco un semplice esempio che mostra l'uso di un `summary` in un elemento `details`:
 
@@ -331,7 +329,7 @@ Ecco un semplice esempio che mostra l'uso di un `summary` in un elemento `detail
 </details>
 ```
 
-Tempo fa, Steve Faulkner [ha sottolineato](https://twitter.com/stevefaulkner/status/806474286592561152) come questi due elementi fossero usati in modo inadeguato in natura. Come puoi vedere dall'esempio sopra, per ogni elemento `details` avresti bisogno di un elemento `summary` che può essere usato solo come [primo figlio](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary#Usage_notes) di `details`.
+Tempo fa, Steve Faulkner [ha sottolineato](https://twitter.com/stevefaulkner/status/806474286592561152) come questi due elementi fossero usati in modo inadeguato in natura. Come puoi vedere dall'esempio sopra, per ogni elemento `details` avresti bisogno di un elemento `summary` che può essere usato solo come [primo figlio](https://developer.mozilla.org/docs/Web/HTML/Element/summary#Usage_notes) di `details`.
 
 Di conseguenza, abbiamo esaminato il numero di elementi `details` e `summary` e sembra che continuino ad essere utilizzati in modo improprio. Il conteggio degli elementi `summary` è maggiore sia su dispositivi mobile che desktop, con un rapporto di 1.11 elementi `summary` per ogni elemento `details` su dispositivi mobile e 1.19 su desktop, rispettivamente:
 
@@ -761,7 +759,7 @@ Questa sezione si concentra su come gli attributi vengono usati nei documenti ed
 
 ### Gli attributi principali
 
-Simile alla sezione sugli [elementi popolari](#top-elements), questa sezione approfondisce gli attributi più popolari sul Web. Dato quanto è importante l'attributo `href` per il web stesso, o l'attributo `alt` per rendere le informazioni [accessibili](./accessibility#images-and-their-text-alternatives), questi attributi sarebbero i più popolari?
+Simile alla sezione sugli [elementi popolari](#gli-elementi-principali), questa sezione approfondisce gli attributi più popolari sul Web. Dato quanto è importante l'attributo `href` per il web stesso, o l'attributo `alt` per rendere le informazioni [accessibili](./accessibility#images-and-their-text-alternatives), questi attributi sarebbero i più popolari?
 
 <figure>
   <table>
@@ -957,7 +955,7 @@ I due più popolari si distinguono perché sono quasi il doppio di ciascuno degl
   <figcaption>{{ figure_link(caption="Gli attributi <code> data-* </code> più popolari.", sheets_gid="764700773", sql_file="pages_almanac_by_device_and_data_attribute_name_frequency.sql") }}</figcaption>
 </figure>
 
-Attributi come `data-type`, `data-id` e `data-src` possono avere molteplici usi generici sebbene `data-src` sia usato molto con il lazy image loading tramite JavaScript (ad esempio, Bootstrap 4). <a hreflang="en" href="https://getbootstrap.com/">Bootstrap</a> spiega ancora la presenza di `data-toggle`, dove è usato come uno state styling hook sui pulsanti di toggle. Il <a hreflang="en" href="https://kenwheeler.github.io/slick/">Slick carousel plugin</a> è la fonte di `data-slick-index`, mentre `data-element_type` fa parte del <a hreflang="en" href="https://elementor.com/">costruttore di siti Web WordPress di Elementor</a>. Sia `data-requiremodule` che` data-requirecontext`, quindi, fanno parte di <a hreflang="en" href="https://requirejs.org/">RequireJS</a>.
+Attributi come `data-type`, `data-id` e `data-src` possono avere molteplici usi generici sebbene `data-src` sia usato molto con il lazy image loading tramite JavaScript (ad esempio, Bootstrap 4). <a hreflang="en" href="https://getbootstrap.com/">Bootstrap</a> spiega ancora la presenza di `data-toggle`, dove è usato come uno state styling hook sui pulsanti di toggle. Il <a hreflang="en" href="https://kenwheeler.github.io/slick/">Slick carousel plugin</a> è la fonte di `data-slick-index`, mentre `data-element_type` fa parte del <a hreflang="en" href="https://elementor.com/">costruttore di siti Web WordPress di Elementor</a>. Sia `data-requiremodule` che `data-requirecontext`, quindi, fanno parte di <a hreflang="en" href="https://requirejs.org/">RequireJS</a>.
 
 È interessante notare che l'uso del lazy loading nativo sulle immagini è simile a quello di `data-src`. <a hreflang="en" href="https://docs.google.com/spreadsheets/d/1ram47FshAjzvbQVJbAQPgxZN7PPOPCKIK67VJZCo92c/edit#gid=2109061092">3,86% delle pagine</a> utilizza `loading="lazy"` sugli elementi `<img>`. Sembra che stia crescendo molto rapidamente, poiché a febbraio questo numero era di circa [0,8%](https://twitter.com/zcorpan/status/1237016679667970050). È possibile che vengano utilizzati insieme per una <a hreflang="en" href="https://addyosmani.com/blog/lazy-loading/">soluzione cross-browser</a>.
 
@@ -967,7 +965,7 @@ Abbiamo trattato l'uso dell'HTML in generale, nonché l'adozione degli elementi 
 
 ### Specifiche di `viewport`
 
-Il meta elemento [viewport](https://developer.mozilla.org/it/docs/Mozilla/Mobile/Viewport_meta_tag) viene utilizzato per controllare il layout sui browser mobile. Mentre anni fa, il motto era una specie di "non dimenticare il meta elemento viewport" durante la creazione di una pagina web, alla fine questa divenne una pratica comune e il motto cambiò in "assicurati che lo zoom e il ridimensionamento non siano disabilitati".
+Il meta elemento [viewport](https://developer.mozilla.org/docs/Web/HTML/Viewport_meta_tag) viene utilizzato per controllare il layout sui browser mobile. Mentre anni fa, il motto era una specie di "non dimenticare il meta elemento viewport" durante la creazione di una pagina web, alla fine questa divenne una pratica comune e il motto cambiò in "assicurati che lo zoom e il ridimensionamento non siano disabilitati".
 
 Gli utenti dovrebbero essere in grado di ingrandire e ridimensionare il testo <a hreflang="en" href="https://dequeuniversity.com/rules/axe/4.0/meta-viewport-large">fino al 500%</a>.Ecco perché i controlli in strumenti popolari come <a hreflang="en" href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a> o <a hreflang="en" href="https://www.deque.com/axe/">axe</a> falliscono quando `user-scalable="no"` è usato all'interno dell'elemento `metaname="viewport"`, e quando il valore dell'attributo `maximum-scale` è minore di `5`.
 
@@ -1198,7 +1196,7 @@ Le pagine nel 10° e 25° percentile non contengono alcun pulsante, mentre una p
 
 ### I target di collegamento
 
-L'[elemento ancora](https://developer.mozilla.org/it/docs/Web/HTML/Element/a), o l'elemento `a`, collega insieme le risorse web. In questa sezione si analizza l'adozione dei protocolli inclusi nei rispettivi target di collegamento.
+L'[elemento ancora](https://developer.mozilla.org/docs/Web/HTML/Element/a), o l'elemento `a`, collega insieme le risorse web. In questa sezione si analizza l'adozione dei protocolli inclusi nei rispettivi target di collegamento.
 
 <figure>
   <table>
@@ -1323,11 +1321,11 @@ Abbiamo accennato ad alcune osservazioni nel corso del capitolo, ma come rifless
 
 Meno pagine arrivano in modalità quirks. Nel 2016, quel numero era di <a hreflang="en" href="https://discuss.httparchive.org/t/how-many-and-which-pages-are-in-quirks-mode/777">circa il 7,4%</a>. Alla fine del 2019, abbiamo osservato [4,85%](https://twitter.com/zcorpan/status/1205242913908838400). E ora siamo al 3,97% circa. Questa tendenza, per parafrasare [Simon Pieters](./contributors#zcorpan) nella sua revisione di questo capitolo, sembra chiaro e incoraggiante.
 
-Sebbene non ci siano dati storici per tracciare il quadro completo dello sviluppo, il markup `div`, `span` e `i` "senza significato" ha praticamente [sostituito](#top-elements) il markup `table` che abbiamo osservato negli anni '90 e nei primi anni 2000. Sebbene ci si possa chiedere se gli elementi `div` e `span` siano sempre usati senza che ci sia un'alternativa semanticamente più appropriata, questi elementi sono ancora preferibili al markup `table`, sebbene, come durante il periodo di massimo splendore del vecchio web, questi erano apparentemente utilizzati per tutto tranne che per i dati tabulari.
+Sebbene non ci siano dati storici per tracciare il quadro completo dello sviluppo, il markup `div`, `span` e `i` "senza significato" ha praticamente [sostituito](#gli-elementi-principali) il markup `table` che abbiamo osservato negli anni '90 e nei primi anni 2000. Sebbene ci si possa chiedere se gli elementi `div` e `span` siano sempre usati senza che ci sia un'alternativa semanticamente più appropriata, questi elementi sono ancora preferibili al markup `table`, sebbene, come durante il periodo di massimo splendore del vecchio web, questi erano apparentemente utilizzati per tutto tranne che per i dati tabulari.
 
-Gli elementi per pagina e i tipi di elementi per pagina sono rimasti più o meno gli stessi, mostrando [nessun cambiamento significativo](#element-diversity) nella nostra pratica di scrittura HTML rispetto al 2019. Tali modifiche potrebbero richiedere più tempo per manifestarsi.
+Gli elementi per pagina e i tipi di elementi per pagina sono rimasti più o meno gli stessi, mostrando [nessun cambiamento significativo](#diversità-degli-elementi) nella nostra pratica di scrittura HTML rispetto al 2019. Tali modifiche potrebbero richiedere più tempo per manifestarsi.
 
-Gli elementi proprietari specifici del prodotto come `g:plusone` (utilizzato su 17.607 pagine nell'esempio mobile) e `fb:like` (11.335) sono quasi scomparsi dopo essere ancora [tra i più popolari](../2019/markup#products-and-libraries-and-their-custom-markup) l'anno scorso. Tuttavia, osserviamo più [elementi personalizzati](#custom-elements) per cose come Slider Revolution, AMP e Angular. Anche elementi come `ym-measure`, `jdiv` e `ymaps` sono ancora prevalenti. Quello che immaginiamo di vedere qui è che, sotto il mare di pratiche che cambiano lentamente, l'HTML è in fase di sviluppo e manutenzione, con autori che rimuovono markup deprecati e adottano nuove soluzioni.
+Gli elementi proprietari specifici del prodotto come `g:plusone` (utilizzato su 17.607 pagine nell'esempio mobile) e `fb:like` (11.335) sono quasi scomparsi dopo essere ancora [tra i più popolari](../2019/markup#products-and-libraries-and-their-custom-markup) l'anno scorso. Tuttavia, osserviamo più [elementi personalizzati](#elementi-personalizzati) per cose come Slider Revolution, AMP e Angular. Anche elementi come `ym-measure`, `jdiv` e `ymaps` sono ancora prevalenti. Quello che immaginiamo di vedere qui è che, sotto il mare di pratiche che cambiano lentamente, l'HTML è in fase di sviluppo e manutenzione, con autori che rimuovono markup deprecati e adottano nuove soluzioni.
 
 Ora, il [capitolo 2019 Web Almanac Markup](../2019/markup) ha lavorato nel riassumere 14 anni di sviluppo su quest argomento, quindi potresti pensare che non avremmo molto da coprire nell'anno successivo. Tuttavia quello che osserviamo con i dati di quest'anno è che c'è molto movimento sia in superfice che nel fondale del mare dell'HTML. Ci avviciniamo all'adozione quasi completa dell'HTML vivente. Siamo pronti a sfoltire le nostre pagine di mode come i widget di Google e Facebook. Siamo anche veloci nell'adottare ed evitare i framework, poiché sia Angular che AMP (sebbene un "framework di componenti") sembrano aver perso in modo significativo in popolarità, probabilmente per soluzioni come React e Vue.
 

@@ -5,7 +5,7 @@ description: Fonts chapter of the 2020 Web Almanac covering where fonts are load
 authors: [raphlinus, jpamental]
 reviewers: [RoelN, svgeesus, davelab6, rsheeter, mandymichael]
 analysts: [AbbyTsai]
-editors: [bazzadp]
+editors: [tunetheweb]
 translators: []
 jpamental_bio: Designer, tinkerer, typographer. Author of Responsive Typography, Invited Expert to the W3C, and 10yrs+ experience focused on better typography on the web.
 raphlinus_bio: Raph Levien has been working with fonts for over 35 years, including a PhD from UC Berkeley in font design tools. He is rejoining <a hreflang="en" href="https://fonts.google.com/">Google Fonts</a> as a font technology researcher, after having co-founded the team in 2010.
@@ -94,7 +94,7 @@ It was interesting to note the differences in speed for sites using the various 
 {{ figure_markup(
   image="fonts-median-lcp-of-sites-using-hosted-fonts.png",
   caption="Median LCP of sites using hosted fonts.",
-  description="A bar chart showing the median FCP of desktop and mobile sites using various font hosts. `cdn.shopify.com` is fastest at 3,335 on desktop and 8,401 on mobile, `fonts.shopifycdn.com` is at 3,224 and 8,531 respectively, `netdna.bootstrapcdn.com` is at 3,910 and 8,183, `maxcdn.bootstrapcdn.com` is at 4,240 and 8,530, `cdnjs.cloudflare.com` is at 4,105 and 8,730, `use.fontawesome.com `is at 4,519 and 9,166, `fonts.gstatic.com` is at 4,878 and 9,558, `cdn.jsdelivr.net` is at 5,368 and 10,646, `static.parastorage.com` is at 4,322 and 11,813, `use.typekit.net` is at 4,700 and 12,552.",
+  description="A bar chart showing the median FCP of desktop and mobile sites using various font hosts. `cdn.shopify.com` is fastest at 3,335 on desktop and 8,401 on mobile, `fonts.shopifycdn.com` is at 3,224 and 8,531 respectively, `netdna.bootstrapcdn.com` is at 3,910 and 8,183, `maxcdn.bootstrapcdn.com` is at 4,240 and 8,530, `cdnjs.cloudflare.com` is at 4,105 and 8,730, `use.fontawesome.com`is at 4,519 and 9,166, `fonts.gstatic.com` is at 4,878 and 9,558, `cdn.jsdelivr.net` is at 5,368 and 10,646, `static.parastorage.com` is at 4,322 and 11,813, `use.typekit.net` is at 4,700 and 12,552.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Q4hcDGGdclJH2ym0Pp_f8JWvYur_OQFQNkuScJyO7_ZCR1KPZsewL-mEZhxcuRFcde_Mxio8z_8P/pubchart?oid=2012634758&format=interactive",
   sql_file="04_05.web_font_usage_breakdown_with_fcp.sql"
   )
@@ -136,7 +136,7 @@ Another option from self-hosting fonts on the site's server, is to use the syste
 
 The biggest performance concern about integrating web fonts is that they may delay the time when the first readable text is displayed. Two optimization techniques can help mitigate those issues: `font-display` and resource hints.
 
-The [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) setting controls what happens while waiting for the web font to load and is generally a trade-off between performance and visual richness. The most popular is `swap`, used on about 10% of web pages, which displays using the fallback font if the web font doesn't load quickly, then swaps in the web font when it does load. Other settings include `block`, which delays displaying text at all (minimizing the potential flashing effect), and `fallback`, which is like `swap` but gives up quickly and uses the fallback font if the font doesn't load in a moderate amount of time, and `optional`, which immediately gives up and uses the fallback font; this is used by only 1% of web pages, presumably those most concerned with performance.
+The [`font-display`](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display) setting controls what happens while waiting for the web font to load and is generally a trade-off between performance and visual richness. The most popular is `swap`, used on about 10% of web pages, which displays using the fallback font if the web font doesn't load quickly, then swaps in the web font when it does load. Other settings include `block`, which delays displaying text at all (minimizing the potential flashing effect), and `fallback`, which is like `swap` but gives up quickly and uses the fallback font if the font doesn't load in a moderate amount of time, and `optional`, which immediately gives up and uses the fallback font; this is used by only 1% of web pages, presumably those most concerned with performance.
 
 {{ figure_markup(
   image="fonts-usage-of-font-display.png",
@@ -152,7 +152,6 @@ We can analyze the effect of these settings on First Contentful Paint and Larges
 
 {{ figure_markup(
   image="fonts-font-display-performance-desktop.png",
-  alt="font-display performance on desktop.",
   caption="`font-display` performance on desktop.",
   description="A bar chart showing the desktop median first content paint (FCP) and last content paint (LCP) in milliseconds for different font-display settings: `none` has a median FCP of 2,286 ms and median LCP of 4,028 ms, `optional` has 1,766 ms and 3,055 ms respectively, `swap` has 2,223 ms and 4,176 ms, `fallback` has 2,397 ms and 4,106 ms, `block` has 2,454 ms and 4,696 ms, and `auto` has 2,605 ms and 4,883 ms.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Q4hcDGGdclJH2ym0Pp_f8JWvYur_OQFQNkuScJyO7_ZCR1KPZsewL-mEZhxcuRFcde_Mxio8z_8P/pubchart?oid=1618299142&format=interactive",
@@ -163,7 +162,6 @@ We can analyze the effect of these settings on First Contentful Paint and Larges
 
 {{ figure_markup(
   image="fonts-font-display-performance-mobile.png",
-  alt="font-display performance on mobile.",
   caption="`font-display` performance on mobile.",
   description="A bar chart showing the mobile median first content paint (FCP) and last content paint (LCP) in milliseconds for different font-display settings: `none` has a median FCP of 5,279 ms and median LCP of 8,381 ms, `optional` has 4,733 ms and 6,598 ms respectively, `swap` has 5,268 ms and 8,748 ms, `fallback` has 5,478 ms and 8,706 ms, `block` has 5,739 ms and 9,625 ms, and `auto` has 6,181 ms and 10,103 ms.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Q4hcDGGdclJH2ym0Pp_f8JWvYur_OQFQNkuScJyO7_ZCR1KPZsewL-mEZhxcuRFcde_Mxio8z_8P/pubchart?oid=2135700957&format=interactive",
@@ -188,8 +186,8 @@ This is especially relevant for hosted font solutions. Only after discovering th
 
 {{ figure_markup(
   image="fonts-resource-hints-use.png",
-  caption="resource-hints use on fonts.",
-  description="A bar chart showing the usage of different resource-hints setting for font data: `dns-prefetch` is used by 32% of both desktop and mobile sites, `preload` by 17% of desktop and 16% of mobile, `preconnect` by 8% of both, `prefetch` by 3% of both, and `prerender` by 0% for both.",
+  caption="Resource hints use on fonts.",
+  description="A bar chart showing the usage of different resource hints setting for font data: `dns-prefetch` is used by 32% of both desktop and mobile sites, `preload` by 17% of desktop and 16% of mobile, `preconnect` by 8% of both, `prefetch` by 3% of both, and `prerender` by 0% for both.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Q4hcDGGdclJH2ym0Pp_f8JWvYur_OQFQNkuScJyO7_ZCR1KPZsewL-mEZhxcuRFcde_Mxio8z_8P/pubchart?oid=1880156934&format=interactive",
   sheets_gid="2079638999",
   sql_file="04_07.font_resource_hints_with_fcp.sql"
@@ -202,8 +200,8 @@ Next we will look at whether these resource hints have an impact on page perform
 
 {{ figure_markup(
   image="fonts-resource-hints-performance-desktop.png",
-  caption="resource-hints performance, desktop.",
-  description="A bar chart showing the desktop median first content paint and last content paint (in milliseconds) for different resource-hints settings: `prerender` has a median FCP of 1,658 ms and median LCP of 2,904 ms, `preload` has 2,045 ms and 3,865 ms respectively, `prefetch` has 1,909 ms and 3,702 ms, `preconnect` has 2,069 ms and 4,213 ms, `none` has 2,489 ms and 4,816 ms, and `dns-prefetch` has 2,630 ms and 5,061 ms.",
+  caption="Resource hints performance, desktop.",
+  description="A bar chart showing the desktop median first content paint and last content paint (in milliseconds) for different resource hints settings: `prerender` has a median FCP of 1,658 ms and median LCP of 2,904 ms, `preload` has 2,045 ms and 3,865 ms respectively, `prefetch` has 1,909 ms and 3,702 ms, `preconnect` has 2,069 ms and 4,213 ms, `none` has 2,489 ms and 4,816 ms, and `dns-prefetch` has 2,630 ms and 5,061 ms.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Q4hcDGGdclJH2ym0Pp_f8JWvYur_OQFQNkuScJyO7_ZCR1KPZsewL-mEZhxcuRFcde_Mxio8z_8P/pubchart?oid=355239876&format=interactive",
   sheets_gid="2079638999",
   sql_file="04_07.font_resource_hints_with_fcp.sql"
@@ -212,8 +210,8 @@ Next we will look at whether these resource hints have an impact on page perform
 
 {{ figure_markup(
   image="fonts-resource-hints-performance-mobile.png",
-  caption="resource-hints performance, mobile.",
-  description="A bar chart showing the mobile median first content paint and last content paint (in milliseconds) for different resource-hints settings: `prerender` has a median FCP of 3,387 ms and median LCP of 7,362 ms, `preload` has 4,900 ms and 8,222 ms respectively, `prefetch` has 4,942 ms and 8,191 ms, `preconnect` has 4,858 ms and 9,131 ms, `none` has 5,825 ms and 10,027 ms, and `dns-prefetch` has 5,908 ms and 9,962 ms.",
+  caption="Resource hints performance, mobile.",
+  description="A bar chart showing the mobile median first content paint and last content paint (in milliseconds) for different resource hints settings: `prerender` has a median FCP of 3,387 ms and median LCP of 7,362 ms, `preload` has 4,900 ms and 8,222 ms respectively, `prefetch` has 4,942 ms and 8,191 ms, `preconnect` has 4,858 ms and 9,131 ms, `none` has 5,825 ms and 10,027 ms, and `dns-prefetch` has 5,908 ms and 9,962 ms.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Q4hcDGGdclJH2ym0Pp_f8JWvYur_OQFQNkuScJyO7_ZCR1KPZsewL-mEZhxcuRFcde_Mxio8z_8P/pubchart?oid=640692889&format=interactive",
   sheets_gid="2079638999",
   sql_file="04_07.font_resource_hints_with_fcp.sql"
@@ -242,8 +240,8 @@ For alphabetic languages, this typically works well although it can result in po
 
 {{ figure_markup(
   image="fonts-usage-of-unicode-range.png",
-  caption="usage of unicode-range.",
-  description="A bar chart showing the fraction of unicode-range usage in mobile and desktop web pages that use web fonts. On desktop 37.05% of pages use unicode-range while 62.95% do not. On mobile 38.27% of pages use unicode-range while 61.73% do not.",
+  caption="Usage of `unicode-range`.",
+  description="A bar chart showing the fraction of `unicode-range` usage in mobile and desktop web pages that use web fonts. On desktop 37.05% of pages use unicode-range while 62.95% do not. On mobile 38.27% of pages use unicode-range while 61.73% do not.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Q4hcDGGdclJH2ym0Pp_f8JWvYur_OQFQNkuScJyO7_ZCR1KPZsewL-mEZhxcuRFcde_Mxio8z_8P/pubchart?oid=1739264728&format=interactive",
   sheets_gid="640499741",
   sql_file="04_08.font_unicode_range_with_fcp.sql"

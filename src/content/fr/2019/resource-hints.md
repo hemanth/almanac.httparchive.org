@@ -3,7 +3,7 @@
 title: Indices de Ressources
 description: Chapitre sur les indices de ressources du Web Almanac 2019, couvrant les usages de dns-prefetch, preconnect, preload, prefetch, les indices de priorités et le lazy loading natif.
 authors: [khempenius]
-reviewers: [andydavies, bazzadp, yoavweiss]
+reviewers: [andydavies, tunetheweb, yoavweiss]
 analysts: [rviscomi]
 editors: [rviscomi]
 translators: [borisschapira]
@@ -12,11 +12,11 @@ results: https://docs.google.com/spreadsheets/d/14QBP8XGkMRfWRBbWsoHm6oDVPkYhAII
 khempenius_bio: Katie Hempenius est ingénieur dans l’équipe Chrome où elle travaille à rendre le web plus rapide.
 featured_quote: Les indices de ressources fournissent des "suggestions" au navigateur sur les ressources qui seront rapidement nécessaires. L’action que le navigateur entreprend à la suite de cet indice varie selon le type d’indice ; différents indices déclenchent différentes actions. Lorsqu’ils sont utilisés correctement, ils peuvent améliorer les performances de la page en donnant une longueur d'avance aux actions importantes, par anticipation.
 featured_stat_1: 29 %
-featured_stat_label_1: des sites utilisent `dns-prefetch`.
+featured_stat_label_1: des sites utilisent `dns-prefetch`
 featured_stat_2: 88 %
-featured_stat_label_2: des indices de ressources utilisent l’attribut `as`.
+featured_stat_label_2: des indices de ressources utilisent l’attribut `as`
 featured_stat_3: 0.04 %
-featured_stat_label_3: des pages utilisent des indices de priorité.
+featured_stat_label_3: des pages utilisent des indices de priorité
 ---
 
 ## Introduction
@@ -33,7 +33,7 @@ La plupart des navigateurs actuels prennent en charge quatre indices de ressourc
 
 ### `dns-prefetch`
 
-Le rôle de [`dns-prefetch`](https://developer.mozilla.org/en-US/docs/Learn/Performance/dns-prefetch) est de lancer une résolution DNS par anticipation. On peut ainsi anticiper la résolution DNS de tierces parties. Par exemple, la résolution DNS d'un CDN, d'un fournisseur de polices d'écriture ou d'une API en tierce partie.
+Le rôle de [`dns-prefetch`](https://developer.mozilla.org/docs/Learn/Performance/dns-prefetch) est de lancer une résolution DNS par anticipation. On peut ainsi anticiper la résolution DNS de tierces parties. Par exemple, la résolution DNS d'un CDN, d'un fournisseur de polices d'écriture ou d'une API en tierce partie.
 
 ### `preconnect`
 
@@ -49,19 +49,19 @@ Le rôle de [`dns-prefetch`](https://developer.mozilla.org/en-US/docs/Learn/Perf
 
 ## Syntaxe
 
-97&nbsp;% des usages d'indices de ressources sont spécifiés par le tag [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link). Par exemple&nbsp;:
+97&nbsp;% des usages d'indices de ressources sont spécifiés par le tag [`<link>`](https://developer.mozilla.org/docs/Web/HTML/Element/link). Par exemple&nbsp;:
 
 ```html
 <link rel="prefetch" href="shopping-cart.js">
 ```
 
-Seuls 3&nbsp;% des indices de ressources proviennent [d'en-têtes HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link) permettant de les spécifier. Par exemple&nbsp;:
+Seuls 3&nbsp;% des indices de ressources proviennent [d'en-têtes HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers/Link) permettant de les spécifier. Par exemple&nbsp;:
 
 ```
 Link: <https://example.com/shopping-cart.js>; rel=prefetch
 ```
 
-Comme l'utilisation des indices de ressources dans les en-têtes HTTP est très faible, le reste de ce chapitre se concentrera uniquement sur l'analyse de l'utilisation des indices de ressources passant par la balise `<link>`. Cependant, il convient de noter que dans les années à venir, l'utilisation des indices de ressources dans les en-têtes HTTP pourrait augmenter avec l'adoption de [HTTP/2 Push](./http2#http2-push). En effet, HTTP/2 Push réutilise l'en-tête HTTP de préchargement `Link` comme un signal permettant de pousser des ressources.
+Comme l'utilisation des indices de ressources dans les en-têtes HTTP est très faible, le reste de ce chapitre se concentrera uniquement sur l'analyse de l'utilisation des indices de ressources passant par la balise `<link>`. Cependant, il convient de noter que dans les années à venir, l'utilisation des indices de ressources dans les en-têtes HTTP pourrait augmenter avec l'adoption de [HTTP/2 Push](./http#http2-push). En effet, HTTP/2 Push réutilise l'en-tête HTTP de préchargement `Link` comme un signal permettant de pousser des ressources.
 
 ## Les indices de ressources
 
@@ -70,38 +70,38 @@ Comme l'utilisation des indices de ressources dans les en-têtes HTTP est très 
 <figure>
   <table>
     <tr>
-     <th>Type d'indice de ressource</th>
-     <th>Utilisation (pourcentage de sites)</th>
+      <th>Type d'indice de ressource</th>
+      <th>Utilisation (pourcentage de sites)</th>
     </tr>
     <tr>
-     <td><code>dns-prefetch</code>
-     </td>
-     <td>29&nbsp;%
-     </td>
+      <td><code>dns-prefetch</code>
+      </td>
+      <td>29&nbsp;%
+      </td>
     </tr>
     <tr>
-     <td><code>preload</code>
-     </td>
-     <td>16&nbsp;%
-     </td>
+      <td><code>preload</code>
+      </td>
+      <td>16&nbsp;%
+      </td>
     </tr>
     <tr>
-     <td><code>preconnect</code>
-     </td>
-     <td>4&nbsp;%
-     </td>
+      <td><code>preconnect</code>
+      </td>
+      <td>4&nbsp;%
+      </td>
     </tr>
     <tr>
-     <td><code>prefetch</code>
-     </td>
-     <td>3&nbsp;%
-     </td>
+      <td><code>prefetch</code>
+      </td>
+      <td>3&nbsp;%
+      </td>
     </tr>
     <tr>
-     <td><code>prerender</code> (déprécié)
-     </td>
-     <td>0,13&nbsp;%
-     </td>
+      <td><code>prerender</code> (déprécié)
+      </td>
+      <td>0,13&nbsp;%
+      </td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="Adoption des indices de ressources.") }}</figcaption>
@@ -116,49 +116,49 @@ Cela étant dit, si un site n'a pas besoin de supporter IE11 et les versions inf
 <figure>
   <table>
     <tr>
-     <th>Indice de ressource</th>
-     <th>Indices de ressources par page&nbsp;:<br>Médiane</th>
-     <th>Indices de ressources par page&nbsp;:<br>90e percentile</th>
+      <th>Indice de ressource</th>
+      <th>Indices de ressources par page&nbsp;:<br>Médiane</th>
+      <th>Indices de ressources par page&nbsp;:<br>90e percentile</th>
     </tr>
     <tr>
-     <td><code>dns-prefetch</code>
-     </td>
-     <td>2
-     </td>
-     <td>8
-     </td>
+      <td><code>dns-prefetch</code>
+      </td>
+      <td>2
+      </td>
+      <td>8
+      </td>
     </tr>
     <tr>
-     <td><code>preload</code>
-     </td>
-     <td>2
-     </td>
-     <td>4
-     </td>
+      <td><code>preload</code>
+      </td>
+      <td>2
+      </td>
+      <td>4
+      </td>
     </tr>
     <tr>
-     <td><code>preconnect</code>
-     </td>
-     <td>2
-     </td>
-     <td>8
-     </td>
+      <td><code>preconnect</code>
+      </td>
+      <td>2
+      </td>
+      <td>8
+      </td>
     </tr>
     <tr>
-     <td><code>prefetch</code>
-     </td>
-     <td>1
-     </td>
-     <td>3
-     </td>
+      <td><code>prefetch</code>
+      </td>
+      <td>1
+      </td>
+      <td>3
+      </td>
     </tr>
     <tr>
-     <td><code>prerender</code> (déprécié)
-     </td>
-     <td>1
-     </td>
-     <td>1
-     </td>
+      <td><code>prerender</code> (déprécié)
+      </td>
+      <td>1
+      </td>
+      <td>1
+      </td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="Médiane en 90e percentile du nombre d'indices de ressources utilisés sur les pages en utilisant au moins un.") }}</figcaption>
@@ -168,7 +168,7 @@ Les indices de ressources sont plus efficaces lorsqu'ils sont utilisés de mani�
 
 ## L'attribut `crossorigin`
 
-La plupart des ressources "traditionnelles" récupérées sur le web (les [images](./media), les [feuilles de style](./css) et les [scripts](./javascript)) sont récupérées sans avoir à activer le partage de ressources entre origines multiples (en anglais, <i lang="en">Cross-Origin Resource Sharing</i> ou [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)). Cela signifie que si ces ressources sont extraites d'un serveur `Cross-Origin`, par défaut, leur contenu ne peut pas être relu par la page, en raison de la politique `Same-Origin`.
+La plupart des ressources "traditionnelles" récupérées sur le web (les [images](./media), les [feuilles de style](./css) et les [scripts](./javascript)) sont récupérées sans avoir à activer le partage de ressources entre origines multiples (en anglais, <i lang="en">Cross-Origin Resource Sharing</i> ou [CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS)). Cela signifie que si ces ressources sont extraites d'un serveur `Cross-Origin`, par défaut, leur contenu ne peut pas être relu par la page, en raison de la politique `Same-Origin`.
 
 Dans certains cas, la page peut choisir d'aller chercher la ressource à l'aide de CORS si elle a besoin d'en lire le contenu. Le système CORS permet au navigateur de "demander la permission" et d'accéder à ces ressources d'origines mixtes.
 
@@ -177,33 +177,33 @@ Pour les types de ressources plus récentes (par exemple les polices, les requê
 <figure>
   <table>
     <tr>
-     <th>Valeur <code>crossorigin</code></th>
-     <th>Utilisation</th>
-     <th>Explication</th>
+      <th>Valeur <code>crossorigin</code></th>
+      <th>Utilisation</th>
+      <th>Explication</th>
     </tr>
     <tr>
-     <td>Non définie
-     </td>
-     <td>92&nbsp;%
-     </td>
-     <td>Si l'attribut <code>crossorigin</code> est absent, la requête suivra la politique d'origine unique.
-     </td>
+      <td>Non définie
+      </td>
+      <td>92&nbsp;%
+      </td>
+      <td>Si l'attribut <code>crossorigin</code> est absent, la requête suivra la politique d'origine unique.
+      </td>
     </tr>
     <tr>
-     <td>anonyme (ou équivalent)
-     </td>
-     <td>7&nbsp;%
-     </td>
-     <td>Exécute une requête <code>crossorigin</code> qui ne comprend pas d'identifiant.
-     </td>
+      <td>anonyme (ou équivalent)
+      </td>
+      <td>7&nbsp;%
+      </td>
+      <td>Exécute une requête <code>crossorigin</code> qui ne comprend pas d'identifiant.
+      </td>
     </tr>
     <tr>
-     <td>use-credentials
-     </td>
-     <td>0,47&nbsp;%
-     </td>
-     <td>Exécute une requête <code>crossorigin</code> qui inclut des identifiants.
-     </td>
+      <td>use-credentials
+      </td>
+      <td>0,47&nbsp;%
+      </td>
+      <td>Exécute une requête <code>crossorigin</code> qui inclut des identifiants.
+      </td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="Adoption de l'attribut <code>crossorigin</code> en pourcentage du nombre d'indices de ressources.") }}</figcaption>
@@ -238,9 +238,9 @@ Pour le moment, il n'y a pas de propositions visant à élargir le jeu actuel d'
 
 Les <a hreflang="en" href="https://wicg.github.io/priority-hints/">indices de priorités</a> sont une API permettant d'exprimer des priorités dans la récupération de certaines ressources&nbsp;: `high` (haute), `low` (basse), ou `auto`. Ils peuvent être utilisés avec un large éventail de balises HTML&nbsp;: spécifiquement `<image>`, `<link`>, `<script>` et `<iframe>`.
 
-<figure>
+<figure class="figure-block">
 <div class="code-block floating-card">
-  <pre><code>&lt;carousel>
+  <pre role="region" aria-label="Code 0" tabindex="0"><code>&lt;carousel>
   &lt;img src="cat1.jpg" importance="high">
   &lt;img src="cat2.jpg" importance="low">
   &lt;img src="cat3.jpg" importance="low">

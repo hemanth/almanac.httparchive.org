@@ -23,9 +23,9 @@ featured_stat_label_3: カルーセルのバリエーションが見つかりま
 
 2005年にIan "Hixie" Hicksonはこれまでの研究に基づいた<a hreflang="en" href="https://web.archive.org/web/20060203035414/http://code.google.com/webstats/index.html">マークアップデータの分析</a>を投稿しました。この作業のほとんどは、クラス名を調査して、内々で開発者が採用しているセマンティクスを確認し、標準化する意味があるかの確認をすることが目的でした。この研究の一部は、HTML5の新要素の参考として役に立ちました。
 
-14年すぎて、新しい見方をする時が来ました。以降、[カスタム要素(Custom Elements)](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)と<a hreflang="en" href="https://extensiblewebmanifesto.org/">Extensible Web Manifesto</a>の導入により、開発者は要素そのものの空間を探し、標準化団体が<a hreflang="en" href="https://bkardell.com/blog/Dropping-The-F-Bomb-On-Standards.html">辞書編集者のようになる</a>ことで、牛の通り道を舗装する(pave the cowpaths)よりよい方法を見つけることを推奨しています。様々なものに使われる可能性があるCSSクラス名とは異なり、非標準の*要素*は作成者が要素であることを意識しているため、さらに確実なものとなります。
+14年すぎて、新しい見方をする時が来ました。以降、[カスタム要素(Custom Elements)](https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements)と<a hreflang="en" href="https://extensiblewebmanifesto.org/">Extensible Web Manifesto</a>の導入により、開発者は要素そのものの空間を探し、標準化団体が<a hreflang="en" href="https://bkardell.com/blog/Dropping-The-F-Bomb-On-Standards.html">辞書編集者のようになる</a>ことで、牛の通り道を舗装する(pave the cowpaths)よりよい方法を見つけることを推奨しています。様々なものに使われる可能性があるCSSクラス名とは異なり、非標準の*要素*は作成者が要素であることを意識しているため、さらに確実なものとなります。
 
- 2019年7月の時点で、HTTP Archiveは、約440万のデスクトップホームページと約530万のモバイルホームページのDOMで使用されているすべての*要素*名の収集を開始しました。 _([方法論](./methodology)の詳細を御覧ください)_
+2019年7月の時点で、HTTP Archiveは、約440万のデスクトップホームページと約530万のモバイルホームページのDOMで使用されているすべての*要素*名の収集を開始しました。 _([方法論](./methodology)の詳細を御覧ください)_
 
 このクロールの結果、*5,000種類を超える非標準の要素*が検出されたため、計測する要素の合計数を「トップ」（以下で説明）5,048種類に制限しました。
 
@@ -172,8 +172,7 @@ featured_stat_label_3: カルーセルのバリエーションが見つかりま
   )
 }}
 
-上記の図3.6は、最も頻繁に使われている非推奨の要素トップ10を表しています。
-これらは非常に小さな数値に見えますが、この観点は重要です。
+上記の図3.6は、最も頻繁に使われている非推奨の要素トップ10を表しています。これらは非常に小さな数値に見えますが、この観点は重要です。
 
 ## 価値観と使用法
 
@@ -271,7 +270,7 @@ featured_stat_label_3: カルーセルのバリエーションが見つかりま
 - 英国のeコマースプロバイダーである<a hreflang="en" href="https://www.oxatis.co.uk">Oxatis</a>の`<actinic:*>` 要素の一部はさらに多くのページに出現しています。たとえば、<a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/30dfca0fde9fad9b2ec58b12cb2b0271a272fb5c8970cd40e316adc728a09d19.html">`<actinic:basehref>`</a>はデスクトップデータ中の154ページに出現しています。
 - Macromediaの要素はほとんど消えたようです。一覧にはたった一つの要素`<mm:endlock>`だけが現れており、その数はわずか22ページだけです。
 - Adobe Go-Liveの<a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/579abc77652df3ac2db1338d17aab0a8dc737b9d945510b562085d8522b18799.html">`<csscriptdict>`</a>は、デスクトップデータセットの640ページに引き続いて現れています。
-- Microsoft Officeの<a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/bc8f154a95dfe06a6d0fdb099b6c8df61727b2289141a0ef16dc17b2b57d3068.html">`<o:p>`</a>要素は、2万ページ以上のデスクトップページとなる0.5％に引き続いて現れています。
+- Microsoft Officeの<a hreflang="en" href="https://rainy-periwinkle.glitch.me/permalink/579abc77652df3ac2db1338d17aab0a8dc737b9d945510b562085d8522b18799.html">`<o:p>`</a>要素は、2万ページ以上のデスクトップページとなる0.5％に引き続いて現れています。
 
 そして、Hixieのオリジナルレポートにはなかった多くの新しい要素も現れました。
 

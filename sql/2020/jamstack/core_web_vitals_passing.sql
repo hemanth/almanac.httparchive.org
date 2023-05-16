@@ -11,7 +11,7 @@ CREATE TEMP FUNCTION IS_NON_ZERO (good FLOAT64, needs_improvement FLOAT64, poor 
 
 SELECT
   app,
-	CDN,
+  CDN,
   client,
   COUNT(DISTINCT origin) AS origins,
   # Origins with good LCP divided by origins with any LCP.
@@ -82,10 +82,10 @@ JOIN (
   FROM
     `httparchive.technologies.2020_08_01_*`
   WHERE
-    LOWER(category) = "static site generator" OR
-    app = "Next.js" OR
-    app = "Nuxt.js" OR
-    app = "Docusaurus"
+    LOWER(category) = 'static site generator' OR
+    app = 'Next.js' OR
+    app = 'Nuxt.js' OR
+    app = 'Docusaurus'
   )
 USING (client, url)
 WHERE

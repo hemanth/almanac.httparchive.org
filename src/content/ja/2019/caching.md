@@ -3,10 +3,10 @@
 title: キャッシング
 description: 2019 Web Almanacのキャッシュの章は、キャッシュコントロール、有効期限、TTL、有効性、変化、Cookieの設定、アプリケーションキャッシュ、Service Worker、および機会について説明します。
 authors: [paulcalvano]
-reviewers: [obto, bkardell]
-analysts: [paulcalvano, obto]
-editors: [bazzadp]
-translators: [ksakae]
+reviewers: [foxdavidj, bkardell]
+analysts: [paulcalvano, foxdavidj]
+editors: [tunetheweb]
+translators: [ksakae1216]
 discuss: 1771
 results: https://docs.google.com/spreadsheets/d/1mnq03DqrRBwxfDV05uEFETK0_hPbYOynWxZkV3tFgNk/
 paulcalvano_bio: Paul Calvanoは、<a hreflang="en" href="https://www.akamai.com/">アカマイ</a> のウェブパフォーマンス・アーキテクトで、ウェブサイトのパフォーマンス向上を支援しています。また、HTTP Archiveプロジェクトの共同管理者でもあります。<a href="https://twitter.com/paulcalvano">@paulcalvano</a> でツイートしたり、<a hreflang="en" href="https://paulcalvano.com">http://paulcalvano.com</a> でブログを書いたり、<a hreflang="en" href="https://discuss.httparchive.org">https://discuss.httparchive.org</a> でHTTP Archiveの研究を共有したりしています。
@@ -89,7 +89,6 @@ Webブラウザーがクライアントにレスポンスを送信するとき�
 
 {{ figure_markup(
   image="ch16_fig1_redbot_example.jpg",
-  alt="ロボットからのCache-Control情報",
   caption="ロボットからの <code>Cache-Control</code> 情報",
   description="リソースがいつ変更されたか、キャッシュがそれを保存できるかどうか、リソースが新鮮であると見なされる期間、および警告に関する詳細情報を示すRedbotの応答例。",
   width=600,
@@ -103,7 +102,6 @@ Webブラウザーがクライアントにレスポンスを送信するとき�
 
 {{ figure_markup(
   image="fig2.png",
-  alt="HTTP Cache-ControlおよびExpiresヘッダーの存在",
   caption="HTTP <code>Cache-Control</code> および <code>Expires</code> ヘッダーの存在",
   description="リクエストの72％がCache-Controlヘッダーを使用し、56％がExpiresを使用し、27％がどちらも使用しないことを示す、モバイルとデスクトップの棒グラフ。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=1611664016&format=interactive"
@@ -271,7 +269,6 @@ HTTPレスポンスの53％は、`max-age`ディレクティブを持つ`Cache-C
 
 {{ figure_markup(
   image="fig7.png",
-  alt="Cache-ControlとExpiresヘッダーの使用法。",
   caption="<code>Cache-Control</code> と <code>Expires</code> ヘッダーの使用法。",
   description="レスポンスの53％を示す棒グラフには、「Cache-Control：max-age」、54％-55％が「Expires」、41％-42％が両方を使用し、34％がどちらも使用していません。数字は、デスクトップとモバイルの両方について示されていますが、有効期限の使用率が高いモバイルとほぼ同じです。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=1909701542&format=interactive"
@@ -285,56 +282,56 @@ HTTP/1.1<a hreflang="en" href="https://tools.ietf.org/html/rfc7234#section-5.2.1
 <figure>
   <table>
     <tr>
-     <th>ディレクティブ</th>
-     <th>説明</th>
+      <th>ディレクティブ</th>
+      <th>説明</th>
     </tr>
     <tr>
-     <td>max-age</td>
-     <td>リソースをキャッシュできる秒数を示します。</td>
+      <td>max-age</td>
+      <td>リソースをキャッシュできる秒数を示します。</td>
     </tr>
     <tr>
-     <td>public</td>
-     <td>任意のキャッシュにレスポンスを保存できます。</td>
+      <td>public</td>
+      <td>任意のキャッシュにレスポンスを保存できます。</td>
     </tr>
     <tr>
-     <td>no-cache</td>
-     <td>キャッシュされたエントリは、使用する前に再検証する必要があります。</td>
+      <td>no-cache</td>
+      <td>キャッシュされたエントリは、使用する前に再検証する必要があります。</td>
     </tr>
     <tr>
-     <td>must-revalidate</td>
-     <td>古いキャッシュエントリは、使用する前に再検証する必要があります。</td>
+      <td>must-revalidate</td>
+      <td>古いキャッシュエントリは、使用する前に再検証する必要があります。</td>
     </tr>
     <tr>
-     <td>no-store</td>
-     <td>レスポンスがキャッシュ不可能なことを示します。</td>
+      <td>no-store</td>
+      <td>レスポンスがキャッシュ不可能なことを示します。</td>
     </tr>
     <tr>
-     <td>private</td>
-     <td>レスポンスは特定のユーザー向けであり、共有キャッシュに保存しない。</td>
+      <td>private</td>
+      <td>レスポンスは特定のユーザー向けであり、共有キャッシュに保存しない。</td>
     </tr>
     <tr>
-     <td>no-transform</td>
-     <td>このリソースに対して変換を行わないでください。</td>
+      <td>no-transform</td>
+      <td>このリソースに対して変換を行わないでください。</td>
     </tr>
     <tr>
-     <td>proxy-revalidate</td>
-     <td>must-revalidateと同じですが、共有キャッシュに適用されます。</td>
+      <td>proxy-revalidate</td>
+      <td>must-revalidateと同じですが、共有キャッシュに適用されます。</td>
     </tr>
     <tr>
-     <td>s-maxage</td>
-     <td>max ageと同じですが、共有キャッシュにのみ適用されます。</td>
+      <td>s-maxage</td>
+      <td>max ageと同じですが、共有キャッシュにのみ適用されます。</td>
     </tr>
     <tr>
-     <td>immutable</td>
-     <td>キャッシュされたエントリは決して変更されず、再検証は不要であることを示します。</td>
+      <td>immutable</td>
+      <td>キャッシュされたエントリは決して変更されず、再検証は不要であることを示します。</td>
     </tr>
     <tr>
-     <td>stale-while-revalidate</td>
-     <td>クライアントがバックグラウンドで新しいレスポンスを非同期にチェックしながら、古いレスポンスを受け入れようとしていることを示します。</td>
+      <td>stale-while-revalidate</td>
+      <td>クライアントがバックグラウンドで新しいレスポンスを非同期にチェックしながら、古いレスポンスを受け入れようとしていることを示します。</td>
     </tr>
     <tr>
-     <td>stale-if-error</td>
-     <td>新しいレスポンスのチェックが失敗した場合に、クライアントが古いレスポンスを受け入れる意思があることを示します。</td>
+      <td>stale-if-error</td>
+      <td>新しいレスポンスのチェックが失敗した場合に、クライアントが古いレスポンスを受け入れる意思があることを示します。</td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="<code>Cache-Control</code> ディレクティブ。") }}</figcaption>
@@ -344,7 +341,6 @@ HTTP/1.1<a hreflang="en" href="https://tools.ietf.org/html/rfc7234#section-5.2.1
 
 {{ figure_markup(
   image="fig9.png",
-  alt="モバイルでのCache-Controlディレクティブの使用。",
   caption="モバイルでの <code>Cache-Control</code> ディレクティブの使用。",
   description="15のcache-controlディレクティブとその使用量の棒グラフ。74.8％のmax-age、37.8％のpublic、27.8％のno-cache、18％のno-store、14.3％のprivate、3.4％のimmutable、3.3％のno-transform、2.4％のstale-while-revalidate、2.2％のpre-check、2.2％のpost-check、1.9％のs-maxage、1.6％のproxy-revalidate、0.3％set-cookieおよび0.2％のstale-if-error。統計は、デスクトップとモバイルでほぼ同じです。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=1054108345&format=interactive",
@@ -359,7 +355,7 @@ HTTP/1.1<a hreflang="en" href="https://tools.ietf.org/html/rfc7234#section-5.2.1
 
 * `max-age`は`Cache-Control`ヘッダーのほぼ75％で使用され、`no-store`は18％で使用されます。
 * `private`が指定されない限り、キャッシュされたエントリは`public`であると想定されるため、`public`が必要になることはほとんどありません。回答の約38％に`public`が含まれています。
-* `immutable`ディレクティブは比較的新しく、<a hreflang="en" href="https://code.facebook.com/posts/557147474482256/this-browser-tweak-saved-60-of-requests-to-facebook">2017年に導入</a>され、[FirefoxおよびSafariでサポート](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Browser_compatibility)されています。その使用率は3.4％に拡大し、<a hreflang="en" href="https://discuss.httparchive.org/t/cache-control-immutable-a-year-later/1195">Facebook、Googleのサードパーティのレスポンス</a>で広く使用されています。
+* `immutable`ディレクティブは比較的新しく、<a hreflang="en" href="https://code.facebook.com/posts/557147474482256/this-browser-tweak-saved-60-of-requests-to-facebook">2017年に導入</a>され、[FirefoxおよびSafariでサポート](https://developer.mozilla.org/docs/Web/HTTP/Headers/Cache-Control#Browser_compatibility)されています。その使用率は3.4％に拡大し、<a hreflang="en" href="https://discuss.httparchive.org/t/cache-control-immutable-a-year-later/1195">Facebook、Googleのサードパーティのレスポンス</a>で広く使用されています。
 
 このリストに表示される別の興味深いディレクティブセットは、`pre-check`と`post-check`です。これらは、`Cache-Control`レスポンスヘッダーの2.2％（約780万件のレスポンス）で使用されます。このヘッダーのペアは、<a hreflang="en" href="https://blogs.msdn.microsoft.com/ieinternals/2009/07/20/internet-explorers-cache-control-extensions/">バックグラウンドで検証を提供するためにInternet Explorer 5で導入された</a>ものですが、Webサイトによって正しく実装されることはほとんどありませんでした。これらのヘッダーを使用したレスポンスの99.2％は、`pre-check=0`と`post-check=0`の組み合わせを使用していました。これらのディレクティブの両方が0に設定されている場合、両方のディレクティブは無視されます。したがって、これらのディレクティブは正しく使用されなかったようです！
 
@@ -421,22 +417,22 @@ HTTP/1.1<a hreflang="en" href="https://tools.ietf.org/html/rfc7234#section-5.2.1
 <figure>
   <table>
     <tr>
-     <th>クライアント</th>
-     <th>ファーストパーティ</th>
-     <th>サードパーティ</th>
-     <th>全体</th>
+      <th>クライアント</th>
+      <th>ファーストパーティ</th>
+      <th>サードパーティ</th>
+      <th>全体</th>
     </tr>
     <tr>
-     <td>デスクトップ</td>
-     <td class="numeric">70.7%</td>
-     <td class="numeric">47.9%</td>
-     <td class="numeric">59.2%</td>
+      <td>デスクトップ</td>
+      <td class="numeric">70.7%</td>
+      <td class="numeric">47.9%</td>
+      <td class="numeric">59.2%</td>
     </tr>
     <tr>
-     <td>モバイル</td>
-     <td class="numeric">71.4%</td>
-     <td class="numeric">46.8%</td>
-     <td class="numeric">59.6%</td>
+      <td>モバイル</td>
+      <td class="numeric">71.4%</td>
+      <td class="numeric">46.8%</td>
+      <td class="numeric">59.6%</td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="TTLが短いリクエストの割合。") }}</figcaption>
@@ -485,7 +481,6 @@ HTTP/1.1<a hreflang="en" href="https://tools.ietf.org/html/rfc7234#section-5.2.1
 
 {{ figure_markup(
   image="fig12.png",
-  alt="デスクトップWebサイトのLast-ModifiedおよびETagヘッダーを介した鮮度の検証の採用。",
   caption="デスクトップWebサイトの <code>Last-Modified</code> および <code>ETag</code> ヘッダーを介した鮮度の検証の採用。",
   description="デスクトップリクエストの64.4％が最後に変更され、42.8％がETagを持ち、37.9％が両方を持ち、30.7％がどちらも持たないことを示す棒グラフ。モバイルの統計は、最終変更が65.3％、ETagが42.8％、両方が38.0％、どちらも29.9％というほぼ同じです。",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=20297100&format=interactive"
@@ -536,7 +531,7 @@ HTTP/1.1<a hreflang="en" href="https://tools.ietf.org/html/rfc7234#section-5.2.1
 * 0や-1などの数値
 * `Cache-Control`ヘッダーで有効な値
 
- 無効な`Expires`ヘッダーの最大のソースは、人気のあるサードパーティから提供されるアセットからのものです。たとえば、`Expires：Tue、27 Apr 1971 19:44:06 EST`など、日付/時刻はESTタイムゾーンを使用します。
+無効な`Expires`ヘッダーの最大のソースは、人気のあるサードパーティから提供されるアセットからのものです。たとえば、`Expires：Tue、27 Apr 1971 19:44:06 EST`など、日付/時刻はESTタイムゾーンを使用します。
 
 ## ヘッダーを変更
 
@@ -587,7 +582,6 @@ Varyヘッダーは、1つ以上の要求ヘッダー値の値をキャッシュ
 
 {{ figure_markup(
   image="ch16_fig16_cacheable_responses_set_cookie.jpg",
-  alt="Set-Cookieレスポンスのキャッシュ可能なレスポンス。",
   caption="<code>Set-Cookie</code> レスポンスのキャッシュ可能なレスポンス。",
   description="レスポンスの97％を示す棒グラフはSet-Cookieを使用せず、3％が使用します。この3％の内、15.3％がプライベート、84.7％がデスクトップ、モバイルは18.4％がパブリック、81.6％がプライベートであるという別の棒グラフに拡大されています。",
   width=600,
@@ -597,13 +591,12 @@ Varyヘッダーは、1つ以上の要求ヘッダー値の値をキャッシュ
 
 ## AppCacheおよびService Worker
 
-アプリケーションキャッシュまたはAppCacheはHTML5の機能であり、開発者はブラウザがキャッシュするリソースを指定し、オフラインユーザーが利用できるようにできます。この機能は<a hreflang="en" href="https://html.spec.whatwg.org/multipage/offline.html#offline">廃止されており、Web標準からも削除</a>され、ブラウザーのサポートは減少しています。実際、使われているのが見つかった場合、[Firefox v44 +は、開発者に対して代わりにService Workerを使用することを推奨しています](https://developer.mozilla.org/ja-JP/docs/Web/API/Service_Worker_API/Using_Service_Workers)。 <a hreflang="en" href="https://www.chromestatus.com/feature/5714236168732672">Chrome 70は、アプリケーションキャッシュをセキュリティで保護されたコンテキストのみに制限します</a>。業界では、このタイプの機能をService Workerに実装する方向へ移行しており、<a hreflang="en" href="https://caniuse.com/#feat=serviceworkers">ブラウザサポート</a>は急速に成長しています。
+アプリケーションキャッシュまたはAppCacheはHTML5の機能であり、開発者はブラウザがキャッシュするリソースを指定し、オフラインユーザーが利用できるようにできます。この機能は<a hreflang="en" href="https://web.archive.org/web/20191115024726/https://html.spec.whatwg.org/multipage/offline.html">廃止されており、Web標準からも削除</a>され、ブラウザーのサポートは減少しています。実際、使われているのが見つかった場合、[Firefox v44 +は、開発者に対して代わりにService Workerを使用することを推奨しています](https://developer.mozilla.org/docs/Web/API/Service_Worker_API/Using_Service_Workers)。 <a hreflang="en" href="https://www.chromestatus.com/feature/5714236168732672">Chrome 70は、アプリケーションキャッシュをセキュリティで保護されたコンテキストのみに制限します</a>。業界では、このタイプの機能をService Workerに実装する方向へ移行しており、<a hreflang="en" href="https://caniuse.com/#feat=serviceworkers">ブラウザサポート</a>は急速に成長しています。
 
 実際、<a hreflang="en" href="https://httparchive.org/reports/progressive-web-apps#swControlledPages">HTTP Archiveトレンドレポートの1つは、以下に示すService Worker</a>の採用を示しています。
 
 {{ figure_markup(
   image="ch16_fig14_service_worker_adoption.jpg",
-  alt='Service Workerが制御するページの時系列。',
   caption='Service Workerが制御するページの時系列。 (引用: <a hreflang="en" href="https://httparchive.org/reports/progressive-web-apps#swControlledPages">HTTP Archive</a>)',
   description="2016年10月から2019年7月までのService Workerが制御するサイトの使用状況を示す時系列チャート。モバイルとデスクトップの両方で使用量は年々着実に増加していますが、依然として両方で0.6％未満です。",
   width=600,

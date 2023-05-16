@@ -1,7 +1,9 @@
 #standardSQL
 # 02_43: % of sites that use [id="foo"] selectors
 CREATE TEMPORARY FUNCTION getAttributeSelectorType(css STRING)
-RETURNS STRUCT<`=` BOOLEAN, `*=` BOOLEAN, `^=` BOOLEAN, `$=` BOOLEAN, `~=` BOOLEAN> LANGUAGE js AS '''
+RETURNS STRUCT<`=` BOOLEAN, `*=` BOOLEAN, `^=` BOOLEAN, `$=` BOOLEAN, `~=` BOOLEAN>
+LANGUAGE js
+AS '''
 try {
   var reduceValues = (values, rule) => {
     if ('rules' in rule) {
@@ -44,11 +46,11 @@ SELECT
 FROM (
   SELECT
     client,
-    COUNTIF(type.`=`) AS equals,
-    COUNTIF(type.`*=`) AS star_equals,
-    COUNTIF(type.`^=`) AS caret_equals,
-    COUNTIF(type.`$=`) AS dollar_equals,
-    COUNTIF(type.`~=`) AS tilde_equals
+    COUNTIF(type.`=`) AS equals, -- noqa: L057
+    COUNTIF(type.`*=`) AS star_equals, -- noqa: L057
+    COUNTIF(type.`^=`) AS caret_equals, -- noqa: L057
+    COUNTIF(type.`$=`) AS dollar_equals, -- noqa: L057
+    COUNTIF(type.`~=`) AS tilde_equals -- noqa: L057
   FROM (
     SELECT
       client,

@@ -3,20 +3,20 @@
 title: Mise en cache
 description: Le chapitre sur la mise en cache de Web Almanac couvre la gestion de la mise en cache, sa validité, les TTLs, les headers Vary, les cookies, l'AppCache, les service workers et d'autres possibilités.
 authors: [paulcalvano]
-reviewers: [obto, bkardell]
-analysts: [paulcalvano, obto]
-editors: [bazzadp]
+reviewers: [foxdavidj, bkardell]
+analysts: [paulcalvano, foxdavidj]
+editors: [tunetheweb]
 translators: [allemas]
 discuss: 1771
 results: https://docs.google.com/spreadsheets/d/1mnq03DqrRBwxfDV05uEFETK0_hPbYOynWxZkV3tFgNk/
 paulcalvano_bio: Paul Calvano est architecte performance web chez <a hreflang="en" href="https://www.akamai.com/">Akamai</a>, où il aide les entreprises à améliorer les performances de leurs sites web. Il est également co-responsable du projet HTTP Archive. Vous pouvez le retrouver en train de tweeter à l’adresse <a href="https://twitter.com/paulcalvano">@paulcalvano</a>, en bloguant sur <a hreflang="en" href="https://paulcalvano.com">http://paulcalvano.com</a> et partager ses recherches HTTP Archive à <a hreflang="en" href="https://discuss.httparchive.org">https://discuss.httparchive.org</a>.
 featured_quote: La mise en cache est une technique permettant de réutiliser un contenu précédemment téléchargé. Elle offre un avantage significatif en termes de performance en évitant de rejouer de coûteuses requêtes. La mise en cache facilite la montée en charge d'une application, en réduisant le trafic sur le réseau à destination du serveur d'origine. Un vieux dicton dit que "la requête la plus rapide est celle que vous n'avez pas à faire " et la mise en cache est l'un des principaux moyens d'éviter d'avoir à refaire des requêtes.
 featured_stat_1: 27 %
-featured_stat_label_1: des réponses n’utilisent aucun en-tête de cache.
+featured_stat_label_1: des réponses n’utilisent aucun en-tête de cache
 featured_stat_2: 39 %
-featured_stat_label_2: des réponses utilisent l’en-tête `Vary`.
+featured_stat_label_2: des réponses utilisent l’en-tête `Vary`
 featured_stat_3: 82 %
-featured_stat_label_3: des sites pourraient économiser 1 Mo en optimisant le cache.
+featured_stat_label_3: des sites pourraient économiser 1 Mo en optimisant le cache
 ---
 
 ## Introduction
@@ -89,7 +89,6 @@ L'outil <a hreflang="en" href="https://redbot.org/">RedBot.org</a> vous permet d
 
 {{ figure_markup(
   image="ch16_fig1_redbot_example.jpg",
-  alt="Informations de RedBot relatives au Cache-Control.",
   caption="Informations de RedBot relatives au <code>Cache-Control</code>.",
   description="Exemple de réponse Redbot montrant des informations détaillées sur le moment où la ressource a été modifiée ; si les caches peuvent la stocker ; pour combien de temps elle peut être considérée valide ; si nécessaire les avertissements.",
   width=600,
@@ -103,7 +102,6 @@ Si aucun en-tête de mise en cache n'est renseigné dans la réponse, alors <a h
 
 {{ figure_markup(
   image="fig2.png",
-  alt="Présence des en-tête HTTP Cache-Control et Expires.",
   caption="Présence des en-tête HTTP <code>Cache-Control</code> et <code>Expires</code>.",
   description="Ces deux diagrammes à barres identiques pour le mobile et les ordinateurs de bureau montrent que 72&nbsp;% des requêtes utilisent des en-têtes Cache-Control et que 56&nbsp;% utilisent Expires et les 27&nbsp;% n'utilisent aucun des deux.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=1611664016&format=interactive"
@@ -271,7 +269,6 @@ HTTP/1.1 a introduit l'en-tête `Cache-Control`, et la plupart des clients moder
 
 {{ figure_markup(
   image="fig7.png",
-  alt="Utilisation comparée des en-têtes Cache-Control et Expires.",
   caption="Utilisation comparée des en-têtes <code>Cache-Control</code> et <code>Expires</code>.",
   description="Un diagramme à barres montrant que 53&nbsp;% des réponses ont un `Cache-Control: max-age`, 54&nbsp;%-55&nbsp;% utilisent `Expire`, 41&nbsp;%-42&nbsp;% utilisent les deux, et 34&nbsp;% n'utilisent aucun des deux. Les chiffres sont donnés à la fois pour les ordinateurs de bureau et les mobiles, mais les chiffres sont presque identiques, les mobiles ayant un point de pourcentage d'utilisation des expirations plus élevé.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=1909701542&format=interactive"
@@ -285,56 +282,56 @@ La <a hreflang="en" href="https://tools.ietf.org/html/rfc7234#section-5.2.1">spe
 <figure>
   <table>
     <tr>
-     <th>Directive</th>
-     <th>Description</th>
+      <th>Directive</th>
+      <th>Description</th>
     </tr>
     <tr>
-     <td>max-age</td>
-     <td>Indique le nombre de secondes pendant lesquelles une ressource peut être mise en cache.</td>
+      <td>max-age</td>
+      <td>Indique le nombre de secondes pendant lesquelles une ressource peut être mise en cache.</td>
     </tr>
     <tr>
-     <td>public</td>
-     <td>N'importe quel cache peut stocker la réponse.</td>
+      <td>public</td>
+      <td>N'importe quel cache peut stocker la réponse.</td>
     </tr>
     <tr>
-     <td>no-cache</td>
-     <td>Une entrée en cache doit être revalidée avant son utilisation.</td>
+      <td>no-cache</td>
+      <td>Une entrée en cache doit être revalidée avant son utilisation.</td>
     </tr>
     <tr>
-     <td>must-revalidate</td>
-     <td>Une entrée en cache périmée doit être revalidée avant son utilisation.</td>
+      <td>must-revalidate</td>
+      <td>Une entrée en cache périmée doit être revalidée avant son utilisation.</td>
     </tr>
     <tr>
-     <td>no-store</td>
-     <td>Indique qu'une réponse ne doit pas être mise en cache.</td>
+      <td>no-store</td>
+      <td>Indique qu'une réponse ne doit pas être mise en cache.</td>
     </tr>
     <tr>
-     <td>private</td>
-     <td>La réponse est destinée à un utilisateur spécifique et ne doit pas être stockée par des caches partagés.</td>
+      <td>private</td>
+      <td>La réponse est destinée à un utilisateur spécifique et ne doit pas être stockée par des caches partagés.</td>
     </tr>
     <tr>
-     <td>no-transform</td>
-     <td>Aucune transformation ou conversion ne doit être effectuée sur cette ressource.</td>
+      <td>no-transform</td>
+      <td>Aucune transformation ou conversion ne doit être effectuée sur cette ressource.</td>
     </tr>
     <tr>
-     <td>proxy-revalidate</td>
-     <td>Identique à must-revalidate mais pour les caches partagés.</td>
+      <td>proxy-revalidate</td>
+      <td>Identique à must-revalidate mais pour les caches partagés.</td>
     </tr>
     <tr>
-     <td>s-maxage</td>
-     <td>Identique à l'âge maximum mais pour les caches partagés.</td>
+      <td>s-maxage</td>
+      <td>Identique à l'âge maximum mais pour les caches partagés.</td>
     </tr>
     <tr>
-     <td>immutable</td>
-     <td>Indique que l'entrée en cache ne changera jamais, et qu'une revalidation n'est pas nécessaire.</td>
+      <td>immutable</td>
+      <td>Indique que l'entrée en cache ne changera jamais, et qu'une revalidation n'est pas nécessaire.</td>
     </tr>
     <tr>
-     <td>stale-while-revalidate</td>
-     <td>Indique que le client est prêt à accepter une réponse périmée tout en vérifiant de manière asynchrone en arrière-plan l'existence d'une ressource plus fraiche.</td>
+      <td>stale-while-revalidate</td>
+      <td>Indique que le client est prêt à accepter une réponse périmée tout en vérifiant de manière asynchrone en arrière-plan l'existence d'une ressource plus fraiche.</td>
     </tr>
     <tr>
-     <td>stale-if-error</td>
-     <td>Indique que le client est prêt à accepter une réponse périmée même si la vérification qu'une ressource plus fraiche échoue.</td>
+      <td>stale-if-error</td>
+      <td>Indique que le client est prêt à accepter une réponse périmée même si la vérification qu'une ressource plus fraiche échoue.</td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="<code>Cache-Control</code> directives.") }}</figcaption>
@@ -344,7 +341,6 @@ Par exemple, `cache-control:public, max-age=43200` indique qu'une entrée mise e
 
 {{ figure_markup(
   image="fig9.png",
-  alt="Utilisation de la directive Cache-Control sur mobile.",
   caption="Utilisation de la directive <code>Cache-Control</code> sur mobile.",
   description="Un diagramme à barres de 15 directives `Cache-Control` et leur utilisation allant de 74,8&nbsp;% pour max-age, 37,8&nbsp;% pour public, 27,8&nbsp;% pour no-cache, 18&nbsp;% pour no-store, 14,3&nbsp;% pour private, 3,4&nbsp;% pour l'immutable, 3.3. 3&nbsp;% pour no-transform, 2,4&nbsp;% pour le stale-while-revalidate, 2,2&nbsp;% pour pre-check, 2,2&nbsp;% pour post-check, 1,9&nbsp;% pour s-maxage, 1,6&nbsp;% pour proxy-revalidate, 0,3&nbsp;% pour le set-cookie et 0,2&nbsp;% pour le stale-if-error. Les statistiques sont presque identiques pour les ordinateurs de bureaux et les téléphones portables. ",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=1054108345&format=interactive",
@@ -359,7 +355,7 @@ La figure 16.9 ci-dessus illustre les 15 directives `Cache-Control` les plus uti
 
 * `max-age` est utilisé par presque 75&nbsp;% des en-têtes `Cache-Control`, et `no-store` est utilisé par 18&nbsp;%.
 * `public` (publique) est rarement nécessaire car les entrées en cache sont supposées `public` à moins que `private` (privé) ne soit spécifié. Environ 38&nbsp;% des réponses incluent `public`.
-* La directive `immutable` est relativement nouvelle, <a hreflang="en" href="https://code.facebook.com/posts/557147474482256/this-browser-tweak-saved-60-of-requests-to-facebook">introduite en 2017</a> et est [supportée par Firefox et Safari](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Browser_compatibility). Son utilisation a augmenté à 3,4&nbsp;% et elle est largement utilisée dans <a hreflang="en" href="https://discuss.httparchive.org/t/cache-control-immutable-a-year-later/1195">les réponses des tierces parties de Facebook et Google</a>.
+* La directive `immutable` est relativement nouvelle, <a hreflang="en" href="https://code.facebook.com/posts/557147474482256/this-browser-tweak-saved-60-of-requests-to-facebook">introduite en 2017</a> et est [supportée par Firefox et Safari](https://developer.mozilla.org/docs/Web/HTTP/Headers/Cache-Control#Browser_compatibility). Son utilisation a augmenté à 3,4&nbsp;% et elle est largement utilisée dans <a hreflang="en" href="https://discuss.httparchive.org/t/cache-control-immutable-a-year-later/1195">les réponses des tierces parties de Facebook et Google</a>.
 
 Un autre ensemble intéressant de directives à faire apparaître dans cette liste sont `pre-check` et `post-check`, qui sont utilisées dans 2,2&nbsp;% des en-têtes `Cache-Control` (environ 7,8 millions de réponses). Cette paire d'en-têtes a été <a hreflang="en" href="https://blogs.msdn.microsoft.com/ieinternals/2009/07/20/internet-explorers-cache-control-extensions/">introduite dans Internet Explorer 5 pour fournir une validation en arrière-plan</a> et a rarement été implémentée correctement par les sites web. 99,2&nbsp;% des réponses utilisant ces en-têtes avaient utilisé la combinaison `pre-check=0` et `post-check=0`. Quand ces deux directives sont mises à 0, alors les deux directives sont ignorées. Il semble donc que ces directives n'aient jamais été utilisées correctement&nbsp;!
 
@@ -421,22 +417,22 @@ Si l'on compare les ressources du domaine principal et celles des tierces partie
 <figure>
   <table>
     <tr>
-     <th>Client</th>
-     <th>1ere partie</th>
-     <th>3e partie</th>
-     <th>Global</th>
+      <th>Client</th>
+      <th>1ere partie</th>
+      <th>3e partie</th>
+      <th>Global</th>
     </tr>
     <tr>
-     <td>Bureau</td>
-     <td class="numeric">70.7&nbsp;%</td>
-     <td class="numeric">47.9&nbsp;%</td>
-     <td class="numeric">59.2&nbsp;%</td>
+      <td>Bureau</td>
+      <td class="numeric">70.7&nbsp;%</td>
+      <td class="numeric">47.9&nbsp;%</td>
+      <td class="numeric">59.2&nbsp;%</td>
     </tr>
     <tr>
-     <td>Mobile</td>
-     <td class="numeric">71.4&nbsp;%</td>
-     <td class="numeric">46.8&nbsp;%</td>
-     <td class="numeric">59.6&nbsp;%</td>
+      <td>Mobile</td>
+      <td class="numeric">71.4&nbsp;%</td>
+      <td class="numeric">46.8&nbsp;%</td>
+      <td class="numeric">59.6&nbsp;%</td>
     </tr>
   </table>
   <figcaption>{{ figure_link(caption="Pourcentage des requêtes avec des TTL courts.") }}</figcaption>
@@ -485,7 +481,6 @@ Dans l'ensemble, 65&nbsp;% des réponses sont servies avec un en-tête `Last-Mod
 
 {{ figure_markup(
   image="fig12.png",
-  alt="Adoption de la validation de la fraîcheur via les en-têtes Last-Modified et ETag pour sites sur ordinateurs de bureau.",
   caption="Adoption de la validation de la fraîcheur via les en-têtes <code>Last-Modified</code> et <code>ETag</code> pour sites sur ordinateurs de bureau.",
   description="Le diagramme à barres montre que 64,4&nbsp;% des requêtes sur ordinateurs de bureau ont un Last Modified, 42,8&nbsp;% ont un ETag, 37,9&nbsp;% ont les deux et 30,7&nbsp;% n'ont ni l'un ni l'autre. Les statistiques pour les mobiles sont presque identiques&nbsp;: 65,3&nbsp;% pour la dernière modification, 42,8&nbsp;% pour l'ETag, 38,0&nbsp;% pour les deux et 29,9&nbsp;% pour aucune des deux.",
   chart_url="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3GWCs19Wq0mu0zgIlKRc8zcXgmVEk2xFHuzZACiWVtqOv8FO5gfHwBxa0mhU6O9TBY8ODdN4Zjd_O/pubchart?oid=20297100&format=interactive"
@@ -587,7 +582,6 @@ L'un des risques de la mise en cache avec `Set-Cookie` est que les valeurs des c
 
 {{ figure_markup(
   image="ch16_fig16_cacheable_responses_set_cookie.jpg",
-  alt="Réponses pouvant être mises en cache avec Set-Cookie.",
   caption="Réponses pouvant être mises en cache avec <code>Set-Cookie</code>.",
   description="Le graphique à barres montre que 97&nbsp;% des réponses n'utilisent pas Set-Cookie alors que 3&nbsp;% le font. Ces 3&nbsp;% sont zoomés pour obtenir un autre diagramme à barres montrant la répartition entre 15,3&nbsp;% de réponses <code>private</code>, 84,7&nbsp;% de réponses <code>public</code> pour les ordinateurs de bureau et réciproquement pour les téléphones portables, 18,4&nbsp;% de réponses <code>public</code> et 81,6&nbsp;% de réponses <code>private</code>.",
   width=600,
@@ -597,13 +591,12 @@ L'un des risques de la mise en cache avec `Set-Cookie` est que les valeurs des c
 
 ## AppCache et service workers
 
-L'Application Cache ou AppCache est une fonctionnalité de HTML5 qui permet aux développeurs et développeuses de spécifier les ressources que le navigateur doit mettre en cache et mettre à disposition des utilisateurs hors ligne. Cette fonctionnalité a été <a hreflang="en" href="https://html.spec.whatwg.org/multipage/offline.html#offline">dépréciée et supprimée des standards du web</a>, et sa prise en charge par les navigateurs a diminué. En fait, lorsque son utilisation est détectée, [Firefox v44+ recommande aux développeurs et développeuses d'utiliser plutôt des service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers). <a hreflang="en" href="https://www.chromestatus.com/feature/5714236168732672">Chrome 70 limite le cache d'application au seul contexte sécurisé</a>. Le secteur s'est davantage orienté vers la mise en œuvre de ce type de fonctionnalité avec des service workers - et <a hreflang="en" href="https://caniuse.com/#feat=serviceworkers">la prise en charge des navigateurs</a> a connu une croissance rapide dans ce domaine.
+L'Application Cache ou AppCache est une fonctionnalité de HTML5 qui permet aux développeurs et développeuses de spécifier les ressources que le navigateur doit mettre en cache et mettre à disposition des utilisateurs hors ligne. Cette fonctionnalité a été <a hreflang="en" href="https://web.archive.org/web/20191115024726/https://html.spec.whatwg.org/multipage/offline.html">dépréciée et supprimée des standards du web</a>, et sa prise en charge par les navigateurs a diminué. En fait, lorsque son utilisation est détectée, [Firefox v44+ recommande aux développeurs et développeuses d'utiliser plutôt des service workers](https://developer.mozilla.org/docs/Web/API/Service_Worker_API/Using_Service_Workers). <a hreflang="en" href="https://www.chromestatus.com/feature/5714236168732672">Chrome 70 limite le cache d'application au seul contexte sécurisé</a>. Le secteur s'est davantage orienté vers la mise en œuvre de ce type de fonctionnalité avec des service workers - et <a hreflang="en" href="https://caniuse.com/#feat=serviceworkers">la prise en charge des navigateurs</a> a connu une croissance rapide dans ce domaine.
 
 En fait, l'un des <a hreflang="en" href="https://httparchive.org/reports/progressive-web-apps#swControlledPages">rapports de tendance des archives HTTP montre l'adoption des travailleurs des services</a> présenté ci-dessous&nbsp;:
 
 {{ figure_markup(
   image="ch16_fig14_service_worker_adoption.jpg",
-  alt="Série chronologique de pages contrôlées par des service workers.",
   caption='Série chronologique de pages contrôlées par des service workers. (Source&nbsp;: <a hreflang="en" href="https://httparchive.org/reports/progressive-web-apps#swControlledPages">HTTP Archive</a>)',
   description="Un graphique de séries chronologiques montre l'utilisation des sites contrôlés par les service worker d'octobre 2016 à juillet 2019. L'utilisation a augmenté régulièrement au fil des ans, tant pour les téléphones portables que pour les ordinateurs de bureau, mais reste inférieure à 0,6&nbsp;% pour les deux.",
   width=600,

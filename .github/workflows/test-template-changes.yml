@@ -29,22 +29,23 @@ jobs:
     if: github.repository == 'HTTPArchive/almanac.httparchive.org'
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v2.3.4
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
     - name: Setup Node.js for use with actions
-      uses: actions/setup-node@v2.1.5
+      uses: actions/setup-node@v3
       with:
-        node-version:  '15'
+        node-version: '16'
     - name: Test Template Changes
       run: ./src/tools/scripts/test_template_changes.sh
     - name: 'Comment PR'
-      uses: actions/github-script@v4.0.1
+      uses: actions/github-script@v6
       if: github.event_name == 'pull_request' && env.PR_COMMENT != ''
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        # yamllint disable rule:line-length
         script: |
           const { issue: { number: issue_number }, repo: { owner, repo }  } = context;
           // Unescape any escaped comments so code blocks appear correctly
           const pr_comment = process.env.PR_COMMENT.replace(/%0A/g,'\n').replace(/%0D/g,'\r').replace(/%27/g,"'").replace(/%22/g,'"').replace(/%25/g,'%');
-          github.issues.createComment({ issue_number, owner, repo, body: pr_comment });
+          github.rest.issues.createComment({ issue_number, owner, repo, body: pr_comment });

@@ -27,13 +27,25 @@ function handleSelectSwitchers() {
   }
 }
 
-// Language, Year and ToC menus (desktop)
+// Search, Language, Year and ToC menus (desktop)
 function handleNavMenu() {
 
   function closeAnyOtherOpenDropdown(e) {
+
+    // If the click was in a menu that's already open then ignore as just been opened.
     if (e.target.classList.contains('dropdown-open')) {
       return
     };
+
+    // If the click was in search nav, then ignore as don't want to close search menu.
+    var searchNavs = document.querySelectorAll('.search-nav ul:not(hidden)');
+    for (var i = 0; i < searchNavs.length; i++) {
+      if (searchNavs[i].contains(e.target)) {
+          return
+      }
+    }
+
+    // Else a click elsewhere so close all the menus
     var openDropdownBtn = document.querySelector('.nav-dropdown-btn.dropdown-open');
     openDropdownBtn && openDropdownBtn.click();
   }
@@ -81,6 +93,11 @@ function handleNavMenu() {
       firstFocusableElementInList = navItems[0];
       lastFocusableElementInList = navItems[navItems.length - 1];
       list.addEventListener('keydown', trapFocusInList);
+
+      if (e.currentTarget.classList.contains('search-button')) {
+        e.currentTarget.parentNode.querySelector('input').focus();
+      }
+
     } else {
       list.removeEventListener('keydown', trapFocusInList);
       document.body.removeEventListener('click', closeAnyOtherOpenDropdown, true);
@@ -138,13 +155,19 @@ function handleNavMenu() {
 function handleMobileMenu() {
   var menuBtn = document.querySelector('.menu-btn');
   var menuNav = document.querySelector('#menu');
+  var main = document.querySelector('main');
+  var footer = document.querySelector('footer');
 
   function toggleNavMenu() {
     var menuOpen = document.body.classList.toggle('menu-open');
-    menuBtn.classList.toggle("menu-btn--active");
+    menuBtn.classList.toggle("menu-btn-active");
     menuBtn.setAttribute('aria-expanded', menuOpen);
     var ariaLabel = menuOpen ? menuBtn.getAttribute('data-close-text') : menuBtn.getAttribute('data-open-text');
     menuBtn.setAttribute('aria-label', ariaLabel);
+
+    // Toogle inert to keep focus in the menu and header
+    main.toggleAttribute('inert');
+    footer.toggleAttribute('inert');
 
     /* When you open the menu, add an event listener to close it when clicking outside the menu area */
     /* Remove it on closing the menu */
@@ -452,11 +475,21 @@ function setDiscussionCount() {
           if (isNaN(comments)) {
             return;
           }
-          var el = document.getElementById('num_comments');
-          el.innerText = comments;
+          document.querySelectorAll('.num-comments').forEach(el => {
+            el.innerText = comments;
+          });
 
-          document.getElementById(comments === 1 ? 'comment-singular' : 'comment-plural').removeAttribute('data-translation');
-
+          if (comments === 1) {
+            document.querySelectorAll('.comment-singular').forEach(el => {
+              el.removeAttribute('data-translation');
+            });
+          } else {
+            document.querySelectorAll('.comment-plural').forEach(el => {
+              el.removeAttribute('data-translation');
+            });
+          }
+          document.querySelector('#cta-container').classList.remove('invisible');
+          document.querySelector('.discuss-cta').classList.remove('hidden');
           gtag('event', 'discussion-count', { 'event_category': 'user', 'event_label': 'enabled', 'value': 1 });
         })
         .catch(function (err) {
@@ -655,6 +688,12 @@ function addKeyboardScollableRegions() {
 
 function addShortKeyEventListers() {
   document.addEventListener("keyup", function onPress(event) {
+
+    // Prevent the search box and other inputs from processing these listeners.
+    if (event.target.nodeName == 'INPUT' || event.target.nodeName == 'TEXTAREA' || event.target.nodeName == 'SELECT') {
+      return;
+    }
+
     if (event.key === 'p' || event.key === 'P' || event.key === ',' || event.key === '<') {
       var previous = document.getElementById('previous-chapter');
       if (previous) {

@@ -19,13 +19,13 @@ FROM
   (
     SELECT
       client,
-      IF (STRPOS(NET.HOST(url), REGEXP_EXTRACT(NET.REG_DOMAIN(page), r'([\w-]+)')) > 0, 1, 3) AS party,
-      ROUND((expAge - (startedDateTime - toTimestamp(resp_last_modified))) / 86400, 2)  AS diff_in_days
+      IF(STRPOS(NET.HOST(url), REGEXP_EXTRACT(NET.REG_DOMAIN(page), r'([\w-]+)')) > 0, 1, 3) AS party,
+      ROUND((expAge - (startedDateTime - toTimestamp(resp_last_modified))) / 86400, 2) AS diff_in_days
     FROM
       `httparchive.almanac.requests`
     WHERE
       date = '2019-07-01' AND
-      resp_last_modified <> "" AND
+      resp_last_modified != '' AND
       expAge > 0
   ),
   UNNEST([10, 20, 30, 40, 50, 60, 70, 80, 90]) AS percentile

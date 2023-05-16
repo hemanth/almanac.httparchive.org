@@ -1,4 +1,3 @@
-
 #standardSQL
 # Get summary of all lighthouse scores for a category
 # Note scores, weightings, groups and descriptions may be off in mixed months when new versions of Lighthouse roles out
@@ -33,7 +32,7 @@ SELECT
   MAX(audits.description) AS description
 FROM
   `httparchive.lighthouse.2020_08_01_mobile`,
-  UNNEST(getAudits(report, "accessibility")) AS audits
+  UNNEST(getAudits(report, 'accessibility')) AS audits
 WHERE
   LENGTH(report) < 20000000  # necessary to avoid out of memory issues. Excludes 16 very large results
 GROUP BY
